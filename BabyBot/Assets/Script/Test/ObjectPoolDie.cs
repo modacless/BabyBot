@@ -20,6 +20,22 @@ public class ObjectPoolDie : MonoBehaviour
             plManager.GetPoolObject();
         }
 
-        
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            if(plManager.poolList.Count > 0)
+            {
+                for (int i = plManager.poolList.Count - 1; i >= 0; i--)
+                {
+                    if (plManager.poolList[i].activeSelf)
+                    {
+                        plManager.DestroyObjectInPool(plManager.poolList[i]);
+                        break;
+                    }
+
+                }
+            }
+            
+        }
+
     }
 }

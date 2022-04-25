@@ -20,7 +20,7 @@ public class PoolManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     //Fill pool, dans le code, avec un max
@@ -65,6 +65,6 @@ public class PoolManager : MonoBehaviour
         objectInPool.SetActive(false);
         //Pas nécessaire
         objectInPool.transform.position = new Vector3(0, 0, 0);
-        objectInPool.transform.parent = this.transform.parent;
+        objectInPool.transform.parent = this.transform;
     }
 }
