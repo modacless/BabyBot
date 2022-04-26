@@ -32,17 +32,7 @@ public class PlayerMovement : MonoBehaviour
 
         RotatePlayer();
 
-        /*Vector3 pos = Camera.main.WorldToViewportPoint(transform.position);
-        Debug.Log(pos);
-
-        Vector3 playerPos = transform.position;
-        //playerPos.x = Mathf.Clamp(playerPos.x, 0, 1);
-        transform.position = playerPos;
-
-        if(pos.x < 0) Debug.Log("left");
-        if (1 < pos.x) Debug.Log("right");
-        if (pos.y < 0) Debug.Log("down");
-        if (1 < pos.y) Debug.Log("up");*/
+        KeepPlayerInCam();
     }
 
     private void FixedUpdate()
@@ -87,5 +77,15 @@ public class PlayerMovement : MonoBehaviour
         {
             playerAnimationsScript.Aim(false);
         }
+    }
+
+    private void KeepPlayerInCam()
+    {
+        Vector3 pos = Camera.main.WorldToViewportPoint(transform.position);
+
+        if (pos.x < 0) transform.position += Vector3.right;
+        else if (1 < pos.x) transform.position += Vector3.left;
+        else if (pos.y < 0) transform.position += Vector3.forward;
+        else if (0.90 < pos.y) transform.position += Vector3.back;
     }
 }
