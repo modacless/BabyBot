@@ -7,18 +7,45 @@ using UnityEngine.AI;
 public class EnemyMovement : MonoBehaviour
 {
 
+
+    public enum EnemyState
+    {
+        Idle,
+        Moving,
+        Attack,
+    }
+
+    public EnemyState ownState;
+
     private NavMeshAgent navAgent;
-    public Transform goal;
 
     void Start()
     {
         navAgent = GetComponent<NavMeshAgent>();
-        navAgent.SetDestination(goal.position);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void MoveTo(Transform goal)
     {
-        
+        if (goal != null)
+        {
+            navAgent.SetDestination(goal.position);
+            ownState = EnemyState.Moving;
+            navAgent.isStopped = false;
+        }
+        else
+        {
+            navAgent.isStopped = true;
+            ownState = EnemyState.Idle;
+            GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+        }
+    }
+
+    public void Attack()
+    {
+        Debug.Log("Attack");
+        ownState = EnemyState.Attack;
+        //navAgent.SetDestination(this.transform.position);
+        navAgent.isStopped = true;
+        GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
     }
 }
