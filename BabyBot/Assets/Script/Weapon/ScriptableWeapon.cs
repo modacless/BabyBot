@@ -13,6 +13,7 @@ public class ScriptableWeapon : ScriptableObject
     public float bulletLifeTime;
     public float bulletSpeed;
     public bool needPreheated;
-    public float preheatedTime;
     public float finalCadence;
+    public float timeBeforeNeedPreheated;
+    public AnimationCurve preheatedCurve;
 }

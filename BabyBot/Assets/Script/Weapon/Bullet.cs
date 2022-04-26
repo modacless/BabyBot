@@ -30,7 +30,7 @@ public class Bullet : MonoBehaviour
     {
         if (collider.CompareTag("Ennemy"))
         {
-            Debug.Log("A touché");
+            Debug.Log("A touchï¿½");
             Destroy(gameObject);
         }
     }
