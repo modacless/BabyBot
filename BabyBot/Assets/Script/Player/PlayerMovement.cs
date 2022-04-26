@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
 
         RotatePlayer();
 
-        KeepPlayerInCam();
+        //KeepPlayerInCam();
     }
 
     private void FixedUpdate()
