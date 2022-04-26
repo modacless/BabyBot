@@ -20,8 +20,15 @@ public class Bullet : MonoBehaviour
     {
         if (Time.time > startTime + lifeTime) Destroy(transform.gameObject);
     }
+    private void OnTriggerEnter(Collider collider)
+    {
+        Debug.Log("A touché");
+        Destroy(gameObject);
+    }
     private void FixedUpdate()
     {
         selfRigidbody.velocity = direction * speed;
     }
 }
+
+

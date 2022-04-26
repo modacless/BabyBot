@@ -23,14 +23,14 @@ public class Weapon : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Mouse0))
+        /*if (Input.GetKey(KeyCode.Mouse0))
         {
             TryFire();
         }
         if (Input.GetKey(KeyCode.R))
         {
             TryReload();
-        }
+        }*/
     }
     public virtual void TryFire()
     {
