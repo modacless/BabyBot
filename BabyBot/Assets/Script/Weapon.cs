@@ -42,6 +42,7 @@ public class Weapon : MonoBehaviour
         myBullet.GetComponent<Bullet>().direction = transform.parent.transform.forward;
         myBullet.GetComponent<Bullet>().speed = stats.BulletSpeed;
         myBullet.GetComponent<Bullet>().lifeTime = stats.BulletLifeTime;
+        myBullet.GetComponent<Bullet>().damage = stats.damage;
         Debug.Log(transform.parent.transform.forward);
         actualAmo--;
         StartCoroutine(couldown());

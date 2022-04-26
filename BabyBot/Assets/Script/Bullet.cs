@@ -9,6 +9,7 @@ public class Bullet : MonoBehaviour
     public float lifeTime;
     private float startTime;
     public float speed;
+    public float damage;
     public Vector3 direction;
 
     private void Start()
