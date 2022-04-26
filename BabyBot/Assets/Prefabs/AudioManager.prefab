@@ -251,6 +251,19 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e5ac4347c22f8ed4693e02ce745a04b2, type: 3}
   - {fileID: 8300000, guid: 91983f35f2632c649af27dfc7be5e5fc, type: 3}
   - {fileID: 8300000, guid: 8cd68d00b7fff9340b6ed0ccd776292f, type: 3}
+  carpetFootstepArray:
+  - {fileID: 8300000, guid: 1296ce77092791c4a9587aff53fc7161, type: 3}
+  - {fileID: 8300000, guid: 34fbc26301a2f8d46bf5a869e94212e9, type: 3}
+  - {fileID: 8300000, guid: ecd46a5ec9ebbf948ad1ed0cc47990dc, type: 3}
+  - {fileID: 8300000, guid: d58bd59c67bc0bb4d859be4d5d14ddd1, type: 3}
+  - {fileID: 8300000, guid: 529a5ecbde6f32b4f8bce54596166ccc, type: 3}
+  - {fileID: 8300000, guid: 5061cf91fc7867b4091c8abe70ab4656, type: 3}
+  - {fileID: 8300000, guid: 8c9fb6001ba077c4c9919943b8bfa9de, type: 3}
+  - {fileID: 8300000, guid: 90070493c8ea90a499481d7ee9070c4a, type: 3}
+  - {fileID: 8300000, guid: 8112581ed567cdf40a48d90224117a48, type: 3}
+  - {fileID: 8300000, guid: 6be074bfe148e3343a3537daa4bc1626, type: 3}
+  - {fileID: 8300000, guid: e3d7eb4db17ef5843bb7a3776c004803, type: 3}
+  - {fileID: 8300000, guid: 5fcc1ec1338ac384ba153a82cd1baea6, type: 3}
   runThemesArray:
   - {fileID: 8300000, guid: 339ff1629a3f8d64183493850cc1d75a, type: 3}
   - {fileID: 8300000, guid: 38de8b8c659da004c80d17c4f9d164ec, type: 3}

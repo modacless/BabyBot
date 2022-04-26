@@ -11,6 +11,7 @@ public class AudioManager : MonoBehaviour
     [Header("Player")]
 
     public AudioClip[] woodFootstepArray;
+    public AudioClip[] carpetFootstepArray;
 
     [Header("Musics")]
 
