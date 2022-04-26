@@ -4,8 +4,12 @@
 TagManager:
   serializedVersion: 2
   tags:
+<<<<<<< HEAD
   - Player 1
   - Player 2
+=======
+  - Bullet
+>>>>>>> Tim
   layers:
   - Default
   - TransparentFX
