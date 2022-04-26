@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Standart
   m_EditorClassIdentifier: 
   maxAmo: 1000
-  cadence: 0.01
+  cadence: 0.5
   damage: 10
   reloadTime: 2
   BulletLifeTime: 10

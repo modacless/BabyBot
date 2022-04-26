@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour
         currentHealthPoint -= damage;
         if (currentHealthPoint <= 0)
         {
+            Debug.Log("Ded");
             Destroy(gameObject);
         }
     }
@@ -21,7 +22,8 @@ public class Enemy : MonoBehaviour
     {
         if (other.CompareTag("Bullet"))
         {
-            TakeDamage(GetComponent<Weapon>().stats.damage);
+            Debug.Log(currentHealthPoint);
+            TakeDamage(other.GetComponent<Bullet>().damage);
         }
     }
 
