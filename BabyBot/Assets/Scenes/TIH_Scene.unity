@@ -706,12 +706,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5aaca25aa2343d48b87e910a1bc68b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stats: {fileID: 11400000, guid: d402ddb51bf4d5d4291c59f35c9f90e7, type: 2}
+  stats: {fileID: 11400000, guid: f4144537eba443d4c852b923f86284c5, type: 2}
   bullet: {fileID: 6753946423046665436, guid: bb7bc961213125745910010d90bea19d, type: 3}
   EndOfGun: {fileID: 929214963}
   actualAmo: 1000
   isReloading: 0
   CanShoot: 1
+  actualCadence: 0
 --- !u!95 &7673487250408417782
 Animator:
   serializedVersion: 4

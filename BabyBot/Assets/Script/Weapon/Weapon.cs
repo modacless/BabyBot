@@ -19,7 +19,7 @@ public class Weapon : MonoBehaviour
     public bool CanShoot = true;
     private bool isShooting = false;
 
-    private float actualCadence;
+    public float actualCadence;
     private bool needToPreHeated = false;
     private float preHeatedTime;
     private float gainCadence;
@@ -43,17 +43,20 @@ public class Weapon : MonoBehaviour
             TryReload();
         }*/
 
-        if (isShooting && actualAmo != 0 && !isReloading && CanShoot)
+        if (isShooting)
         {
-            Fire();
+            if (stats.needPreheated) FireMiniGun();
+            if (actualAmo != 0 && !isReloading && CanShoot)
+            {
+                Fire();
+            }
         }
     }
     public virtual void TryFire(InputAction.CallbackContext context)
     {
-        Debug.Log("Try Fire");
         //isShooting = true;
 
-        if(context.phase == InputActionPhase.Started)
+        if (context.phase == InputActionPhase.Started)
         {
             isShooting = true;
         }
@@ -62,9 +65,6 @@ public class Weapon : MonoBehaviour
         {
             isShooting = false;
         }
-
-
-
     }
 
     public void StopFire(InputAction.CallbackContext context)
@@ -73,8 +73,6 @@ public class Weapon : MonoBehaviour
     }
     public virtual void Fire()
     {
-        if(stats.needPreheated) FireMiniGun();
-
         GameObject myBullet = Instantiate(bullet, EndOfGun.transform.position, transform.parent.transform.rotation);
         myBullet.GetComponent<Bullet>().direction = transform.parent.transform.forward;
         myBullet.GetComponent<Bullet>().speed = stats.bulletSpeed;
@@ -86,12 +84,11 @@ public class Weapon : MonoBehaviour
 
     }
     public virtual void FireMiniGun()
-    {
+    {
         if (needToPreHeated) preHeatedTime = 0;
         needToPreHeated = false;
         preHeatedTime += Time.deltaTime;
-        if(actualCadence != stats.finalCadence) actualCadence = stats.basicCadence - gainCadence * stats.preheatedCurve.Evaluate(preHeatedTime);
-
+        if (actualCadence != stats.finalCadence) actualCadence = stats.basicCadence - gainCadence * stats.preheatedCurve.Evaluate(preHeatedTime);
     }
     public virtual void TryReload()
     {
