@@ -13,8 +13,6 @@ public class Weapon : MonoBehaviour
     [SerializeField]
     protected GameObject EndOfGun;
 
-    private bool fire = false;
-
     public int actualAmo;
     public bool isReloading = false;
     public bool CanShoot = true;
@@ -32,14 +30,6 @@ public class Weapon : MonoBehaviour
         CanShoot = true;
         gainCadence = stats.basicCadence - stats.finalCadence;
     }
-    public void StartFire()
-    {
-        fire = true;
-    }
-    public void StopFire()
-    {
-        fire = false;
-    }
     private void Update()
     {
         /*if (Input.GetKey(KeyCode.Mouse0))
@@ -50,7 +40,6 @@ public class Weapon : MonoBehaviour
         {
             TryReload();
         }*/
-        if (fire) TryFire();
     }
     public virtual void TryFire()
     {
