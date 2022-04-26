@@ -13,15 +13,32 @@ public class Weapon : MonoBehaviour
     [SerializeField]
     protected GameObject EndOfGun;
 
+    private bool fire = false;
+
     public int actualAmo;
     public bool isReloading = false;
     public bool CanShoot = true;
 
+    private float actualCadence;
+    private bool needToPreHeated = true;
+    private float preHeatedTime;
+    private float gainCadence;
+
     private void Start()
     {
+        actualCadence = stats.basicCadence;
         actualAmo = stats.maxAmo;
         isReloading = false;
         CanShoot = true;
+        gainCadence = stats.basicCadence - stats.finalCadence;
+    }
+    public void StartFire()
+    {
+        fire = true;
+    }
+    public void StopFire()
+    {
+        fire = false;
     }
     private void Update()
     {
@@ -33,6 +50,7 @@ public class Weapon : MonoBehaviour
         {
             TryReload();
         }*/
+        if (fire) TryFire();
     }
     public virtual void TryFire()
     {
@@ -40,6 +58,8 @@ public class Weapon : MonoBehaviour
     }
     public virtual void Fire()
     {
+        if(stats.needPreheated) FireMiniGun();
+
         GameObject myBullet = Instantiate(bullet, EndOfGun.transform.position, transform.parent.transform.rotation);
         myBullet.GetComponent<Bullet>().direction = transform.parent.transform.forward;
         myBullet.GetComponent<Bullet>().speed = stats.bulletSpeed;
@@ -48,6 +68,14 @@ public class Weapon : MonoBehaviour
         Debug.Log(transform.parent.transform.forward);
         actualAmo--;
         StartCoroutine(couldown());
+
+    }
+    public virtual void FireMiniGun()
+    {
+        if (needToPreHeated) preHeatedTime = 0;
+        needToPreHeated = false;
+        preHeatedTime += Time.deltaTime;
+        if(actualCadence != stats.finalCadence) actualCadence = stats.basicCadence - gainCadence * stats.preheatedCurve.Evaluate(preHeatedTime);
 
     }
     public virtual void TryReload()
@@ -64,7 +92,7 @@ public class Weapon : MonoBehaviour
     public virtual IEnumerator couldown()
     {
         CanShoot = false;
-        yield return new WaitForSeconds(stats.basicCadence);
+        yield return new WaitForSeconds(actualCadence);
         CanShoot = true;
     }
 }
