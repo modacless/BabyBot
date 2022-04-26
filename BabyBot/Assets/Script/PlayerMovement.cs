@@ -6,11 +6,13 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     public float speed;
+
+    private Vector2 inputMovement;
+    private Vector2 inputLook;
     private Vector3 movementDirection;
     private Vector3 lookDirection;
-
+    
     //References
-    private DefaultInputActions playerActions;
     private Rigidbody rb;
     private PlayerAnimations playerAnimationsScript;
 
@@ -18,9 +20,11 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         playerAnimationsScript = GetComponent<PlayerAnimations>();
-        playerActions = new DefaultInputActions();
-        playerActions.Player.Enable();
     }
+
+    public void OnMove(InputAction.CallbackContext context) => inputMovement = context.ReadValue<Vector2>();
+
+    public void OnLook(InputAction.CallbackContext context) => inputLook = context.ReadValue<Vector2>();
 
     private void Update()
     {
@@ -36,9 +40,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void ReadInputs()
     {
-        Vector2 inputMovement = playerActions.Player.Move.ReadValue<Vector2>();
-        Vector2 inputLook = playerActions.Player.Look.ReadValue<Vector2>();
-
         movementDirection = new Vector3(inputMovement.x, 0f, inputMovement.y);
         lookDirection = Vector3.right * inputLook.x + Vector3.forward * inputLook.y;
     }

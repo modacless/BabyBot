@@ -4,12 +4,7 @@ using UnityEngine;
 
 public class PlayerAnimations : MonoBehaviour
 {
-    private Animator playerAnimator;
-
-    private void Start()
-    {
-        playerAnimator = GetComponentInChildren<Animator>();
-    }
+    public Animator playerAnimator;
 
     public void Run(bool enable)
     {
