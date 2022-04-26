@@ -7,9 +7,12 @@ public class ScriptableWeapon : ScriptableObject
 {
     [Header("Stats")]
     public int maxAmo;
-    public float cadence;
-    public float damage;
+    public float basicCadence;
     public float reloadTime;
-    public float BulletLifeTime;
-    public float BulletSpeed;
+    public float bulletDamage;
+    public float bulletLifeTime;
+    public float bulletSpeed;
+    public bool needPreheated;
+    public float preheatedTime;
+    public float finalCadence;
 }

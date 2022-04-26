@@ -20,6 +20,8 @@ public class Weapon : MonoBehaviour
     private void Start()
     {
         actualAmo = stats.maxAmo;
+        isReloading = false;
+        CanShoot = true;
     }
     private void Update()
     {
@@ -40,9 +42,9 @@ public class Weapon : MonoBehaviour
     {
         GameObject myBullet = Instantiate(bullet, EndOfGun.transform.position, transform.parent.transform.rotation);
         myBullet.GetComponent<Bullet>().direction = transform.parent.transform.forward;
-        myBullet.GetComponent<Bullet>().speed = stats.BulletSpeed;
-        myBullet.GetComponent<Bullet>().lifeTime = stats.BulletLifeTime;
-        myBullet.GetComponent<Bullet>().damage = stats.damage;
+        myBullet.GetComponent<Bullet>().speed = stats.bulletSpeed;
+        myBullet.GetComponent<Bullet>().lifeTime = stats.bulletLifeTime;
+        myBullet.GetComponent<Bullet>().damage = stats.bulletDamage;
         Debug.Log(transform.parent.transform.forward);
         actualAmo--;
         StartCoroutine(couldown());
@@ -62,7 +64,7 @@ public class Weapon : MonoBehaviour
     public virtual IEnumerator couldown()
     {
         CanShoot = false;
-        yield return new WaitForSeconds(stats.cadence);
+        yield return new WaitForSeconds(stats.basicCadence);
         CanShoot = true;
     }
 }
