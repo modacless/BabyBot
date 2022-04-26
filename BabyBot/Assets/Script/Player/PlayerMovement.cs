@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Cinemachine;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -11,10 +12,14 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 inputLook;
     private Vector3 movementDirection;
     private Vector3 lookDirection;
-    
+
+    private bool checkArray = false;
+
     //References
     private Rigidbody rb;
     private PlayerAnimations playerAnimationsScript;
+    public CinemachineTargetGroup targetGroup;
+    public CinemachineTargetGroup.Target AimTarget;
 
     private void Start()
     {
@@ -66,26 +71,72 @@ public class PlayerMovement : MonoBehaviour
             //Rotate controller depending look direction (right stick)
             transform.rotation = Quaternion.LookRotation(lookDirection, Vector3.up);
             playerAnimationsScript.Aim(true);
+            AddNewTarget(true);
         }
         else if (movementDirection.magnitude > 0f)
         {
             //Rotate controller depending movement direction (left stick)
             transform.rotation = Quaternion.LookRotation(movementDirection.normalized, Vector3.up);
             playerAnimationsScript.Aim(false);
+            AddNewTarget(false);
         }
         else
         {
             playerAnimationsScript.Aim(false);
+            AddNewTarget(false);
         }
     }
 
     private void KeepPlayerInCam()
     {
-        Vector3 pos = Camera.main.WorldToViewportPoint(transform.position);
+        if (lookDirection.sqrMagnitude > 0f)
+        {
+            Vector3 positionAimScreen = Camera.main.WorldToViewportPoint(AimTarget.target.transform.position);
+            if (positionAimScreen.x < 0) transform.position += Vector3.right;
+            else if (1 < positionAimScreen.x) transform.position += Vector3.left;
+            else if (positionAimScreen.y < 0) transform.position += Vector3.forward;
+            else if (0.90 < positionAimScreen.y) transform.position += Vector3.back;
+        }
 
-        if (pos.x < 0) transform.position += Vector3.right;
-        else if (1 < pos.x) transform.position += Vector3.left;
-        else if (pos.y < 0) transform.position += Vector3.forward;
-        else if (0.90 < pos.y) transform.position += Vector3.back;
+        Vector3 positionPlayerScreen = Camera.main.WorldToViewportPoint(transform.position);
+        if (positionPlayerScreen.x < 0) transform.position += Vector3.right;
+        else if (1 < positionPlayerScreen.x) transform.position += Vector3.left;
+        else if (positionPlayerScreen.y < 0) transform.position += Vector3.forward;
+        else if (0.90 < positionPlayerScreen.y) transform.position += Vector3.back;
+    }
+
+    private void AddNewTarget(bool add)
+    {
+        switch (add)
+        {
+            case true:
+                if (!checkArray)
+                {
+                    checkArray = true;
+                    for (int i = 0; i < targetGroup.m_Targets.Length; i++)
+                    {
+                        if (targetGroup.m_Targets[i].target == null)
+                        {
+                            targetGroup.m_Targets.SetValue(AimTarget, i);
+                            return;
+                        }
+                    }
+                }
+                break;
+            case false:
+                if (checkArray)
+                {
+                    checkArray = false;
+                    for (int i = 0; i < targetGroup.m_Targets.Length; i++)
+                    {
+                        if (targetGroup.m_Targets[i].target == AimTarget.target)
+                        {
+                            targetGroup.m_Targets.SetValue(null, i);
+                            return;
+                        }
+                    }
+                }
+                break;
+        }  
     }
 }
