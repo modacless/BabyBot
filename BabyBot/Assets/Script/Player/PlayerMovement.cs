@@ -31,6 +31,18 @@ public class PlayerMovement : MonoBehaviour
         ReadInputs();
 
         RotatePlayer();
+
+        /*Vector3 pos = Camera.main.WorldToViewportPoint(transform.position);
+        Debug.Log(pos);
+
+        Vector3 playerPos = transform.position;
+        //playerPos.x = Mathf.Clamp(playerPos.x, 0, 1);
+        transform.position = playerPos;
+
+        if(pos.x < 0) Debug.Log("left");
+        if (1 < pos.x) Debug.Log("right");
+        if (pos.y < 0) Debug.Log("down");
+        if (1 < pos.y) Debug.Log("up");*/
     }
 
     private void FixedUpdate()
