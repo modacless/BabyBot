@@ -20,7 +20,7 @@ public class Weapon : MonoBehaviour
     public bool CanShoot = true;
 
     private float actualCadence;
-    private bool needToPreHeated = true;
+    private bool needToPreHeated = false;
     private float preHeatedTime;
     private float gainCadence;
 
