@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Weapon : MonoBehaviour
 {
@@ -16,12 +17,11 @@ public class Weapon : MonoBehaviour
     public int actualAmo;
     public bool isReloading = false;
     public bool CanShoot = true;
+    private bool isShooting = false;
 
     private void Start()
     {
         actualAmo = stats.maxAmo;
-        isReloading = false;
-        CanShoot = true;
     }
     private void Update()
     {
@@ -33,10 +33,34 @@ public class Weapon : MonoBehaviour
         {
             TryReload();
         }*/
+
+        if (isShooting && actualAmo != 0 && !isReloading && CanShoot)
+        {
+            Fire();
+        }
     }
-    public virtual void TryFire()
+    public virtual void TryFire(InputAction.CallbackContext context)
     {
-        if (actualAmo != 0 && !isReloading && CanShoot) Fire();
+        Debug.Log("Try Fire");
+        //isShooting = true;
+
+        if(context.phase == InputActionPhase.Started)
+        {
+            isShooting = true;
+        }
+
+        if (context.phase == InputActionPhase.Canceled)
+        {
+            isShooting = false;
+        }
+
+
+
+    }
+
+    public void StopFire(InputAction.CallbackContext context)
+    {
+        isShooting = false;
     }
     public virtual void Fire()
     {
