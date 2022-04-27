@@ -52,12 +52,12 @@ public class PlayerInfo : MonoBehaviour
         {
             if (context.started)
             {
-                Debug.Log("WEAPON UPGRADE !!");
-
                 actualScoreUpgrade = 0;
 
                 numberOfUpgrade += 1;
                 scoreNeedForNextUpgrade = eachScoreNeedForUpgrade[numberOfUpgrade];
+
+                // Trigger the weapon trade
             }
         }
     }
