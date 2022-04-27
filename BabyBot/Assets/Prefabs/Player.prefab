@@ -157,8 +157,6 @@ MonoBehaviour:
   stats: {fileID: 11400000, guid: 4c8a92ea7cae0bb48b46f8fda1649c1a, type: 2}
   firePoint: {fileID: 7965003758134101777}
   actualAmo: 1000
-  isReloading: 0
-  CanShoot: 1
 --- !u!114 &2285237947502248124
 MonoBehaviour:
   m_ObjectHideFlags: 0
