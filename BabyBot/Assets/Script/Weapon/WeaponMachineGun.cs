@@ -33,31 +33,21 @@ public class WeaponMachineGun : Weapon
 
     protected override void Upgrade1()
     {
-        TranslateStructToUpgrade(0);
-        actualBulletUsed = allBulletType[0];
+        base.Upgrade1();
     }
 
     protected override void Upgrade2()
     {
-        TranslateStructToUpgrade(1);
-        actualBulletUsed = allBulletType[1];
+        base.Upgrade2();
+
     }
 
 
     protected override void Upgrade3()
     {
-        TranslateStructToUpgrade(2);
-        actualBulletUsed = allBulletType[2];
+        base.Upgrade3();
+
     }
 
-    private void TranslateStructToUpgrade(int upgradeStat)
-    {
-        sizeBullet = upgradeStruct[upgradeStat].sizeBullet;
-        reloadTime = upgradeStruct[upgradeStat].reloadTime;
-        fireRate = upgradeStruct[upgradeStat].fireRate;
-        bulletDamage = upgradeStruct[upgradeStat].bulletDamage;
-        bulletLifeTime = upgradeStruct[upgradeStat].bulletLifeTime;
-        bulletSpeed = upgradeStruct[upgradeStat].bulletSpeed;
-        magazineAmmo = upgradeStruct[upgradeStat].magazineAmmo;
-    }
+
 }

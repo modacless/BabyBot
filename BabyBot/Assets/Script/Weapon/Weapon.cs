@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class Weapon : MonoBehaviour
 {
     [Header("References")]
-    public GameObject[] allBulletType;
+    public GameObject initialBullet;
     protected GameObject actualBulletUsed;
     [SerializeField]
     protected GameObject firePoint;
@@ -68,7 +68,7 @@ public class Weapon : MonoBehaviour
         GetComponent<PlayerInput>().actions["Fire"].canceled += Fire;
         playerMovementScript = GetComponent<PlayerMovement>();
 
-        actualBulletUsed = allBulletType[0];
+        actualBulletUsed = initialBullet;
         actualBulletUsed.transform.localScale = sizeBullet;
         actualAmo = magazineAmmo;
 
@@ -177,19 +177,35 @@ public class Weapon : MonoBehaviour
 
     protected virtual void Upgrade1()
     {
-
+        TranslateStructToUpgrade(0);
     }
 
     protected virtual void Upgrade2()
     {
-
+        TranslateStructToUpgrade(1);
     }
 
 
     protected virtual void Upgrade3()
     {
-
+        TranslateStructToUpgrade(2);
     }
 
+    private void TranslateStructToUpgrade(int upgradeStat)
+    {
+        sizeBullet = upgradeStruct[upgradeStat].sizeBullet;
+        reloadTime = upgradeStruct[upgradeStat].reloadTime;
+        fireRate = upgradeStruct[upgradeStat].fireRate;
+        bulletDamage = upgradeStruct[upgradeStat].bulletDamage;
+        bulletLifeTime = upgradeStruct[upgradeStat].bulletLifeTime;
+        bulletSpeed = upgradeStruct[upgradeStat].bulletSpeed;
+        magazineAmmo = upgradeStruct[upgradeStat].magazineAmmo;
+
+        if (upgradeStruct[upgradeStat].actualBulletUsed != null)
+        {
+            actualBulletUsed = upgradeStruct[upgradeStat].actualBulletUsed;
+        }
+
+    }
 
 }
