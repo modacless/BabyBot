@@ -5,11 +5,17 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager AMInstance;
-    AudioSource audioSource;
+    public AudioSource SFXAudioSource;
+    public AudioSource musicsAudioSource;
 
     [Header("Player")]
 
     public AudioClip[] woodFootstepArray;
+    public AudioClip[] carpetFootstepArray;
+
+    [Header("Musics")]
+
+    public AudioClip[] runThemesArray;
 
 
     private void Awake()
@@ -22,25 +28,38 @@ public class AudioManager : MonoBehaviour
         {
             AMInstance = this;
         }
-
-        audioSource = this.GetComponent<AudioSource>();
     }
 
-    
 
+    private void Start()
+    {
+        PlayMusics(runThemesArray[Random.Range(0, 3)], 1, 1);
+    }
 
 
     public void PlaySFX(AudioClip _sound, float _volume, float _pitch)
     {
-        audioSource.volume = _volume;
-        audioSource.pitch = _pitch;
-        audioSource.clip = _sound;
+        SFXAudioSource.volume = _volume;
+        SFXAudioSource.pitch = _pitch;
+        SFXAudioSource.clip = _sound;
 
-        audioSource.Play();
+        SFXAudioSource.Play();
+    }
+    public void PlayMusics(AudioClip _sound, float _volume, float _pitch)
+    {
+        musicsAudioSource.volume = _volume;
+        musicsAudioSource.pitch = _pitch;
+        musicsAudioSource.clip = _sound;
+
+        musicsAudioSource.Play();
     }
 
-    public void StopAudio()
+    public void StopSFX()
     {
-        audioSource.Stop();
+        SFXAudioSource.Stop();
+    }
+    public void StopMusic()
+    {
+        musicsAudioSource.Stop();
     }
 }
