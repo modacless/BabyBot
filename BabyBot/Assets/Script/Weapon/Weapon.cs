@@ -21,8 +21,13 @@ public class Weapon : MonoBehaviour
 
     public float actualCadence;
     private bool needToPreHeated = false;
+//    private bool isLaser = false;
     private float preHeatedTime;
     private float gainCadence;
+//    LineRenderer laserLine;
+    public float gunRange = 50f;
+    public float fireRate = 0.2f;
+ //   private float fireTimer;
 
     private void Start()
     {
@@ -31,6 +36,7 @@ public class Weapon : MonoBehaviour
         isReloading = false;
         CanShoot = true;
         gainCadence = stats.basicCadence - stats.finalCadence;
+ //       laserLine = GetComponent<LineRenderer>();
     }
     private void Update()
     {
@@ -46,6 +52,7 @@ public class Weapon : MonoBehaviour
         if (isShooting)
         {
             if (stats.needPreheated) FireMiniGun();
+            //if (stats.isLaser) FireLaser();
             if (actualAmo != 0 && !isReloading && CanShoot)
             {
                 Fire();
@@ -90,6 +97,37 @@ public class Weapon : MonoBehaviour
         preHeatedTime += Time.deltaTime;
         if (actualCadence != stats.finalCadence) actualCadence = stats.basicCadence - gainCadence * stats.preheatedCurve.Evaluate(preHeatedTime);
     }
+
+   /* public void FireLaser()
+    {
+        fireTimer += Time.deltaTime;
+        if (fireTimer > fireRate)
+        {
+            laserLine.SetPosition(0, EndOfGun.transform.position);
+            Vector3 rayOrigin = new Vector3(0.5f, 0.5f, 0);
+            RaycastHit hit;
+            if (Physics.Raycast(rayOrigin, EndOfGun.transform.forward, out hit))
+            {
+                laserLine.SetPosition(1, hit.point);
+                if (hit.collider.tag == "Ennemy")
+                {
+                    hit.
+                }
+            }
+            else
+            {
+                laserLine.SetPosition(1, rayOrigin + (EndOfGun.transform.forward * gunRange));
+            }
+            StartCoroutine(ShootLaser());
+        }
+    }
+    IEnumerator ShootLaser()
+    {
+        laserLine.enabled = true;
+        yield return new WaitForSeconds(0.05f);
+        laserLine.enabled = false;
+    }*/
+
     public virtual void TryReload()
     {
         if (actualAmo != stats.maxAmo && !isReloading) StartCoroutine(Reload());
