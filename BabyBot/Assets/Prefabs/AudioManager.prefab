@@ -240,6 +240,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SFXAudioSource: {fileID: 2354319893675281979}
   musicsAudioSource: {fileID: 7629818756723670509}
+  isOnWood: 1
   woodFootstepArray:
   - {fileID: 8300000, guid: cf0401e624e067a409f0e348272e4d93, type: 3}
   - {fileID: 8300000, guid: 929841c901141de43b4970df93283bb8, type: 3}
@@ -264,6 +265,13 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 6be074bfe148e3343a3537daa4bc1626, type: 3}
   - {fileID: 8300000, guid: e3d7eb4db17ef5843bb7a3776c004803, type: 3}
   - {fileID: 8300000, guid: 5fcc1ec1338ac384ba153a82cd1baea6, type: 3}
+  regularShotsArray:
+  - {fileID: 8300000, guid: 534f32144c8e6bb49b0ff677da1079b6, type: 3}
+  - {fileID: 8300000, guid: 46830fd3214308f4b9fc548f6b31b46d, type: 3}
+  - {fileID: 8300000, guid: 9cfdf5f3e7c79f44db38d5124210efdb, type: 3}
+  - {fileID: 8300000, guid: f7f58973ec1406348bfbfac54eafd905, type: 3}
+  - {fileID: 8300000, guid: 6ecf4796016492c45b2c8c99ee681b92, type: 3}
+  - {fileID: 8300000, guid: c722787dde99ef34ba7789ceb8c0dedb, type: 3}
   runThemesArray:
   - {fileID: 8300000, guid: 339ff1629a3f8d64183493850cc1d75a, type: 3}
   - {fileID: 8300000, guid: 38de8b8c659da004c80d17c4f9d164ec, type: 3}

@@ -10,8 +10,15 @@ public class AudioManager : MonoBehaviour
 
     [Header("Player")]
 
+    public bool isOnWood = true;
     public AudioClip[] woodFootstepArray;
     public AudioClip[] carpetFootstepArray;
+
+
+    [Header("Weapons")]
+
+    public AudioClip[] regularShotsArray;
+
 
     [Header("Musics")]
 
