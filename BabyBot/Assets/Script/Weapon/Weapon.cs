@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Weapon : MonoBehaviour
 {
@@ -22,6 +23,8 @@ public class Weapon : MonoBehaviour
     private float preHeatedTime;
     private float gainCadence;
 
+    private bool isFire = false;
+
     private void Start()
     {
         actualCadence = stats.basicCadence;
@@ -32,32 +35,31 @@ public class Weapon : MonoBehaviour
     }
     private void Update()
     {
-        /*if (Input.GetKey(KeyCode.Mouse0))
+        if (isFire)
         {
-            TryFire();
+            if (stats.needPreheated) FireMiniGun();
+
+            GameObject myBullet = Instantiate(bullet, EndOfGun.transform.position, transform.parent.transform.rotation);
+            myBullet.GetComponent<Bullet>().direction = transform.parent.transform.forward;
+            myBullet.GetComponent<Bullet>().speed = stats.bulletSpeed;
+            myBullet.GetComponent<Bullet>().lifeTime = stats.bulletLifeTime;
+            myBullet.GetComponent<Bullet>().damage = stats.bulletDamage;
+            Debug.Log(transform.parent.transform.forward);
+            actualAmo--;
+            StartCoroutine(couldown());
         }
-        if (Input.GetKey(KeyCode.R))
+    }
+
+    public virtual void Fire(InputAction.CallbackContext context)
+    {
+        if (context.started)
         {
-            TryReload();
-        }*/
-    }
-    public virtual void TryFire()
-    {
-        if (actualAmo != 0 && !isReloading && CanShoot) Fire();
-    }
-    public virtual void Fire()
-    {
-        if(stats.needPreheated) FireMiniGun();
-
-        GameObject myBullet = Instantiate(bullet, EndOfGun.transform.position, transform.parent.transform.rotation);
-        myBullet.GetComponent<Bullet>().direction = transform.parent.transform.forward;
-        myBullet.GetComponent<Bullet>().speed = stats.bulletSpeed;
-        myBullet.GetComponent<Bullet>().lifeTime = stats.bulletLifeTime;
-        myBullet.GetComponent<Bullet>().damage = stats.bulletDamage;
-        Debug.Log(transform.parent.transform.forward);
-        actualAmo--;
-        StartCoroutine(couldown());
-
+            isFire = true;
+        }
+        if (context.canceled)
+        {
+            isFire = false;
+        }
     }
     public virtual void FireMiniGun()
     {
