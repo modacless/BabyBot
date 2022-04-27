@@ -86,6 +86,7 @@ public class PlayerMovement : MonoBehaviour
             transform.rotation = Quaternion.LookRotation(movementDirection.normalized, Vector3.up);
             playerAnimationsScript.Aim(false);
             AddNewTarget(false);
+            isAiming = false;
         }
         else
         {

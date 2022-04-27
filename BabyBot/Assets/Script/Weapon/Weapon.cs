@@ -10,34 +10,35 @@ public class Weapon : MonoBehaviour
     private ScriptableWeapon stats;
     [SerializeField]
     protected GameObject firePoint;
+    private GameObject gunBullet;
     private PlayerMovement playerMovementScript;
 
     public int actualAmo;
-
     private float fireRateTimer = 0f;
-    private float gunFireRate;
+    private float reloadTimer = 0f;
 
     private bool isPressingFire = false;
     private bool isShooting = false;
-    
     private bool isReloading = false;
-    private bool CanShoot = true;
-    private bool needToPreHeated = false;
+
+    /*private bool needToPreHeated = false;
     private float preHeatedTime;
-    private float gainFireRate;
+    private float gainFireRate;*/
 
     private void Start()
     {
         playerMovementScript = GetComponent<PlayerMovement>();
 
-        gunFireRate = stats.fireRate;
+        gunBullet = stats.bullet;
+        gunBullet.transform.localScale = stats.sizeBullet;
         actualAmo = stats.magazineAmmo;
-        gainFireRate = stats.fireRate - stats.finalCadence;
+        //gainFireRate = stats.fireRate - stats.finalCadence;
     }
     private void Update()
     {
         Shoot();
-        Cadence();
+        FireRate();
+        Reload();
     }
 
     public virtual void Fire(InputAction.CallbackContext context)
@@ -54,28 +55,31 @@ public class Weapon : MonoBehaviour
 
     private void Shoot()
     {
-        if (isPressingFire && !isShooting && playerMovementScript.isAiming)
+        if (!isReloading)
         {
-            //if (stats.needPreheated) FireMiniGun();
+            if (isPressingFire && !isShooting && playerMovementScript.isAiming)
+            {
+                //if (stats.needPreheated) FireMiniGun();
 
-            isShooting = true;
-            GameObject myBullet = Instantiate(stats.bullet, firePoint.transform.position, firePoint.transform.rotation);
-            myBullet.GetComponent<Bullet>().direction = firePoint.transform.forward;
-            myBullet.GetComponent<Bullet>().speed = stats.bulletSpeed;
-            myBullet.GetComponent<Bullet>().lifeTime = stats.bulletLifeTime;
-            myBullet.GetComponent<Bullet>().damage = stats.bulletDamage;
-            actualAmo--;
+                isShooting = true;
+                GameObject myBullet = Instantiate(gunBullet, firePoint.transform.position, firePoint.transform.rotation);
+                myBullet.GetComponent<Bullet>().direction = firePoint.transform.forward;
+                myBullet.GetComponent<Bullet>().speed = stats.bulletSpeed;
+                myBullet.GetComponent<Bullet>().lifeTime = stats.bulletLifeTime;
+                myBullet.GetComponent<Bullet>().damage = stats.bulletDamage;
+                actualAmo--;
 
-            //StartCoroutine(couldown());
-        }
+                //StartCoroutine(couldown());
+            }
+        } 
     }
 
-    private void Cadence()
+    private void FireRate()
     {
         if (isShooting)
         {
             fireRateTimer += Time.deltaTime;
-            if (fireRateTimer > gunFireRate)
+            if (fireRateTimer >= stats.fireRate)
             {
                 isShooting = false;
                 fireRateTimer = 0;
@@ -83,7 +87,24 @@ public class Weapon : MonoBehaviour
         }
     }
 
-    public virtual void FireMiniGun()
+    private void Reload()
+    {
+        if (actualAmo <= 0)
+        {
+            isReloading = true;
+
+            reloadTimer += Time.deltaTime;
+            if (reloadTimer >= stats.reloadTime)
+            {
+                isReloading = false;
+                reloadTimer = 0;
+                actualAmo = stats.magazineAmmo;
+            }
+        }
+    }
+
+
+    /*public virtual void FireMiniGun()
     {
         if (needToPreHeated) preHeatedTime = 0;
         needToPreHeated = false;
@@ -107,5 +128,5 @@ public class Weapon : MonoBehaviour
         CanShoot = false;
         yield return new WaitForSeconds(gunFireRate);
         CanShoot = true;
-    }
+    }*/
 }
