@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 186324550031053221}
   - component: {fileID: 7908091894171472433}
   m_Layer: 0
-  m_Name: Bullet
+  m_Name: PiercingBullet
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5680f475c086bb84fa96b305349db579, type: 2}
+  - {fileID: 2100000, guid: 2003e9a6a55b79d4a876c264d237b8c4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

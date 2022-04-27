@@ -12,6 +12,28 @@ public class Weapon : MonoBehaviour
     protected GameObject firePoint;
     private PlayerMovement playerMovementScript;
 
+    [System.Serializable]
+    public struct UpgradeStruct
+    {
+        //WEAPON DATA
+        [SerializeField]
+        public Vector3 sizeBullet;
+        [SerializeField]
+        public float reloadTime;
+        [SerializeField]
+        public float fireRate;
+        [SerializeField]
+        public float bulletDamage;
+        [SerializeField]
+        public float bulletLifeTime;
+        [SerializeField]
+        public float bulletSpeed;
+        [SerializeField]
+        public int magazineAmmo;
+
+        public GameObject actualBulletUsed;
+    }
+
     //WEAPON DATA
     [SerializeField]
     protected Vector3 sizeBullet;
@@ -28,7 +50,7 @@ public class Weapon : MonoBehaviour
     [SerializeField]
     protected int magazineAmmo;
 
-    public int actualAmo;
+    protected int actualAmo;
     protected float fireRateTimer = 0f;
     protected float reloadTimer = 0f;
 
@@ -38,7 +60,7 @@ public class Weapon : MonoBehaviour
 
     public bool drawDebug;
 
-    protected int upgradeLevel = 0;
+    public List<UpgradeStruct> upgradeStruct;
 
     protected virtual void Start()
     {
@@ -101,7 +123,6 @@ public class Weapon : MonoBehaviour
         {
             if (isPressingFire && !isShooting && playerMovementScript.isAiming)
             {
-                Debug.Log("Try shoot");
                 isShooting = true;
                 Shoot();
             }
