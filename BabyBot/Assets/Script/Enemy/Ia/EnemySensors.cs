@@ -47,6 +47,8 @@ public class EnemySensors : MonoBehaviour
     protected float speed;
     [SerializeField]
     protected int projectileDamage;
+    [SerializeField]
+    protected float projectileSpawnRange;
 
     [SerializeField]
     protected GameObject attackGameObject;

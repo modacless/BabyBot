@@ -160,6 +160,7 @@ MonoBehaviour:
   lifeTime: 0.5
   speed: 0
   projectileDamage: 1
+  projectileSpawnRange: 1.5
   attackGameObject: {fileID: 6753946423046665436, guid: bb7bc961213125745910010d90bea19d,
     type: 3}
 --- !u!1 &1919753233563527806

@@ -56,7 +56,7 @@ public class ProjectileLogic : MonoBehaviour
 
     protected virtual void ProjectileMovement()
     {
-        transform.position = transform.forward * speed;
+        //transform.position += transform.forward * speed;
     }
 
 }

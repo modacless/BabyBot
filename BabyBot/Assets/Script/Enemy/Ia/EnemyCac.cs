@@ -41,7 +41,7 @@ public class EnemyCac : EnemySensors
 
     private void DoAttack()
     {
-        GameObject projectile = Instantiate(attackGameObject, transform.forward, transform.rotation, null);
+        GameObject projectile = Instantiate(attackGameObject, transform.position + transform.forward* projectileSpawnRange, transform.rotation, null);
         projectile.GetComponent<CacProjectileLogic>().InitProjectile(lifeTime, speed, projectileDamage);
     }
 }
