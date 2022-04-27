@@ -21,10 +21,15 @@ public class PlayerMovement : MonoBehaviour
     public CinemachineTargetGroup targetGroup;
     public CinemachineTargetGroup.Target AimTarget;
 
+
+    AudioManager AM;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         playerAnimationsScript = GetComponent<PlayerAnimations>();
+
+        AM = AudioManager.AMInstance;
     }
 
     public void OnMove(InputAction.CallbackContext context) => inputMovement = context.ReadValue<Vector2>();
@@ -138,5 +143,24 @@ public class PlayerMovement : MonoBehaviour
                 }
                 break;
         }  
+    }
+
+
+
+
+    public void playFootStep()
+    {
+        float newPitch = Random.Range(0.8f, 1.2f);
+
+        if(AM.isOnWood == true)
+        {
+            int newIndex = Random.Range(0, (AM.woodFootstepArray.Length - 1));
+            AM.PlaySFX(AM.woodFootstepArray[newIndex], 1, newPitch);
+        }
+        else
+        {
+            int newIndex = Random.Range(0, (AM.carpetFootstepArray.Length - 1));
+            AM.PlaySFX(AM.carpetFootstepArray[newIndex], 1, newPitch);
+        }
     }
 }
