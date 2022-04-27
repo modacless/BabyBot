@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyCac : EnemySensors
 {
+
     protected override void Start()
     {
         base.Start();
@@ -28,7 +29,19 @@ public class EnemyCac : EnemySensors
 
     protected override void StateAttack()
     {
+        actualAttackCooldown += Time.deltaTime;
+        if (actualAttackCooldown >= attackCooldown)
+        {
+            DoAttack();
+            actualAttackCooldown = 0;
+        }
         navAgent.isStopped = true;
         rbd.velocity = Vector3.zero;
+    }
+
+    private void DoAttack()
+    {
+        GameObject projectile = Instantiate(attackGameObject, transform.forward, transform.rotation, null);
+        projectile.GetComponent<CacProjectileLogic>().InitProjectile(lifeTime, speed, projectileDamage);
     }
 }
