@@ -37,6 +37,9 @@ public class EnemyCac : EnemySensors
         }
         navAgent.isStopped = true;
         rbd.velocity = Vector3.zero;
+
+        transform.LookAt(actualGoal);
+        transform.rotation = Quaternion.Euler(new Vector3(0, transform.rotation.eulerAngles.y, 0));
     }
 
     private void DoAttack()
