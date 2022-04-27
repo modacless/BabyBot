@@ -15,5 +15,7 @@ public class ScriptableWeapon : ScriptableObject
     public bool needPreheated;
     public float finalCadence;
     public float timeBeforeNeedPreheated;
+/*    public bool isLaser;
+    public float laserDistance;*/
     public AnimationCurve preheatedCurve;
 }

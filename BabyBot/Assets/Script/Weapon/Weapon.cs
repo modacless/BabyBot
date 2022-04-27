@@ -23,8 +23,13 @@ public class Weapon : MonoBehaviour
 
     private float actualCadence;
     private bool needToPreHeated = false;
+//    private bool isLaser = false;
     private float preHeatedTime;
     private float gainCadence;
+//    LineRenderer laserLine;
+    public float gunRange = 50f;
+    public float fireRate = 0.2f;
+ //   private float fireTimer;
 
     private bool isFire = false;
 
@@ -36,6 +41,7 @@ public class Weapon : MonoBehaviour
         isReloading = false;
         CanShoot = true;
         gainCadence = stats.basicCadence - stats.finalCadence;
+ //       laserLine = GetComponent<LineRenderer>();
     }
     private void Update()
     {
