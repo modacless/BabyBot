@@ -106,7 +106,7 @@ public class Weapon : MonoBehaviour
 
     private void AnimationShoot()
     {
-        if (isPressingFire && playerMovementScript.isAiming && !isReloading) playerMovementScript.playerAnimationsScript.Shoot(true);
+        if (isPressingFire /*&& playerMovementScript.isAiming*/ && !isReloading) playerMovementScript.playerAnimationsScript.Shoot(true);
         else playerMovementScript.playerAnimationsScript.Shoot(false);
     }
 
@@ -121,7 +121,7 @@ public class Weapon : MonoBehaviour
     {
         if (!isReloading)
         {
-            if (isPressingFire && !isShooting && playerMovementScript.isAiming)
+            if (isPressingFire && !isShooting /*&& playerMovementScript.isAiming*/)
             {
                 isShooting = true;
                 Shoot();

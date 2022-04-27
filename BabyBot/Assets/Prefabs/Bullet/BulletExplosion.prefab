@@ -9,13 +9,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6753946423046665432}
+  - component: {fileID: 6688931011828750528}
   - component: {fileID: 6753946423046665435}
   - component: {fileID: 6753946423046665434}
   - component: {fileID: 6753946423046665437}
-  - component: {fileID: 186324550031053221}
   - component: {fileID: 7908091894171472433}
   m_Layer: 0
-  m_Name: Bullet
+  m_Name: BulletExplosion
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36,6 +36,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6688931011828750528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6753946423046665436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fee5f681348d1e943a889dc87d19be59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 0
+  speed: 0
+  damage: 0
+  direction: {x: 0, y: 0, z: 0}
+  explosion: {fileID: 6753946423046665436, guid: 396afd767e65189449578a677a91b6e5,
+    type: 3}
 --- !u!33 &6753946423046665435
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -64,7 +82,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5680f475c086bb84fa96b305349db579, type: 2}
+  - {fileID: 2100000, guid: 2003e9a6a55b79d4a876c264d237b8c4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -99,22 +117,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &186324550031053221
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6753946423046665436}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 127d6eced3654aa4b986cb096df447ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lifeTime: 0
-  speed: 0
-  damage: 0
-  direction: {x: 0, y: 0, z: 0}
 --- !u!54 &7908091894171472433
 Rigidbody:
   m_ObjectHideFlags: 0
