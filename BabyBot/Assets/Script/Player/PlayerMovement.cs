@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
 
     //References
     private Rigidbody rb;
-    private PlayerAnimations playerAnimationsScript;
+    [HideInInspector] public PlayerAnimations playerAnimationsScript;
     public CinemachineTargetGroup targetGroup;
     public CinemachineTargetGroup.Target AimTarget;
 

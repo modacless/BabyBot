@@ -39,6 +39,7 @@ public class Weapon : MonoBehaviour
         Shoot();
         FireRate();
         Reload();
+        AnimationShoot();
     }
 
     public virtual void Fire(InputAction.CallbackContext context)
@@ -51,6 +52,12 @@ public class Weapon : MonoBehaviour
         {
             isPressingFire = false;
         }
+    }
+
+    private void AnimationShoot()
+    {
+        if (isPressingFire && playerMovementScript.isAiming && !isReloading) playerMovementScript.playerAnimationsScript.Shoot(true);
+        else playerMovementScript.playerAnimationsScript.Shoot(false);
     }
 
     private void Shoot()
