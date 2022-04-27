@@ -42,7 +42,6 @@ public class WeaponMachineGun : Weapon
 
     }
 
-
     protected override void Upgrade3()
     {
         base.Upgrade3();

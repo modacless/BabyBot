@@ -15,7 +15,7 @@ public class Bullet : MonoBehaviour
     [HideInInspector]
     public Vector3 direction;
 
-    private void Start()
+    protected virtual void Start()
     {
         startTime = Time.time;
     }
@@ -29,15 +29,15 @@ public class Bullet : MonoBehaviour
         direction = _direction;
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         if (Time.time > startTime + lifeTime) Destroy(gameObject);
     }
-    private void OnTriggerEnter(Collider collider)
+    protected virtual void OnTriggerEnter(Collider collider)
     {
         if(collider.tag != ("Bullet")) Destroy(gameObject);
     }
-    private void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
         transform.position += direction.normalized * speed * Time.fixedDeltaTime;
     }
