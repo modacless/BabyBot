@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 lookDirection;
 
     private bool checkArray = false;
+    public bool isAiming = false;
 
     //References
     private Rigidbody rb;
@@ -77,6 +78,7 @@ public class PlayerMovement : MonoBehaviour
             transform.rotation = Quaternion.LookRotation(lookDirection, Vector3.up);
             playerAnimationsScript.Aim(true);
             AddNewTarget(true);
+            isAiming = true;
         }
         else if (movementDirection.magnitude > 0f)
         {
@@ -89,6 +91,7 @@ public class PlayerMovement : MonoBehaviour
         {
             playerAnimationsScript.Aim(false);
             AddNewTarget(false);
+            isAiming = false;
         }
     }
 
@@ -144,9 +147,6 @@ public class PlayerMovement : MonoBehaviour
                 break;
         }  
     }
-
-
-
 
     public void playFootStep()
     {
