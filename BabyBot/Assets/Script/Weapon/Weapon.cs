@@ -80,13 +80,7 @@ public class Weapon : MonoBehaviour
         if(actualCadence != stats.finalCadence) actualCadence = stats.basicCadence - gainCadence * stats.preheatedCurve.Evaluate(preHeatedTime);
 
     }
-    public virtual void FireMiniGun()
-    {
-        if (needToPreHeated) preHeatedTime = 0;
-        needToPreHeated = false;
-        preHeatedTime += Time.deltaTime;
-        if (actualCadence != stats.finalCadence) actualCadence = stats.basicCadence - gainCadence * stats.preheatedCurve.Evaluate(preHeatedTime);
-    }
+  
     public virtual void TryReload()
     {
         if (actualAmo != stats.maxAmo && !isReloading) StartCoroutine(Reload());
