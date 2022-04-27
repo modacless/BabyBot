@@ -20,18 +20,16 @@ public class EnemySensors : MonoBehaviour
 
     //Own Data
     protected Rigidbody rbd;
+    [SerializeField]
+    protected float attackCooldown;
+    protected float actualAttackCooldown = 0;
+
+    protected NavMeshAgent navAgent;
 
     //World Data
     public List<Transform> allGoals = new List<Transform>();
     protected Transform actualGoal;
 
-    //Event
-    [System.Serializable]
-    public class EventChangeFocus : UnityEvent<Transform> { };
-
-    public EventChangeFocus changeFocus;
-
-    protected NavMeshAgent navAgent;
 
     //Detection
 
@@ -40,6 +38,20 @@ public class EnemySensors : MonoBehaviour
     private float rangeRadiusDetection;
     [SerializeField]
     private float rangeRadiusAttack;
+
+    //Projectile data
+    [Header("Projectile data")]
+    [SerializeField]
+    protected float lifeTime;
+    [SerializeField]
+    protected float speed;
+    [SerializeField]
+    protected int projectileDamage;
+    [SerializeField]
+    protected float projectileSpawnRange;
+
+    [SerializeField]
+    protected GameObject attackGameObject;
 
 
     protected virtual void Start()
@@ -54,6 +66,8 @@ public class EnemySensors : MonoBehaviour
         }
 
         actualGoal = _allPlayers[0].transform;
+
+        actualAttackCooldown = attackCooldown;
     }
 
     // Update is called once per frame
@@ -64,7 +78,6 @@ public class EnemySensors : MonoBehaviour
         SetState();
 
         actualGoal = GetNearestGoal();
-        Debug.Log(actualGoal);
 
         //Applique l'effet de la machine à état
         switch (enemyState)
@@ -93,7 +106,6 @@ public class EnemySensors : MonoBehaviour
 
             for (int i = 1; i < allGoals.Count; i++)
             {
-                Debug.Log((transform.position - minPosition.position).magnitude > (transform.position - allGoals[i].position).magnitude);
                 if((transform.position - minPosition.position).magnitude > (transform.position - allGoals[i].position).magnitude) {
                     minPosition = allGoals[i];
                 }

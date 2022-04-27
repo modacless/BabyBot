@@ -255,6 +255,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 4318a014-5c53-454e-86f8-93fe9a20b8a9
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9eadb633-f8c8-4eb2-a1fe-69051ecb3569
+    m_ActionName: Player/Upgrade
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: Player
