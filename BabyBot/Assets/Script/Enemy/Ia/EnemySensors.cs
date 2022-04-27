@@ -15,16 +15,25 @@ public class EnemySensors : MonoBehaviour
     {
         Idle,
         Detect,
-        Attack
+        Attack,
+        Dead
     }
 
     //Own Data
+    [Header("Enemy Data")]
     protected Rigidbody rbd;
     [SerializeField]
     protected float attackCooldown;
     protected float actualAttackCooldown = 0;
+    [SerializeField]
+    protected float lifePoint;
+    protected bool isDead = false;
+    [SerializeField]
+    protected float timerDead;
 
     protected NavMeshAgent navAgent;
+
+    private WaitForFixedUpdate waitFixedUpdate = new WaitForFixedUpdate();
 
     //World Data
     public List<Transform> allGoals = new List<Transform>();
@@ -91,6 +100,9 @@ public class EnemySensors : MonoBehaviour
             case StateEnemy.Attack:
                 StateAttack();
                 break;
+            case StateEnemy.Dead:
+                StateDead();
+                break;
             default:
                 StateIdle();
                 break;
@@ -148,11 +160,16 @@ public class EnemySensors : MonoBehaviour
             return true;
         }
 
+        if(lifePoint <= 0)
+        {
+            isDead = true;
+        }
+
         return false;
         
     }
 
-    private void SetState()
+    protected virtual void SetState()
     {
         if (UpdateSensors(rangeRadiusDetection) && !UpdateSensors(rangeRadiusAttack))
         {
@@ -167,6 +184,12 @@ public class EnemySensors : MonoBehaviour
         if(!UpdateSensors(rangeRadiusAttack) && !UpdateSensors(rangeRadiusDetection))
         {
             enemyState = StateEnemy.Idle;
+        }
+
+        //Always in last
+        if (isDead)
+        {
+            enemyState = StateEnemy.Dead;
         }
     }
 
@@ -188,5 +211,45 @@ public class EnemySensors : MonoBehaviour
         navAgent.isStopped = true;
         rbd.velocity = Vector3.zero;
     }
+
+    protected virtual void StateDead()
+    {
+        navAgent.isStopped = true;
+        rbd.velocity = Vector3.zero;
+        StartCoroutine(DeadRoutine());
+
+    }
+
+    protected virtual IEnumerator DeadRoutine()
+    {
+        transform.rotation = Quaternion.Euler(new Vector3(0, transform.rotation.eulerAngles.y, 90));
+        float actualTimerDead = 0;
+        while(actualTimerDead < timerDead)
+        {
+            actualTimerDead += Time.fixedDeltaTime;
+            yield return waitFixedUpdate;
+        }
+
+        Destroy(this.gameObject);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.collider.tag == "Bullet")
+        {
+            Bullet bulletLogic = collision.collider.GetComponent<Bullet>();
+            if (bulletLogic)
+            {
+                TakeDamage((int)bulletLogic.damage);
+            }
+        }
+    }
+
+    protected virtual void TakeDamage(int damage)
+    {
+        lifePoint -= damage;
+    }
+
+    
 
 }
