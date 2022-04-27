@@ -10,14 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9fb1053abf7a8a448b140b41fbd34c5d, type: 3}
-  m_Name: Basic Weapon
+  m_Name: Standart
   m_EditorClassIdentifier: 
   maxAmo: 1000
-  basicCadence: 0.5
+  cadence: 0.5
+  damage: 10
   reloadTime: 2
-  bulletDamage: 10
-  bulletLifeTime: 3
-  bulletSpeed: 10
-  needPreheated: 0
-  preheatedTime: 0
-  finalCadence: 0
+  BulletLifeTime: 10
+  BulletSpeed: 10

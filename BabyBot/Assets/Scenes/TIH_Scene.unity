@@ -395,7 +395,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 929214963}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11820, y: 10000, z: 5804.9}
+  m_LocalPosition: {x: 11820, y: 10000, z: 5940}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -449,7 +449,7 @@ GameObject:
   - component: {fileID: 1181384192}
   m_Layer: 0
   m_Name: Target Dummy
-  m_TagString: Ennemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -706,13 +706,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5aaca25aa2343d48b87e910a1bc68b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stats: {fileID: 11400000, guid: f4144537eba443d4c852b923f86284c5, type: 2}
+  stats: {fileID: 11400000, guid: 4c8a92ea7cae0bb48b46f8fda1649c1a, type: 2}
   bullet: {fileID: 6753946423046665436, guid: bb7bc961213125745910010d90bea19d, type: 3}
   EndOfGun: {fileID: 929214963}
   actualAmo: 1000
   isReloading: 0
   CanShoot: 1
-  actualCadence: 0
 --- !u!95 &7673487250408417782
 Animator:
   serializedVersion: 4
@@ -2960,7 +2959,7 @@ MonoBehaviour:
       - m_Target: {fileID: 1990667897}
         m_TargetAssemblyTypeName: Weapon, Assembly-CSharp
         m_MethodName: TryFire
-        m_Mode: 0
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3011,22 +3010,6 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 4318a014-5c53-454e-86f8-93fe9a20b8a9
     m_ActionName: UI/TrackedDeviceOrientation
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1990667897}
-        m_TargetAssemblyTypeName: Weapon, Assembly-CSharp
-        m_MethodName: StopFire
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 0
-    m_ActionId: 2b911313-543e-4a03-91d6-6049961a980c
-    m_ActionName: Player/StopFire[/Mouse/leftButton]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

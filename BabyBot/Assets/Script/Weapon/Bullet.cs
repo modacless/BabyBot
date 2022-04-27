@@ -28,11 +28,7 @@ public class Bullet : MonoBehaviour
     }
     private void OnTriggerEnter(Collider collider)
     {
-        if (collider.CompareTag("Ennemy"))
-        {
-            Debug.Log("A touch�");
-            Destroy(gameObject);
-        }
+        if(collider.CompareTag("ennemy")) Destroy(gameObject);
     }
     private void FixedUpdate()
     {
