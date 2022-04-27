@@ -8,7 +8,7 @@ public class Explosion : MonoBehaviour
     public float timeBeforeExplose;
     public float damage;
 
-    private void Start()
+    protected virtual void Start()
     {
         StartCoroutine(LerpScale(transform.localScale, explosionCercleRange, timeBeforeExplose));
     }
@@ -35,5 +35,10 @@ public class Explosion : MonoBehaviour
         }
 
         Destroy(gameObject);
+    }
+
+    protected virtual void OnDestroy()
+    {
+
     }
 }

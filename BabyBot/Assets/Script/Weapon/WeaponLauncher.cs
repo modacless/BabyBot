@@ -6,22 +6,6 @@ using UnityEngine.InputSystem;
 public class WeaponLauncher : Weapon
 {
 
-    /*protected override void Shoot()
-    {
-
-        //Upgrade2();
-    }*/
-
-    private void OnDrawGizmos()
-    {
-        if (drawDebug)
-        {
-            Gizmos.color = Color.red;
-            //Gizmos.DrawLine(transform.position, transform.position + Quaternion.Euler(0, 360 + fireAngle, 0) * transform.forward * 10f);
-            //Gizmos.DrawLine(transform.position, transform.position + Quaternion.Euler(0, 360 - fireAngle, 0) * transform.forward * 10f);
-        }
-    }
-
     protected override void Upgrade1()
     {
         base.Upgrade1();

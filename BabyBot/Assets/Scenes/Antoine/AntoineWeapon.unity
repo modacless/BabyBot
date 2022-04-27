@@ -5795,7 +5795,7 @@ MonoBehaviour:
   bulletLifeTime: 3
   bulletSpeed: 15
   magazineAmmo: 50
-  drawDebug: 1
+  drawDebug: 0
   upgradeStruct:
   - sizeBullet: {x: 1, y: 1, z: 1}
     reloadTime: 2
@@ -5836,7 +5836,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5a436806314da54e82befc6bb52eef8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialBullet: {fileID: 6753946423046665436, guid: a14bdda9006552348b114c5d2d0782a8,
+  initialBullet: {fileID: 6753946423046665436, guid: f6f0448e4e7936348b43b667b6c8c6a8,
     type: 3}
   firePoint: {fileID: 1603232640}
   sizeBullet: {x: 2, y: 2, z: 2}
