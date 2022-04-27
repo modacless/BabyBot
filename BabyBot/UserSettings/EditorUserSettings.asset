@@ -21,6 +21,7 @@ EditorUserSettings:
       value: 510106545002590e5f0c0e27447a094447151d2c787073347e794b65e7b06c3a
       flags: 0
     RecentlyUsedSceneGuid-5:
+<<<<<<< HEAD
       value: 53525657500558080f56587a16770944124e1b7d287077352c7c4436e4b9356b
       flags: 0
     RecentlyUsedSceneGuid-6:
@@ -30,6 +31,11 @@ EditorUserSettings:
       value: 020300575504580a0f5e5c2115770944434f1c7b7c7020327d794a6be3b5623e
       flags: 0
     RecentlyUsedSceneGuid-8:
+=======
+      value: 57030302550d0c585e085576117a0c4447161c2b2a29233678791936b7b56039
+      flags: 0
+    RecentlyUsedSceneGuid-6:
+>>>>>>> Kanto
       value: 050951075607500c0f5d597747220e44174e1e2c757a77327b2f196be3b46661
       flags: 0
     vcSharedLogLevel:

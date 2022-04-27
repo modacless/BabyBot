@@ -54,6 +54,7 @@ public class Weapon : MonoBehaviour
         TryShoot();
         FireRate();
         Reload();
+        AnimationShoot();
     }
 
     public virtual void Fire(InputAction.CallbackContext context)
@@ -68,6 +69,13 @@ public class Weapon : MonoBehaviour
         }
     }
 
+    private void AnimationShoot()
+    {
+        if (isPressingFire && playerMovementScript.isAiming && !isReloading) playerMovementScript.playerAnimationsScript.Shoot(true);
+        else playerMovementScript.playerAnimationsScript.Shoot(false);
+    }
+
+    private void Shoot()
     protected virtual void Shoot()
     {
         GameObject myBullet = Instantiate(actualBulletUsed, firePoint.transform.position, transform.rotation);
