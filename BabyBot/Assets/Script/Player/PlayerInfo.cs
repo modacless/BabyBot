@@ -7,8 +7,9 @@ public class PlayerInfo : MonoBehaviour
 {
     #region Variable
 
-    [Header("Start Value")]
+    [Header("Player Stats")]
     public float startHealh;
+    public float maxHp;
     
     [Header("Score Need For Upgrade")]
     public float[] eachScoreNeedForUpgrade;
@@ -21,8 +22,6 @@ public class PlayerInfo : MonoBehaviour
 
     [HideInInspector]public int numberOfUpgrade;
 
-
-    public InputActionReference oui;
     #endregion
 
 
@@ -62,18 +61,6 @@ public class PlayerInfo : MonoBehaviour
             }
         }
     }
-
-    public void DebugScore(InputAction.CallbackContext context)
-    {
-        Debug.Log(context.phase);
-
-        if (context.started)
-        {
-            AddScore(1);
-        }
-    }
-
-
 
 
     public void DamagePlayer(int damage)

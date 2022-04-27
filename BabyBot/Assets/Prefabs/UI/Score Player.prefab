@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7109430745741160267}
-  - component: {fileID: 7109430745741160268}
   m_Layer: 5
   m_Name: Score Player
   m_TagString: Untagged
@@ -38,23 +37,6 @@ RectTransform:
   m_AnchoredPosition: {x: 414.2912, y: -101.171265}
   m_SizeDelta: {x: 766.2486, y: 161.8658}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &7109430745741160268
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7109430745741160266}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ec5918b44f693d4fa3835a60f302c8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wichPlayer: 1
-  colorPlayer1: {r: 0, g: 0.30809128, b: 0.9811321, a: 1}
-  colorPlayer2: {r: 0.9150943, g: 0.06474723, b: 0.06474723, a: 1}
-  slider: {fileID: 7109430747371157307}
-  fillImage: {fileID: 7109430747559998204}
 --- !u!1 &7109430746378130787
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,6 +273,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7109430747371157306}
   - component: {fileID: 7109430747371157307}
+  - component: {fileID: 6285188245074384287}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -318,8 +301,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -48, y: -0.000026703}
-  m_SizeDelta: {x: 634.6501, y: 129.9543}
+  m_AnchoredPosition: {x: -65.571014, y: 5.0983963}
+  m_SizeDelta: {x: 599.5081, y: 42.099}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7109430747371157307
 MonoBehaviour:
@@ -372,6 +355,23 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6285188245074384287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7109430747371157305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ec5918b44f693d4fa3835a60f302c8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wichPlayer: 1
+  colorPlayer1: {r: 0, g: 0.30809128, b: 0.9811321, a: 1}
+  colorPlayer2: {r: 0.9150943, g: 0.06474723, b: 0.06474723, a: 1}
+  slider: {fileID: 7109430747371157307}
+  fillImage: {fileID: 7109430747559998204}
 --- !u!1 &7109430747559998202
 GameObject:
   m_ObjectHideFlags: 0
