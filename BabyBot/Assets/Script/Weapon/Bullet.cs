@@ -22,6 +22,16 @@ public class Bullet : MonoBehaviour
         selfRigidbody = GetComponent<Rigidbody>();
         startTime = Time.time;
     }
+
+    public virtual void InitBullet(float _lifeTime, float _startTime, float _speed, float _damage, Vector3 _direction)
+    {
+        lifeTime = _lifeTime;
+        startTime = _startTime;
+        speed = _speed;
+        damage = _damage ;
+        direction = _direction;
+    }
+
     private void Update()
     {
         if (Time.time > startTime + lifeTime) Destroy(gameObject);

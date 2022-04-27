@@ -154,9 +154,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5aaca25aa2343d48b87e910a1bc68b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stats: {fileID: 11400000, guid: 4c8a92ea7cae0bb48b46f8fda1649c1a, type: 2}
+  allBulletType: []
   firePoint: {fileID: 7965003758134101777}
   actualAmo: 1000
+  stats: {fileID: 11400000, guid: 4c8a92ea7cae0bb48b46f8fda1649c1a, type: 2}
 --- !u!114 &2285237947502248124
 MonoBehaviour:
   m_ObjectHideFlags: 0
