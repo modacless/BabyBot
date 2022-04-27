@@ -22,19 +22,31 @@ public class Weapon : MonoBehaviour
     protected bool isShooting = false;
     protected bool isReloading = false;
 
-    public ScriptableWeapon stats;
+    //WEAPON DATA
+    [SerializeField]
+    protected Vector3 sizeBullet;
+    [SerializeField]
+    protected float reloadTime;
+    [SerializeField]
+    protected float fireRate;
+    [SerializeField]
+    protected float bulletDamage;
+    [SerializeField]
+    protected float bulletLifeTime;
+    [SerializeField]
+    protected float bulletSpeed;
+    [SerializeField]
+    protected int magazineAmmo;
 
-    /*private bool needToPreHeated = false;
-    private float preHeatedTime;
-    private float gainFireRate;*/
 
     private void Start()
     {
         playerMovementScript = GetComponent<PlayerMovement>();
 
-        actualBulletUsed = stats.bullet;
-        actualBulletUsed.transform.localScale = stats.sizeBullet;
-        actualAmo = stats.magazineAmmo;
+        actualBulletUsed = allBulletType[0];
+        actualBulletUsed.transform.localScale = sizeBullet;
+        actualAmo = magazineAmmo;
+
         //gainFireRate = stats.fireRate - stats.finalCadence;
     }
     private void Update()
@@ -58,8 +70,9 @@ public class Weapon : MonoBehaviour
 
     protected virtual void Shoot()
     {
-        GameObject myBullet = Instantiate(actualBulletUsed, firePoint.transform.position, firePoint.transform.rotation);
-        myBullet.GetComponent<Bullet>().InitBullet(stats.bulletLifeTime, Time.time, stats.bulletSpeed, stats.bulletDamage, transform.rotation.eulerAngles);
+        GameObject myBullet = Instantiate(actualBulletUsed, firePoint.transform.position, transform.rotation);
+        myBullet.GetComponent<Bullet>().InitBullet(bulletLifeTime, Time.time, bulletSpeed, bulletDamage, transform.forward);
+        Debug.Log(transform.rotation.eulerAngles);
         actualAmo--;
     }
 
@@ -75,12 +88,12 @@ public class Weapon : MonoBehaviour
         } 
     }
 
-    private void FireRate()
+    protected virtual void FireRate()
     {
         if (isShooting)
         {
             fireRateTimer += Time.deltaTime;
-            if (fireRateTimer >= stats.fireRate)
+            if (fireRateTimer >= fireRate)
             {
                 isShooting = false;
                 fireRateTimer = 0;
@@ -95,11 +108,11 @@ public class Weapon : MonoBehaviour
             isReloading = true;
 
             reloadTimer += Time.deltaTime;
-            if (reloadTimer >= stats.reloadTime)
+            if (reloadTimer >= reloadTime)
             {
                 isReloading = false;
                 reloadTimer = 0;
-                actualAmo = stats.magazineAmmo;
+                actualAmo = magazineAmmo;
             }
         }
     }

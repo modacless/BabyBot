@@ -154,10 +154,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5aaca25aa2343d48b87e910a1bc68b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allBulletType: []
+  allBulletType:
+  - {fileID: 6753946423046665436, guid: bb7bc961213125745910010d90bea19d, type: 3}
   firePoint: {fileID: 7965003758134101777}
   actualAmo: 1000
-  stats: {fileID: 11400000, guid: 4c8a92ea7cae0bb48b46f8fda1649c1a, type: 2}
+  sizeBullet: {x: 1, y: 1, z: 1}
+  reloadTime: 2
+  fireRate: 0.4
+  bulletDamage: 10
+  bulletLifeTime: 3
+  bulletSpeed: 2
+  magazineAmmo: 1000
 --- !u!114 &2285237947502248124
 MonoBehaviour:
   m_ObjectHideFlags: 0

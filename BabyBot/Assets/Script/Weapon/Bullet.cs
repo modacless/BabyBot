@@ -5,8 +5,6 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [HideInInspector]
-    private Rigidbody selfRigidbody;
-    [HideInInspector]
     public float lifeTime;
     [HideInInspector]
     private float startTime;
@@ -19,7 +17,6 @@ public class Bullet : MonoBehaviour
 
     private void Start()
     {
-        selfRigidbody = GetComponent<Rigidbody>();
         startTime = Time.time;
     }
 
@@ -42,7 +39,7 @@ public class Bullet : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        selfRigidbody.velocity = direction * speed;
+        transform.position += direction.normalized * speed * Time.fixedDeltaTime;
     }
 }
 

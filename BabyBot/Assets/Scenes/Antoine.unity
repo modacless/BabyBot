@@ -509,7 +509,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 1.8652931, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1777,6 +1777,11 @@ PrefabInstance:
       propertyPath: targetGroup
       value: 
       objectReference: {fileID: 544639245}
+    - target: {fileID: 8767513442285214668, guid: 1a066baa7c0a2ce4d9c7777168ccd11b,
+        type: 3}
+      propertyPath: bulletSpeed
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a066baa7c0a2ce4d9c7777168ccd11b, type: 3}
 --- !u!1 &796251472
@@ -4188,6 +4193,11 @@ PrefabInstance:
       propertyPath: targetGroup
       value: 
       objectReference: {fileID: 544639245}
+    - target: {fileID: 8767513442285214668, guid: 1a066baa7c0a2ce4d9c7777168ccd11b,
+        type: 3}
+      propertyPath: bulletSpeed
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a066baa7c0a2ce4d9c7777168ccd11b, type: 3}
 --- !u!1 &1950021101
