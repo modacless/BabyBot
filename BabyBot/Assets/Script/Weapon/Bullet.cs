@@ -19,16 +19,16 @@ public class Bullet : MonoBehaviour
 
     private void Start()
     {
-        selfRigidbody = transform.GetComponent<Rigidbody>();
+        selfRigidbody = GetComponent<Rigidbody>();
         startTime = Time.time;
     }
     private void Update()
     {
-        if (Time.time > startTime + lifeTime) Destroy(transform.gameObject);
+        if (Time.time > startTime + lifeTime) Destroy(gameObject);
     }
     private void OnTriggerEnter(Collider collider)
     {
-        if(collider.CompareTag("ennemy")) Destroy(gameObject);
+        if(collider.tag != ("Bullet")) Destroy(gameObject);
     }
     private void FixedUpdate()
     {

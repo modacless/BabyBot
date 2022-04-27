@@ -7,62 +7,79 @@ public class Weapon : MonoBehaviour
 {
     [Header("References")]
     [SerializeField]
-    public ScriptableWeapon stats;
+    private ScriptableWeapon stats;
     [SerializeField]
-    protected GameObject bullet;
-    [SerializeField]
-    protected GameObject EndOfGun;
-    [SerializeField]
-    protected GameObject gun;
-
+    protected GameObject firePoint;
     private PlayerMovement playerMovementScript;
 
     public int actualAmo;
-    public bool isReloading = false;
-    public bool CanShoot = true;
 
-    private float actualCadence;
+    private float fireRateTimer = 0f;
+    private float gunFireRate;
+
+    private bool isPressingFire = false;
+    private bool isShooting = false;
+    
+    private bool isReloading = false;
+    private bool CanShoot = true;
     private bool needToPreHeated = false;
     private float preHeatedTime;
-    private float gainCadence;
-
-    private bool isFire = false;
+    private float gainFireRate;
 
     private void Start()
     {
         playerMovementScript = GetComponent<PlayerMovement>();
-        actualCadence = stats.basicCadence;
-        actualAmo = stats.maxAmo;
-        isReloading = false;
-        CanShoot = true;
-        gainCadence = stats.basicCadence - stats.finalCadence;
+
+        gunFireRate = stats.fireRate;
+        actualAmo = stats.magazineAmmo;
+        gainFireRate = stats.fireRate - stats.finalCadence;
     }
     private void Update()
     {
-        if (isFire && playerMovementScript.isAiming)
-        {
-            if (stats.needPreheated) FireMiniGun();
-
-            GameObject myBullet = Instantiate(bullet, EndOfGun.transform.position, gun.transform.rotation);
-            myBullet.GetComponent<Bullet>().direction = gun.transform.forward;
-            myBullet.GetComponent<Bullet>().speed = stats.bulletSpeed;
-            myBullet.GetComponent<Bullet>().lifeTime = stats.bulletLifeTime;
-            myBullet.GetComponent<Bullet>().damage = stats.bulletDamage;
-            Debug.Log(gun.transform.forward);
-            actualAmo--;
-            StartCoroutine(couldown());
-        }
+        Shoot();
+        Cadence();
     }
 
     public virtual void Fire(InputAction.CallbackContext context)
     {
         if (context.started)
         {
-            isFire = true;
+            isPressingFire = true;
         }
         if (context.canceled)
         {
-            isFire = false;
+            isPressingFire = false;
+        }
+    }
+
+    private void Shoot()
+    {
+        if (isPressingFire && !isShooting && playerMovementScript.isAiming)
+        {
+            //if (stats.needPreheated) FireMiniGun();
+
+            isShooting = true;
+            GameObject myBullet = Instantiate(stats.bullet, firePoint.transform.position, firePoint.transform.rotation);
+            myBullet.GetComponent<Bullet>().direction = firePoint.transform.forward;
+            myBullet.GetComponent<Bullet>().speed = stats.bulletSpeed;
+            myBullet.GetComponent<Bullet>().lifeTime = stats.bulletLifeTime;
+            myBullet.GetComponent<Bullet>().damage = stats.bulletDamage;
+            actualAmo--;
+
+            //StartCoroutine(couldown());
+        }
+    }
+
+    private void Cadence()
+    {
+        if (isShooting)
+        {
+            fireRateTimer += Time.deltaTime;
+            if (fireRateTimer > gunFireRate)
+            {
+                isShooting = false;
+                fireRateTimer = 0;
+            }
         }
     }
 
@@ -71,24 +88,24 @@ public class Weapon : MonoBehaviour
         if (needToPreHeated) preHeatedTime = 0;
         needToPreHeated = false;
         preHeatedTime += Time.deltaTime;
-        if(actualCadence != stats.finalCadence) actualCadence = stats.basicCadence - gainCadence * stats.preheatedCurve.Evaluate(preHeatedTime);
+        if(gunFireRate != stats.finalCadence) gunFireRate = stats.fireRate - gainFireRate * stats.preheatedCurve.Evaluate(preHeatedTime);
 
     }
     public virtual void TryReload()
     {
-        if (actualAmo != stats.maxAmo && !isReloading) StartCoroutine(Reload());
+        if (actualAmo != stats.magazineAmmo && !isReloading) StartCoroutine(Reload());
     }
     public virtual IEnumerator Reload()
     {
         isReloading = true;
         yield return new WaitForSeconds(stats.reloadTime);
-        actualAmo = stats.maxAmo;
+        actualAmo = stats.magazineAmmo;
         isReloading = false;
     }
     public virtual IEnumerator couldown()
     {
         CanShoot = false;
-        yield return new WaitForSeconds(actualCadence);
+        yield return new WaitForSeconds(gunFireRate);
         CanShoot = true;
     }
 }
