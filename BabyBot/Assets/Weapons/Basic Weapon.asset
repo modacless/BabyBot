@@ -13,11 +13,35 @@ MonoBehaviour:
   m_Name: Basic Weapon
   m_EditorClassIdentifier: 
   maxAmo: 1000
-  basicCadence: 0.5
+  basicCadence: 0.4
   reloadTime: 2
   bulletDamage: 10
   bulletLifeTime: 3
   bulletSpeed: 10
-  needPreheated: 0
-  preheatedTime: 0
-  finalCadence: 0
+  needPreheated: 1
+  finalCadence: 0.06
+  timeBeforeNeedPreheated: 2
+  preheatedCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0.5
+      outSlope: 0.5
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 2
+      value: 1
+      inSlope: 0.5
+      outSlope: 0.5
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
