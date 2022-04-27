@@ -94,6 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2285237947502248123}
   - component: {fileID: 2285237947502248127}
+  - component: {fileID: 8767513442285214668}
   - component: {fileID: 2285237947502248124}
   - component: {fileID: 2285237947502248126}
   - component: {fileID: 2285237947502248121}
@@ -140,6 +141,25 @@ MonoBehaviour:
     target: {fileID: 1612465042}
     weight: 1
     radius: 0
+--- !u!114 &8767513442285214668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2285237947502248122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5aaca25aa2343d48b87e910a1bc68b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats: {fileID: 11400000, guid: 4c8a92ea7cae0bb48b46f8fda1649c1a, type: 2}
+  bullet: {fileID: 6753946423046665436, guid: bb7bc961213125745910010d90bea19d, type: 3}
+  EndOfGun: {fileID: 7965003758134101777}
+  gun: {fileID: 8488010076871611191}
+  actualAmo: 1000
+  isReloading: 0
+  CanShoot: 1
 --- !u!114 &2285237947502248124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,7 +233,7 @@ MonoBehaviour:
     m_ActionName: Player/Look[/XInputControllerWindows/rightStick,/Mouse/delta]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8256929627597084640}
+      - m_Target: {fileID: 8767513442285214668}
         m_TargetAssemblyTypeName: Weapon, Assembly-CSharp
         m_MethodName: Fire
         m_Mode: 0
@@ -1436,7 +1456,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8488010076871315223}
   - component: {fileID: 8488010076858015289}
-  - component: {fileID: 8256929627597084640}
   m_Layer: 6
   m_Name: AssaultRifle
   m_TagString: Untagged
@@ -1570,24 +1589,6 @@ SkinnedMeshRenderer:
     m_Center: {x: -34.27955, y: -49.079704, z: 120.48372}
     m_Extent: {x: 95.48148, y: 94.6697, z: 10.629513}
   m_DirtyAABB: 0
---- !u!114 &8256929627597084640
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8488010076871611191}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5aaca25aa2343d48b87e910a1bc68b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stats: {fileID: 11400000, guid: 4c8a92ea7cae0bb48b46f8fda1649c1a, type: 2}
-  bullet: {fileID: 6753946423046665436, guid: bb7bc961213125745910010d90bea19d, type: 3}
-  EndOfGun: {fileID: 7965003758134101777}
-  actualAmo: 1000
-  isReloading: 0
-  CanShoot: 1
 --- !u!1 &8488010076871611193
 GameObject:
   m_ObjectHideFlags: 0

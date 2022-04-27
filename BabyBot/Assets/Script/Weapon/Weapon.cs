@@ -5,7 +5,6 @@ using UnityEngine.InputSystem;
 
 public class Weapon : MonoBehaviour
 {
-
     [Header("References")]
     [SerializeField]
     public ScriptableWeapon stats;
@@ -13,6 +12,10 @@ public class Weapon : MonoBehaviour
     protected GameObject bullet;
     [SerializeField]
     protected GameObject EndOfGun;
+    [SerializeField]
+    protected GameObject gun;
+
+    private PlayerMovement playerMovementScript;
 
     public int actualAmo;
     public bool isReloading = false;
@@ -27,6 +30,7 @@ public class Weapon : MonoBehaviour
 
     private void Start()
     {
+        playerMovementScript = GetComponent<PlayerMovement>();
         actualCadence = stats.basicCadence;
         actualAmo = stats.maxAmo;
         isReloading = false;
@@ -35,16 +39,16 @@ public class Weapon : MonoBehaviour
     }
     private void Update()
     {
-        if (isFire)
+        if (isFire && playerMovementScript.isAiming)
         {
             if (stats.needPreheated) FireMiniGun();
 
-            GameObject myBullet = Instantiate(bullet, EndOfGun.transform.position, transform.parent.transform.rotation);
-            myBullet.GetComponent<Bullet>().direction = transform.parent.transform.forward;
+            GameObject myBullet = Instantiate(bullet, EndOfGun.transform.position, gun.transform.rotation);
+            myBullet.GetComponent<Bullet>().direction = gun.transform.forward;
             myBullet.GetComponent<Bullet>().speed = stats.bulletSpeed;
             myBullet.GetComponent<Bullet>().lifeTime = stats.bulletLifeTime;
             myBullet.GetComponent<Bullet>().damage = stats.bulletDamage;
-            Debug.Log(transform.parent.transform.forward);
+            Debug.Log(gun.transform.forward);
             actualAmo--;
             StartCoroutine(couldown());
         }
@@ -61,6 +65,7 @@ public class Weapon : MonoBehaviour
             isFire = false;
         }
     }
+
     public virtual void FireMiniGun()
     {
         if (needToPreHeated) preHeatedTime = 0;
