@@ -187,7 +187,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5aaca25aa2343d48b87e910a1bc68b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stats: {fileID: 11400000, guid: 4c8a92ea7cae0bb48b46f8fda1649c1a, type: 2}
+  allBulletType:
+  - {fileID: 6753946423046665436, guid: bb7bc961213125745910010d90bea19d, type: 3}
   firePoint: {fileID: 784317568}
   actualAmo: 1000
   sizeBullet: {x: 1, y: 1, z: 1}
@@ -371,6 +372,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2285237947502248123}
     m_Modifications:
+    - target: {fileID: 90392674702330387, guid: bf672f23ef8a31f4a9f5ca7873eff77f,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c33aa9bca50e8f442bc9800a72976ca5, type: 2}
+    - target: {fileID: 252987398633472475, guid: bf672f23ef8a31f4a9f5ca7873eff77f,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c33aa9bca50e8f442bc9800a72976ca5, type: 2}
     - target: {fileID: 1573004411588699406, guid: bf672f23ef8a31f4a9f5ca7873eff77f,
         type: 3}
       propertyPath: m_RootOrder
@@ -446,6 +457,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player_Model
       objectReference: {fileID: 0}
+    - target: {fileID: 2484858732432240096, guid: bf672f23ef8a31f4a9f5ca7873eff77f,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c33aa9bca50e8f442bc9800a72976ca5, type: 2}
+    - target: {fileID: 3716391188680497100, guid: bf672f23ef8a31f4a9f5ca7873eff77f,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c33aa9bca50e8f442bc9800a72976ca5, type: 2}
+    - target: {fileID: 4377487927437662621, guid: bf672f23ef8a31f4a9f5ca7873eff77f,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c33aa9bca50e8f442bc9800a72976ca5, type: 2}
+    - target: {fileID: 8294704863432131019, guid: bf672f23ef8a31f4a9f5ca7873eff77f,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c33aa9bca50e8f442bc9800a72976ca5, type: 2}
+    - target: {fileID: 8580963834009004505, guid: bf672f23ef8a31f4a9f5ca7873eff77f,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c33aa9bca50e8f442bc9800a72976ca5, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf672f23ef8a31f4a9f5ca7873eff77f, type: 3}
 --- !u!95 &7766153959861962837 stripped

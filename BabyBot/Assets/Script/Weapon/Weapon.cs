@@ -7,20 +7,10 @@ public class Weapon : MonoBehaviour
 {
     [Header("References")]
     public GameObject[] allBulletType;
-    private GameObject actualBulletUsed;
-
+    protected GameObject actualBulletUsed;
     [SerializeField]
     protected GameObject firePoint;
-
     private PlayerMovement playerMovementScript;
-
-    public int actualAmo;
-    protected float fireRateTimer = 0f;
-    protected float reloadTimer = 0f;
-
-    protected bool isPressingFire = false;
-    protected bool isShooting = false;
-    protected bool isReloading = false;
 
     //WEAPON DATA
     [SerializeField]
@@ -38,9 +28,22 @@ public class Weapon : MonoBehaviour
     [SerializeField]
     protected int magazineAmmo;
 
+    public int actualAmo;
+    protected float fireRateTimer = 0f;
+    protected float reloadTimer = 0f;
 
-    private void Start()
+    protected bool isPressingFire = false;
+    protected bool isShooting = false;
+    protected bool isReloading = false;
+
+    public bool drawDebug;
+
+    protected int upgradeLevel = 0;
+
+    protected virtual void Start()
     {
+        GetComponent<PlayerInput>().actions["Fire"].started += Fire;
+        GetComponent<PlayerInput>().actions["Fire"].canceled += Fire;
         playerMovementScript = GetComponent<PlayerMovement>();
 
         actualBulletUsed = allBulletType[0];
@@ -49,12 +52,22 @@ public class Weapon : MonoBehaviour
 
         //gainFireRate = stats.fireRate - stats.finalCadence;
     }
-    private void Update()
+    protected virtual void Update()
     {
         TryShoot();
         FireRate();
         Reload();
         AnimationShoot();
+    }
+
+    protected virtual void OnEnable()
+    {
+        drawDebug = true;
+    }
+
+    protected virtual void OnDisable()
+    {
+        drawDebug = false;
     }
 
     public virtual void Fire(InputAction.CallbackContext context)
@@ -75,21 +88,20 @@ public class Weapon : MonoBehaviour
         else playerMovementScript.playerAnimationsScript.Shoot(false);
     }
 
-    private void Shoot()
     protected virtual void Shoot()
     {
         GameObject myBullet = Instantiate(actualBulletUsed, firePoint.transform.position, transform.rotation);
         myBullet.GetComponent<Bullet>().InitBullet(bulletLifeTime, Time.time, bulletSpeed, bulletDamage, transform.forward);
-        Debug.Log(transform.rotation.eulerAngles);
         actualAmo--;
     }
 
-    private void TryShoot()
+    protected void TryShoot()
     {
         if (!isReloading)
         {
             if (isPressingFire && !isShooting && playerMovementScript.isAiming)
             {
+                Debug.Log("Try shoot");
                 isShooting = true;
                 Shoot();
             }
@@ -124,5 +136,39 @@ public class Weapon : MonoBehaviour
             }
         }
     }
+
+    protected void UpgradeWeapon(int upgradeToChose)
+    {
+        switch (upgradeToChose)
+        {
+            case 0:
+                Upgrade1();
+                break;
+            case 1:
+                Upgrade2();
+                break;
+
+            case 2:
+                Upgrade3();
+                break;
+        }
+    }
+
+    protected virtual void Upgrade1()
+    {
+
+    }
+
+    protected virtual void Upgrade2()
+    {
+
+    }
+
+
+    protected virtual void Upgrade3()
+    {
+
+    }
+
 
 }
