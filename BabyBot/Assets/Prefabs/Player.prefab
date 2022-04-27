@@ -136,6 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 7.5
+  isAiming: 0
   targetGroup: {fileID: 0}
   AimTarget:
     target: {fileID: 1612465042}
@@ -154,9 +155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: 4c8a92ea7cae0bb48b46f8fda1649c1a, type: 2}
-  bullet: {fileID: 6753946423046665436, guid: bb7bc961213125745910010d90bea19d, type: 3}
-  EndOfGun: {fileID: 7965003758134101777}
-  gun: {fileID: 8488010076871611191}
+  firePoint: {fileID: 7965003758134101777}
   actualAmo: 1000
   isReloading: 0
   CanShoot: 1
@@ -336,7 +335,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1383259490967708159}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -350,7 +349,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7965003758134101777}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11820, y: 10000, z: 5940}
+  m_LocalPosition: {x: 11849.5, y: 9938.34, z: 5923.2}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
