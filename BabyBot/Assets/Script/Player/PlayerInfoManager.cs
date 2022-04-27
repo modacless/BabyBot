@@ -28,8 +28,8 @@ public class PlayerInfoManager : MonoBehaviour
 
         
         // Have to change this after !!!!!
-        infoPlayer1 = GameObject.FindGameObjectWithTag("Player 1").GetComponent<PlayerInfo>();
-        infoPlayer2 = GameObject.FindGameObjectWithTag("Player 2").GetComponent<PlayerInfo>();
+        //infoPlayer1 = GameObject.FindGameObjectWithTag("Player 1").GetComponent<PlayerInfo>();
+        //infoPlayer2 = GameObject.FindGameObjectWithTag("Player 2").GetComponent<PlayerInfo>();
     }
 
     public void AddPlayerScore(int wichPlayer, float scoreToAdd)
