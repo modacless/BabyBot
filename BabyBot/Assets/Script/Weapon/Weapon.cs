@@ -58,7 +58,19 @@ public class Weapon : MonoBehaviour
     protected bool isShooting = false;
     protected bool isReloading = false;
 
+<<<<<<< HEAD
     public bool drawDebug;
+=======
+    private float actualCadence;
+    private bool needToPreHeated = false;
+//    private bool isLaser = false;
+    private float preHeatedTime;
+    private float gainCadence;
+//    LineRenderer laserLine;
+    public float gunRange = 50f;
+    public float fireRate = 0.2f;
+ //   private float fireTimer;
+>>>>>>> Tim
 
     public List<UpgradeStruct> upgradeStruct;
 
@@ -67,12 +79,21 @@ public class Weapon : MonoBehaviour
         GetComponent<PlayerInput>().actions["Fire"].started += Fire;
         GetComponent<PlayerInput>().actions["Fire"].canceled += Fire;
         playerMovementScript = GetComponent<PlayerMovement>();
+<<<<<<< HEAD
 
         actualBulletUsed = initialBullet;
         actualBulletUsed.transform.localScale = sizeBullet;
         actualAmo = magazineAmmo;
 
         //gainFireRate = stats.fireRate - stats.finalCadence;
+=======
+        actualCadence = stats.basicCadence;
+        actualAmo = stats.maxAmo;
+        isReloading = false;
+        CanShoot = true;
+        gainCadence = stats.basicCadence - stats.finalCadence;
+ //       laserLine = GetComponent<LineRenderer>();
+>>>>>>> Tim
     }
     protected virtual void Update()
     {
@@ -174,8 +195,13 @@ public class Weapon : MonoBehaviour
                 break;
         }
     }
+<<<<<<< HEAD
 
     protected virtual void Upgrade1()
+=======
+  
+    public virtual void TryReload()
+>>>>>>> Tim
     {
         TranslateStructToUpgrade(0);
     }

@@ -330,7 +330,11 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: 9eadb633-f8c8-4eb2-a1fe-69051ecb3569
+<<<<<<< HEAD
     m_ActionName: Player/Upgrade[/XInputControllerWindows/buttonNorth,/XInputControllerWindows1/buttonNorth]
+=======
+    m_ActionName: Player/Upgrade
+>>>>>>> Tim
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: Player
