@@ -51,6 +51,7 @@ MonoBehaviour:
   speed: 0
   damage: 0
   direction: {x: 0, y: 0, z: 0}
+  fromPlayer: {fileID: 0}
   explosion: {fileID: 6753946423046665436, guid: 396afd767e65189449578a677a91b6e5,
     type: 3}
 --- !u!135 &6753946423046665437
@@ -97,17 +98,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: c53f605fae1063840a769adf88cf3e66,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 3.0021133
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c53f605fae1063840a769adf88cf3e66,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 3.6025364
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c53f605fae1063840a769adf88cf3e66,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 3.002114
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c53f605fae1063840a769adf88cf3e66,
         type: 3}
