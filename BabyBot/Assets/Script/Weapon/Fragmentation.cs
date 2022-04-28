@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Fragmentation : Explosion
 {
+    [Header("Spawn Bullets")]
+    public int angleOffsetBulletInstantiated;
+
     [Header("Bullets Parameters")]
     public float bulletLifeTime;
     public float bulletSpeed;
@@ -24,6 +27,23 @@ public class Fragmentation : Explosion
     {
         base.OnDestroy();
 
+        SpawnPattern();
+    }
+
+    private void SpawnPattern()
+    {
+        for (int i = 0; i < instantiatedBulletsOnDead.Count; i++)
+        {
+            int angle = (cercleDivision * i) + angleOffsetBulletInstantiated;
+            Vector3 direction = Quaternion.Euler(0, angle, 0) * transform.forward;
+
+            Instantiate(instantiatedBulletsOnDead[i], transform.position, instantiatedBulletsOnDead[i].transform.rotation);
+            instantiatedBulletsOnDead[i].GetComponent<Bullet>().InitBullet(bulletLifeTime, Time.time, bulletSpeed, bulletDamage, direction);
+        }
+    }
+
+    private void SpawnRandom()
+    {
         for (int i = 0; i < instantiatedBulletsOnDead.Count; i++)
         {
             //int randomAngle = Random.Range(0, 360);
@@ -34,6 +54,4 @@ public class Fragmentation : Explosion
             instantiatedBulletsOnDead[i].GetComponent<Bullet>().InitBullet(bulletLifeTime, Time.time, bulletSpeed, bulletDamage, randomDirection);
         }
     }
-
-    //Add raycast to detect wall on spawn ?
 }
