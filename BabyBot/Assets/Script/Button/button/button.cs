@@ -39,9 +39,22 @@ public class button : MonoBehaviour
     {
         if (context.started)
         {
-            if (canActivate) isActivated = true;
+            if (canActivate)
+            {
+                isActivated = true;
 
-            startTime = Time.time;
+                //Audio
+                AudioManager Audio = AudioManager.AMInstance;
+                Audio.PlaySFX(Audio.levier, Audio.levierVolume, 1);
+                //----
+
+                startTime = Time.time;
+            }
+                
+                
+                
+
+            
         }
     }
 }

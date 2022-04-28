@@ -13,6 +13,11 @@ public class PressurePlate : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isActivated = true;
+
+            //Audio
+            AudioManager Audio = AudioManager.AMInstance;
+            Audio.PlaySFX(Audio.pressurePlate, Audio.pressurePlateVolume, 1);
+            //----
         }
 
     }
