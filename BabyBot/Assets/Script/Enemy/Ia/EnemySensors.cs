@@ -62,6 +62,10 @@ public class EnemySensors : MonoBehaviour
     [SerializeField]
     protected GameObject attackGameObject;
 
+    [Header ("Animator")]
+    [SerializeField]
+    protected Animator selfAnimator;
+
 
     protected virtual void Start()
     {
@@ -217,7 +221,6 @@ public class EnemySensors : MonoBehaviour
         navAgent.isStopped = true;
         rbd.velocity = Vector3.zero;
         StartCoroutine(DeadRoutine());
-
     }
 
     protected virtual IEnumerator DeadRoutine()
