@@ -2287,14 +2287,34 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1769299407, guid: 1a066baa7c0a2ce4d9c7777168ccd11b, type: 3}
+      propertyPath: magazineAmmo
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1769299408, guid: 1a066baa7c0a2ce4d9c7777168ccd11b, type: 3}
+      propertyPath: fireRate
+      value: 0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 1769299408, guid: 1a066baa7c0a2ce4d9c7777168ccd11b, type: 3}
       propertyPath: firePoint
       value: 
       objectReference: {fileID: 1370100110}
+    - target: {fileID: 1769299408, guid: 1a066baa7c0a2ce4d9c7777168ccd11b, type: 3}
+      propertyPath: reloadTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1769299408, guid: 1a066baa7c0a2ce4d9c7777168ccd11b, type: 3}
+      propertyPath: magazineAmmo
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1769299409, guid: 1a066baa7c0a2ce4d9c7777168ccd11b, type: 3}
       propertyPath: firePoint
       value: 
       objectReference: {fileID: 1370100110}
+    - target: {fileID: 1769299409, guid: 1a066baa7c0a2ce4d9c7777168ccd11b, type: 3}
+      propertyPath: magazineAmmo
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2285237947502248122, guid: 1a066baa7c0a2ce4d9c7777168ccd11b,
         type: 3}
       propertyPath: m_Name
@@ -2328,7 +2348,7 @@ PrefabInstance:
     - target: {fileID: 2285237947502248123, guid: 1a066baa7c0a2ce4d9c7777168ccd11b,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.6691226
       objectReference: {fileID: 0}
     - target: {fileID: 2285237947502248123, guid: 1a066baa7c0a2ce4d9c7777168ccd11b,
         type: 3}
@@ -2338,7 +2358,7 @@ PrefabInstance:
     - target: {fileID: 2285237947502248123, guid: 1a066baa7c0a2ce4d9c7777168ccd11b,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0.743152
       objectReference: {fileID: 0}
     - target: {fileID: 2285237947502248123, guid: 1a066baa7c0a2ce4d9c7777168ccd11b,
         type: 3}
@@ -2353,7 +2373,7 @@ PrefabInstance:
     - target: {fileID: 2285237947502248123, guid: 1a066baa7c0a2ce4d9c7777168ccd11b,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 96.001
       objectReference: {fileID: 0}
     - target: {fileID: 2285237947502248123, guid: 1a066baa7c0a2ce4d9c7777168ccd11b,
         type: 3}
@@ -2371,6 +2391,21 @@ PrefabInstance:
       propertyPath: targetGroup
       value: 
       objectReference: {fileID: 544639245}
+    - target: {fileID: 3417727916538437556, guid: 1a066baa7c0a2ce4d9c7777168ccd11b,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8975517033043799684, guid: 1a066baa7c0a2ce4d9c7777168ccd11b,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8975517033043799684, guid: 1a066baa7c0a2ce4d9c7777168ccd11b,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a066baa7c0a2ce4d9c7777168ccd11b, type: 3}
 --- !u!1 &796251472
@@ -4411,6 +4446,26 @@ PrefabInstance:
       propertyPath: actualWeapon
       value: 
       objectReference: {fileID: 2028251939}
+    - target: {fileID: 1769299407, guid: 1a066baa7c0a2ce4d9c7777168ccd11b, type: 3}
+      propertyPath: magazineAmmo
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1769299408, guid: 1a066baa7c0a2ce4d9c7777168ccd11b, type: 3}
+      propertyPath: fireRate
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 1769299408, guid: 1a066baa7c0a2ce4d9c7777168ccd11b, type: 3}
+      propertyPath: reloadTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1769299408, guid: 1a066baa7c0a2ce4d9c7777168ccd11b, type: 3}
+      propertyPath: magazineAmmo
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1769299409, guid: 1a066baa7c0a2ce4d9c7777168ccd11b, type: 3}
+      propertyPath: magazineAmmo
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2285237947502248122, guid: 1a066baa7c0a2ce4d9c7777168ccd11b,
         type: 3}
       propertyPath: m_Name
@@ -4522,6 +4577,21 @@ PrefabInstance:
       propertyPath: targetGroup
       value: 
       objectReference: {fileID: 544639245}
+    - target: {fileID: 3417727916538437556, guid: 1a066baa7c0a2ce4d9c7777168ccd11b,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8975517033043799684, guid: 1a066baa7c0a2ce4d9c7777168ccd11b,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8975517033043799684, guid: 1a066baa7c0a2ce4d9c7777168ccd11b,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a066baa7c0a2ce4d9c7777168ccd11b, type: 3}
 --- !u!4 &1562185636 stripped
@@ -5537,7 +5607,7 @@ PrefabInstance:
     - target: {fileID: 7320229215571266504, guid: 2d9e2570522c9b34e92d9a77ef568bee,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -42.721436
+      value: -42.72168
       objectReference: {fileID: 0}
     - target: {fileID: 7320229215571266504, guid: 2d9e2570522c9b34e92d9a77ef568bee,
         type: 3}
@@ -7206,6 +7276,9 @@ MonoBehaviour:
   bulletLifeTime: 3
   bulletSpeed: 2
   magazineAmmo: 1000
+  _reloadTime: 0
+  actualReloadTime: 0
+  _isReloading: 0
   drawDebug: 0
   upgradeStruct: []
 --- !u!114 &8767513444182099150
@@ -7232,6 +7305,9 @@ MonoBehaviour:
   bulletLifeTime: 3
   bulletSpeed: 15
   magazineAmmo: 50
+  _reloadTime: 0
+  actualReloadTime: 0
+  _isReloading: 0
   drawDebug: 1
   upgradeStruct:
   - sizeBullet: {x: 1, y: 1, z: 1}
@@ -7286,6 +7362,9 @@ MonoBehaviour:
   bulletLifeTime: 3
   bulletSpeed: 15
   magazineAmmo: 1
+  _reloadTime: 0
+  actualReloadTime: 0
+  _isReloading: 0
   drawDebug: 0
   upgradeStruct:
   - sizeBullet: {x: 2, y: 2, z: 2}
