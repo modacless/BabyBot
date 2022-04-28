@@ -84,7 +84,9 @@ public class PlayerInfo : MonoBehaviour
 
     public void DamagePlayer(int damage)
     {
+        
         actualHealth -= damage;
+        Debug.Log(actualHealth);
 
         if (actualHealth <= 0)
         {
