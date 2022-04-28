@@ -6,6 +6,8 @@ public class SpawnManager : MonoBehaviour
 {
     [SerializeField]
     private float timeBeforeRespawn;
+    [SerializeField]
+    private float numberOfEnemyToSpawn;
     private float actualTimeBeforSpawn;
 
     //Tous les objets qui sont
@@ -24,13 +26,19 @@ public class SpawnManager : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        actualTimeBeforSpawn += Time.fixedDeltaTime;
+        actualTimeBeforSpawn += Time.deltaTime;
+        Debug.Log(actualTimeBeforSpawn);
+
         if (actualTimeBeforSpawn >= timeBeforeRespawn)
         {
-            int randomEnemy = Random.Range(0, TypeSpawner.Count);
-            Instantiate(TypeSpawner[randomEnemy]);
-
             actualTimeBeforSpawn = 0;
+
+            for (int i = 0; i < numberOfEnemyToSpawn; i++)
+            {
+                int randomEnemy = Random.Range(0, TypeSpawner.Count);
+                Instantiate(TypeSpawner[randomEnemy], transform.position, transform.rotation);
+            }
+
         }
 
 
