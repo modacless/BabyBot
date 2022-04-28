@@ -1,4 +1,5 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -12,6 +13,9 @@ guid: 571a0e1ee6335274fa246e7b0f05ca0e
 =======
 guid: 3922c7093db8dd343a33074a05342e26
 >>>>>>> Keke
+=======
+guid: 2fe5bfd8a23fbfb449afedb62e97e5ec
+>>>>>>> Stashed changes
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
