@@ -53,9 +53,10 @@ public class Weapon : MonoBehaviour
     [SerializeField]
     protected float bulletSpeed;
     [SerializeField]
-    protected int magazineAmmo;
+    public float magazineAmmo;
 
-    protected int actualAmo;
+    
+    [HideInInspector]public float actualAmo;
     protected float fireRateTimer = 0f;
     protected float reloadTimer = 0f;
 
