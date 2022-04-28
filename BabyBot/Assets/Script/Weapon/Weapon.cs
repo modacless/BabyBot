@@ -120,7 +120,7 @@ public class Weapon : MonoBehaviour
 
     protected virtual void Shoot()
     {
-        GameObject myBullet = Instantiate(actualBulletUsed, firePoint.transform.position, transform.rotation);
+        GameObject myBullet = Instantiate(actualBulletUsed, firePoint.transform.position, transform.rotation * Quaternion.Euler(0,-90,0));
         myBullet.GetComponent<Bullet>().InitBullet(bulletLifeTime, Time.time, bulletSpeed, bulletDamage, transform.forward,this.gameObject);
         actualAmo--;
 

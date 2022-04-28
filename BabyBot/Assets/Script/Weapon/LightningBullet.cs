@@ -67,6 +67,7 @@ public class LightningBullet : PiercingBullet
                 SecondBullet.SetActive(true);
                 distanceBetweenTarget = Vector3.Distance(transform.position, SecondBullet.transform.position);
                 tuchEnemy++;
+                SecondBullet.transform.position = (secondBulletTarget.transform.position - SecondBullet.transform.position)/2;
                 MoveToNextTarget();
                 collider.GetComponent<EnemySensors>().TakeDamage(damage, fromPlayer);
 
