@@ -8,15 +8,15 @@ public class PlayerInfo : MonoBehaviour
     #region Variable
 
     [Header("Player Stats")]
-    public float startHealh;
     public float maxHp;
+    public float respawnTime;
     
     [Header("Score Need For Upgrade")]
     public float[] eachScoreNeedForUpgrade;
     [HideInInspector]public float scoreNeedForNextUpgrade;
 
-    public float actualTotalScore;
-    [HideInInspector]public float actualHealth;
+    [HideInInspector] public float actualTotalScore;
+    [HideInInspector] public float actualHealth;
 
     [HideInInspector]public float actualScoreUpgrade;
 
@@ -30,18 +30,23 @@ public class PlayerInfo : MonoBehaviour
     public GameObject[] firePoints;
     [HideInInspector] public int choosenWeapon;
 
+    private PlayerMovement playerMovementScript;
+    private CapsuleCollider colliderSelf;
+
     #endregion
 
     private void Start()
     {
         Init();
         //DisplayWeaponModel(false, 0);
+        playerMovementScript = GetComponent<PlayerMovement>();
+        colliderSelf = GetComponent<CapsuleCollider>();
 
     }
     private void Init()
     {
         scoreNeedForNextUpgrade = eachScoreNeedForUpgrade[0];
-        actualHealth = startHealh;
+        actualHealth = maxHp;
     }
 
 
@@ -109,8 +114,6 @@ public class PlayerInfo : MonoBehaviour
     {
         
         actualHealth -= damage;
-        Debug.Log(actualHealth);
-
         if (actualHealth <= 0)
         {
             Die();
@@ -118,8 +121,23 @@ public class PlayerInfo : MonoBehaviour
     }
     private void Die()
     {
-        Debug.Log("Player Dead");
+        StartCoroutine(Respawn());
     }
 
+    IEnumerator Respawn()
+    {
+        actualWeapon.enabled = false;
+        playerMovementScript.enabled = false;
+        colliderSelf.isTrigger = true;
+        transform.GetChild(0).gameObject.SetActive(false);
 
+        yield return new WaitForSeconds(respawnTime);
+
+        actualWeapon.enabled = true;
+        playerMovementScript.enabled = true;
+        colliderSelf.isTrigger = false;
+        transform.GetChild(0).gameObject.SetActive(true);
+
+        actualHealth = maxHp;
+    }
 }
