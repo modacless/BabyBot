@@ -1,27 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class button : MonoBehaviour
 {
 
     public float stayActiveTime;
+    private bool canActivate = false;
     public bool isActivated = false;
-    public Material InitialMat;
-    public Material usingMat;
 
     [HideInInspector]
     public bool stayActive = false;
     private float startTime;
 
     //public void OnTriggerStay(Collider other)
-    public void OnTriggerEnter(Collider other)
+    public void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            isActivated = true;
-            transform.GetComponent<MeshRenderer>().materials[0] = usingMat;
-            startTime = Time.time;
+            canActivate = true;
         }
 
     }
@@ -33,8 +31,17 @@ public class button : MonoBehaviour
             if (Time.time > startTime + stayActiveTime)
             {
                 isActivated = false;
-                transform.GetComponent<MeshRenderer>().materials[0] = InitialMat;
             }
+        }
+    }
+
+    public void Validate(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            if (canActivate) isActivated = true;
+
+            startTime = Time.time;
         }
     }
 }

@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class DoubleButton : MonoBehaviour
 {
-    public UnityEventQueueSystem evenement;
     public button firstButton;
     public button secondButton;
     public bool twiceIsActive;
+    public UnityEvent evenement;
 
     void Update()
     {
@@ -15,6 +16,13 @@ public class DoubleButton : MonoBehaviour
         {
             firstButton.stayActive = true;
             secondButton.stayActive = true;
+            evenement.Invoke();
         }
+    }
+
+    public void destructButtons()
+    {
+        Destroy(firstButton.transform.gameObject);
+        Destroy(secondButton.transform.gameObject);
     }
 }
