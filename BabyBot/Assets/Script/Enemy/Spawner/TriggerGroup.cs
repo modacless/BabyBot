@@ -4,19 +4,43 @@ using UnityEngine;
 
 public class TriggerGroup : MonoBehaviour
 {
-    public GameObject[] enemyRemaining;
-    public GameObject[] enemyToSpawn;
-    public TriggerGroup triggerToCheck;
+    #region Variable
 
-    public bool canSpawn;
+    [Header ("For solo enemy")]
+    public GameObject[] enemyRemaining;
+    [Header ("For a group")]
+    public TriggerGroup[] triggerToCheck;
+
+    private List<GameObject> enemyToSpawn = new List<GameObject>();
+    [Space]
+    [SerializeField]private bool stay;
+
+    [HideInInspector]public bool canSpawn;
+    [HideInInspector] public bool allDead;
     private bool haveSpawn;
 
+    private bool lockEnemyRemainingCheck;
+
+    #endregion
 
     private void Start()
     {
-        foreach (GameObject enemy in enemyToSpawn)
+        for (int i = 0; i < transform.childCount; i++)
         {
-            enemy.SetActive(false);
+            enemyToSpawn.Add(transform.GetChild(i).gameObject);
+        }
+
+        if (stay == false)
+        {
+            foreach (GameObject enemy in enemyToSpawn)
+            {
+                enemy.SetActive(false);
+            }
+        }
+
+        if (enemyRemaining.Length == 0)
+        {
+            lockEnemyRemainingCheck = true;
         }
     }
 
@@ -45,14 +69,39 @@ public class TriggerGroup : MonoBehaviour
 
     private void CheckIfCanSpawn()
     {
-        if (enemyRemaining.Length == 0)
+        // Check if all enemy of this group are dead
+        if (gameObject.transform.childCount == 0)
         {
-            canSpawn = true;
+            allDead = true;
         }
-        
-        if (triggerToCheck.canSpawn)
+
+        // Check if enemy in the list are dead
+        if (lockEnemyRemainingCheck == false)
         {
-            canSpawn = true;
+            if (enemyRemaining.Length == 0)
+            {
+                canSpawn = true;
+            }
+        }
+
+
+        // Check if other group are dead
+        if (triggerToCheck.Length > 0)
+        {
+            int numOfDone = 0;
+
+            for (int i = 0; i < triggerToCheck.Length; i++)
+            {
+                if (triggerToCheck[i].allDead == true)
+                {
+                    numOfDone += 1;
+                }
+            }
+
+            if (numOfDone == triggerToCheck.Length)
+            {
+                canSpawn = true;
+            }
         }
     }
 
