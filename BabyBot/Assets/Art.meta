@@ -1,5 +1,9 @@
 fileFormatVersion: 2
 <<<<<<< HEAD
+guid: 2634f6719414a024d98693ef8a3bc5fc
+=======
+<<<<<<< Updated upstream
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 guid: 8053af65299f6644d9cedd1d7b2e8192
@@ -12,6 +16,10 @@ guid: 571a0e1ee6335274fa246e7b0f05ca0e
 =======
 guid: 3922c7093db8dd343a33074a05342e26
 >>>>>>> Keke
+=======
+guid: 2fe5bfd8a23fbfb449afedb62e97e5ec
+>>>>>>> Stashed changes
+>>>>>>> Théod
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
