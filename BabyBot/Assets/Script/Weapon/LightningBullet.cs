@@ -85,7 +85,7 @@ public class LightningBullet : PiercingBullet
 
     private IEnumerator ExtendCollider()
     {
-        GetComponent<MeshRenderer>().enabled = false;
+        GetComponent<SphereCollider>().enabled = false;
         while(mainBulletCollider.radius < maxSizeColider)
         {
             mainBulletCollider.radius += sizePerSecond * Time.fixedDeltaTime;
