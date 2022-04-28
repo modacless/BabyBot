@@ -18,7 +18,8 @@ public class SharkBullet : Bullet
             RaycastHit hit;
             if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down) * 10f, out hit, layerRaycast))
             {
-                Instantiate(lightSaber, new Vector3(transform.position.x, hit.transform.position.y + offsetYSpawn, transform.position.z), lightSaber.transform.rotation);
+                GameObject lightSaberInstance = Instantiate(lightSaber, new Vector3(transform.position.x, hit.transform.position.y + offsetYSpawn, transform.position.z), lightSaber.transform.rotation);
+                lightSaberInstance.GetComponent<Bullet>().InitBullet(0, 0, 0, 0, Vector3.zero, fromPlayer);
             }
         } 
     }
@@ -27,7 +28,7 @@ public class SharkBullet : Bullet
     {
         if (collider.tag == "Enemy")
         {
-            collider.GetComponent<EnemySensors>().TakeDamage((int)damage);
+            collider.GetComponent<EnemySensors>().TakeDamage(damage, fromPlayer);
         }
         if (collider.tag != ("Bullet") && collider.tag != ("Enemy")) Destroy(gameObject);
     }

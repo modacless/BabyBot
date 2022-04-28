@@ -264,6 +264,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3978170635185077613}
     m_Modifications:
+    - target: {fileID: 8062626562680711679, guid: 9e1afcc6f11730042b0424d5f2e4dead,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8062626562766139990, guid: 9e1afcc6f11730042b0424d5f2e4dead,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8062626564028013636, guid: 9e1afcc6f11730042b0424d5f2e4dead,
+        type: 3}
+      propertyPath: lengthInSec
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8062626564028013636, guid: 9e1afcc6f11730042b0424d5f2e4dead,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8062626564028013637, guid: 9e1afcc6f11730042b0424d5f2e4dead,
         type: 3}
       propertyPath: m_RootOrder
@@ -328,6 +348,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8062626564113392092, guid: 9e1afcc6f11730042b0424d5f2e4dead,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e1afcc6f11730042b0424d5f2e4dead, type: 3}

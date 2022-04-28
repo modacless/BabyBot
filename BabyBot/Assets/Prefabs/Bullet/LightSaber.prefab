@@ -47,9 +47,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 469f1de784745864cb928a1eb18abce9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turnSpeed: 500
   lifeTime: 5
+  speed: 0
   damage: 5
+  direction: {x: 0, y: 0, z: 0}
+  turnSpeed: 500
+  lifeTimeLightSaber: 5
+  damageLightSaber: 10
 --- !u!33 &1921019039239382549
 MeshFilter:
   m_ObjectHideFlags: 0

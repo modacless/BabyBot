@@ -231,6 +231,9 @@ public class EnemySensors : MonoBehaviour
         StartCoroutine(DeadRoutine());
 
         navAgent.isStopped = true;
+        navAgent.velocity = Vector3.zero;
+        navAgent.angularSpeed = 0;
+
         rbd.velocity = Vector3.zero;
         selfHitBox.enabled = false;
 
@@ -244,23 +247,41 @@ public class EnemySensors : MonoBehaviour
         Destroy(this.gameObject);
     }
 
-    /*private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision collision)
     {
         if(collision.collider.tag == "Bullet")
         {
             Bullet bulletLogic = collision.collider.GetComponent<Bullet>();
             if (bulletLogic)
             {
-                TakeDamage((int)bulletLogic.damage);
+               
+                if(lifePoint <= 0)
+                {
+                   
+                }
             }
         }
-    }*/
+    }
+
+    public virtual void TakeDamage(float damage,GameObject fromPlayer)
+    {
+        lifePoint -= damage;
+        if (lifePoint <= 0)
+        {
+            PlayerInfoManager.instance.AddPlayerScore(fromPlayer.GetComponent<PlayerInfo>(), 10f);
+            isDead = true;
+        }
+    }
 
     public virtual void TakeDamage(float damage)
     {
         lifePoint -= damage;
+        if (lifePoint <= 0)
+        {
+            isDead = true;
+        }
     }
 
-    
+
 
 }

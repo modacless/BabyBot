@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1919753233494372514}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.17, y: 1.2, z: 12.29}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -157,6 +157,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1919753233494372518}
     m_Modifications:
+    - target: {fileID: 5821869388584636998, guid: e92fae89ca04d3e4f9385722f599f5fe,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5821869388599740911, guid: e92fae89ca04d3e4f9385722f599f5fe,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5821869389938173443, guid: e92fae89ca04d3e4f9385722f599f5fe,
         type: 3}
       propertyPath: m_Name
@@ -221,6 +231,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5821869389938173949, guid: e92fae89ca04d3e4f9385722f599f5fe,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5821869389953358437, guid: e92fae89ca04d3e4f9385722f599f5fe,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e92fae89ca04d3e4f9385722f599f5fe, type: 3}

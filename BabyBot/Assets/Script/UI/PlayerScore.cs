@@ -8,7 +8,7 @@ public class PlayerScore : MonoBehaviour
     #region Variable 
 
     [Header("Wich player score to display")]
-    public int wichPlayer;
+    public PlayerInfo wichPlayer;
 
     [Header ("Player 1")]
     public Color colorPlayer1;
@@ -28,10 +28,11 @@ public class PlayerScore : MonoBehaviour
     private void Start()
     {
         SetupPlayer();
+        playerInfo = wichPlayer;
     }
     private void SetupPlayer()
     {
-        if (wichPlayer == 1)
+        /*if (wichPlayer == 1)
         {
             playerInfo = PlayerInfoManager.instance.infoPlayer1;
             colorToUse = colorPlayer1;
@@ -42,7 +43,7 @@ public class PlayerScore : MonoBehaviour
             playerInfo = PlayerInfoManager.instance.infoPlayer2;
             colorToUse = colorPlayer2;
             fillImage.color = colorToUse;
-        }
+        }*/
     }
 
 

@@ -14,9 +14,8 @@ public class WeaponMachineGun : Weapon
         float randomAngle = Random.Range(-fireAngle, fireAngle);
         Vector3 randomFire = Quaternion.Euler(0, randomAngle, 0) * transform.forward;
         GameObject myBullet = Instantiate(actualBulletUsed, firePoint.transform.position, transform.rotation);
-        myBullet.GetComponent<Bullet>().InitBullet(bulletLifeTime, Time.time, bulletSpeed, bulletDamage, randomFire);
+        myBullet.GetComponent<Bullet>().InitBullet(bulletLifeTime, Time.time, bulletSpeed, bulletDamage, randomFire,this.gameObject);
         actualAmo--;
-        Upgrade3();
     }
 
     private void OnDrawGizmos()

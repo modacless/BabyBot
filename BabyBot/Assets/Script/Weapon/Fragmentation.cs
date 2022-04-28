@@ -39,7 +39,7 @@ public class Fragmentation : Explosion
             Vector3 direction = Quaternion.Euler(0, angle, 0) * transform.forward;
 
             Instantiate(instantiatedBulletsOnDead[i], transform.position, instantiatedBulletsOnDead[i].transform.rotation);
-            instantiatedBulletsOnDead[i].GetComponent<SharkBullet>().InitBullet(bulletLifeTime, Time.time, bulletSpeed, bulletDamage, direction);
+            instantiatedBulletsOnDead[i].GetComponent<SharkBullet>().InitBullet(bulletLifeTime, Time.time, bulletSpeed, bulletDamage, direction, fromPlayer);
             if (instantiateLightSaber) instantiatedBulletsOnDead[i].GetComponent<SharkBullet>().instantiateLightSaber = true;
             else instantiatedBulletsOnDead[i].GetComponent<SharkBullet>().instantiateLightSaber = false;
         }
@@ -54,7 +54,7 @@ public class Fragmentation : Explosion
             Vector3 randomDirection = Quaternion.Euler(0, randomAngle, 0) * transform.forward;
 
             Instantiate(instantiatedBulletsOnDead[i], transform.position, instantiatedBulletsOnDead[i].transform.rotation);
-            instantiatedBulletsOnDead[i].GetComponent<SharkBullet>().InitBullet(bulletLifeTime, Time.time, bulletSpeed, bulletDamage, randomDirection);
+            instantiatedBulletsOnDead[i].GetComponent<SharkBullet>().InitBullet(bulletLifeTime, Time.time, bulletSpeed, bulletDamage, randomDirection, fromPlayer);
             if (instantiateLightSaber) instantiatedBulletsOnDead[i].GetComponent<SharkBullet>().instantiateLightSaber = true;
         }
     }

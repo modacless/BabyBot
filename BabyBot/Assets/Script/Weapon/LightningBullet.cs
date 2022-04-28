@@ -52,7 +52,7 @@ public class LightningBullet : PiercingBullet
         {
             if (collider.tag == "Enemy")
             {
-                collider.GetComponent<EnemySensors>().TakeDamage((int)damage);
+                collider.GetComponent<EnemySensors>().TakeDamage(damage, fromPlayer);
             }
 
             if (collider.tag != ("Bullet") && collider.tag != "Enemy")
@@ -68,9 +68,8 @@ public class LightningBullet : PiercingBullet
                 distanceBetweenTarget = Vector3.Distance(transform.position, SecondBullet.transform.position);
                 tuchEnemy++;
                 MoveToNextTarget();
-                collider.GetComponent<EnemySensors>().TakeDamage((int)(damage));
-                Debug.Log(tuchEnemy + " " + SecondBullet.transform.position);
-                Debug.Log(collider.GetComponent<EnemySensors>().lifePoint);
+                collider.GetComponent<EnemySensors>().TakeDamage(damage, fromPlayer);
+
             }
         }
 
@@ -78,7 +77,6 @@ public class LightningBullet : PiercingBullet
 
     protected override void DestroyBullet()
     {
-        Debug.Log("Destroy");
         mainBulletDie = true;
         speed = 0;
         StartCoroutine(ExtendCollider());

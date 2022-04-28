@@ -6,8 +6,9 @@ public class ExplosionBullet : Bullet
 {
     public GameObject explosion;
 
-    private void OnDestroy()
+    protected override void OnDestroy()
     {
-        Instantiate(explosion, transform.position, explosion.transform.rotation);
+        GameObject explos = Instantiate(explosion, transform.position, explosion.transform.rotation);
+        explos.GetComponent<Bullet>().InitBullet(0, 0, 0, 0, Vector3.zero, fromPlayer);
     }
 }

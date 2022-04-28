@@ -48,9 +48,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fb4c750dd296d64aa1bacdc606ec8bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lifeTime: 0
+  speed: 0
+  damage: 5
+  direction: {x: 0, y: 0, z: 0}
   explosionCercleRange: {x: 10, y: 10, z: 10}
   timeBeforeExplose: 0.25
-  damage: 5
+  explosionDamage: 10
 --- !u!33 &6753946423046665435
 MeshFilter:
   m_ObjectHideFlags: 0

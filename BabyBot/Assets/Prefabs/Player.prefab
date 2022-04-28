@@ -125,19 +125,21 @@ GameObject:
   m_Component:
   - component: {fileID: 2285237947502248123}
   - component: {fileID: 2285237947502248127}
-  - component: {fileID: 8767513442285214668}
   - component: {fileID: 2285237947502248124}
   - component: {fileID: 2285237947502248126}
   - component: {fileID: 2285237947502248121}
   - component: {fileID: 2285237947502248120}
   - component: {fileID: -6299509833393178366}
+  - component: {fileID: 1769299409}
+  - component: {fileID: 1769299408}
+  - component: {fileID: 1769299407}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2285237947502248123
 Transform:
   m_ObjectHideFlags: 0
@@ -176,29 +178,6 @@ MonoBehaviour:
     target: {fileID: 1612465042}
     weight: 1
     radius: 0
---- !u!114 &8767513442285214668
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2285237947502248122}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5aaca25aa2343d48b87e910a1bc68b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  initialBullet: {fileID: 0}
-  firePoint: {fileID: 784317568}
-  sizeBullet: {x: 1, y: 1, z: 1}
-  reloadTime: 2
-  fireRate: 0.4
-  bulletDamage: 10
-  bulletLifeTime: 3
-  bulletSpeed: 2
-  magazineAmmo: 1000
-  drawDebug: 0
-  upgradeStruct: []
 --- !u!114 &2285237947502248124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -273,7 +252,7 @@ MonoBehaviour:
     m_ActionName: Player/Look[/XInputControllerWindows/rightStick,/Mouse/delta]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8767513442285214668}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Weapon, Assembly-CSharp
         m_MethodName: Fire
         m_Mode: 0
@@ -381,7 +360,6 @@ MonoBehaviour:
   startHealh: 5
   maxHp: 5
   eachScoreNeedForUpgrade:
-  - 5
   - 10
   - 20
   - 40
@@ -391,6 +369,138 @@ MonoBehaviour:
   actualHealth: 0
   actualScoreUpgrade: 0
   numberOfUpgrade: 0
+  actualWeapon: {fileID: 0}
+  allWeapon:
+  - {fileID: 1769299409}
+  - {fileID: 1769299408}
+  choosenWeapon: 0
+--- !u!114 &1769299409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2285237947502248122}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cfa7ac7add58f242b15bf3e4170ed2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialBullet: {fileID: 6753946423046665436, guid: bb7bc961213125745910010d90bea19d,
+    type: 3}
+  firePoint: {fileID: 0}
+  sizeBullet: {x: 1, y: 1, z: 1}
+  reloadTime: 2
+  fireRate: 0.09
+  bulletDamage: 7
+  bulletLifeTime: 3
+  bulletSpeed: 15
+  magazineAmmo: 50
+  drawDebug: 1
+  upgradeStruct:
+  - sizeBullet: {x: 1, y: 1, z: 1}
+    reloadTime: 2
+    fireRate: 0.06
+    bulletDamage: 10
+    bulletLifeTime: 3
+    bulletSpeed: 15
+    magazineAmmo: 75
+    actualBulletUsed: {fileID: 6753946423046665436, guid: bb7bc961213125745910010d90bea19d,
+      type: 3}
+  - sizeBullet: {x: 1, y: 1, z: 1}
+    reloadTime: 2
+    fireRate: 0.06
+    bulletDamage: 10
+    bulletLifeTime: 3
+    bulletSpeed: 15
+    magazineAmmo: 75
+    actualBulletUsed: {fileID: 6753946423046665436, guid: d08a9e61d178f55459c9bb0d3a00e80f,
+      type: 3}
+  - sizeBullet: {x: 1, y: 1, z: 1}
+    reloadTime: 2
+    fireRate: 0.06
+    bulletDamage: 10
+    bulletLifeTime: 3
+    bulletSpeed: 15
+    magazineAmmo: 75
+    actualBulletUsed: {fileID: 6753946423046665436, guid: 0735066ec6613674497a9cbe7734abd9,
+      type: 3}
+  fireAngle: 10
+--- !u!114 &1769299408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2285237947502248122}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5a436806314da54e82befc6bb52eef8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialBullet: {fileID: 6753946423046665436, guid: b9f8b856256532144966dc7aa974ec9b,
+    type: 3}
+  firePoint: {fileID: 0}
+  sizeBullet: {x: 2, y: 2, z: 2}
+  reloadTime: 0
+  fireRate: 1
+  bulletDamage: 1
+  bulletLifeTime: 3
+  bulletSpeed: 15
+  magazineAmmo: 1
+  drawDebug: 0
+  upgradeStruct:
+  - sizeBullet: {x: 2, y: 2, z: 2}
+    reloadTime: 0
+    fireRate: 1
+    bulletDamage: 1
+    bulletLifeTime: 3
+    bulletSpeed: 15
+    magazineAmmo: 1
+    actualBulletUsed: {fileID: 6753946423046665436, guid: a14bdda9006552348b114c5d2d0782a8,
+      type: 3}
+  - sizeBullet: {x: 2, y: 2, z: 2}
+    reloadTime: 0
+    fireRate: 1
+    bulletDamage: 1
+    bulletLifeTime: 3
+    bulletSpeed: 15
+    magazineAmmo: 1
+    actualBulletUsed: {fileID: 6753946423046665436, guid: f6f0448e4e7936348b43b667b6c8c6a8,
+      type: 3}
+  - sizeBullet: {x: 2, y: 2, z: 2}
+    reloadTime: 0
+    fireRate: 1
+    bulletDamage: 1
+    bulletLifeTime: 3
+    bulletSpeed: 15
+    magazineAmmo: 1
+    actualBulletUsed: {fileID: 6753946423046665436, guid: b9f8b856256532144966dc7aa974ec9b,
+      type: 3}
+--- !u!114 &1769299407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2285237947502248122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f13a415796b83e49bec6d584d0c0cdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialBullet: {fileID: 6753946423046665436, guid: bb7bc961213125745910010d90bea19d,
+    type: 3}
+  firePoint: {fileID: 0}
+  sizeBullet: {x: 1, y: 1, z: 1}
+  reloadTime: 4
+  fireRate: 0.4
+  bulletDamage: 10
+  bulletLifeTime: 3
+  bulletSpeed: 2
+  magazineAmmo: 1000
+  drawDebug: 0
+  upgradeStruct: []
 --- !u!1001 &8761820908973214391
 PrefabInstance:
   m_ObjectHideFlags: 0

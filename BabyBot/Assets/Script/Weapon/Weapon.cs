@@ -113,7 +113,7 @@ public class Weapon : MonoBehaviour
     protected virtual void Shoot()
     {
         GameObject myBullet = Instantiate(actualBulletUsed, firePoint.transform.position, transform.rotation);
-        myBullet.GetComponent<Bullet>().InitBullet(bulletLifeTime, Time.time, bulletSpeed, bulletDamage, transform.forward);
+        myBullet.GetComponent<Bullet>().InitBullet(bulletLifeTime, Time.time, bulletSpeed, bulletDamage, transform.forward,this.gameObject);
         actualAmo--;
     }
 
@@ -158,7 +158,7 @@ public class Weapon : MonoBehaviour
         }
     }
 
-    protected void UpgradeWeapon(int upgradeToChose)
+    public void UpgradeWeapon(int upgradeToChose)
     {
         switch (upgradeToChose)
         {
