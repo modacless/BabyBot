@@ -150,6 +150,7 @@ MonoBehaviour:
   selfAnimator: {fileID: 7686976225397117981}
   deadthParticleSysteme: {fileID: 9157744632877540443}
   selfMesh: {fileID: 410753635420073342}
+  pointEnemy: 10
 --- !u!1001 &961810733085182496
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -2123,6 +2123,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8238270646372484025, guid: 385e0934c5de0b940ba91cb40a7a36d0,
+        type: 3}
+      propertyPath: wichPlayer
+      value: 
+      objectReference: {fileID: 1769299410}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 385e0934c5de0b940ba91cb40a7a36d0, type: 3}
 --- !u!224 &712084993 stripped
@@ -2269,13 +2274,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6299509833393178366, guid: 1a066baa7c0a2ce4d9c7777168ccd11b,
+        type: 3}
+      propertyPath: actualWeapon
+      value: 
+      objectReference: {fileID: 1769299411}
     - target: {fileID: 1769299407, guid: 1a066baa7c0a2ce4d9c7777168ccd11b, type: 3}
       propertyPath: firePoint
       value: 
       objectReference: {fileID: 1370100110}
     - target: {fileID: 1769299407, guid: 1a066baa7c0a2ce4d9c7777168ccd11b, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1769299408, guid: 1a066baa7c0a2ce4d9c7777168ccd11b, type: 3}
       propertyPath: firePoint
@@ -4258,48 +4268,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1769299407, guid: 1a066baa7c0a2ce4d9c7777168ccd11b, type: 3}
-      propertyPath: firePoint
-      value: 
-      objectReference: {fileID: 1864545098}
-    - target: {fileID: 1769299407, guid: 1a066baa7c0a2ce4d9c7777168ccd11b, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1769299408, guid: 1a066baa7c0a2ce4d9c7777168ccd11b, type: 3}
-      propertyPath: firePoint
-      value: 
-      objectReference: {fileID: 1864545098}
-    - target: {fileID: 1769299408, guid: 1a066baa7c0a2ce4d9c7777168ccd11b, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1769299408, guid: 1a066baa7c0a2ce4d9c7777168ccd11b, type: 3}
-      propertyPath: bulletDamage
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 1769299408, guid: 1a066baa7c0a2ce4d9c7777168ccd11b, type: 3}
-      propertyPath: initialBullet
-      value: 
-      objectReference: {fileID: 6753946423046665436, guid: bb7bc961213125745910010d90bea19d,
+    - target: {fileID: -6299509833393178366, guid: 1a066baa7c0a2ce4d9c7777168ccd11b,
         type: 3}
-    - target: {fileID: 1769299409, guid: 1a066baa7c0a2ce4d9c7777168ccd11b, type: 3}
-      propertyPath: firePoint
+      propertyPath: actualWeapon
       value: 
-      objectReference: {fileID: 1864545098}
-    - target: {fileID: 1769299409, guid: 1a066baa7c0a2ce4d9c7777168ccd11b, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2028251939}
     - target: {fileID: 2285237947502248122, guid: 1a066baa7c0a2ce4d9c7777168ccd11b,
         type: 3}
       propertyPath: m_Name
       value: Player (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 2285237947502248122, guid: 1a066baa7c0a2ce4d9c7777168ccd11b,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2285237947502248123, guid: 1a066baa7c0a2ce4d9c7777168ccd11b,
         type: 3}
@@ -4358,10 +4335,50 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2285237947502248126, guid: 1a066baa7c0a2ce4d9c7777168ccd11b,
         type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2285237947502248126, guid: 1a066baa7c0a2ce4d9c7777168ccd11b,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[13].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2285237947502248126, guid: 1a066baa7c0a2ce4d9c7777168ccd11b,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[13].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2285237947502248126, guid: 1a066baa7c0a2ce4d9c7777168ccd11b,
+        type: 3}
       propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 8767513442285214668, guid: 1a066baa7c0a2ce4d9c7777168ccd11b,
         type: 3}
+    - target: {fileID: 2285237947502248126, guid: 1a066baa7c0a2ce4d9c7777168ccd11b,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[13].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1600306382}
+    - target: {fileID: 2285237947502248126, guid: 1a066baa7c0a2ce4d9c7777168ccd11b,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[13].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2285237947502248126, guid: 1a066baa7c0a2ce4d9c7777168ccd11b,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[13].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TriggerWeaponUpgrade
+      objectReference: {fileID: 0}
+    - target: {fileID: 2285237947502248126, guid: 1a066baa7c0a2ce4d9c7777168ccd11b,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[13].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerInfo, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2285237947502248126, guid: 1a066baa7c0a2ce4d9c7777168ccd11b,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[13].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 2285237947502248127, guid: 1a066baa7c0a2ce4d9c7777168ccd11b,
         type: 3}
       propertyPath: targetGroup
@@ -4851,6 +4868,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bacede3b3ad5ec646bb2733d14d87517, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1769299411 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1769299407, guid: 1a066baa7c0a2ce4d9c7777168ccd11b,
+    type: 3}
+  m_PrefabInstance: {fileID: 793079610}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f13a415796b83e49bec6d584d0c0cdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1788010894
 GameObject:
   m_ObjectHideFlags: 0
@@ -5063,12 +5092,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 771aa5c5b4fc5824e9d5859d7876fe1f, type: 3}
---- !u!1 &1864545098 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 784317568, guid: 1a066baa7c0a2ce4d9c7777168ccd11b,
-    type: 3}
-  m_PrefabInstance: {fileID: 1562185635}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1870211811
 GameObject:
   m_ObjectHideFlags: 0
@@ -5173,6 +5196,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 420375374}
     m_Modifications:
+    - target: {fileID: 5766315475988244354, guid: 2d9e2570522c9b34e92d9a77ef568bee,
+        type: 3}
+      propertyPath: wichPlayer
+      value: 
+      objectReference: {fileID: 1600306382}
     - target: {fileID: 7320229213787818036, guid: 2d9e2570522c9b34e92d9a77ef568bee,
         type: 3}
       propertyPath: m_text
@@ -5804,6 +5832,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2001364453}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2028251939 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1769299407, guid: 1a066baa7c0a2ce4d9c7777168ccd11b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1562185635}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f13a415796b83e49bec6d584d0c0cdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2056936735
 GameObject:
   m_ObjectHideFlags: 0

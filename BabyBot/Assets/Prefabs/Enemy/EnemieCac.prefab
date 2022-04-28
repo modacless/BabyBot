@@ -119,6 +119,7 @@ MonoBehaviour:
   selfAnimator: {fileID: 8063837642240296628}
   deadthParticleSysteme: {fileID: 7888441424305394543}
   selfMesh: {fileID: 9126507840145640559}
+  pointEnemy: 10
 --- !u!1 &1919753233563527806
 GameObject:
   m_ObjectHideFlags: 0

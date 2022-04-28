@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2285237947502248123
 Transform:
   m_ObjectHideFlags: 0
@@ -251,19 +251,7 @@ MonoBehaviour:
     m_ActionId: 9ccbfaab-75aa-4eed-9b49-65cac73594d7
     m_ActionName: Player/Look[/XInputControllerWindows/rightStick,/Mouse/delta]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Weapon, Assembly-CSharp
-        m_MethodName: Fire
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: decc019f-ae77-41eb-b119-5f1fa15d8977
     m_ActionName: Player/Fire[/XInputControllerWindows/rightTrigger,/Mouse/leftButton]
   - m_PersistentCalls:
@@ -307,7 +295,19 @@ MonoBehaviour:
     m_ActionId: 4318a014-5c53-454e-86f8-93fe9a20b8a9
     m_ActionName: UI/TrackedDeviceOrientation
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -6299509833393178366}
+        m_TargetAssemblyTypeName: PlayerInfo, Assembly-CSharp
+        m_MethodName: TriggerWeaponUpgrade
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 9eadb633-f8c8-4eb2-a1fe-69051ecb3569
     m_ActionName: Player/Upgrade[/XInputControllerWindows/buttonNorth,/XInputControllerWindows1/buttonNorth]
   m_NeverAutoSwitchControlSchemes: 0
@@ -369,7 +369,7 @@ MonoBehaviour:
   actualHealth: 0
   actualScoreUpgrade: 0
   numberOfUpgrade: 0
-  actualWeapon: {fileID: 0}
+  actualWeapon: {fileID: 1769299407}
   allWeapon:
   - {fileID: 1769299409}
   - {fileID: 1769299408}
@@ -388,7 +388,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialBullet: {fileID: 6753946423046665436, guid: bb7bc961213125745910010d90bea19d,
     type: 3}
-  firePoint: {fileID: 0}
+  firePoint: {fileID: 784317568}
   sizeBullet: {x: 1, y: 1, z: 1}
   reloadTime: 2
   fireRate: 0.09
@@ -438,13 +438,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5a436806314da54e82befc6bb52eef8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialBullet: {fileID: 6753946423046665436, guid: b9f8b856256532144966dc7aa974ec9b,
+  initialBullet: {fileID: 6753946423046665436, guid: bb7bc961213125745910010d90bea19d,
     type: 3}
-  firePoint: {fileID: 0}
+  firePoint: {fileID: 784317568}
   sizeBullet: {x: 2, y: 2, z: 2}
   reloadTime: 0
   fireRate: 1
-  bulletDamage: 1
+  bulletDamage: 100
   bulletLifeTime: 3
   bulletSpeed: 15
   magazineAmmo: 1
@@ -491,7 +491,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialBullet: {fileID: 6753946423046665436, guid: bb7bc961213125745910010d90bea19d,
     type: 3}
-  firePoint: {fileID: 0}
+  firePoint: {fileID: 784317568}
   sizeBullet: {x: 1, y: 1, z: 1}
   reloadTime: 4
   fireRate: 0.4

@@ -74,7 +74,7 @@ public class EnemySensors : MonoBehaviour
     [SerializeField]
     protected GameObject selfMesh;
 
-
+    public int pointEnemy;
     protected virtual void Start()
     {
         rbd = GetComponent<Rigidbody>();
@@ -268,7 +268,7 @@ public class EnemySensors : MonoBehaviour
         lifePoint -= damage;
         if (lifePoint <= 0)
         {
-            PlayerInfoManager.instance.AddPlayerScore(fromPlayer.GetComponent<PlayerInfo>(), 10f);
+            PlayerInfoManager.instance.AddPlayerScore(fromPlayer.GetComponent<PlayerInfo>(), pointEnemy);
             isDead = true;
         }
     }
