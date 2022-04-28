@@ -18,6 +18,37 @@ public class AudioManager : MonoBehaviour
     [Header("Weapons")]
 
     public AudioClip[] regularShotsArray;
+    public AudioClip[] waterGunShotsArray;
+
+    public AudioClip[] assaultGunShotsArray;
+    public AudioClip[] FireAssaultGunShotsArray;
+    public AudioClip[] SparkleGunShotsArray;
+    public AudioClip[] LightningGunShotsArray;
+
+    public AudioClip[] ballLauncherShotsArray;
+    public AudioClip[] waterBallLauncherShotsArray;
+
+    public AudioClip[] waterImpactsArray;
+    public AudioClip[] lightsaberImpactsArray;
+    public AudioClip sharkAppear;
+    public AudioClip sharkHit;
+    public AudioClip lightsaberIgnite;
+
+
+    [Header("Enemys")]
+
+    public AudioClip[] enemyShotsArray;
+    public AudioClip[] enemyAttacksArray;
+    public AudioClip[] enemyDeathArray;
+
+
+    [Header("World")]
+
+    public AudioClip levier;
+    public AudioClip Plane;
+    public AudioClip pressurePlate;
+    public AudioClip trainIdle;
+    public AudioClip trainWhistle;
 
 
     [Header("Musics")]
