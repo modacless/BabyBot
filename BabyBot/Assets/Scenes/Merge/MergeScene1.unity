@@ -2145,6 +2145,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 748795637}
+  - component: {fileID: 748795638}
   m_Layer: 0
   m_Name: Train
   m_TagString: Untagged
@@ -2170,6 +2171,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &748795638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 748795636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2ad1011bc8120740a41e260b151ffc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  appuie: 0
+  timeNeeded: 0
+  ActualTime: 0
 --- !u!1 &766475655
 GameObject:
   m_ObjectHideFlags: 0
@@ -2362,10 +2378,45 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2285237947502248126, guid: 1a066baa7c0a2ce4d9c7777168ccd11b,
         type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2285237947502248126, guid: 1a066baa7c0a2ce4d9c7777168ccd11b,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[14].m_ActionId
+      value: 77bc2978-28cb-4f1d-9a5e-68d14d55c7f8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2285237947502248126, guid: 1a066baa7c0a2ce4d9c7777168ccd11b,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[14].m_ActionName
+      value: Player/Validate[/XInputControllerWindows/buttonSouth,/XInputControllerWindows1/buttonSouth]
+      objectReference: {fileID: 0}
+    - target: {fileID: 2285237947502248126, guid: 1a066baa7c0a2ce4d9c7777168ccd11b,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[14].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2285237947502248126, guid: 1a066baa7c0a2ce4d9c7777168ccd11b,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[14].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2285237947502248126, guid: 1a066baa7c0a2ce4d9c7777168ccd11b,
+        type: 3}
       propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 8767513442285214668, guid: 1a066baa7c0a2ce4d9c7777168ccd11b,
         type: 3}
+    - target: {fileID: 2285237947502248126, guid: 1a066baa7c0a2ce4d9c7777168ccd11b,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[14].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 748795636}
+    - target: {fileID: 2285237947502248126, guid: 1a066baa7c0a2ce4d9c7777168ccd11b,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[14].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2285237947502248127, guid: 1a066baa7c0a2ce4d9c7777168ccd11b,
         type: 3}
       propertyPath: targetGroup
@@ -6533,6 +6584,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 9eadb633-f8c8-4eb2-a1fe-69051ecb3569
     m_ActionName: Player/Upgrade[/XInputControllerWindows/buttonNorth,/XInputControllerWindows1/buttonNorth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 77bc2978-28cb-4f1d-9a5e-68d14d55c7f8
+    m_ActionName: Player/Validate[/XInputControllerWindows/buttonSouth,/XInputControllerWindows1/buttonSouth]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: Player
@@ -7059,6 +7114,8 @@ MonoBehaviour:
   initialBullet: {fileID: 6753946423046665436, guid: bb7bc961213125745910010d90bea19d,
     type: 3}
   firePoint: {fileID: 1603232640}
+  currentShotsVolume: 0
+  currentShotsArray: []
   sizeBullet: {x: 1, y: 1, z: 1}
   reloadTime: 4
   fireRate: 0.4
@@ -7083,6 +7140,8 @@ MonoBehaviour:
   initialBullet: {fileID: 6753946423046665436, guid: bb7bc961213125745910010d90bea19d,
     type: 3}
   firePoint: {fileID: 1603232640}
+  currentShotsVolume: 0
+  currentShotsArray: []
   sizeBullet: {x: 1, y: 1, z: 1}
   reloadTime: 2
   fireRate: 0.09
@@ -7135,6 +7194,8 @@ MonoBehaviour:
   initialBullet: {fileID: 6753946423046665436, guid: b9f8b856256532144966dc7aa974ec9b,
     type: 3}
   firePoint: {fileID: 1603232640}
+  currentShotsVolume: 0
+  currentShotsArray: []
   sizeBullet: {x: 2, y: 2, z: 2}
   reloadTime: 0
   fireRate: 1
@@ -7183,6 +7244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bacede3b3ad5ec646bb2733d14d87517, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numPlayer: 0
   startHealh: 5
   maxHp: 5
   eachScoreNeedForUpgrade:
