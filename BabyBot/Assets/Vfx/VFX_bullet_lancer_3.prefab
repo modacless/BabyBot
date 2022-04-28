@@ -52,7 +52,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: c53f605fae1063840a769adf88cf3e66,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.5
+      value: 0.55
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c53f605fae1063840a769adf88cf3e66,
         type: 3}
@@ -123,7 +123,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: c53f605fae1063840a769adf88cf3e66,
         type: 3}
       propertyPath: m_Name
-      value: ballon_mesh
+      value: requin_mesh
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c53f605fae1063840a769adf88cf3e66, type: 3}

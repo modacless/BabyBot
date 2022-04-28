@@ -1503,7 +1503,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.AnimationCurve, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"frames":[{"time":-0.018765240907669069,"value":0.9765179753303528,"inTangent":0.5286127328872681,"outTangent":0.5286127328872681,"tangentMode":0,"leftTangentMode":1,"rightTangentMode":1,"broken":false},{"time":0.4994427263736725,"value":1.250449299812317,"inTangent":-0.13719740509986878,"outTangent":-0.13719740509986878,"tangentMode":0,"leftTangentMode":1,"rightTangentMode":1,"broken":false},{"time":0.9937443733215332,"value":0.8535213470458984,"inTangent":-0.8030075430870056,"outTangent":-0.8030075430870056,"tangentMode":0,"leftTangentMode":1,"rightTangentMode":1,"broken":false}],"preWrapMode":8,"postWrapMode":8,"version":1}'
+      m_SerializableObject: '{"frames":[{"time":0.0051618218421936039,"value":2.1781628131866457,"inTangent":0.5286130905151367,"outTangent":0.5286130905151367,"tangentMode":0,"leftTangentMode":1,"rightTangentMode":1,"broken":false},{"time":0.5233697891235352,"value":2.452094316482544,"inTangent":-0.1371973156929016,"outTangent":-0.1371973156929016,"tangentMode":0,"leftTangentMode":1,"rightTangentMode":1,"broken":false},{"time":1.0176714658737183,"value":2.055166244506836,"inTangent":-0.8030077219009399,"outTangent":-0.8030077219009399,"tangentMode":0,"leftTangentMode":1,"rightTangentMode":1,"broken":false}],"preWrapMode":8,"postWrapMode":8,"version":1}'
     m_Space: 2147483647
   m_Property:
     name: Size
@@ -1832,7 +1832,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"x":0.0,"y":360.0,"z":0.0}'
+      m_SerializableObject: '{"x":90.0,"y":360.0,"z":0.0}'
     m_Space: 2147483647
   m_Property:
     name: A
@@ -1968,7 +1968,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"x":0.0,"y":-360.0,"z":0.0}'
+      m_SerializableObject: '{"x":90.0,"y":-360.0,"z":0.0}'
     m_Space: 2147483647
   m_Property:
     name: B
