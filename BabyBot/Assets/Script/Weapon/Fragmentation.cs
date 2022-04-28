@@ -37,8 +37,10 @@ public class Fragmentation : Explosion
         {
             int angle = (cercleDivision * i) + angleOffsetBulletInstantiated;
             Vector3 direction = Quaternion.Euler(0, angle, 0) * transform.forward;
+           
 
             Instantiate(instantiatedBulletsOnDead[i], transform.position, instantiatedBulletsOnDead[i].transform.rotation);
+            instantiatedBulletsOnDead[i].transform.rotation = Quaternion.Euler(0, angle - 90, 0);
             instantiatedBulletsOnDead[i].GetComponent<SharkBullet>().InitBullet(bulletLifeTime, Time.time, bulletSpeed, bulletDamage, direction, fromPlayer);
             if (instantiateLightSaber) instantiatedBulletsOnDead[i].GetComponent<SharkBullet>().instantiateLightSaber = true;
             else instantiatedBulletsOnDead[i].GetComponent<SharkBullet>().instantiateLightSaber = false;
