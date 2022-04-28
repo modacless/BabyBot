@@ -18,15 +18,22 @@ public class LightningBullet : PiercingBullet
     private SphereCollider mainBulletCollider;
 
     private GameObject secondBulletTarget;
+    private List<GameObject> allBulletTargeted;
+
     private float distanceBetweenTarget;
 
     private WaitForFixedUpdate waitForFixed = new WaitForFixedUpdate();
+
+    public int maxEnemyBounce;
+    private int tuchEnemy = 0;
+
 
     protected override void Start()
     {
         base.Start();
         mainBulletCollider = GetComponent<SphereCollider>();
         baseSizeColider = mainBulletCollider.radius;
+        allBulletTargeted = new List<GameObject>();
 
     }
 
@@ -54,13 +61,17 @@ public class LightningBullet : PiercingBullet
         }
         else
         {
-            if(collider.tag == "Enemy" && !secondBulletTarget) //Start lightning
+            if(collider.tag == "Enemy" && !secondBulletTarget && tuchEnemy< maxEnemyBounce && !allBulletTargeted.Contains(collider.gameObject)) //Start lightning
             {
+                allBulletTargeted.Add(collider.gameObject);
                 secondBulletTarget = collider.gameObject;
                 SecondBullet.SetActive(true);
                 distanceBetweenTarget = Vector3.Distance(transform.position, SecondBullet.transform.position);
-                //secondBulletLogic.GetComponent<LightningLogic>().goalPosition = secondBulletTarget.transform.position;
+                tuchEnemy++;
                 MoveToNextTarget();
+                collider.GetComponent<EnemySensors>().TakeDamage((int)(damage));
+                Debug.Log(tuchEnemy + " " + SecondBullet.transform.position);
+                Debug.Log(collider.GetComponent<EnemySensors>().lifePoint);
             }
         }
 
@@ -68,6 +79,7 @@ public class LightningBullet : PiercingBullet
 
     protected override void DestroyBullet()
     {
+        Debug.Log("Destroy");
         mainBulletDie = true;
         speed = 0;
         StartCoroutine(ExtendCollider());
@@ -86,15 +98,17 @@ public class LightningBullet : PiercingBullet
         {
             Destroy(this.gameObject);
         }
-
+        
     }
 
     public void MoveToNextTarget()
     {
         StopCoroutine(ExtendCollider());
-        mainBulletCollider.center = transform.localPosition - secondBulletTarget.transform.position;
+        //transform.position = secondBulletTarget.transform.position;
+        mainBulletCollider.center = secondBulletTarget.transform.position - transform.position;
         mainBulletCollider.radius = baseSizeColider;
-        SecondBullet.transform.localPosition = transform.localPosition - secondBulletTarget.transform.position;
+        secondBulletTarget = null;
         DestroyBullet();
     }
+
 }

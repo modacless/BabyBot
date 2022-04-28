@@ -233,3 +233,4 @@ MonoBehaviour:
   maxSizeColider: 10
   sizePerSecond: 15
   secondBulletLogic: {fileID: 4698302141544624765}
+  maxEnemyBounce: 5

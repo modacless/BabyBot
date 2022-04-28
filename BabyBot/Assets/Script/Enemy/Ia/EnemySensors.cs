@@ -26,7 +26,7 @@ public class EnemySensors : MonoBehaviour
     protected float attackCooldown;
     protected float actualAttackCooldown = 0;
     [SerializeField]
-    protected float lifePoint;
+    public float lifePoint;
     protected bool isDead = false;
     [SerializeField]
     protected float timerDead;
