@@ -224,6 +224,7 @@ public class EnemySensors : MonoBehaviour
     {
         transform.rotation = Quaternion.Euler(new Vector3(0, transform.rotation.eulerAngles.y, 90));
         float actualTimerDead = 0;
+        GetComponent<CapsuleCollider>().enabled = false;
         while(actualTimerDead < timerDead)
         {
             actualTimerDead += Time.fixedDeltaTime;
@@ -245,7 +246,7 @@ public class EnemySensors : MonoBehaviour
         }
     }
 
-    protected virtual void TakeDamage(int damage)
+    public virtual void TakeDamage(int damage)
     {
         lifePoint -= damage;
     }

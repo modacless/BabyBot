@@ -22,10 +22,9 @@ public class SpawnManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        actualTimeBeforSpawn += Time.deltaTime;
-        Debug.Log(actualTimeBeforSpawn);
+        actualTimeBeforSpawn += Time.fixedDeltaTime;
         if (actualTimeBeforSpawn >= timeBeforeRespawn)
         {
             int randomEnemy = Random.Range(0, TypeSpawner.Count);
@@ -33,5 +32,7 @@ public class SpawnManager : MonoBehaviour
 
             actualTimeBeforSpawn = 0;
         }
+
+
     }
 }

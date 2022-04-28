@@ -7,7 +7,7 @@ public class Bullet : MonoBehaviour
     [HideInInspector]
     public float lifeTime;
     [HideInInspector]
-    private float startTime;
+    protected float startTime;
     [HideInInspector]
     public float speed;
     [HideInInspector]
@@ -35,6 +35,10 @@ public class Bullet : MonoBehaviour
     }
     protected virtual void OnTriggerEnter(Collider collider)
     {
+        if(collider.tag == "Enemie")
+        {
+            collider.GetComponent<EnemySensors>().TakeDamage((int)damage);
+        }
         if(collider.tag != ("Bullet")) Destroy(gameObject);
     }
     protected virtual void FixedUpdate()

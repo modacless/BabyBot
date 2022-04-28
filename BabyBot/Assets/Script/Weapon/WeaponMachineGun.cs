@@ -16,7 +16,7 @@ public class WeaponMachineGun : Weapon
         GameObject myBullet = Instantiate(actualBulletUsed, firePoint.transform.position, transform.rotation);
         myBullet.GetComponent<Bullet>().InitBullet(bulletLifeTime, Time.time, bulletSpeed, bulletDamage, randomFire);
         actualAmo--;
-        Upgrade2();
+        Upgrade3();
     }
 
     private void OnDrawGizmos()
