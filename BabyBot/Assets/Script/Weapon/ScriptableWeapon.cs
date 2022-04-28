@@ -6,12 +6,17 @@ using UnityEngine;
 public class ScriptableWeapon : ScriptableObject
 {
     [Header("Stats")]
-    public int maxAmo;
-    public float basicCadence;
+    public GameObject bullet;
+    public Vector3 sizeBullet;
+    public int numberBulletSpawned;
+    public float shootConeAngle;
+    public int magazineAmmo;
     public float reloadTime;
+    public float fireRate;
     public float bulletDamage;
     public float bulletLifeTime;
     public float bulletSpeed;
+
     public bool needPreheated;
     public float finalCadence;
     public float timeBeforeNeedPreheated;

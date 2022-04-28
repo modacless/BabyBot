@@ -14,17 +14,23 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 lookDirection;
 
     private bool checkArray = false;
+    public bool isAiming = false;
 
     //References
     private Rigidbody rb;
-    private PlayerAnimations playerAnimationsScript;
+    [HideInInspector] public PlayerAnimations playerAnimationsScript;
     public CinemachineTargetGroup targetGroup;
     public CinemachineTargetGroup.Target AimTarget;
+
+
+    AudioManager AM;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         playerAnimationsScript = GetComponent<PlayerAnimations>();
+
+        AM = AudioManager.AMInstance;
     }
 
     public void OnMove(InputAction.CallbackContext context) => inputMovement = context.ReadValue<Vector2>();
@@ -72,6 +78,7 @@ public class PlayerMovement : MonoBehaviour
             transform.rotation = Quaternion.LookRotation(lookDirection, Vector3.up);
             playerAnimationsScript.Aim(true);
             AddNewTarget(true);
+            isAiming = true;
         }
         else if (movementDirection.magnitude > 0f)
         {
@@ -79,11 +86,13 @@ public class PlayerMovement : MonoBehaviour
             transform.rotation = Quaternion.LookRotation(movementDirection.normalized, Vector3.up);
             playerAnimationsScript.Aim(false);
             AddNewTarget(false);
+            isAiming = false;
         }
         else
         {
             playerAnimationsScript.Aim(false);
             AddNewTarget(false);
+            isAiming = false;
         }
     }
 
@@ -138,5 +147,21 @@ public class PlayerMovement : MonoBehaviour
                 }
                 break;
         }  
+    }
+
+    public void playFootStep()
+    {
+        float newPitch = Random.Range(0.8f, 1.2f);
+
+        if(AM.isOnWood == true)
+        {
+            int newIndex = Random.Range(0, (AM.woodFootstepArray.Length - 1));
+            AM.PlaySFX(AM.woodFootstepArray[newIndex], 1, newPitch);
+        }
+        else
+        {
+            int newIndex = Random.Range(0, (AM.carpetFootstepArray.Length - 1));
+            AM.PlaySFX(AM.carpetFootstepArray[newIndex], 1, newPitch);
+        }
     }
 }

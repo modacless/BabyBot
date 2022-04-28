@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class PlayerAnimations : MonoBehaviour
 {
-    public Animator playerAnimator;
+    public Animator playerAnimatorMovement;
+    public Animator playerAnimatorShoot;
 
     public void Run(bool enable)
     {
         switch (enable)
         {
             case true:
-                playerAnimator.SetBool("isRunning", true);
+                playerAnimatorMovement.SetBool("isRunning", true);
                 break;
             case false:
-                playerAnimator.SetBool("isRunning", false);
+                playerAnimatorMovement.SetBool("isRunning", false);
                 break;
         }
     }
@@ -24,10 +25,23 @@ public class PlayerAnimations : MonoBehaviour
         switch (enable)
         {
             case true:
-                playerAnimator.SetBool("isShooting", true);
+                
                 break;
             case false:
-                playerAnimator.SetBool("isShooting", false);
+                
+                break;
+        }
+    }
+
+    public void Shoot(bool enable)
+    {
+        switch (enable)
+        {
+            case true:
+                playerAnimatorShoot.SetBool("isShooting", true);
+                break;
+            case false:
+                playerAnimatorShoot.SetBool("isShooting", false);
                 break;
         }
     }

@@ -5,11 +5,9 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [HideInInspector]
-    private Rigidbody selfRigidbody;
-    [HideInInspector]
     public float lifeTime;
     [HideInInspector]
-    private float startTime;
+    protected float startTime;
     [HideInInspector]
     public float speed;
     [HideInInspector]
@@ -17,22 +15,35 @@ public class Bullet : MonoBehaviour
     [HideInInspector]
     public Vector3 direction;
 
-    private void Start()
+    protected virtual void Start()
     {
-        selfRigidbody = transform.GetComponent<Rigidbody>();
         startTime = Time.time;
     }
-    private void Update()
+
+    public virtual void InitBullet(float _lifeTime, float _startTime, float _speed, float _damage, Vector3 _direction)
     {
-        if (Time.time > startTime + lifeTime) Destroy(transform.gameObject);
+        lifeTime = _lifeTime;
+        startTime = _startTime;
+        speed = _speed;
+        damage = _damage ;
+        direction = _direction;
     }
-    private void OnTriggerEnter(Collider collider)
+
+    protected virtual void Update()
     {
-        if(collider.CompareTag("ennemy")) Destroy(gameObject);
+        if (Time.time > startTime + lifeTime) Destroy(gameObject);
     }
-    private void FixedUpdate()
+    protected virtual void OnTriggerEnter(Collider collider)
     {
-        selfRigidbody.velocity = direction * speed;
+        if(collider.tag == "Enemie")
+        {
+            collider.GetComponent<EnemySensors>().TakeDamage((int)damage);
+        }
+        if(collider.tag != ("Bullet")) Destroy(gameObject);
+    }
+    protected virtual void FixedUpdate()
+    {
+        transform.position += direction.normalized * speed * Time.fixedDeltaTime;
     }
 }
 

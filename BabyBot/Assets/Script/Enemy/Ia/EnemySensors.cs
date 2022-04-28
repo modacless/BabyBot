@@ -15,23 +15,30 @@ public class EnemySensors : MonoBehaviour
     {
         Idle,
         Detect,
-        Attack
+        Attack,
+        Dead
     }
 
     //Own Data
+    [Header("Enemy Data")]
     protected Rigidbody rbd;
+    [SerializeField]
+    protected float attackCooldown;
+    protected float actualAttackCooldown = 0;
+    [SerializeField]
+    public float lifePoint;
+    protected bool isDead = false;
+    [SerializeField]
+    protected float timerDead;
+
+    protected NavMeshAgent navAgent;
+
+    private WaitForFixedUpdate waitFixedUpdate = new WaitForFixedUpdate();
 
     //World Data
     public List<Transform> allGoals = new List<Transform>();
     protected Transform actualGoal;
 
-    //Event
-    [System.Serializable]
-    public class EventChangeFocus : UnityEvent<Transform> { };
-
-    public EventChangeFocus changeFocus;
-
-    protected NavMeshAgent navAgent;
 
     //Detection
 
@@ -40,6 +47,20 @@ public class EnemySensors : MonoBehaviour
     private float rangeRadiusDetection;
     [SerializeField]
     private float rangeRadiusAttack;
+
+    //Projectile data
+    [Header("Projectile data")]
+    [SerializeField]
+    protected float lifeTime;
+    [SerializeField]
+    protected float speed;
+    [SerializeField]
+    protected int projectileDamage;
+    [SerializeField]
+    protected float projectileSpawnRange;
+
+    [SerializeField]
+    protected GameObject attackGameObject;
 
 
     protected virtual void Start()
@@ -54,6 +75,8 @@ public class EnemySensors : MonoBehaviour
         }
 
         actualGoal = _allPlayers[0].transform;
+
+        actualAttackCooldown = attackCooldown;
     }
 
     // Update is called once per frame
@@ -64,7 +87,6 @@ public class EnemySensors : MonoBehaviour
         SetState();
 
         actualGoal = GetNearestGoal();
-        Debug.Log(actualGoal);
 
         //Applique l'effet de la machine à état
         switch (enemyState)
@@ -77,6 +99,9 @@ public class EnemySensors : MonoBehaviour
                 break;
             case StateEnemy.Attack:
                 StateAttack();
+                break;
+            case StateEnemy.Dead:
+                StateDead();
                 break;
             default:
                 StateIdle();
@@ -93,7 +118,6 @@ public class EnemySensors : MonoBehaviour
 
             for (int i = 1; i < allGoals.Count; i++)
             {
-                Debug.Log((transform.position - minPosition.position).magnitude > (transform.position - allGoals[i].position).magnitude);
                 if((transform.position - minPosition.position).magnitude > (transform.position - allGoals[i].position).magnitude) {
                     minPosition = allGoals[i];
                 }
@@ -136,11 +160,16 @@ public class EnemySensors : MonoBehaviour
             return true;
         }
 
+        if(lifePoint <= 0)
+        {
+            isDead = true;
+        }
+
         return false;
         
     }
 
-    private void SetState()
+    protected virtual void SetState()
     {
         if (UpdateSensors(rangeRadiusDetection) && !UpdateSensors(rangeRadiusAttack))
         {
@@ -155,6 +184,12 @@ public class EnemySensors : MonoBehaviour
         if(!UpdateSensors(rangeRadiusAttack) && !UpdateSensors(rangeRadiusDetection))
         {
             enemyState = StateEnemy.Idle;
+        }
+
+        //Always in last
+        if (isDead)
+        {
+            enemyState = StateEnemy.Dead;
         }
     }
 
@@ -176,5 +211,46 @@ public class EnemySensors : MonoBehaviour
         navAgent.isStopped = true;
         rbd.velocity = Vector3.zero;
     }
+
+    protected virtual void StateDead()
+    {
+        navAgent.isStopped = true;
+        rbd.velocity = Vector3.zero;
+        StartCoroutine(DeadRoutine());
+
+    }
+
+    protected virtual IEnumerator DeadRoutine()
+    {
+        transform.rotation = Quaternion.Euler(new Vector3(0, transform.rotation.eulerAngles.y, 90));
+        float actualTimerDead = 0;
+        GetComponent<CapsuleCollider>().enabled = false;
+        while(actualTimerDead < timerDead)
+        {
+            actualTimerDead += Time.fixedDeltaTime;
+            yield return waitFixedUpdate;
+        }
+
+        Destroy(this.gameObject);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.collider.tag == "Bullet")
+        {
+            Bullet bulletLogic = collision.collider.GetComponent<Bullet>();
+            if (bulletLogic)
+            {
+                TakeDamage((int)bulletLogic.damage);
+            }
+        }
+    }
+
+    public virtual void TakeDamage(int damage)
+    {
+        lifePoint -= damage;
+    }
+
+    
 
 }
