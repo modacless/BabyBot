@@ -154,7 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyState: 0
   attackCooldown: 0.5
-  lifePoint: 2
+  lifePoint: 20
   timerDead: 10
   allGoals: []
   rangeRadiusDetection: 20

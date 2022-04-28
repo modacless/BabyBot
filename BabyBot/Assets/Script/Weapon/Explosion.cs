@@ -13,11 +13,11 @@ public class Explosion : MonoBehaviour
         StartCoroutine(LerpScale(transform.localScale, explosionCercleRange, timeBeforeExplose));
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider collider)
     {
-        if (CompareTag("Enemy"))
+        if (collider.tag == "Enemy")
         {
-            //Apply damage
+            collider.GetComponent<EnemySensors>().TakeDamage((int)damage);
         }
     }
 
