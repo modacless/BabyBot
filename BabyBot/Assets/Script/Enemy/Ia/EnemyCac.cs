@@ -42,6 +42,11 @@ public class EnemyCac : EnemySensors
         transform.rotation = Quaternion.Euler(new Vector3(0, transform.rotation.eulerAngles.y, 0));
     }
 
+    protected override void StateDead()
+    {
+        base.StateDead();
+    }
+
     private void DoAttack()
     {
         GameObject projectile = Instantiate(attackGameObject, transform.position + transform.forward* projectileSpawnRange, transform.rotation, null);
