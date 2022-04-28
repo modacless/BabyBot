@@ -2202,6 +2202,21 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5171411591507202060, guid: 385e0934c5de0b940ba91cb40a7a36d0,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.102
+      objectReference: {fileID: 0}
+    - target: {fileID: 5171411591507202060, guid: 385e0934c5de0b940ba91cb40a7a36d0,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5171411591507202060, guid: 385e0934c5de0b940ba91cb40a7a36d0,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.102
+      objectReference: {fileID: 0}
     - target: {fileID: 8238270646372484025, guid: 385e0934c5de0b940ba91cb40a7a36d0,
         type: 3}
       propertyPath: wichPlayer
