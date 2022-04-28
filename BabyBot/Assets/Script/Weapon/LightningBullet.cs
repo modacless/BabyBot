@@ -53,7 +53,6 @@ public class LightningBullet : PiercingBullet
             if (collider.tag == "Enemy")
             {
                 collider.GetComponent<EnemySensors>().TakeDamage((int)damage);
-                DestroyBullet();
             }
 
             if (collider.tag != ("Bullet") && collider.tag != "Enemy")
@@ -109,6 +108,15 @@ public class LightningBullet : PiercingBullet
         mainBulletCollider.radius = baseSizeColider;
         secondBulletTarget = null;
         DestroyBullet();
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (secondBulletTarget != null)
+        {
+            Gizmos.color = Color.cyan;
+            Gizmos.DrawSphere(transform.position + (secondBulletTarget.transform.position - transform.position), mainBulletCollider.radius);
+        }
     }
 
 }

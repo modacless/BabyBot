@@ -246,7 +246,7 @@ public class EnemySensors : MonoBehaviour
         }
     }
 
-    public virtual void TakeDamage(int damage)
+    public virtual void TakeDamage(float damage)
     {
         lifePoint -= damage;
     }

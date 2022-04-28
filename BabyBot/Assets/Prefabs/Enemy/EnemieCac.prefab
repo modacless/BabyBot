@@ -158,7 +158,7 @@ MonoBehaviour:
   timerDead: 10
   allGoals: []
   rangeRadiusDetection: 20
-  rangeRadiusAttack: 2
+  rangeRadiusAttack: 4
   lifeTime: 0.5
   speed: 0
   projectileDamage: 1
