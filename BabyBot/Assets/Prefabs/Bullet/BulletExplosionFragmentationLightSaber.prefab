@@ -52,7 +52,7 @@ MonoBehaviour:
   speed: 0
   damage: 0
   direction: {x: 0, y: 0, z: 0}
-  explosion: {fileID: 6753946423046665436, guid: 36cf91a619f45fa4faa3afa3686f6af9,
+  explosion: {fileID: 6753946423046665436, guid: 0696e86dfa7133648b8e8f651164cdac,
     type: 3}
 --- !u!33 &6753946423046665435
 MeshFilter:

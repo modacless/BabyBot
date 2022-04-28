@@ -50,11 +50,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeTime: 3
   speed: 15
-  damage: 5
+  damage: 1
   direction: {x: -0.7071068, y: 0, z: 0.7071067}
+  layerRaycast:
+    serializedVersion: 2
+    m_Bits: 260
   lightSaber: {fileID: 2684073408597129418, guid: 4e0cb93972b3a694897ca7c74973b500,
     type: 3}
   offsetYSpawn: 0.5
+  instantiateLightSaber: 1
 --- !u!33 &6753946423046665435
 MeshFilter:
   m_ObjectHideFlags: 0

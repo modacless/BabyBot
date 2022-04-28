@@ -53,7 +53,6 @@ public class LightningBullet : PiercingBullet
             if (collider.tag == "Enemy")
             {
                 collider.GetComponent<EnemySensors>().TakeDamage((int)damage);
-                DestroyBullet();
             }
 
             if (collider.tag != ("Bullet") && collider.tag != "Enemy")

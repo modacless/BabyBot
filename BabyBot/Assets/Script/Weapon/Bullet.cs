@@ -35,7 +35,7 @@ public class Bullet : MonoBehaviour
     }
     protected virtual void OnTriggerEnter(Collider collider)
     {
-        if(collider.tag == "Enemie")
+        if(collider.tag == "Enemy")
         {
             collider.GetComponent<EnemySensors>().TakeDamage((int)damage);
         }

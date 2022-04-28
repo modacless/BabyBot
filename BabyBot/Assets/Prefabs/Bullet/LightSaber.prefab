@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1921019039239382549}
   - component: {fileID: 4249359343576329332}
   - component: {fileID: 567887640243706666}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: LightSaber
   m_TagString: Bullet
   m_Icon: {fileID: 0}
@@ -49,6 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turnSpeed: 500
   lifeTime: 5
+  damage: 5
 --- !u!33 &1921019039239382549
 MeshFilter:
   m_ObjectHideFlags: 0

@@ -27,7 +27,7 @@ public class SpawnManager : MonoBehaviour
     void FixedUpdate()
     {
         actualTimeBeforSpawn += Time.deltaTime;
-        Debug.Log(actualTimeBeforSpawn);
+        //Debug.Log(actualTimeBeforSpawn);
 
         if (actualTimeBeforSpawn >= timeBeforeRespawn)
         {

@@ -6,6 +6,7 @@ public class LightSaber : MonoBehaviour
 {
     public float turnSpeed;
     public float lifeTime;
+    public float damage;
 
     private float startTime = 0;
 
@@ -26,6 +27,11 @@ public class LightSaber : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
-        if (collider.tag == ("Untagged") || collider.tag == ("Bullet")) Destroy(gameObject);
+        if (collider.tag == "Enemy")
+        {
+            collider.GetComponent<EnemySensors>().TakeDamage((int)damage);
+        }
+
+        if (collider.tag == ("Bullet")) Destroy(gameObject);
     }
 }

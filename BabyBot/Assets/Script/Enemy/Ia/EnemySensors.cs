@@ -234,7 +234,7 @@ public class EnemySensors : MonoBehaviour
         Destroy(this.gameObject);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    /*private void OnCollisionEnter(Collision collision)
     {
         if(collision.collider.tag == "Bullet")
         {
@@ -244,7 +244,7 @@ public class EnemySensors : MonoBehaviour
                 TakeDamage((int)bulletLogic.damage);
             }
         }
-    }
+    }*/
 
     public virtual void TakeDamage(int damage)
     {
