@@ -17,32 +17,40 @@ public class PressurePlateManager : MonoBehaviour
         
         for(int i = 0; i < myPressurePlates.Count; i++)
         {
-            if (myPressurePlates[i].isActivated || myPressurePlates[i].canBeActivated)
+            if (myPressurePlates[i].canBeActivated)
             {
-                PPActivated(i, myPressurePlates[i].isActivated);
+                myPressurePlates[i].gameObject.SetActive(true);
+                PPActivated(i);
             }
-            if(i<0)
+            else
             {
-                if()
+                myPressurePlates[i].gameObject.SetActive(false);
             }
-
         }
     }
 
-    public void PPActivated(int i, bool a)
+    public void PPActivated(int i)
     {
-        if(a)
+        if(myPressurePlates[i].isActivated)
         {
             if(i < myPressurePlates.Count-1)
             {
-                myPressurePlates[i].canBeActivated = true;
+                myPressurePlates[i+1].canBeActivated = true;
+            }
+            if(i > 0)
+            {
+                myPressurePlates[i-1].canBeActivated = false;
+            }
+            if(i == myPressurePlates.Count - 1)
+            {
+                evenement.Invoke();
             }
         }
         else
         {
             if (i < myPressurePlates.Count - 1)
             {
-                myPressurePlates[i].canBeActivated = false;
+                myPressurePlates[i+1].canBeActivated = false;
             }
         }
 
