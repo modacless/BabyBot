@@ -264,50 +264,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1919753233494372518}
     m_Modifications:
-    - target: {fileID: 2287338435471018063, guid: 5f6b2359c13a1ba49b7b5725cc4ea7fa,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: d9a976482c65ae2469b3bd5bc932b2ce, type: 2}
-    - target: {fileID: 2677673578483668818, guid: 5f6b2359c13a1ba49b7b5725cc4ea7fa,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 4d97f706b3b13104fb459ea61e151e76, type: 2}
-    - target: {fileID: 3138519348804307949, guid: 5f6b2359c13a1ba49b7b5725cc4ea7fa,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: d9a976482c65ae2469b3bd5bc932b2ce, type: 2}
     - target: {fileID: 3775809743661899145, guid: 5f6b2359c13a1ba49b7b5725cc4ea7fa,
         type: 3}
       propertyPath: m_Name
       value: SM_SoldierCac
       objectReference: {fileID: 0}
-    - target: {fileID: 3984972019356132169, guid: 5f6b2359c13a1ba49b7b5725cc4ea7fa,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: d9a976482c65ae2469b3bd5bc932b2ce, type: 2}
     - target: {fileID: 4552451308910364467, guid: 5f6b2359c13a1ba49b7b5725cc4ea7fa,
         type: 3}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4552451308910364467, guid: 5f6b2359c13a1ba49b7b5725cc4ea7fa,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4552451308910364467, guid: 5f6b2359c13a1ba49b7b5725cc4ea7fa,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4552451308910364467, guid: 5f6b2359c13a1ba49b7b5725cc4ea7fa,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 4552451308910364467, guid: 5f6b2359c13a1ba49b7b5725cc4ea7fa,
         type: 3}
@@ -359,16 +324,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4552451308910364467, guid: 5f6b2359c13a1ba49b7b5725cc4ea7fa,
-        type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7904285251972643368, guid: 5f6b2359c13a1ba49b7b5725cc4ea7fa,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: d9a976482c65ae2469b3bd5bc932b2ce, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f6b2359c13a1ba49b7b5725cc4ea7fa, type: 3}
 --- !u!95 &8063837642240296628 stripped
