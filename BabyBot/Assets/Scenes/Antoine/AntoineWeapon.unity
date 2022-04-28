@@ -5922,14 +5922,33 @@ MonoBehaviour:
   magazineAmmo: 1
   drawDebug: 0
   upgradeStruct:
-  - sizeBullet: {x: 0, y: 0, z: 0}
+  - sizeBullet: {x: 2, y: 2, z: 2}
     reloadTime: 0
-    fireRate: 0
-    bulletDamage: 0
-    bulletLifeTime: 0
-    bulletSpeed: 0
-    magazineAmmo: 0
-    actualBulletUsed: {fileID: 0}
+    fireRate: 1
+    bulletDamage: 1
+    bulletLifeTime: 3
+    bulletSpeed: 15
+    magazineAmmo: 1
+    actualBulletUsed: {fileID: 6753946423046665436, guid: a14bdda9006552348b114c5d2d0782a8,
+      type: 3}
+  - sizeBullet: {x: 2, y: 2, z: 2}
+    reloadTime: 0
+    fireRate: 1
+    bulletDamage: 1
+    bulletLifeTime: 3
+    bulletSpeed: 15
+    magazineAmmo: 1
+    actualBulletUsed: {fileID: 6753946423046665436, guid: f6f0448e4e7936348b43b667b6c8c6a8,
+      type: 3}
+  - sizeBullet: {x: 2, y: 2, z: 2}
+    reloadTime: 0
+    fireRate: 1
+    bulletDamage: 1
+    bulletLifeTime: 3
+    bulletSpeed: 15
+    magazineAmmo: 1
+    actualBulletUsed: {fileID: 6753946423046665436, guid: b9f8b856256532144966dc7aa974ec9b,
+      type: 3}
 --- !u!23 &8798616416391681132
 MeshRenderer:
   m_ObjectHideFlags: 0

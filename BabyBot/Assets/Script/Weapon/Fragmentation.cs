@@ -41,6 +41,7 @@ public class Fragmentation : Explosion
             Instantiate(instantiatedBulletsOnDead[i], transform.position, instantiatedBulletsOnDead[i].transform.rotation);
             instantiatedBulletsOnDead[i].GetComponent<SharkBullet>().InitBullet(bulletLifeTime, Time.time, bulletSpeed, bulletDamage, direction);
             if (instantiateLightSaber) instantiatedBulletsOnDead[i].GetComponent<SharkBullet>().instantiateLightSaber = true;
+            else instantiatedBulletsOnDead[i].GetComponent<SharkBullet>().instantiateLightSaber = false;
         }
     }
 
