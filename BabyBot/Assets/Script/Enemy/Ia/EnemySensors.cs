@@ -62,9 +62,17 @@ public class EnemySensors : MonoBehaviour
     [SerializeField]
     protected GameObject attackGameObject;
 
-    [Header ("Animator")]
+    [Header ("Collider")]
+    [SerializeField]
+    protected CapsuleCollider selfHitBox;
+
+    [Header ("GFX")]
     [SerializeField]
     protected Animator selfAnimator;
+    [SerializeField]
+    protected GameObject deadthParticleSysteme;
+    [SerializeField]
+    protected GameObject selfMesh;
 
 
     protected virtual void Start()
@@ -81,6 +89,8 @@ public class EnemySensors : MonoBehaviour
         actualGoal = _allPlayers[0].transform;
 
         actualAttackCooldown = attackCooldown;
+
+        deadthParticleSysteme.SetActive(false);
     }
 
     // Update is called once per frame
@@ -218,22 +228,19 @@ public class EnemySensors : MonoBehaviour
 
     protected virtual void StateDead()
     {
+        StartCoroutine(DeadRoutine());
+
         navAgent.isStopped = true;
         rbd.velocity = Vector3.zero;
-        StartCoroutine(DeadRoutine());
+        selfHitBox.enabled = false;
+
+        selfMesh.SetActive(false);
+        deadthParticleSysteme.SetActive(true);
     }
 
     protected virtual IEnumerator DeadRoutine()
     {
-        transform.rotation = Quaternion.Euler(new Vector3(0, transform.rotation.eulerAngles.y, 90));
-        float actualTimerDead = 0;
-        GetComponent<CapsuleCollider>().enabled = false;
-        while(actualTimerDead < timerDead)
-        {
-            actualTimerDead += Time.fixedDeltaTime;
-            yield return waitFixedUpdate;
-        }
-
+        yield return new WaitForSeconds(timerDead);
         Destroy(this.gameObject);
     }
 

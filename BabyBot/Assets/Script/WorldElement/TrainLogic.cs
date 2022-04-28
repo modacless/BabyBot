@@ -5,7 +5,7 @@ using UnityEngine;
 public class TrainLogic : MonoBehaviour
 {
     
-    private float actualTime;
+    private float actualTime = 0;
     [SerializeField]
     private float timeBeforeRespawn;
 
@@ -16,10 +16,26 @@ public class TrainLogic : MonoBehaviour
     [SerializeField]
     private float trainDamage;
 
+    [SerializeField]
+    private GameObject model;
+    [SerializeField]
+    private GameObject spawnObject;
 
+    private void Start()
+    {
+        model.SetActive(false);
+
+    }
     private void FixedUpdate()
     {
-        transform.position = trainSpeed * trainDirection * Time.fixedDeltaTime;
+        model.transform.position += trainSpeed * trainDirection * Time.fixedDeltaTime;
+
+        actualTime += Time.fixedDeltaTime;
+        if(actualTime >= timeBeforeRespawn)
+        {
+            Spawn();
+            actualTime = 0;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -34,10 +50,16 @@ public class TrainLogic : MonoBehaviour
             other.GetComponent<EnemySensors>().TakeDamage(trainDamage);
         }
 
-        if(other.name == "Destroy")
+        if(other.name == "Model")
         {
-
+            model.SetActive(false);
         }
         
+    }
+
+    private void Spawn()
+    {
+        model.transform.position = spawnObject.transform.position;
+        model.SetActive(true);
     }
 }
