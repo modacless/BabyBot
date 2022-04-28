@@ -44,6 +44,7 @@ public class Bullet : MonoBehaviour
     protected virtual void FixedUpdate()
     {
         transform.position += direction.normalized * speed * Time.fixedDeltaTime;
+
     }
 
     protected virtual void OnDestroy()
