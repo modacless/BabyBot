@@ -296,7 +296,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6753946423046665436}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0.92387956, z: 0, w: -0.3826834}
   m_LocalPosition: {x: -1.8027651, y: 0.631, z: 2.05}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
@@ -320,7 +320,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeTime: 3
   speed: 15
-  damage: 1
+  damage: 10
   direction: {x: -0.7071068, y: 0, z: 0.7071067}
   fromPlayer: {fileID: 0}
   layerRaycast:
@@ -329,7 +329,7 @@ MonoBehaviour:
   lightSaber: {fileID: 2684073408597129418, guid: 4e0cb93972b3a694897ca7c74973b500,
     type: 3}
   offsetYSpawn: 0.5
-  instantiateLightSaber: 1
+  instantiateLightSaber: 0
 --- !u!135 &6753946423046665437
 SphereCollider:
   m_ObjectHideFlags: 0

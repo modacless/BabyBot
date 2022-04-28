@@ -53,7 +53,7 @@ MonoBehaviour:
   damage: 5
   direction: {x: 0, y: 0, z: 0}
   fromPlayer: {fileID: 0}
-  turnSpeed: 10
+  turnSpeed: 50
   lifeTimeLightSaber: 5
   damageLightSaber: 10
 --- !u!136 &567887640243706666
