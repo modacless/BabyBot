@@ -47,7 +47,7 @@ public class Fragmentation : Explosion
             //Audio
             AudioManager Audio = AudioManager.AMInstance;
             float pitch = Random.Range(0.9f, 1.1f);
-            Audio.PlaySFX(Audio.sharkAppear, 1, pitch);
+            Audio.PlaySFX(Audio.sharkAppear, Audio.sharkAppearVolume, pitch);
             //----
         }
     }

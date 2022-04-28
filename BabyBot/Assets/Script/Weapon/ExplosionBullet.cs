@@ -15,7 +15,7 @@ public class ExplosionBullet : Bullet
         AudioManager Audio = AudioManager.AMInstance;
         float pitch = Random.Range(0.8f, 1.2f);
         int index = Random.Range(0, (Audio.waterImpactsArray.Length - 1));
-        Audio.PlaySFX(Audio.waterImpactsArray[index], 1, pitch);
+        Audio.PlaySFX(Audio.waterImpactsArray[index], Audio.waterImpactsVolume, pitch);
         //----
     }
 }

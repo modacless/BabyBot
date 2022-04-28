@@ -23,7 +23,7 @@ public class SharkBullet : Bullet
                 //Audio
                 AudioManager Audio = AudioManager.AMInstance;
                 float pitch = Random.Range(0.8f, 1.2f);         
-                Audio.PlaySFX(Audio.lightsaberIgnite, 1, pitch);
+                Audio.PlaySFX(Audio.lightsaberIgnite, Audio.lightsaberIgniteVolume, pitch);
                 //----
             }
         } 
@@ -39,7 +39,7 @@ public class SharkBullet : Bullet
             //Audio
             AudioManager Audio = AudioManager.AMInstance;
             float pitch = Random.Range(0.8f, 1.2f);
-            Audio.PlaySFX(Audio.sharkHit, 1, pitch);
+            Audio.PlaySFX(Audio.sharkHit, Audio.sharkHitVolume, pitch);
             //----
         }
         if (collider.tag != ("Bullet") && collider.tag != ("Enemy")) Destroy(gameObject);
