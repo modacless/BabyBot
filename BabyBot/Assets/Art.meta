@@ -1,5 +1,6 @@
 fileFormatVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
 guid: 2634f6719414a024d98693ef8a3bc5fc
 =======
 <<<<<<< Updated upstream
@@ -20,6 +21,9 @@ guid: 3922c7093db8dd343a33074a05342e26
 guid: 2fe5bfd8a23fbfb449afedb62e97e5ec
 >>>>>>> Stashed changes
 >>>>>>> Théod
+=======
+guid: f066dabf5b2db6b44bf84e6b0cf3b35b
+>>>>>>> Quentin
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
