@@ -42,6 +42,13 @@ public class Fragmentation : Explosion
             instantiatedBulletsOnDead[i].GetComponent<SharkBullet>().InitBullet(bulletLifeTime, Time.time, bulletSpeed, bulletDamage, direction);
             if (instantiateLightSaber) instantiatedBulletsOnDead[i].GetComponent<SharkBullet>().instantiateLightSaber = true;
             else instantiatedBulletsOnDead[i].GetComponent<SharkBullet>().instantiateLightSaber = false;
+
+
+            //Audio
+            AudioManager Audio = AudioManager.AMInstance;
+            float pitch = Random.Range(0.9f, 1.1f);
+            Audio.PlaySFX(Audio.sharkAppear, 1, pitch);
+            //----
         }
     }
 

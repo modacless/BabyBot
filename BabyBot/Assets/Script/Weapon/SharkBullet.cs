@@ -19,6 +19,12 @@ public class SharkBullet : Bullet
             if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down) * 10f, out hit, layerRaycast))
             {
                 Instantiate(lightSaber, new Vector3(transform.position.x, hit.transform.position.y + offsetYSpawn, transform.position.z), lightSaber.transform.rotation);
+
+                //Audio
+                AudioManager Audio = AudioManager.AMInstance;
+                float pitch = Random.Range(0.8f, 1.2f);         
+                Audio.PlaySFX(Audio.lightsaberIgnite, 1, pitch);
+                //----
             }
         } 
     }
@@ -28,6 +34,13 @@ public class SharkBullet : Bullet
         if (collider.tag == "Enemy")
         {
             collider.GetComponent<EnemySensors>().TakeDamage((int)damage);
+
+
+            //Audio
+            AudioManager Audio = AudioManager.AMInstance;
+            float pitch = Random.Range(0.8f, 1.2f);
+            Audio.PlaySFX(Audio.sharkHit, 1, pitch);
+            //----
         }
         if (collider.tag != ("Bullet") && collider.tag != ("Enemy")) Destroy(gameObject);
     }
