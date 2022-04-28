@@ -20,6 +20,11 @@ public class SharkBullet : Bullet
             {
                 GameObject lightSaberInstance = Instantiate(lightSaber, new Vector3(transform.position.x, hit.transform.position.y + offsetYSpawn, transform.position.z), lightSaber.transform.rotation);
                 lightSaberInstance.GetComponent<Bullet>().InitBullet(0, 0, 0, 0, Vector3.zero, fromPlayer);
+                //Audio
+                AudioManager Audio = AudioManager.AMInstance;
+                float pitch = Random.Range(0.8f, 1.2f);         
+                Audio.PlaySFX(Audio.lightsaberIgnite, Audio.lightsaberIgniteVolume, pitch);
+                //----
             }
         } 
     }
@@ -29,6 +34,11 @@ public class SharkBullet : Bullet
         if (collider.tag == "Enemy")
         {
             collider.GetComponent<EnemySensors>().TakeDamage(damage, fromPlayer);
+            //Audio
+            AudioManager Audio = AudioManager.AMInstance;
+            float pitch = Random.Range(0.8f, 1.2f);
+            Audio.PlaySFX(Audio.sharkHit, Audio.sharkHitVolume, pitch);
+            //----
         }
         if (collider.tag != ("Bullet") && collider.tag != ("Enemy")) Destroy(gameObject);
     }

@@ -29,6 +29,12 @@ public class LightSaber : Bullet
     {
         if (collider.tag == "Enemy")
         {
+            //Audio
+            AudioManager Audio = AudioManager.AMInstance;
+            float pitch = Random.Range(0.8f, 1.2f);
+            int index = Random.Range(0, (Audio.lightsaberImpactsArray.Length - 1));
+            Audio.PlaySFX(Audio.lightsaberImpactsArray[index], Audio.lightsaberImpactsVolume, pitch);
+            //----
             collider.GetComponent<EnemySensors>().TakeDamage(damageLightSaber, fromPlayer);
         }
 

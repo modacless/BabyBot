@@ -12,6 +12,11 @@ public class Weapon : MonoBehaviour
     protected GameObject firePoint;
     private PlayerMovement playerMovementScript;
 
+
+    public float currentShotsVolume;
+    public AudioClip[] currentShotsArray;
+
+
     [System.Serializable]
     public struct UpgradeStruct
     {
@@ -72,6 +77,9 @@ public class Weapon : MonoBehaviour
         actualBulletUsed.transform.localScale = sizeBullet;
         actualAmo = magazineAmmo;
 
+        currentShotsVolume = AudioManager.AMInstance.waterGunShotsVolume;
+        currentShotsArray = AudioManager.AMInstance.waterGunShotsArray;
+
         //gainFireRate = stats.fireRate - stats.finalCadence;
     }
     protected virtual void Update()
@@ -115,6 +123,12 @@ public class Weapon : MonoBehaviour
         GameObject myBullet = Instantiate(actualBulletUsed, firePoint.transform.position, transform.rotation);
         myBullet.GetComponent<Bullet>().InitBullet(bulletLifeTime, Time.time, bulletSpeed, bulletDamage, transform.forward,this.gameObject);
         actualAmo--;
+
+        //Audio
+        float pitch = Random.Range(0.8f, 1.2f);
+        int index = Random.Range(0, (currentShotsArray.Length - 1));
+        AudioManager.AMInstance.PlaySFX(currentShotsArray[index], currentShotsVolume, pitch);
+        //----
     }
 
     protected void TryShoot()
