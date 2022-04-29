@@ -296,6 +296,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4a45d59e84953649965ba55d7471a9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  footstepsSource: {fileID: 7632319143396344608}
   speed: 7.5
   isAiming: 0
   playerAnimationsScript: {fileID: 0}
@@ -543,7 +544,7 @@ MonoBehaviour:
     type: 3}
   firePoint: {fileID: 784317568}
   playerMovementScript: {fileID: 0}
-  currentShotsVolume: 0
+  playerShotSource: {fileID: 4311528354496212974}
   currentShotsArray: []
   sizeBullet: {x: 1, y: 1, z: 1}
   reloadTime: 2
@@ -602,7 +603,7 @@ MonoBehaviour:
     type: 3}
   firePoint: {fileID: 784317568}
   playerMovementScript: {fileID: 0}
-  currentShotsVolume: 0
+  playerShotSource: {fileID: 4311528354496212974}
   currentShotsArray: []
   sizeBullet: {x: 2, y: 2, z: 2}
   reloadTime: 1
@@ -660,7 +661,7 @@ MonoBehaviour:
     type: 3}
   firePoint: {fileID: 784317568}
   playerMovementScript: {fileID: 0}
-  currentShotsVolume: 0
+  playerShotSource: {fileID: 4311528354496212974}
   currentShotsArray: []
   sizeBullet: {x: 1, y: 1, z: 1}
   reloadTime: 2

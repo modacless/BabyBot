@@ -5,11 +5,10 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager AMInstance;
-    public AudioSource SFXAudioSource;
-    public AudioSource musicsAudioSource;
 
-    public float baseSFXVolume = 1;
-    public float baseMusicVolume = 0;
+    public AudioSource levierSource;
+    public AudioSource pressureSource;
+    public AudioSource musicSource;
 
     [Header("Player")]
 
@@ -79,7 +78,7 @@ public class AudioManager : MonoBehaviour
 
     [Header("Musics")]
 
-    public AudioClip[] runThemesArray;
+    public AudioClip runTheme;
 
 
     private void Awake()
@@ -97,32 +96,15 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        PlayMusics(runThemesArray[Random.Range(0, 3)], 1, 1);
+        PlaySFX(runTheme, musicSource, 1);
     }
 
 
-    public void PlaySFX(AudioClip _sound, float _volume, float _pitch)
+    public void PlaySFX(AudioClip _sound, AudioSource _source, float _pitch)
     {
-        SFXAudioSource.volume = _volume * baseSFXVolume;
-        SFXAudioSource.pitch = _pitch;
+        _source.volume = 1;
+        _source.pitch = _pitch;
 
-        SFXAudioSource.PlayOneShot(_sound);
-    }
-    public void PlayMusics(AudioClip _sound, float _volume, float _pitch)
-    {
-        musicsAudioSource.volume = _volume * baseMusicVolume;
-        musicsAudioSource.pitch = _pitch;
-        musicsAudioSource.clip = _sound;
-
-        musicsAudioSource.Play();
-    }
-
-    public void StopSFX()
-    {
-        SFXAudioSource.Stop();
-    }
-    public void StopMusic()
-    {
-        musicsAudioSource.Stop();
+        _source.PlayOneShot(_sound);
     }
 }

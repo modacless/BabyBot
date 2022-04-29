@@ -325,6 +325,8 @@ MonoBehaviour:
   damage: 1
   direction: {x: -0.7071068, y: 0, z: 0.7071067}
   fromPlayer: {fileID: 0}
+  appearSource: {fileID: 4919178493599722052}
+  eatSource: {fileID: 8462248591626770100}
   layerRaycast:
     serializedVersion: 2
     m_Bits: 260

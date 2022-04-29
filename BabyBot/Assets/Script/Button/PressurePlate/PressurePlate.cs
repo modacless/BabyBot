@@ -18,7 +18,7 @@ public class PressurePlate : MonoBehaviour
 
             //Audio
             AudioManager Audio = AudioManager.AMInstance;
-            Audio.PlaySFX(Audio.pressurePlate, Audio.pressurePlateVolume, 1);
+            Audio.PlaySFX(Audio.pressurePlate, Audio.pressureSource, 1);
             //----
         }
 

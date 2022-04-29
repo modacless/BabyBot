@@ -55,6 +55,8 @@ MonoBehaviour:
   damage: 5
   direction: {x: 0, y: 0, z: 0}
   fromPlayer: {fileID: 0}
+  igniteSource: {fileID: 3486984932066934338}
+  killingSource: {fileID: 1071172073483644033}
   turnSpeed: 50
   lifeTimeLightSaber: 5
   damageLightSaber: 10

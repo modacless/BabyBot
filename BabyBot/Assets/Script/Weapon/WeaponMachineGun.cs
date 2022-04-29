@@ -25,6 +25,12 @@ public class WeaponMachineGun : Weapon
         GameObject myBullet = Instantiate(actualBulletUsed, firePoint.transform.position, transform.rotation);
         myBullet.GetComponent<Bullet>().InitBullet(bulletLifeTime, Time.time, bulletSpeed, bulletDamage, randomFire,this.gameObject);
         actualAmo--;
+
+        //Audio
+        float pitch = Random.Range(0.8f, 1.2f);
+        int index = Random.Range(0, (currentShotsArray.Length - 1));
+        AudioManager.AMInstance.PlaySFX(currentShotsArray[index], playerShotSource, pitch);
+        //----
     }
 
     private void OnDrawGizmos()
@@ -43,7 +49,6 @@ public class WeaponMachineGun : Weapon
     {
         base.Upgrade1();
 
-        currentShotsVolume = AudioManager.AMInstance.fireAssaultGunShotsVolume;
         currentShotsArray = AudioManager.AMInstance.FireAssaultGunShotsArray;
     }
 
@@ -51,7 +56,6 @@ public class WeaponMachineGun : Weapon
     {
         base.Upgrade2();
 
-        currentShotsVolume = AudioManager.AMInstance.sparkleGunShotsVolume;
         currentShotsArray = AudioManager.AMInstance.SparkleGunShotsArray;
     }
 
@@ -59,7 +63,6 @@ public class WeaponMachineGun : Weapon
     {
         base.Upgrade3();
 
-        currentShotsVolume = AudioManager.AMInstance.lightningGunShotsVolume;
         currentShotsArray = AudioManager.AMInstance.LightningGunShotsArray;
     }
 
