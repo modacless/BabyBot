@@ -45,4 +45,32 @@ public class PlayerAnimations : MonoBehaviour
                 break;
         }
     }
+
+    public void ShootSingle(bool enable)
+    {
+        switch (enable)
+        {
+            case true:
+                playerAnimatorShoot.SetBool("isShootingSingle", true);
+                break;
+            case false:
+                playerAnimatorShoot.SetBool("isShootingSingle", false);
+                break;
+        }
+    }
+
+    public void Reload(bool enable, float reloadTime)
+    {
+        playerAnimatorShoot.SetFloat("reloadSpeed", 1 * (1 / reloadTime));
+
+        switch (enable)
+        {
+            case true:
+                playerAnimatorShoot.SetBool("isReloading", true);
+                break;
+            case false:
+                playerAnimatorShoot.SetBool("isReloading", false);
+                break;
+        }
+    }
 }

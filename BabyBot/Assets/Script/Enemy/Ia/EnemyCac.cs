@@ -19,12 +19,16 @@ public class EnemyCac : EnemySensors
     {
         navAgent.isStopped = true;
         rbd.velocity = Vector3.zero;
+
+        selfAnimator.SetBool("isMoving", false);
     }
 
     protected override void StateDetect()
     {
         navAgent.isStopped = false;
         navAgent.SetDestination(actualGoal.transform.position);
+
+        selfAnimator.SetBool("isMoving", true);
     }
 
     protected override void StateAttack()
@@ -40,6 +44,15 @@ public class EnemyCac : EnemySensors
 
         transform.LookAt(actualGoal);
         transform.rotation = Quaternion.Euler(new Vector3(0, transform.rotation.eulerAngles.y, 0));
+
+        selfAnimator.SetBool("isMoving", false);
+    }
+
+    protected override void StateDead()
+    {
+        base.StateDead();
+
+        selfAnimator.SetBool("isMoving", false);
     }
 
     private void DoAttack()

@@ -2,34 +2,40 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LightSaber : MonoBehaviour
+public class LightSaber : Bullet
 {
     public float turnSpeed;
-    public float lifeTime;
-    public float damage;
+    public float lifeTimeLightSaber;
+    public float damageLightSaber;
 
-    private float startTime = 0;
+    private float startTimeLightSaber = 0;
 
-    private void Start()
+    protected override void Start()
     {
-        startTime = Time.time;
+        startTimeLightSaber = Time.time;
     }
 
-    private void Update()
+    protected override void Update()
     {
-        if (Time.time > startTime + lifeTime) Destroy(gameObject);
+        if (Time.time > startTimeLightSaber + lifeTimeLightSaber) Destroy(gameObject);
     }
 
-    private void FixedUpdate()
+    protected override void FixedUpdate()
     {
         transform.Rotate(Vector3.right * (turnSpeed * Time.fixedDeltaTime));
     }
 
-    private void OnTriggerEnter(Collider collider)
+    protected override void OnTriggerEnter(Collider collider)
     {
         if (collider.tag == "Enemy")
         {
-            collider.GetComponent<EnemySensors>().TakeDamage((int)damage);
+            //Audio
+            AudioManager Audio = AudioManager.AMInstance;
+            float pitch = Random.Range(0.8f, 1.2f);
+            int index = Random.Range(0, (Audio.lightsaberImpactsArray.Length - 1));
+            Audio.PlaySFX(Audio.lightsaberImpactsArray[index], Audio.lightsaberImpactsVolume, pitch);
+            //----
+            collider.GetComponent<EnemySensors>().TakeDamage(damageLightSaber, fromPlayer);
         }
 
         if (collider.tag == ("Bullet")) Destroy(gameObject);

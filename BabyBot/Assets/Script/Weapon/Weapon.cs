@@ -9,8 +9,13 @@ public class Weapon : MonoBehaviour
     public GameObject initialBullet;
     protected GameObject actualBulletUsed;
     [SerializeField]
-    protected GameObject firePoint;
-    private PlayerMovement playerMovementScript;
+    public GameObject firePoint;
+    [HideInInspector] public PlayerMovement playerMovementScript;
+
+
+    public float currentShotsVolume;
+    public AudioClip[] currentShotsArray;
+
 
     [System.Serializable]
     public struct UpgradeStruct
@@ -72,6 +77,9 @@ public class Weapon : MonoBehaviour
         actualBulletUsed.transform.localScale = sizeBullet;
         actualAmo = magazineAmmo;
 
+        currentShotsVolume = AudioManager.AMInstance.waterGunShotsVolume;
+        currentShotsArray = AudioManager.AMInstance.waterGunShotsArray;
+
         //gainFireRate = stats.fireRate - stats.finalCadence;
     }
     protected virtual void Update()
@@ -104,7 +112,7 @@ public class Weapon : MonoBehaviour
         }
     }
 
-    private void AnimationShoot()
+    protected virtual void AnimationShoot()
     {
         if (isPressingFire /*&& playerMovementScript.isAiming*/ && !isReloading) playerMovementScript.playerAnimationsScript.Shoot(true);
         else playerMovementScript.playerAnimationsScript.Shoot(false);
@@ -112,9 +120,15 @@ public class Weapon : MonoBehaviour
 
     protected virtual void Shoot()
     {
-        GameObject myBullet = Instantiate(actualBulletUsed, firePoint.transform.position, transform.rotation);
-        myBullet.GetComponent<Bullet>().InitBullet(bulletLifeTime, Time.time, bulletSpeed, bulletDamage, transform.forward);
+        GameObject myBullet = Instantiate(actualBulletUsed, firePoint.transform.position, transform.rotation * Quaternion.Euler(0,-90,0));
+        myBullet.GetComponent<Bullet>().InitBullet(bulletLifeTime, Time.time, bulletSpeed, bulletDamage, transform.forward,this.gameObject);
         actualAmo--;
+
+        //Audio
+        float pitch = Random.Range(0.8f, 1.2f);
+        int index = Random.Range(0, (currentShotsArray.Length - 1));
+        AudioManager.AMInstance.PlaySFX(currentShotsArray[index], currentShotsVolume, pitch);
+        //----
     }
 
     protected void TryShoot()
@@ -147,18 +161,20 @@ public class Weapon : MonoBehaviour
         if (actualAmo <= 0)
         {
             isReloading = true;
+            playerMovementScript.playerAnimationsScript.Reload(true, reloadTime);
 
             reloadTimer += Time.deltaTime;
             if (reloadTimer >= reloadTime)
             {
                 isReloading = false;
+                playerMovementScript.playerAnimationsScript.Reload(false, reloadTime);
                 reloadTimer = 0;
                 actualAmo = magazineAmmo;
             }
         }
     }
 
-    protected void UpgradeWeapon(int upgradeToChose)
+    public void UpgradeWeapon(int upgradeToChose)
     {
         switch (upgradeToChose)
         {

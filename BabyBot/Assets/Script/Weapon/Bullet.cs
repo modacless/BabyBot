@@ -14,19 +14,22 @@ public class Bullet : MonoBehaviour
     public float damage;
     [HideInInspector]
     public Vector3 direction;
+    [HideInInspector]
+    public GameObject fromPlayer;
 
     protected virtual void Start()
     {
         startTime = Time.time;
     }
 
-    public virtual void InitBullet(float _lifeTime, float _startTime, float _speed, float _damage, Vector3 _direction)
+    public virtual void InitBullet(float _lifeTime, float _startTime, float _speed, float _damage, Vector3 _direction, GameObject from)
     {
         lifeTime = _lifeTime;
         startTime = _startTime;
         speed = _speed;
         damage = _damage ;
         direction = _direction;
+        fromPlayer = from;
     }
 
     protected virtual void Update()
@@ -37,19 +40,22 @@ public class Bullet : MonoBehaviour
     {
         if(collider.tag == "Enemy")
         {
-            collider.GetComponent<EnemySensors>().TakeDamage((int)damage);
+            collider.GetComponent<EnemySensors>().TakeDamage((int)damage, fromPlayer);
+            //Debug.Log((int)damage);
         }
         if(collider.tag != ("Bullet")) Destroy(gameObject);
     }
     protected virtual void FixedUpdate()
     {
         transform.position += direction.normalized * speed * Time.fixedDeltaTime;
+
     }
 
     protected virtual void OnDestroy()
     {
-
+        
     }
+
 }
 
 

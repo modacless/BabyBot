@@ -2,22 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Explosion : MonoBehaviour
+public class Explosion : Bullet
 {
     public Vector3 explosionCercleRange;
     public float timeBeforeExplose;
-    public float damage;
+    public float explosionDamage;
 
-    protected virtual void Start()
+    protected override void Start()
     {
         StartCoroutine(LerpScale(transform.localScale, explosionCercleRange, timeBeforeExplose));
     }
 
-    private void OnTriggerEnter(Collider collider)
+    protected override void OnTriggerEnter(Collider collider)
     {
         if (collider.tag == "Enemy")
         {
-            collider.GetComponent<EnemySensors>().TakeDamage((int)damage);
+            collider.GetComponent<EnemySensors>().TakeDamage((int)explosionDamage,fromPlayer);
         }
     }
 
@@ -37,7 +37,17 @@ public class Explosion : MonoBehaviour
         Destroy(gameObject);
     }
 
-    protected virtual void OnDestroy()
+    protected override void Update()
+    {
+        
+    }
+
+    protected override void FixedUpdate()
+    {
+        
+    }
+
+    protected override void OnDestroy()
     {
 
     }

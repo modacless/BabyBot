@@ -62,11 +62,19 @@ public class EnemySensors : MonoBehaviour
     [SerializeField]
     protected GameObject attackGameObject;
 
-    [Header ("Animator")]
+    [Header ("Collider")]
+    [SerializeField]
+    protected CapsuleCollider selfHitBox;
+
+    [Header ("GFX")]
     [SerializeField]
     protected Animator selfAnimator;
+    [SerializeField]
+    protected GameObject deadthParticleSysteme;
+    [SerializeField]
+    protected GameObject selfMesh;
 
-
+    public int pointEnemy;
     protected virtual void Start()
     {
         rbd = GetComponent<Rigidbody>();
@@ -81,6 +89,8 @@ public class EnemySensors : MonoBehaviour
         actualGoal = _allPlayers[0].transform;
 
         actualAttackCooldown = attackCooldown;
+
+        deadthParticleSysteme.SetActive(false);
     }
 
     // Update is called once per frame
@@ -92,6 +102,7 @@ public class EnemySensors : MonoBehaviour
 
         actualGoal = GetNearestGoal();
 
+        //if(actualGoal != null && actualGoal.GetComponent<PlayerInfo>().)
         //Applique l'effet de la machine à état
         switch (enemyState)
         {
@@ -218,42 +229,60 @@ public class EnemySensors : MonoBehaviour
 
     protected virtual void StateDead()
     {
-        navAgent.isStopped = true;
-        rbd.velocity = Vector3.zero;
         StartCoroutine(DeadRoutine());
+
+        navAgent.isStopped = true;
+        navAgent.velocity = Vector3.zero;
+        navAgent.angularSpeed = 0;
+
+        rbd.velocity = Vector3.zero;
+        selfHitBox.enabled = false;
+
+        selfMesh.SetActive(false);
+        deadthParticleSysteme.SetActive(true);
     }
 
     protected virtual IEnumerator DeadRoutine()
     {
-        transform.rotation = Quaternion.Euler(new Vector3(0, transform.rotation.eulerAngles.y, 90));
-        float actualTimerDead = 0;
-        GetComponent<CapsuleCollider>().enabled = false;
-        while(actualTimerDead < timerDead)
-        {
-            actualTimerDead += Time.fixedDeltaTime;
-            yield return waitFixedUpdate;
-        }
-
+        yield return new WaitForSeconds(timerDead);
         Destroy(this.gameObject);
     }
 
-    /*private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision collision)
     {
         if(collision.collider.tag == "Bullet")
         {
             Bullet bulletLogic = collision.collider.GetComponent<Bullet>();
             if (bulletLogic)
             {
-                TakeDamage((int)bulletLogic.damage);
+               
+                if(lifePoint <= 0)
+                {
+                   
+                }
             }
         }
-    }*/
+    }
+
+    public virtual void TakeDamage(float damage,GameObject fromPlayer)
+    {
+        lifePoint -= damage;
+        if (lifePoint <= 0)
+        {
+            PlayerInfoManager.instance.AddPlayerScore(fromPlayer.GetComponent<PlayerInfo>(), pointEnemy);
+            isDead = true;
+        }
+    }
 
     public virtual void TakeDamage(float damage)
     {
         lifePoint -= damage;
+        if (lifePoint <= 0)
+        {
+            isDead = true;
+        }
     }
 
-    
+
 
 }

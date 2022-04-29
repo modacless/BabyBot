@@ -8,7 +8,7 @@ public class PiercingBullet : Bullet
     {
         if(collider.tag == "Enemy")
         {
-            collider.GetComponent<EnemySensors>().TakeDamage((int)damage);
+            collider.GetComponent<EnemySensors>().TakeDamage(damage,fromPlayer);
         }
 
         if (collider.tag != ("Bullet") && collider.tag != "Enemy")

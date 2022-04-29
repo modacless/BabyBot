@@ -32,15 +32,25 @@ public class PlayerInfoManager : MonoBehaviour
         //infoPlayer2 = GameObject.FindGameObjectWithTag("Player 2").GetComponent<PlayerInfo>();
     }
 
-    public void AddPlayerScore(int wichPlayer, float scoreToAdd)
+    public void Start()
     {
-        if (wichPlayer == 1)
+        int randomWeapon = Random.Range(0, 2);
+
+        if(randomWeapon == 1)
         {
-            infoPlayer1.AddScore(scoreToAdd);
+            infoPlayer1.choosenWeapon = 1;
+            infoPlayer2.choosenWeapon = 0;
         }
         else
         {
-            infoPlayer2.AddScore(scoreToAdd);
+            infoPlayer1.choosenWeapon = 0;
+            infoPlayer2.choosenWeapon = 1;
         }
+
+    }
+
+    public void AddPlayerScore(PlayerInfo wichPlayer, float scoreToAdd)
+    {
+        wichPlayer.AddScore(scoreToAdd);
     }
 }
