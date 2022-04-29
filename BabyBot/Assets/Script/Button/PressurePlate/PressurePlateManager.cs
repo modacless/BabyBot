@@ -8,6 +8,8 @@ public class PressurePlateManager : MonoBehaviour
     public List<PressurePlate> myPressurePlates;
     public UnityEvent evenement;
 
+    private bool lockEnter;
+
     private void Start()
     {
         myPressurePlates[0].canBeActivated = true;
@@ -44,8 +46,12 @@ public class PressurePlateManager : MonoBehaviour
             }
             if(i == myPressurePlates.Count - 1)
             {
-                evenement.Invoke();
-                myPressurePlates[i].lockSysteme = true;
+                if (lockEnter == false)
+                {
+                    evenement.Invoke();
+                    myPressurePlates[i].lockSysteme = true;
+                    lockEnter = true;
+                }
             }
         }
         else
