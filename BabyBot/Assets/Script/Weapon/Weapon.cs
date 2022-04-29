@@ -9,8 +9,8 @@ public class Weapon : MonoBehaviour
     public GameObject initialBullet;
     protected GameObject actualBulletUsed;
     [SerializeField]
-    protected GameObject firePoint;
-    private PlayerMovement playerMovementScript;
+    public GameObject firePoint;
+    [HideInInspector] public PlayerMovement playerMovementScript;
 
 
     public float currentShotsVolume;
@@ -119,7 +119,7 @@ public class Weapon : MonoBehaviour
         }
     }
 
-    private void AnimationShoot()
+    protected virtual void AnimationShoot()
     {
         if (isPressingFire /*&& playerMovementScript.isAiming*/ && !isReloading) playerMovementScript.playerAnimationsScript.Shoot(true);
         else playerMovementScript.playerAnimationsScript.Shoot(false);
@@ -168,12 +168,14 @@ public class Weapon : MonoBehaviour
         if (actualAmo <= 0)
         {
             isReloading = true;
+            playerMovementScript.playerAnimationsScript.Reload(true, reloadTime);
             _isReloading = true;
 
             reloadTimer += Time.deltaTime;
             if (reloadTimer >= reloadTime)
             {
                 isReloading = false;
+                playerMovementScript.playerAnimationsScript.Reload(false, reloadTime);
                 _isReloading = false;
                 reloadTimer = 0;
                 actualAmo = magazineAmmo;

@@ -8,15 +8,15 @@ public class PlayerInfo : MonoBehaviour
     #region Variable
 
     [Header("Player Stats")]
-    public float startHealh;
     public float maxHp;
+    public float respawnTime;
     
     [Header("Score Need For Upgrade")]
     public float[] eachScoreNeedForUpgrade;
     [HideInInspector]public float scoreNeedForNextUpgrade;
 
-    public float actualTotalScore;
-    [HideInInspector]public float actualHealth;
+    [HideInInspector] public float actualTotalScore;
+    [HideInInspector] public float actualHealth;
 
     [HideInInspector]public float actualScoreUpgrade;
 
@@ -24,27 +24,53 @@ public class PlayerInfo : MonoBehaviour
 
     public Weapon actualWeapon;
     public Weapon[] allWeapon;
-    public int choosenWeapon;
+    public GameObject pistolModel;
+    public GameObject[] machineGunModel;
+    public GameObject[] launcherModel;
+    public GameObject[] firePoints;
+    [HideInInspector] public int choosenWeapon;
+
+    private PlayerMovement playerMovementScript;
+    private CapsuleCollider colliderSelf;
 
     #endregion
-
-
 
     private void Start()
     {
         Init();
+        //DisplayWeaponModel(false, 0);
+        playerMovementScript = GetComponent<PlayerMovement>();
+        colliderSelf = GetComponent<CapsuleCollider>();
+
     }
     private void Init()
     {
         scoreNeedForNextUpgrade = eachScoreNeedForUpgrade[0];
-        actualHealth = startHealh;
-
+        actualHealth = maxHp;
     }
 
 
+    private void DisplayWeaponModel()
+    {
+        if(actualWeapon == allWeapon[0])
+        {
+            if (numberOfUpgrade > 1) machineGunModel[numberOfUpgrade - 1].SetActive(false);
+            else pistolModel.SetActive(false);
+            machineGunModel[numberOfUpgrade].SetActive(true);
+            actualWeapon.firePoint = firePoints[1 + numberOfUpgrade];
+        }
+        else
+        {
+            if(numberOfUpgrade > 1) launcherModel[numberOfUpgrade - 1].SetActive(false);
+            else pistolModel.SetActive(false);
+            launcherModel[numberOfUpgrade].SetActive(true);
+            actualWeapon.firePoint = firePoints[5 + numberOfUpgrade];
+        }
+    }
+
     public void AddScore(float scoreToAdd)
     {
-        Debug.Log("Score");
+        //Debug.Log("Score");
         if (actualScoreUpgrade <= scoreNeedForNextUpgrade)
         {
             actualScoreUpgrade += scoreToAdd;
@@ -55,7 +81,7 @@ public class PlayerInfo : MonoBehaviour
 
     public void TriggerWeaponUpgrade(InputAction.CallbackContext context)
     {
-        if (actualScoreUpgrade >= scoreNeedForNextUpgrade)
+        if (actualScoreUpgrade >= scoreNeedForNextUpgrade && numberOfUpgrade < eachScoreNeedForUpgrade.Length-1)
         {
             if (context.started)
             {
@@ -72,6 +98,8 @@ public class PlayerInfo : MonoBehaviour
                     actualWeapon.UpgradeWeapon(numberOfUpgrade);
                 }
 
+                DisplayWeaponModel();
+
                 numberOfUpgrade += 1;
                 scoreNeedForNextUpgrade = eachScoreNeedForUpgrade[numberOfUpgrade];
 
@@ -84,8 +112,8 @@ public class PlayerInfo : MonoBehaviour
 
     public void DamagePlayer(int damage)
     {
+        
         actualHealth -= damage;
-
         if (actualHealth <= 0)
         {
             Die();
@@ -93,8 +121,23 @@ public class PlayerInfo : MonoBehaviour
     }
     private void Die()
     {
-        Debug.Log("Player Dead");
+        StartCoroutine(Respawn());
     }
 
+    IEnumerator Respawn()
+    {
+        actualWeapon.enabled = false;
+        playerMovementScript.enabled = false;
+        colliderSelf.isTrigger = true;
+        transform.GetChild(0).gameObject.SetActive(false);
 
+        yield return new WaitForSeconds(respawnTime);
+
+        actualWeapon.enabled = true;
+        playerMovementScript.enabled = true;
+        colliderSelf.isTrigger = false;
+        transform.GetChild(0).gameObject.SetActive(true);
+
+        actualHealth = maxHp;
+    }
 }

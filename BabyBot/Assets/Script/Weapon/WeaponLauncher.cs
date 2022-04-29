@@ -37,4 +37,10 @@ public class WeaponLauncher : Weapon
         currentShotsVolume = AudioManager.AMInstance.waterBallLauncherShotsVolume;
         currentShotsArray = AudioManager.AMInstance.waterBallLauncherShotsArray;
     }
+
+    protected override void AnimationShoot()
+    {
+        if (isPressingFire && !isShooting) playerMovementScript.playerAnimationsScript.ShootSingle(true);
+        else playerMovementScript.playerAnimationsScript.ShootSingle(false);
+    }
 }

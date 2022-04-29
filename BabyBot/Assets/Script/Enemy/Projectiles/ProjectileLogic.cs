@@ -9,7 +9,7 @@ public class ProjectileLogic : MonoBehaviour
     protected float lifeTime;
     protected float actualLifeTime;
     protected float speed;
-    private int projectileDamage;
+    public int projectileDamage;
 
 
     // Start is called before the first frame update
