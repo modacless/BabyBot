@@ -19,37 +19,30 @@ public class PlayerScore : MonoBehaviour
     [Header ("Unity Setup")]
     public Slider slider;
     public Image fillImage;
+    public GameObject upgradeMessage;
 
     private PlayerInfo playerInfo;
-    private Color colorToUse;
 
     #endregion
 
     private void Start()
     {
-        SetupPlayer();
         playerInfo = wichPlayer;
+        upgradeMessage.SetActive(false);
     }
-    private void SetupPlayer()
-    {
-        /*if (wichPlayer == 1)
-        {
-            playerInfo = PlayerInfoManager.instance.infoPlayer1;
-            colorToUse = colorPlayer1;
-            fillImage.color = colorToUse;
-        }
-        else
-        {
-            playerInfo = PlayerInfoManager.instance.infoPlayer2;
-            colorToUse = colorPlayer2;
-            fillImage.color = colorToUse;
-        }*/
-    }
-
-
+ 
     private void Update()
     {
         slider.value = playerInfo.actualScoreUpgrade / playerInfo.scoreNeedForNextUpgrade;
+
+        if (playerInfo.actualScoreUpgrade >= playerInfo.scoreNeedForNextUpgrade)
+        {
+            upgradeMessage.SetActive(true);
+        }
+        else
+        {
+            upgradeMessage.SetActive(false);
+        }
     }
 
 }
