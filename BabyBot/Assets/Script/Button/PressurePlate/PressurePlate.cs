@@ -10,7 +10,7 @@ public class PressurePlate : MonoBehaviour
     [HideInInspector]
     public bool canBeActivated = false;
 
-    //[HideInInspector]
+    [HideInInspector]
     public bool lockSysteme;
 
     [Header("Unity Setup")]
