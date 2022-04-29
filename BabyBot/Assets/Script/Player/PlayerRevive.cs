@@ -10,8 +10,19 @@ public class PlayerRevive : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if (other.GetComponent<PlayerInfo>().isPressingRevive) playerInfoScript.isReviving = true;
-            else playerInfoScript.isReviving = false;
+            if (other.GetComponent<PlayerInfo>().isPressingRevive && !playerInfoScript.playerInLife)
+            {
+                playerInfoScript.isReviving = true;
+                other.GetComponent<PlayerInfo>().playerMovementScript.enabled = false;
+                other.GetComponent<PlayerInfo>().playerMovementScript.playerAnimationsScript.Run(false);
+                other.GetComponent<PlayerInfo>().actualWeapon.enabled = false;
+            }
+            else
+            {
+                playerInfoScript.isReviving = false;
+                other.GetComponent<PlayerInfo>().playerMovementScript.enabled = true;
+                other.GetComponent<PlayerInfo>().actualWeapon.enabled = true;
+            }
         }
     }
 

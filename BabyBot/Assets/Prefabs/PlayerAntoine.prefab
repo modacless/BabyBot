@@ -1310,12 +1310,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numPlayer: 0
   maxHp: 5
+  InvincibleTimeAfterHit: 0.5
+  blindTime: 0.25
   timeForRevive: 3
   currentReviveTime: 0
   isReviving: 0
   isPressingRevive: 0
   playerInLife: 1
   reviveUI: {fileID: 7217270714672815437}
+  materialRobot: {fileID: 2100000, guid: c33aa9bca50e8f442bc9800a72976ca5, type: 2}
   eachScoreNeedForUpgrade:
   - 10
   - 20
@@ -1352,6 +1355,7 @@ MonoBehaviour:
   - {fileID: 4243315160091048455}
   - {fileID: 4395774028459582542}
   choosenWeapon: 0
+  playerMovementScript: {fileID: 0}
 --- !u!114 &4395774027539219072
 MonoBehaviour:
   m_ObjectHideFlags: 0

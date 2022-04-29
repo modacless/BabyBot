@@ -63,6 +63,7 @@ public class Weapon : MonoBehaviour
     protected bool isPressingFire = false;
     protected bool isShooting = false;
     protected bool isReloading = false;
+    private bool pressReload = false;
 
     [HideInInspector]public float _reloadTime;
     [HideInInspector]public float actualReloadTime;
@@ -76,6 +77,9 @@ public class Weapon : MonoBehaviour
     {
         GetComponent<PlayerInput>().actions["Fire"].started += Fire;
         GetComponent<PlayerInput>().actions["Fire"].canceled += Fire;
+        GetComponent<PlayerInput>().actions["Reload"].started += Reload;
+        GetComponent<PlayerInput>().actions["Reload"].canceled += Reload;
+
         playerMovementScript = GetComponent<PlayerMovement>();
 
         actualBulletUsed = initialBullet;
@@ -115,6 +119,14 @@ public class Weapon : MonoBehaviour
         if (context.canceled)
         {
             isPressingFire = false;
+        }
+    }
+
+    public virtual void Reload(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            if (actualAmo > 0) pressReload = true;
         }
     }
 
@@ -164,7 +176,7 @@ public class Weapon : MonoBehaviour
 
     private void Reload()
     {
-        if (actualAmo <= 0)
+        if (actualAmo <= 0 || pressReload && !isReloading)
         {
             isReloading = true;
             playerMovementScript.playerAnimationsScript.Reload(true, reloadTime);

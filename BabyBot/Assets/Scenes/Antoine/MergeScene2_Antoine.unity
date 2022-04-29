@@ -715,7 +715,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7780429, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -2865,7 +2865,7 @@ PrefabInstance:
     - target: {fileID: 3978170635185077609, guid: 1e530dc7be4c23b4182363ca480fbea1,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3978170635185077613, guid: 1e530dc7be4c23b4182363ca480fbea1,
         type: 3}
@@ -4985,6 +4985,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Trigger Spawner
       objectReference: {fileID: 0}
+    - target: {fileID: 2660620843923607758, guid: 43cebeda9ac1d7943a26e2056075e784,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2660620843923607759, guid: 43cebeda9ac1d7943a26e2056075e784,
         type: 3}
       propertyPath: arrayOfSpawner.Array.size
@@ -5782,6 +5787,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMin.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7320229214385334260, guid: 2d9e2570522c9b34e92d9a77ef568bee,
+        type: 3}
+      propertyPath: wichPlayer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7320229214909469277, guid: 2d9e2570522c9b34e92d9a77ef568bee,
         type: 3}
@@ -6821,7 +6831,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c33aa9bca50e8f442bc9800a72976ca5, type: 2}
+  - {fileID: 2100000, guid: d2c861b23bd5c224d95c10b4df591341, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7006,7 +7016,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c33aa9bca50e8f442bc9800a72976ca5, type: 2}
+  - {fileID: 2100000, guid: d2c861b23bd5c224d95c10b4df591341, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7892,12 +7902,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numPlayer: 0
   maxHp: 5
+  InvincibleTimeAfterHit: 0.5
+  blindTime: 0.25
   timeForRevive: 3
   currentReviveTime: 0
   isReviving: 0
   isPressingRevive: 0
   playerInLife: 1
   reviveUI: {fileID: 51167337}
+  materialRobot: {fileID: 2100000, guid: d2c861b23bd5c224d95c10b4df591341, type: 2}
   eachScoreNeedForUpgrade:
   - 10
   - 20
@@ -7934,6 +7947,7 @@ MonoBehaviour:
   - {fileID: 568480048171747948}
   - {fileID: 0}
   choosenWeapon: 0
+  playerMovementScript: {fileID: 0}
 --- !u!114 &2949875882740814017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8711,7 +8725,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c33aa9bca50e8f442bc9800a72976ca5, type: 2}
+  - {fileID: 2100000, guid: d2c861b23bd5c224d95c10b4df591341, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8877,7 +8891,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c33aa9bca50e8f442bc9800a72976ca5, type: 2}
+  - {fileID: 2100000, guid: d2c861b23bd5c224d95c10b4df591341, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9499,7 +9513,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c33aa9bca50e8f442bc9800a72976ca5, type: 2}
+  - {fileID: 2100000, guid: d2c861b23bd5c224d95c10b4df591341, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10291,7 +10305,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c33aa9bca50e8f442bc9800a72976ca5, type: 2}
+  - {fileID: 2100000, guid: d2c861b23bd5c224d95c10b4df591341, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10475,12 +10489,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numPlayer: 0
   maxHp: 5
+  InvincibleTimeAfterHit: 0
+  blindTime: 0
   timeForRevive: 0
   currentReviveTime: 0
   isReviving: 0
   isPressingRevive: 0
   playerInLife: 1
   reviveUI: {fileID: 0}
+  materialRobot: {fileID: 0}
   eachScoreNeedForUpgrade:
   - 5
   - 10
@@ -10498,6 +10515,7 @@ MonoBehaviour:
   launcherModel: []
   firePoints: []
   choosenWeapon: 0
+  playerMovementScript: {fileID: 0}
 --- !u!222 &8769762244409843709
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10526,7 +10544,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c33aa9bca50e8f442bc9800a72976ca5, type: 2}
+  - {fileID: 2100000, guid: d2c861b23bd5c224d95c10b4df591341, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
