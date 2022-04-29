@@ -12,6 +12,7 @@ public class PlayerInfo : MonoBehaviour
 
     public int numPlayer;
     [Header("Player Stats")]
+    [HideInInspector] public float startSpeed;
     public float maxHp;
     public float InvincibleTimeAfterHit;
     public float blindTime;
@@ -96,6 +97,7 @@ public class PlayerInfo : MonoBehaviour
         GetComponent<PlayerInput>().actions["Revive"].canceled += Revive;
 
         materialRobot.SetInt("_blind", 0);
+        startSpeed = playerMovementScript.speed;
     }
     private void Init()
     {
@@ -181,7 +183,7 @@ public class PlayerInfo : MonoBehaviour
     {
         if (!isInvincible)
         {
-            //gamepadVibrationScript.VibrationWithTime(vibrationTime, leftMotorSpeedVibration, rightMotorSpeedVibration);
+            gamepadVibrationScript.VibrationWithTime(vibrationTime, leftMotorSpeedVibration, rightMotorSpeedVibration);
             CameraShake.Instance.ShakeCamera(cameraIntensity, cameraShakeFrequency);
             StartCoroutine(BlindDamage());
             isInvincible = true;
@@ -250,6 +252,7 @@ public class PlayerInfo : MonoBehaviour
         switch (enable)
         {
             case true:
+                playerMovementScript.speed = startSpeed;
                 playerInLife = false;
                 actualHealth = maxHp;
                 actualWeapon.enabled = false;

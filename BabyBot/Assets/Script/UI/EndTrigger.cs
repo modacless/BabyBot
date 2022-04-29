@@ -41,7 +41,6 @@ public class EndTrigger : MonoBehaviour
     {
         if (numOfPlayer == 2)
         {
-            lockSysteme = true;
             endMenu.SetActive(true);
 
             if (lockSysteme == false)
@@ -62,5 +61,6 @@ public class EndTrigger : MonoBehaviour
     {
         yield return new WaitForSeconds(cooldown);
         SceneManager.LoadScene(0);
+        Debug.Log("load");
     }
 }

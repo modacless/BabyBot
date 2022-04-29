@@ -35,7 +35,7 @@ public class PlayerScore : MonoBehaviour
     {
         slider.value = playerInfo.actualScoreUpgrade / playerInfo.scoreNeedForNextUpgrade;
 
-        if (playerInfo.actualScoreUpgrade >= playerInfo.scoreNeedForNextUpgrade)
+        if (playerInfo.actualScoreUpgrade >= playerInfo.scoreNeedForNextUpgrade && playerInfo.numberOfUpgrade <= 3)
         {
             upgradeMessage.SetActive(true);
         }

@@ -4,16 +4,18 @@ using UnityEngine;
 
 public class SodaLogic : MonoBehaviour
 {
+    public float multiplicatorSpeed;
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Player")
         {
-            other.GetComponent<PlayerMovement>().speed *= 0.5f;
+            other.GetComponent<PlayerMovement>().speed *= multiplicatorSpeed;
         }
 
         if(other.tag == "Enemy")
         {
-            other.GetComponent<EnemySensors>().speed *= 0.5f;
+            other.GetComponent<EnemySensors>().speed *= 2;
         }
     }
 
@@ -21,12 +23,12 @@ public class SodaLogic : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            other.GetComponent<PlayerMovement>().speed *= 2.0f;
+            other.GetComponent<PlayerMovement>().speed = other.GetComponent<PlayerInfo>().startSpeed;
         }
 
         if (other.tag == "Enemy")
         {
-            other.GetComponent<EnemySensors>().speed *= 2.0f;
+            other.GetComponent<EnemySensors>().speed *= 0.5f;
         }
     }
 }

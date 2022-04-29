@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class TrainLogic : MonoBehaviour
 {
-    
+    public AudioSource trainSource;
+
     private float actualTime = 0;
     [SerializeField]
     private float timeBeforeRespawn;
@@ -49,15 +50,17 @@ public class TrainLogic : MonoBehaviour
         }
     }
 
-  
+    [ContextMenu("spawn train")]
     private void Spawn()
     {
         model.transform.position = spawnObject.transform.position;
         model.SetActive(true);
+        //AudioManager.AMInstance.PlaySFX(AudioManager.AMInstance.trainWhistle, trainSource, 1);
     }
 
     public void StartTrain()
     {
         speedAtStart = 1;
+        AudioManager.AMInstance.PlaySFX(AudioManager.AMInstance.trainWhistle, trainSource, 1);
     }
 }
