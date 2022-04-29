@@ -18,28 +18,30 @@ public class SpawnManager : MonoBehaviour
     [SerializeField]
     public static int actualEnemy;
 
+    [HideInInspector]public bool canSpawn;
+
     void Start()
     {
         actualTimeBeforSpawn = timeBeforeRespawn;
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
-        actualTimeBeforSpawn += Time.deltaTime;
-
-        if (actualTimeBeforSpawn >= timeBeforeRespawn)
+        if (canSpawn)
         {
-            actualTimeBeforSpawn = 0;
+            actualTimeBeforSpawn += Time.deltaTime;
 
-            for (int i = 0; i < numberOfEnemyToSpawn; i++)
+            if (actualTimeBeforSpawn >= timeBeforeRespawn)
             {
-                int randomEnemy = Random.Range(0, TypeSpawner.Count);
-                Instantiate(TypeSpawner[randomEnemy], transform.position, transform.rotation);
+                actualTimeBeforSpawn = 0;
+
+                for (int i = 0; i < numberOfEnemyToSpawn; i++)
+                {
+                    int randomEnemy = Random.Range(0, TypeSpawner.Count);
+                    Instantiate(TypeSpawner[randomEnemy], transform.position, transform.rotation);
+                }
+
             }
-
         }
-
-
     }
 }

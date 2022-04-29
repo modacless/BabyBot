@@ -13,15 +13,14 @@ public class DoubleButton : MonoBehaviour
     {
         if(firstButton.isActivated && secondButton.isActivated)
         {
+            firstButton.isActivated = false;
+            firstButton.isActivated = false;
+
             firstButton.stayActive = true;
             secondButton.stayActive = true;
+
+            Debug.Log("Solution");
             evenement.Invoke();
         }
-    }
-
-    public void destructButtons()
-    {
-        Destroy(firstButton.transform.gameObject);
-        Destroy(secondButton.transform.gameObject);
     }
 }
