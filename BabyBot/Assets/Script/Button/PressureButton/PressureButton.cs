@@ -6,14 +6,22 @@ using UnityEngine.InputSystem;
 
 public class PressureButton : MonoBehaviour
 {
+
+    [HideInInspector]
     public bool appuie = false;
     public float timeNeeded;
     private int numberOfPlayer = 0;
+
+    [HideInInspector]
     public float ActualTime = 0;
     private bool isActivated = false;
 
     public UnityEvent evenement;
+
+    [HideInInspector]
     public bool Player1On = false;
+
+    [HideInInspector]
     public bool Player2On = false;
 
 

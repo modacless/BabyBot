@@ -8,13 +8,17 @@ public class button : MonoBehaviour
 
     public float stayActiveTime;
     private bool canActivate = false;
+
+    [HideInInspector]
     public bool isActivated = false;
 
     [HideInInspector]
     public bool stayActive = false;
     private float startTime;
 
+    [HideInInspector]
     public bool Player1In = false;
+    [HideInInspector]
     public bool Player2In = false;
 
     public void OnTriggerEnter(Collider other)

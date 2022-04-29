@@ -7,7 +7,6 @@ public class DoubleButton : MonoBehaviour
 {
     public button firstButton;
     public button secondButton;
-    public bool twiceIsActive;
     public UnityEvent evenement;
 
     void Update()

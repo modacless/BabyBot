@@ -5,7 +5,9 @@ using UnityEngine.InputSystem;
 
 public class PressurePlate : MonoBehaviour
 {
+    [HideInInspector]
     public bool isActivated = false;
+    [HideInInspector]
     public bool canBeActivated = false;
 
     public void OnTriggerEnter(Collider other)
