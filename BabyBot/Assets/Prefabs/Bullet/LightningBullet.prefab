@@ -460,6 +460,10 @@ MonoBehaviour:
   sizePerSecond: 15
   secondBulletLogic: {fileID: 0}
   maxEnemyBounce: 5
+  vfxObject:
+  - {fileID: 7571819534544654719}
+  - {fileID: 6484201462497005752}
+  - {fileID: 7853989998735324431}
 --- !u!1 &7571819534544654719
 GameObject:
   m_ObjectHideFlags: 0
