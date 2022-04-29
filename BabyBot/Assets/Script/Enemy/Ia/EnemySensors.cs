@@ -38,6 +38,7 @@ public class EnemySensors : MonoBehaviour
     //World Data
     public List<Transform> allGoals = new List<Transform>();
     protected Transform actualGoal;
+    protected PlayerInfo actualPlayerInfo;
 
 
     //Detection
@@ -89,6 +90,8 @@ public class EnemySensors : MonoBehaviour
         }
 
         actualGoal = _allPlayers[0].transform;
+        actualPlayerInfo = actualGoal.GetComponent<PlayerInfo>();
+
 
         actualAttackCooldown = attackCooldown;
 
@@ -104,27 +107,28 @@ public class EnemySensors : MonoBehaviour
 
         actualGoal = GetNearestGoal();
 
-        //if(actualGoal != null && actualGoal.GetComponent<PlayerInfo>().)
-        //Applique l'effet de la machine à état
-        switch (enemyState)
+        if (actualGoal != null)
         {
-            case StateEnemy.Idle:
-                StateIdle();
-                break;
-            case StateEnemy.Detect:
-                StateDetect();
-                break;
-            case StateEnemy.Attack:
-                StateAttack();
-                break;
-            case StateEnemy.Dead:
-                StateDead();
-                break;
-            default:
-                StateIdle();
-                break;
+            //Applique l'effet de la machine à état
+            switch (enemyState)
+            {
+                case StateEnemy.Idle:
+                    StateIdle();
+                    break;
+                case StateEnemy.Detect:
+                    StateDetect();
+                    break;
+                case StateEnemy.Attack:
+                    StateAttack();
+                    break;
+                case StateEnemy.Dead:
+                    StateDead();
+                    break;
+                default:
+                    StateIdle();
+                    break;
+            }
         }
-
     }
 
     public Transform GetNearestGoal()
@@ -137,6 +141,17 @@ public class EnemySensors : MonoBehaviour
             {
                 if((transform.position - minPosition.position).magnitude > (transform.position - allGoals[i].position).magnitude) {
                     minPosition = allGoals[i];
+                }
+            }
+
+            if (!minPosition.GetComponent<PlayerInfo>().playerInLife)
+            {
+                for(int i = 0; i< allGoals.Count; i++)
+                {
+                    if (allGoals[i].GetComponent<PlayerInfo>().playerInLife)
+                    {
+                        minPosition = allGoals[i];
+                    }
                 }
             }
 
