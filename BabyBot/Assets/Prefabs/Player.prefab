@@ -495,8 +495,8 @@ MonoBehaviour:
   eachScoreNeedForUpgrade:
   - 10
   - 20
-  - 40
-  - 80
+  - 60
+  - 100
   scoreNeedForNextUpgrade: 0
   actualTotalScore: 0
   actualHealth: 0
@@ -549,10 +549,10 @@ MonoBehaviour:
   sizeBullet: {x: 1, y: 1, z: 1}
   reloadTime: 2
   fireRate: 0.09
-  bulletDamage: 5
+  bulletDamage: 3
   bulletLifeTime: 3
   bulletSpeed: 15
-  magazineAmmo: 50
+  magazineAmmo: 30
   actualAmo: 0
   _reloadTime: 0
   actualReloadTime: 0
@@ -562,28 +562,28 @@ MonoBehaviour:
   - sizeBullet: {x: 1, y: 1, z: 1}
     reloadTime: 2
     fireRate: 0.06
-    bulletDamage: 6
+    bulletDamage: 3
     bulletLifeTime: 3
     bulletSpeed: 25
-    magazineAmmo: 75
+    magazineAmmo: 50
     actualBulletUsed: {fileID: 6753946423046665436, guid: 047f88e99815f294a91856645968c377,
       type: 3}
   - sizeBullet: {x: 1, y: 1, z: 1}
     reloadTime: 2
     fireRate: 0.06
-    bulletDamage: 7
+    bulletDamage: 3
     bulletLifeTime: 3
     bulletSpeed: 25
-    magazineAmmo: 75
+    magazineAmmo: 50
     actualBulletUsed: {fileID: 6753946423046665436, guid: d08a9e61d178f55459c9bb0d3a00e80f,
       type: 3}
   - sizeBullet: {x: 1, y: 1, z: 1}
     reloadTime: 2
     fireRate: 0.06
-    bulletDamage: 8
+    bulletDamage: 3
     bulletLifeTime: 3
     bulletSpeed: 25
-    magazineAmmo: 75
+    magazineAmmo: 50
     actualBulletUsed: {fileID: 6753946423046665436, guid: 0735066ec6613674497a9cbe7734abd9,
       type: 3}
   fireAngle: 10
@@ -608,7 +608,7 @@ MonoBehaviour:
   sizeBullet: {x: 2, y: 2, z: 2}
   reloadTime: 1
   fireRate: 0.8
-  bulletDamage: 100
+  bulletDamage: 20
   bulletLifeTime: 3
   bulletSpeed: 40
   magazineAmmo: 5
@@ -621,7 +621,7 @@ MonoBehaviour:
   - sizeBullet: {x: 2, y: 2, z: 2}
     reloadTime: 2
     fireRate: 1
-    bulletDamage: 1
+    bulletDamage: 10
     bulletLifeTime: 3
     bulletSpeed: 40
     magazineAmmo: 5
@@ -630,7 +630,7 @@ MonoBehaviour:
   - sizeBullet: {x: 2, y: 2, z: 2}
     reloadTime: 2
     fireRate: 1
-    bulletDamage: 1
+    bulletDamage: 10
     bulletLifeTime: 3
     bulletSpeed: 40
     magazineAmmo: 10
@@ -639,7 +639,7 @@ MonoBehaviour:
   - sizeBullet: {x: 2, y: 2, z: 2}
     reloadTime: 2
     fireRate: 1
-    bulletDamage: 1
+    bulletDamage: 10
     bulletLifeTime: 3
     bulletSpeed: 40
     magazineAmmo: 15
