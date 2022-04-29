@@ -5,7 +5,6 @@ EditorUserSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 4
   m_ConfigSettings:
-<<<<<<< HEAD
     RecentlyUsedSceneGuid-0:
       value: 0207045207055b0a5d0a5f20167a0d44154f4b7e2e2d7e64792a4c64b5b7313b
       flags: 0
@@ -28,16 +27,14 @@ EditorUserSettings:
       value: 5307565651535d5f0b5f5b7b41755d44414f487b7f717066297b4d6ae1b0643e
       flags: 0
     RecentlyUsedSceneGuid-7:
-      value: 565457545456500a545f09754073084417151e297f297e662e7b1830bab66d6c
+      value: 5a06510256050f090c0f0d24437b5d44444f4a7d297f71667f7c456ab7e46c39
       flags: 0
     RecentlyUsedSceneGuid-8:
       value: 5b53075257065b5f0b575b2443710944134e4a7d2d7b22607f281f6ab0e66069
       flags: 0
     RecentlyUsedSceneGuid-9:
-      value: 5a06510256050f090c0f0d24437b5d44444f4a7d297f71667f7c456ab7e46c39
+      value: 565457545456500a545f09754073084417151e297f297e662e7b1830bab66d6c
       flags: 0
-=======
->>>>>>> Guillaume
     vcSharedLogLevel:
       value: 0d5e400f0650
       flags: 0
@@ -46,11 +43,7 @@ EditorUserSettings:
   m_VCDebugCmd: 0
   m_VCDebugOut: 0
   m_SemanticMergeMode: 2
-<<<<<<< HEAD
   m_DesiredImportWorkerCount: 5
-=======
-  m_DesiredImportWorkerCount: 4
->>>>>>> Guillaume
   m_StandbyImportWorkerCount: 2
   m_IdleImportWorkerShutdownDelay: 60000
   m_VCShowFailedCheckout: 1

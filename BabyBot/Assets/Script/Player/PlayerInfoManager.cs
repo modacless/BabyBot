@@ -13,7 +13,7 @@ public class PlayerInfoManager : MonoBehaviour
     public PlayerInfo infoPlayer2;
 
     public GameObject[] objectPlayerToChangeMaterial;
-    public Material materialPlayer2;
+    //public Material materialPlayer2;
 
     #endregion
 
@@ -30,10 +30,10 @@ public class PlayerInfoManager : MonoBehaviour
         }
         #endregion  
 
-        for(int i=0; i< objectPlayerToChangeMaterial.Length; i++)
+        /*for(int i=0; i< objectPlayerToChangeMaterial.Length; i++)
         {
             objectPlayerToChangeMaterial[i].GetComponent<Renderer>().material = materialPlayer2;
-        }
+        }*/
         
 
         // Have to change this after !!!!!
@@ -67,6 +67,6 @@ public class PlayerInfoManager : MonoBehaviour
 
     public void Update()
     {
-        if (!infoPlayer1.playerInLife && !infoPlayer2.playerInLife) SceneManager.LoadScene("");
+        if (!infoPlayer1.playerInLife && !infoPlayer2.playerInLife) SceneManager.LoadScene(0);
     }
 }
