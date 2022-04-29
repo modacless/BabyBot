@@ -104,6 +104,7 @@ public class EnemySensors : MonoBehaviour
 
         actualGoal = GetNearestGoal();
 
+        //if(actualGoal != null && actualGoal.GetComponent<PlayerInfo>().)
         //Applique l'effet de la machine à état
         switch (enemyState)
         {
