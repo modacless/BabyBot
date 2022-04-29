@@ -4629,11 +4629,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeBeforeRespawn: 10
   trainSpeed: 50
-  trainDamage: 100
   model: {fileID: 684949502}
   spawnObject: {fileID: 1283271076}
   activeAtStart: 0
   stopTrainAtStart: 0
+  speedAtStart: 1
 --- !u!1 &1497941300
 GameObject:
   m_ObjectHideFlags: 0
@@ -5577,7 +5577,6 @@ MonoBehaviour:
   infoPlayer1: {fileID: 2923862202573780641}
   infoPlayer2: {fileID: 2923862203952109112}
   objectPlayerToChangeMaterial: []
-  materialPlayer2: {fileID: 0}
 --- !u!1 &1788010894
 GameObject:
   m_ObjectHideFlags: 0
@@ -8120,6 +8119,8 @@ MonoBehaviour:
   isReviving: 0
   isPressingRevive: 0
   playerInLife: 1
+  visualEffect: {fileID: 20903579658116281, guid: 5d05d742b9478534d8180b33b54ec1ad,
+    type: 3}
   vibrationTime: 0.2
   leftMotorSpeedVibration: 0.5
   rightMotorSpeedVibration: 0.5
@@ -8625,6 +8626,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1554665592486405715, guid: 4c998b74421b09f47bda4ede8c92558f,
+        type: 3}
+      propertyPath: visualEffect
+      value: 
+      objectReference: {fileID: 20903579658116281, guid: 5d05d742b9478534d8180b33b54ec1ad,
+        type: 3}
     - target: {fileID: 2501229517045309418, guid: 4c998b74421b09f47bda4ede8c92558f,
         type: 3}
       propertyPath: m_RootOrder
@@ -10793,6 +10800,7 @@ MonoBehaviour:
   isReviving: 0
   isPressingRevive: 0
   playerInLife: 1
+  visualEffect: {fileID: 0}
   vibrationTime: 0
   leftMotorSpeedVibration: 0
   rightMotorSpeedVibration: 0

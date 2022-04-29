@@ -84,7 +84,7 @@ public class PlayerInfo : MonoBehaviour
         Init();
         //DisplayWeaponModel(false, 0);
         visualEffect = GetComponent<VisualEffect>();
-        eventAttribute = visualEffect.CreateVFXEventAttribute();
+        //eventAttribute = visualEffect.CreateVFXEventAttribute();
         playerMovementScript = GetComponent<PlayerMovement>();
         gamepadVibrationScript = GetComponent<GamepadVibration>();
         colliderSelf = GetComponent<CapsuleCollider>();
@@ -154,7 +154,7 @@ public class PlayerInfo : MonoBehaviour
             if (context.started)
             {
 
-                visualEffect.Play();
+                //visualEffect.Play();
 
                 actualScoreUpgrade = 0;
 
@@ -181,7 +181,7 @@ public class PlayerInfo : MonoBehaviour
     {
         if (!isInvincible)
         {
-            gamepadVibrationScript.VibrationWithTime(vibrationTime, leftMotorSpeedVibration, rightMotorSpeedVibration);
+            //gamepadVibrationScript.VibrationWithTime(vibrationTime, leftMotorSpeedVibration, rightMotorSpeedVibration);
             CameraShake.Instance.ShakeCamera(cameraIntensity, cameraShakeFrequency);
             StartCoroutine(BlindDamage());
             isInvincible = true;
