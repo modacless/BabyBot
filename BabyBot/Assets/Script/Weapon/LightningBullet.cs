@@ -11,8 +11,6 @@ public class LightningBullet : PiercingBullet
     private float baseSizeColider;
     public float sizePerSecond;
 
-    public LightningLogic secondBulletLogic;
-
     private bool mainBulletDie = false;
 
     private SphereCollider mainBulletCollider;
@@ -29,6 +27,8 @@ public class LightningBullet : PiercingBullet
 
     public GameObject[] vfxObject;
 
+    private float maxAlive = 1f;
+    private float acutalAlive = 0;
 
     protected override void Start()
     {
@@ -45,6 +45,14 @@ public class LightningBullet : PiercingBullet
         {
             if (Time.time > startTime + lifeTime) DestroyBullet();
         }
+        else
+        {
+            acutalAlive += Time.fixedDeltaTime;
+            if(acutalAlive >= maxAlive)
+            {
+                Destroy(this.gameObject);
+            }
+        }
 
     }
 
@@ -58,13 +66,17 @@ public class LightningBullet : PiercingBullet
             }
 
             if (collider.tag != ("Bullet") && collider.tag != "Enemy")
+            {
                 DestroyBullet();
+            }
+                
         }
         else
         {
-            if(collider.tag == "Enemy" && !secondBulletTarget && tuchEnemy< maxEnemyBounce && !allBulletTargeted.Contains(collider.gameObject)) //Start lightning
+            
+            if (collider.tag == "Enemy" && !secondBulletTarget && tuchEnemy< maxEnemyBounce && !allBulletTargeted.Contains(collider.gameObject)) //Start lightning
             {
-
+                
                 foreach (GameObject obj in vfxObject)
                 {
                     obj.SetActive(false);
@@ -75,10 +87,10 @@ public class LightningBullet : PiercingBullet
                 SecondBullet.SetActive(true);
                 distanceBetweenTarget = Vector3.Distance(transform.position, SecondBullet.transform.position);
                 tuchEnemy++;
-                SecondBullet.transform.position = secondBulletTarget.transform.position - SecondBullet.transform.position;
+                SecondBullet.transform.position = secondBulletTarget.transform.position ;
                 collider.GetComponent<EnemySensors>().TakeDamage(damage, fromPlayer);
                 MoveToNextTarget();
-                
+
 
             }
         }
@@ -89,19 +101,17 @@ public class LightningBullet : PiercingBullet
     {
         mainBulletDie = true;
         speed = 0;
-
+        acutalAlive = 0;
         foreach (GameObject obj in vfxObject)
         {
             obj.SetActive(false);
-            Debug.Log(damage);
         }
-
+        Debug.Log("Second bullet = " + secondBulletTarget);
         StartCoroutine(ExtendCollider());
     }
 
     private IEnumerator ExtendCollider()
     {
-        GetComponent<SphereCollider>().enabled = false;
         while(mainBulletCollider.radius < maxSizeColider)
         {
             mainBulletCollider.radius += sizePerSecond * Time.fixedDeltaTime;
