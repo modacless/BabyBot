@@ -27,7 +27,7 @@ public class EnemySensors : MonoBehaviour
     protected float actualAttackCooldown = 0;
     [SerializeField]
     public float lifePoint;
-    protected bool isDead = false;
+    public bool isDead = false;
     [SerializeField]
     protected float timerDead;
 
@@ -246,6 +246,7 @@ public class EnemySensors : MonoBehaviour
 
     protected virtual void StateDead()
     {
+        transform.parent = null;
         StartCoroutine(DeadRoutine());
 
         navAgent.isStopped = true;
@@ -275,7 +276,8 @@ public class EnemySensors : MonoBehaviour
                
                 if(lifePoint <= 0)
                 {
-                   
+                    isDead = true;
+                    transform.parent = null;
                 }
             }
         }
@@ -288,6 +290,7 @@ public class EnemySensors : MonoBehaviour
         {
             PlayerInfoManager.instance.AddPlayerScore(fromPlayer.GetComponent<PlayerInfo>(), pointEnemy);
             isDead = true;
+            transform.parent = null;
         }
     }
 
@@ -297,6 +300,7 @@ public class EnemySensors : MonoBehaviour
         if (lifePoint <= 0)
         {
             isDead = true;
+            transform.parent = null;
         }
     }
 
