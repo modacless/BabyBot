@@ -34,6 +34,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 <<<<<<< HEAD
   controlID: 85764
@@ -43,6 +44,9 @@ MonoBehaviour:
 =======
   controlID: 25245
 >>>>>>> Mathis
+=======
+  controlID: 142084
+>>>>>>> Stashed changes
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -243,6 +247,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 <<<<<<< HEAD
   controlID: 85765
@@ -252,6 +257,9 @@ MonoBehaviour:
 =======
   controlID: 25188
 >>>>>>> Mathis
+=======
+  controlID: 142085
+>>>>>>> Stashed changes
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -276,7 +284,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 136125
+  controlID: 142086
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -351,10 +359,10 @@ MonoBehaviour:
     m_SaveData: []
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 649}
+      scrollPos: {x: 0, y: 608}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 40cdf5ff129ef7ff32a0f7ff12aef7ff1aaef7ff2caef7ff34aef7ff3aaef7ff7cb0f7ff82b8f7ff6cbaf7ff50c8faffd463fbffde63fbff30aafcff32aafcff9caafcfffeaafcff98b4fcfff0bafcff1ac4fcff24d1fcffec36fdff2a5bfdffb21dffffe21dffff341effff641effffb61effffe61effff262affff4077ffffce8afffff0a1ffffc4baffff4adeffffceeaffff86f8ffff14fbffffce7d0000967e0000cc7e0000e47e0000fc7e00007e8000008c80000026810000488100002c8200006282000066820000ba82000048830000708300009e830000a28300005c84000012940000b4990000c6a10000fca1000014a200005ca5000092a50000eaa50000a0a60000cea60000d2a600008ca70000bcbd0800d6bd080004be0800c0be0800fabf080024c0080068c008002e5c1000785d10008e5d1000ae5d1000b25d1000fe5d1000
+      m_ExpandedIDs: 40cdf5ff129ef7ff32a0f7ff12aef7ff1aaef7ff2caef7ff34aef7ff3aaef7ff7cb0f7ff82b8f7ff6cbaf7ff50c8faffd463fbffde63fbff30aafcff32aafcff9caafcfffeaafcff98b4fcfff0bafcff1ac4fcff24d1fcffec36fdff2a5bfdffb21dffffe21dffff341effff641effffb61effffe61effff262affff4077ffffce8afffff0a1ffffc4baffff4adeffffceeaffff86f8ffff14fbffffce7d0000967e0000cc7e0000e47e0000fc7e00007e8000008c80000026810000488100002c8200006282000066820000ba82000048830000708300009e830000a28300005c84000012940000b4990000c6a10000fca1000014a200005ca5000092a50000eaa50000a0a60000cea60000d2a600008ca70000bcbd0800d6bd080004be0800c0be0800fabf080024c0080068c00800205b10002e5c1000785d10008e5d1000ae5d1000b25d1000fe5d1000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -2132,6 +2140,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 <<<<<<< HEAD
     - Assets/Script/Player
@@ -2141,11 +2150,15 @@ MonoBehaviour:
 =======
     - Assets/Art
 >>>>>>> Mathis
+=======
+    - Assets/Prefabs
+>>>>>>> Stashed changes
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 <<<<<<< HEAD
   - Assets/Script/Player
@@ -2164,11 +2177,15 @@ MonoBehaviour:
     m_ExpandedIDs: 00000000a48a0000c28a000000ca9a3b
 =======
   - Assets/Prefabs/Enemy
+=======
+  - Assets/Prefabs
+>>>>>>> Stashed changes
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\t.huerre\Documents\GitKraken Repos\BabyBot\BabyBot
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
+<<<<<<< Updated upstream
     scrollPos: {x: 0, y: 120}
     m_SelectedIDs: e4920000
     m_LastClickedID: 37604
@@ -2180,6 +2197,12 @@ MonoBehaviour:
     m_LastClickedID: 38346
     m_ExpandedIDs: 000000008c9500008e95000090950000929500009495000096950000989500009a9500009c9500009e950000a095000044d5000070d5000000ca9a3b
 >>>>>>> Mathis
+=======
+    scrollPos: {x: 0, y: 60}
+    m_SelectedIDs: 247d0000
+    m_LastClickedID: 32036
+    m_ExpandedIDs: 00000000f67c0000f87c0000fc7c0000fe7c000000ca9a3b
+>>>>>>> Stashed changes
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -2244,6 +2267,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 <<<<<<< HEAD
     m_SelectedInstanceIDs: 56220f00
@@ -2254,6 +2278,11 @@ MonoBehaviour:
     m_SelectedInstanceIDs: 6c60eaff
     m_LastClickedInstanceID: -1417108
     m_HadKeyboardFocusLastEvent: 1
+=======
+    m_SelectedInstanceIDs: a6840000
+    m_LastClickedInstanceID: 33958
+    m_HadKeyboardFocusLastEvent: 0
+>>>>>>> Stashed changes
     m_ExpandedInstanceIDs: c6230000
 >>>>>>> TIM_LD
 =======
@@ -2597,8 +2626,8 @@ MonoBehaviour:
     m_CachedPref: 160
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
-  m_LastInspectedObjectInstanceID: -1417108
-  m_LastVerticalScrollValue: 0
+  m_LastInspectedObjectInstanceID: 33958
+  m_LastVerticalScrollValue: 2916
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:
