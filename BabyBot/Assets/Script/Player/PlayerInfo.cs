@@ -7,6 +7,7 @@ public class PlayerInfo : MonoBehaviour
 {
     #region Variable
 
+    public int numPlayer;
     [Header("Player Stats")]
     public float maxHp;
     public float respawnTime;

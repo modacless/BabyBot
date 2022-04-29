@@ -34,6 +34,8 @@ public class PlayerInfoManager : MonoBehaviour
 
     public void Start()
     {
+        infoPlayer1.numPlayer = 1;
+        infoPlayer2.numPlayer = 2;
         int randomWeapon = Random.Range(0, 2);
 
         if(randomWeapon == 1)
