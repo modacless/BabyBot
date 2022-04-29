@@ -10,6 +10,7 @@ public class PlayerInfo : MonoBehaviour
     [Header("Player Stats")]
     public float maxHp;
     public float respawnTime;
+    public bool playerInLife = true;
     
     [Header("Score Need For Upgrade")]
     public float[] eachScoreNeedForUpgrade;
@@ -126,16 +127,18 @@ public class PlayerInfo : MonoBehaviour
 
     IEnumerator Respawn()
     {
+        playerInLife = false;
         actualWeapon.enabled = false;
         playerMovementScript.enabled = false;
-        colliderSelf.isTrigger = true;
+        colliderSelf.enabled = false;
         transform.GetChild(0).gameObject.SetActive(false);
 
         yield return new WaitForSeconds(respawnTime);
 
+        playerInLife = true;
         actualWeapon.enabled = true;
         playerMovementScript.enabled = true;
-        colliderSelf.isTrigger = false;
+        colliderSelf.enabled = true;
         transform.GetChild(0).gameObject.SetActive(true);
 
         actualHealth = maxHp;
