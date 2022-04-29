@@ -22,7 +22,7 @@ public class PlayerInfo : MonoBehaviour
 
     [HideInInspector]public float actualScoreUpgrade;
 
-    [HideInInspector]public int numberOfUpgrade;
+    public int numberOfUpgrade;
 
     public Weapon actualWeapon;
     public Weapon[] allWeapon;
@@ -56,14 +56,14 @@ public class PlayerInfo : MonoBehaviour
     {
         if(actualWeapon == allWeapon[0])
         {
-            if (numberOfUpgrade > 1) machineGunModel[numberOfUpgrade - 1].SetActive(false);
+            if (numberOfUpgrade > 0) machineGunModel[numberOfUpgrade - 1].SetActive(false);
             else pistolModel.SetActive(false);
             machineGunModel[numberOfUpgrade].SetActive(true);
             actualWeapon.firePoint = firePoints[1 + numberOfUpgrade];
         }
         else
         {
-            if(numberOfUpgrade > 1) launcherModel[numberOfUpgrade - 1].SetActive(false);
+            if(numberOfUpgrade > 0) launcherModel[numberOfUpgrade - 1].SetActive(false);
             else pistolModel.SetActive(false);
             launcherModel[numberOfUpgrade].SetActive(true);
             actualWeapon.firePoint = firePoints[5 + numberOfUpgrade];
@@ -86,7 +86,7 @@ public class PlayerInfo : MonoBehaviour
 
     public void TriggerWeaponUpgrade(InputAction.CallbackContext context)
     {
-        if (actualScoreUpgrade >= scoreNeedForNextUpgrade && numberOfUpgrade < eachScoreNeedForUpgrade.Length-1)
+        if (actualScoreUpgrade >= scoreNeedForNextUpgrade && numberOfUpgrade < eachScoreNeedForUpgrade.Length)
         {
             if (context.started)
             {
@@ -100,15 +100,13 @@ public class PlayerInfo : MonoBehaviour
                 }
                 else
                 {
-                    actualWeapon.UpgradeWeapon(numberOfUpgrade);
-                    
+                    actualWeapon.UpgradeWeapon(numberOfUpgrade-1);
                 }
 
                 DisplayWeaponModel();
                 
                 numberOfUpgrade += 1;
-                scoreNeedForNextUpgrade = eachScoreNeedForUpgrade[numberOfUpgrade];
-
+                if (numberOfUpgrade < eachScoreNeedForUpgrade.Length - 1) scoreNeedForNextUpgrade = eachScoreNeedForUpgrade[numberOfUpgrade];
             }
         }
     }

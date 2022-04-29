@@ -330,7 +330,7 @@ MonoBehaviour:
   fromPlayer: {fileID: 0}
   explosionCercleRange: {x: 10, y: 10, z: 10}
   timeBeforeExplose: 0.25
-  explosionDamage: 0
+  explosionDamage: 10
 --- !u!135 &6753946423046665437
 SphereCollider:
   m_ObjectHideFlags: 0
