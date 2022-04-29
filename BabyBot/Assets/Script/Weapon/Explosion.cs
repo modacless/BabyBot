@@ -5,7 +5,6 @@ using UnityEngine;
 public class Explosion : Bullet
 {
     public AudioSource impactSource;
-    public GameObject soundEffectPrefab;
 
     public Vector3 explosionCercleRange;
     public float timeBeforeExplose;
@@ -41,7 +40,6 @@ public class Explosion : Bullet
             yield return new WaitForFixedUpdate();
         }
 
-        GameObject soundEffect = Instantiate(soundEffectPrefab);
         Destroy(gameObject);
     }
 
