@@ -1670,13 +1670,13 @@ VisualEffect:
       - m_Value: 0
         m_Name: SmokeRate
         m_Overridden: 1
-      - m_Value: 1
+      - m_Value: 1.2
         m_Name: SmokeLifetime
         m_Overridden: 1
-      - m_Value: 15
+      - m_Value: 0
         m_Name: SmokeRate 1
         m_Overridden: 1
-      - m_Value: 0.2
+      - m_Value: 0.4
         m_Name: SmokeSize 1
         m_Overridden: 1
       - m_Value: 0.8
@@ -1685,23 +1685,26 @@ VisualEffect:
       - m_Value: 4
         m_Name: SmokeSize
         m_Overridden: 1
-      - m_Value: 5
+      - m_Value: 4
         m_Name: SmokeRateBurst
+        m_Overridden: 1
+      - m_Value: 10
+        m_Name: SmokeRateBurst 1
         m_Overridden: 1
     m_Vector2f:
       m_Array: []
     m_Vector3f:
       m_Array:
-      - m_Value: {x: 0, y: 2, z: 0}
+      - m_Value: {x: 0, y: 3, z: 0}
         m_Name: SmokeVelocity
         m_Overridden: 1
       - m_Value: {x: 0, y: 0, z: 0}
         m_Name: SmokeVelocityNegate
         m_Overridden: 1
-      - m_Value: {x: 0, y: -2, z: 0}
+      - m_Value: {x: 2, y: 7, z: 2}
         m_Name: SmokeVelocity 1
         m_Overridden: 1
-      - m_Value: {x: 0, y: 3.5, z: 0}
+      - m_Value: {x: 2, y: -5, z: 2}
         m_Name: SmokeVelocityNegate 1
         m_Overridden: 1
     m_Vector4f:
@@ -1718,14 +1721,32 @@ VisualEffect:
           serializedVersion: 2
           m_Curve:
           - serializedVersion: 3
-            time: -0.045833588
-            value: 0.43249512
-            inSlope: 2
-            outSlope: 2
+            time: -0.010971069
+            value: 0.49972534
+            inSlope: 1.1480525
+            outSlope: 1.1480525
             tangentMode: 0
             weightedMode: 0
             inWeight: 0
-            outWeight: 0
+            outWeight: 0.08333334
+          - serializedVersion: 3
+            time: 0.5772126
+            value: 0.89037955
+            inSlope: 0.33843794
+            outSlope: 0.33843794
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.7487506
+            value: 0.6893363
+            inSlope: 0.27751073
+            outSlope: 0.27751073
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
           - serializedVersion: 3
             time: 1
             value: 1
@@ -1753,6 +1774,15 @@ VisualEffect:
             inWeight: 0
             outWeight: 0
           - serializedVersion: 3
+            time: 0.6373529
+            value: 0.40621865
+            inSlope: 1.2747056
+            outSlope: 1.2747056
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
             time: 1
             value: 1
             inSlope: 2
@@ -1770,8 +1800,8 @@ VisualEffect:
           serializedVersion: 2
           m_Curve:
           - serializedVersion: 3
-            time: -0.019545808
-            value: 3.8206744
+            time: -0.010497421
+            value: 1.0637488
             inSlope: 0
             outSlope: 0
             tangentMode: 0
@@ -1779,8 +1809,26 @@ VisualEffect:
             inWeight: 0
             outWeight: 0
           - serializedVersion: 3
-            time: 0.7492777
-            value: 7.6890583
+            time: 0.27123612
+            value: 7.3852596
+            inSlope: -1.9965464
+            outSlope: -1.9965464
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.20880334
+          - serializedVersion: 3
+            time: 0.66526073
+            value: 5.036016
+            inSlope: -6.915647
+            outSlope: -6.915647
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.9770379
+            value: 6.415063
             inSlope: 2
             outSlope: 2
             tangentMode: 0
@@ -1796,7 +1844,7 @@ VisualEffect:
       m_Array:
       - m_Value:
           serializedVersion: 2
-          key0: {r: 12.235295, g: 9.623718, b: 0, a: 1}
+          key0: {r: 3.1591427, g: 1.6841947, b: 0.19372109, a: 1}
           key1: {r: 1.0196079, g: 0.61943895, b: 0.22954519, a: 1}
           key2: {r: 3.372549, g: 2.151288, b: 0.6533209, a: 0}
           key3: {r: 12.235295, g: 9.623718, b: 0, a: 0}
@@ -1856,6 +1904,37 @@ VisualEffect:
           m_NumAlphaKeys: 2
         m_Name: Color 1
         m_Overridden: 1
+      - m_Value:
+          serializedVersion: 2
+          key0: {r: 0.7830189, g: 0.40342793, b: 0, a: 1}
+          key1: {r: 4, g: 1.9294118, b: 0, a: 1}
+          key2: {r: 0, g: 0, b: 0, a: 0.8}
+          key3: {r: 0, g: 0, b: 0, a: 0}
+          key4: {r: 0, g: 0, b: 0, a: 0}
+          key5: {r: 0, g: 0, b: 0, a: 0}
+          key6: {r: 0, g: 0, b: 0, a: 0}
+          key7: {r: 0, g: 0, b: 0, a: 0}
+          ctime0: 0
+          ctime1: 65150
+          ctime2: 0
+          ctime3: 0
+          ctime4: 0
+          ctime5: 0
+          ctime6: 0
+          ctime7: 0
+          atime0: 0
+          atime1: 65535
+          atime2: 52621
+          atime3: 65535
+          atime4: 0
+          atime5: 0
+          atime6: 0
+          atime7: 0
+          m_Mode: 0
+          m_NumColorKeys: 2
+          m_NumAlphaKeys: 2
+        m_Name: Color 2
+        m_Overridden: 1
     m_NamedObject:
       m_Array:
       - m_Value: {fileID: 6087353690086043029, guid: 0686cd9522bbbce4bb6335d09af4a32a,
@@ -1876,7 +1955,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1724494564}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.028, y: -0.46, z: -1.603}
+  m_LocalPosition: {x: -0.08, y: -0.67, z: 7.35}
   m_LocalScale: {x: 0.79999995, y: 1, z: 0.79999995}
   m_ConstrainProportionsScale: 0
   m_Children: []
