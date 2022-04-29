@@ -55,7 +55,8 @@ MonoBehaviour:
   fromPlayer: {fileID: 0}
   explosion: {fileID: 6753946423046665436, guid: 396afd767e65189449578a677a91b6e5,
     type: 3}
-  waterImpactSource: {fileID: 463931000030751067}
+  soundEffectPrefab: {fileID: 6467380721849436012, guid: b5e00049edd52f44697d4e6dc8482d92,
+    type: 3}
 --- !u!135 &6753946423046665437
 SphereCollider:
   m_ObjectHideFlags: 0

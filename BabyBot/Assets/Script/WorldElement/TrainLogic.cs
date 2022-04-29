@@ -12,8 +12,6 @@ public class TrainLogic : MonoBehaviour
     private Vector3 trainDirection;
     [SerializeField]
     private float trainSpeed;
-    [SerializeField]
-    private float trainDamage;
 
     [SerializeField]
     private GameObject model;
@@ -24,7 +22,7 @@ public class TrainLogic : MonoBehaviour
     [SerializeField]
     private bool stopTrainAtStart;
 
-    private float speedAtStart;
+    public float speedAtStart = 1;
 
     private void Start()
     {
@@ -40,34 +38,18 @@ public class TrainLogic : MonoBehaviour
     {
         model.transform.position += trainSpeed * trainDirection * Time.fixedDeltaTime * speedAtStart;
 
-        actualTime += Time.fixedDeltaTime;
-        if(actualTime >= timeBeforeRespawn)
+        if(speedAtStart == 1)
         {
-            Spawn();
-            actualTime = 0;
+            actualTime += Time.fixedDeltaTime;
+            if (actualTime >= timeBeforeRespawn)
+            {
+                Spawn();
+                actualTime = 0;
+            }
         }
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.tag == "Player")
-        {
-            other.GetComponent<PlayerLife>().TakeDamage(trainDamage);
-        }
-
-        if(other.tag == "Enemy")
-        {
-            other.GetComponent<EnemySensors>().TakeDamage(trainDamage);
-        }
-
-        if(other.tag == "Train")
-        {
-            Debug.Log("test");
-            model.SetActive(false);
-        }
-        
-    }
-
+  
     private void Spawn()
     {
         model.transform.position = spawnObject.transform.position;

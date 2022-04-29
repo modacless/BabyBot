@@ -54,7 +54,7 @@ public class EnemySensors : MonoBehaviour
     [SerializeField]
     protected float lifeTime;
     [SerializeField]
-    protected float speed;
+    public float speed;
     [SerializeField]
     protected int projectileDamage;
     [SerializeField]
@@ -288,6 +288,10 @@ public class EnemySensors : MonoBehaviour
                     transform.parent = null;
                 }
             }
+        }
+        if(collision.collider.tag == "Train")
+        {
+
         }
     }
 

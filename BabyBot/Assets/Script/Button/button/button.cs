@@ -35,10 +35,12 @@ public class button : MonoBehaviour
         {
             if (other.gameObject.GetComponent<PlayerInfo>().numPlayer == 1)
             {
+                Debug.Log("Player 1 Enter");
                 Player1In = true;
             }
             else
             {
+                Debug.Log("Player 2 Enter");
                 Player2In = true;
             }
         }
@@ -57,10 +59,12 @@ public class button : MonoBehaviour
         {
             if (other.gameObject.GetComponent<PlayerInfo>().numPlayer == 1)
             {
+                Debug.Log("Player 1 Exit");
                 Player1In = false;
             }
             else
             {
+                Debug.Log("Player 2 Exit");
                 Player2In = false;
             }
         }
@@ -93,6 +97,8 @@ public class button : MonoBehaviour
 
     public void Player1Use(InputAction.CallbackContext context)
     {
+        Debug.Log("Input used");
+
         if (Player1In && isActivated == false)
         {
             if (context.started)

@@ -11,6 +11,7 @@ TagManager:
   - IgnorePlayerBullet
   - Revive
   - Train
+  - Ground
   layers:
   - Default
   - TransparentFX

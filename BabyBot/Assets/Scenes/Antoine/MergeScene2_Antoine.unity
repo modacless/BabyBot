@@ -8690,6 +8690,56 @@ PrefabInstance:
       propertyPath: targetGroup
       value: 
       objectReference: {fileID: 544639245}
+    - target: {fileID: 4395774027539219072, guid: 4c998b74421b09f47bda4ede8c92558f,
+        type: 3}
+      propertyPath: cameraIntensity
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4395774027539219072, guid: 4c998b74421b09f47bda4ede8c92558f,
+        type: 3}
+      propertyPath: cameraShakeTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4395774027539219072, guid: 4c998b74421b09f47bda4ede8c92558f,
+        type: 3}
+      propertyPath: cameraShakeFrequency
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4395774027539219073, guid: 4c998b74421b09f47bda4ede8c92558f,
+        type: 3}
+      propertyPath: cameraIntensity
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4395774027539219073, guid: 4c998b74421b09f47bda4ede8c92558f,
+        type: 3}
+      propertyPath: cameraShakeTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4395774027539219073, guid: 4c998b74421b09f47bda4ede8c92558f,
+        type: 3}
+      propertyPath: cameraShakeFrequency
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4395774027539219102, guid: 4c998b74421b09f47bda4ede8c92558f,
+        type: 3}
+      propertyPath: cameraFrequency
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4395774027539219102, guid: 4c998b74421b09f47bda4ede8c92558f,
+        type: 3}
+      propertyPath: cameraIntensity
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4395774027539219102, guid: 4c998b74421b09f47bda4ede8c92558f,
+        type: 3}
+      propertyPath: cameraShakeTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4395774027539219102, guid: 4c998b74421b09f47bda4ede8c92558f,
+        type: 3}
+      propertyPath: cameraShakeFrequency
+      value: 0.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c998b74421b09f47bda4ede8c92558f, type: 3}
 --- !u!1 &4405045708935579162
