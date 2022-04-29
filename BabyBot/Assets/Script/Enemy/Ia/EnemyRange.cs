@@ -56,5 +56,14 @@ public class EnemyRange : EnemySensors
     {
         GameObject projectile = Instantiate(attackGameObject, transform.position + transform.forward * projectileSpawnRange, transform.rotation, null);
         projectile.GetComponent<CacProjectileLogic>().InitProjectile(lifeTime, speed, projectileDamage);
+
+
+        //Audio
+        AudioManager Audio = AudioManager.AMInstance;
+
+        float pitch = Random.Range(0.8f, 1.2f);
+        int index = Random.Range(0, (Audio.enemyShotsArray.Length - 1));
+        Audio.PlaySFX(Audio.enemyShotsArray[index], enemyShotSource, pitch);
+        //----
     }
 }
