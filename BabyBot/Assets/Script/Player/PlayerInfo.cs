@@ -68,6 +68,9 @@ public class PlayerInfo : MonoBehaviour
             launcherModel[numberOfUpgrade].SetActive(true);
             actualWeapon.firePoint = firePoints[5 + numberOfUpgrade];
         }
+
+        actualWeapon.playerMovementScript = playerMovementScript;
+        actualWeapon.ResetAmmoWeapon();
     }
 
     public void AddScore(float scoreToAdd)
@@ -102,7 +105,7 @@ public class PlayerInfo : MonoBehaviour
                 }
 
                 DisplayWeaponModel();
-                playerMovementScript.playerAnimationsScript.Reload(false, 1);
+                
                 numberOfUpgrade += 1;
                 scoreNeedForNextUpgrade = eachScoreNeedForUpgrade[numberOfUpgrade];
 
