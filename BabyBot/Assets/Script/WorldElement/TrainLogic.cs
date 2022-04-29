@@ -22,7 +22,7 @@ public class TrainLogic : MonoBehaviour
     [SerializeField]
     private bool stopTrainAtStart;
 
-    private float speedAtStart;
+    public float speedAtStart = 1;
 
     private void Start()
     {
