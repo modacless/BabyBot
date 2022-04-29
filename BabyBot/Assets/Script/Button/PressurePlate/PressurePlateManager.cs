@@ -15,18 +15,19 @@ public class PressurePlateManager : MonoBehaviour
     void Update()
     {
         
-        for(int i = 0; i < myPressurePlates.Count; i++)
-        {
-            if (myPressurePlates[i].canBeActivated)
+            for(int i = 0; i < myPressurePlates.Count; i++)
             {
-                myPressurePlates[i].gameObject.SetActive(true);
-                PPActivated(i);
+                if (myPressurePlates[i].canBeActivated)
+                {
+                    myPressurePlates[i].gameObject.SetActive(true);
+                    PPActivated(i);
+                }
+                else
+                {
+                    myPressurePlates[i].gameObject.SetActive(false);
+                }
             }
-            else
-            {
-                myPressurePlates[i].gameObject.SetActive(false);
-            }
-        }
+        
     }
 
     public void PPActivated(int i)
@@ -44,6 +45,7 @@ public class PressurePlateManager : MonoBehaviour
             if(i == myPressurePlates.Count - 1)
             {
                 evenement.Invoke();
+                myPressurePlates[i].lockSysteme = true;
             }
         }
         else
