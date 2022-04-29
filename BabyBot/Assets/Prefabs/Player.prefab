@@ -564,7 +564,7 @@ MonoBehaviour:
     fireRate: 0.06
     bulletDamage: 10
     bulletLifeTime: 3
-    bulletSpeed: 15
+    bulletSpeed: 25
     magazineAmmo: 75
     actualBulletUsed: {fileID: 6753946423046665436, guid: 047f88e99815f294a91856645968c377,
       type: 3}
@@ -573,7 +573,7 @@ MonoBehaviour:
     fireRate: 0.06
     bulletDamage: 10
     bulletLifeTime: 3
-    bulletSpeed: 15
+    bulletSpeed: 25
     magazineAmmo: 75
     actualBulletUsed: {fileID: 6753946423046665436, guid: d08a9e61d178f55459c9bb0d3a00e80f,
       type: 3}
@@ -582,7 +582,7 @@ MonoBehaviour:
     fireRate: 0.06
     bulletDamage: 10
     bulletLifeTime: 3
-    bulletSpeed: 15
+    bulletSpeed: 25
     magazineAmmo: 75
     actualBulletUsed: {fileID: 6753946423046665436, guid: 0735066ec6613674497a9cbe7734abd9,
       type: 3}
