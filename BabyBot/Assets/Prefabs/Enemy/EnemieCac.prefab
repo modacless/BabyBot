@@ -105,7 +105,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyState: 0
-  attackCooldown: 2
+  attackCooldown: 1
   lifePoint: 20
   isDead: 0
   timerDead: 10

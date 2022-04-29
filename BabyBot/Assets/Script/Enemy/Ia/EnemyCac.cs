@@ -34,6 +34,12 @@ public class EnemyCac : EnemySensors
 
     protected override void StateAttack()
     {
+
+        if (isDead)
+        {
+            StateDead();
+        }
+
         actualAttackCooldown += Time.deltaTime;
         if (actualAttackCooldown >= attackCooldown)
         {

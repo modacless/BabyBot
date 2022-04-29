@@ -93,7 +93,7 @@ public class TriggerGroup : MonoBehaviour
 
             for (int i = 0; i < triggerToCheck.Length; i++)
             {
-                if (triggerToCheck[i].allDead == true)
+                if (triggerToCheck[i] != null && triggerToCheck[i].allDead == true)
                 {
                     numOfDone += 1;
                 }
