@@ -53,6 +53,9 @@ MonoBehaviour:
   damage: 5
   direction: {x: 0, y: 0, z: 0}
   fromPlayer: {fileID: 0}
+  impactSource: {fileID: 6828653769770414510}
+  soundEffectPrefab: {fileID: 6467380721849436012, guid: b5e00049edd52f44697d4e6dc8482d92,
+    type: 3}
   explosionCercleRange: {x: 10, y: 10, z: 10}
   timeBeforeExplose: 0.25
   explosionDamage: 0
