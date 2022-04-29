@@ -43,7 +43,7 @@ public class Bullet : MonoBehaviour
             collider.GetComponent<EnemySensors>().TakeDamage((int)damage, fromPlayer);
             //Debug.Log((int)damage);
         }
-        if(collider.tag != ("Bullet") && collider.tag != ("Player")) Destroy(gameObject);
+        if(collider.tag != ("Bullet") && collider.tag != ("Player") && collider.tag != ("Revive")) Destroy(gameObject);
     }
     protected virtual void FixedUpdate()
     {

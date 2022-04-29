@@ -10,7 +10,11 @@ public class PlayerInfo : MonoBehaviour
     public int numPlayer;
     [Header("Player Stats")]
     public float maxHp;
-    public float respawnTime;
+    //public float respawnTime;
+    public float timeForRevive;
+    [HideInInspector] public float currentReviveTime = 0;
+    [HideInInspector] public bool isReviving = false;
+    [HideInInspector] public bool isPressingRevive = false;
     public bool playerInLife = true;
     
     [Header("Score Need For Upgrade")]
@@ -22,7 +26,7 @@ public class PlayerInfo : MonoBehaviour
 
     [HideInInspector]public float actualScoreUpgrade;
 
-    [HideInInspector]public int numberOfUpgrade;
+    public int numberOfUpgrade;
 
     public Weapon actualWeapon;
     public Weapon[] allWeapon;
@@ -34,6 +38,7 @@ public class PlayerInfo : MonoBehaviour
 
     private PlayerMovement playerMovementScript;
     private CapsuleCollider colliderSelf;
+    private Rigidbody rb;
 
     #endregion
 
@@ -43,6 +48,10 @@ public class PlayerInfo : MonoBehaviour
         //DisplayWeaponModel(false, 0);
         playerMovementScript = GetComponent<PlayerMovement>();
         colliderSelf = GetComponent<CapsuleCollider>();
+        rb = GetComponent<Rigidbody>();
+
+        GetComponent<PlayerInput>().actions["Revive"].started += Revive;
+        GetComponent<PlayerInput>().actions["Revive"].canceled += Revive;
 
     }
     private void Init()
@@ -51,19 +60,26 @@ public class PlayerInfo : MonoBehaviour
         actualHealth = maxHp;
     }
 
+    private void Update()
+    {
+        if (!playerInLife)
+        {
+            WaitForRevive();
+        }
+    }
 
     private void DisplayWeaponModel()
     {
         if(actualWeapon == allWeapon[0])
         {
-            if (numberOfUpgrade > 1) machineGunModel[numberOfUpgrade - 1].SetActive(false);
+            if (numberOfUpgrade > 0) machineGunModel[numberOfUpgrade - 1].SetActive(false);
             else pistolModel.SetActive(false);
             machineGunModel[numberOfUpgrade].SetActive(true);
             actualWeapon.firePoint = firePoints[1 + numberOfUpgrade];
         }
         else
         {
-            if(numberOfUpgrade > 1) launcherModel[numberOfUpgrade - 1].SetActive(false);
+            if(numberOfUpgrade > 0) launcherModel[numberOfUpgrade - 1].SetActive(false);
             else pistolModel.SetActive(false);
             launcherModel[numberOfUpgrade].SetActive(true);
             actualWeapon.firePoint = firePoints[5 + numberOfUpgrade];
@@ -86,7 +102,7 @@ public class PlayerInfo : MonoBehaviour
 
     public void TriggerWeaponUpgrade(InputAction.CallbackContext context)
     {
-        if (actualScoreUpgrade >= scoreNeedForNextUpgrade && numberOfUpgrade < eachScoreNeedForUpgrade.Length-1)
+        if (actualScoreUpgrade >= scoreNeedForNextUpgrade && numberOfUpgrade < eachScoreNeedForUpgrade.Length)
         {
             if (context.started)
             {
@@ -100,15 +116,13 @@ public class PlayerInfo : MonoBehaviour
                 }
                 else
                 {
-                    actualWeapon.UpgradeWeapon(numberOfUpgrade);
-                    
+                    actualWeapon.UpgradeWeapon(numberOfUpgrade-1);
                 }
 
                 DisplayWeaponModel();
                 
                 numberOfUpgrade += 1;
-                scoreNeedForNextUpgrade = eachScoreNeedForUpgrade[numberOfUpgrade];
-
+                if (numberOfUpgrade < eachScoreNeedForUpgrade.Length - 1) scoreNeedForNextUpgrade = eachScoreNeedForUpgrade[numberOfUpgrade];
             }
         }
     }
@@ -122,12 +136,71 @@ public class PlayerInfo : MonoBehaviour
             Die();
         }
     }
+
+    [ContextMenu("Die")]
     private void Die()
     {
-        StartCoroutine(Respawn());
+        PlayerDead(true);
     }
 
-    IEnumerator Respawn()
+    public virtual void Revive(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            isPressingRevive = true;
+        }
+        if (context.canceled)
+        {
+            isPressingRevive = false;
+        }
+    }
+
+    private void WaitForRevive()
+    {
+        if (isReviving)
+        {
+            currentReviveTime += Time.deltaTime;
+        }
+        else
+        {
+            currentReviveTime = 0;
+        }
+
+        if (currentReviveTime >= timeForRevive)
+        {
+            PlayerDead(false);
+        }
+    }
+
+    private void PlayerDead(bool enable)
+    {
+        switch (enable)
+        {
+            case true:
+                playerInLife = false;
+                actualHealth = maxHp;
+                actualWeapon.enabled = false;
+                playerMovementScript.enabled = false;
+                colliderSelf.enabled = false;
+                rb.constraints = RigidbodyConstraints.FreezePosition;
+                actualWeapon.ResetAmmoWeapon();
+                transform.rotation = Quaternion.Euler(new Vector3(0, 0, 80));
+                transform.position += new Vector3(1.5f, 0, 0);
+                break;
+            case false:
+                playerInLife = true;
+                actualWeapon.enabled = true;
+                playerMovementScript.enabled = true;
+                colliderSelf.enabled = true;
+                rb.constraints = RigidbodyConstraints.None;
+                rb.constraints = RigidbodyConstraints.FreezeRotation;
+                transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+                transform.position -= new Vector3(1.5f, 0, 0);
+                break;
+        }
+    }
+
+    /*IEnumerator Respawn()
     {
         playerInLife = false;
         actualWeapon.enabled = false;
@@ -145,5 +218,5 @@ public class PlayerInfo : MonoBehaviour
         transform.GetChild(0).gameObject.SetActive(true);
 
         actualHealth = maxHp;
-    }
+    }*/
 }

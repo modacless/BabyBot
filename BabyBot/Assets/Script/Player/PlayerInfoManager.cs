@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerInfoManager : MonoBehaviour
 {
@@ -54,5 +55,10 @@ public class PlayerInfoManager : MonoBehaviour
     public void AddPlayerScore(PlayerInfo wichPlayer, float scoreToAdd)
     {
         wichPlayer.AddScore(scoreToAdd);
+    }
+
+    public void Update()
+    {
+        if (!infoPlayer1.playerInLife && !infoPlayer2.playerInLife) SceneManager.LoadScene("");
     }
 }

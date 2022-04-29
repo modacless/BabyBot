@@ -330,7 +330,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 43929180}
   m_LocalRotation: {x: 0.54227316, y: 0.000000020445063, z: -0.000000013195404, w: 0.8402023}
-  m_LocalPosition: {x: 6.3850007, y: 25, z: -11.35}
+  m_LocalPosition: {x: 6.385, y: 25, z: -11.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -540,7 +540,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7774647, y: 1}
+    m_SensorSize: {x: 1.7780429, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -557,7 +557,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 109418700}
   m_LocalRotation: {x: 0.54227316, y: 0.000000020445063, z: -0.000000013195404, w: 0.8402023}
-  m_LocalPosition: {x: 6.3850007, y: 25, z: -11.35}
+  m_LocalPosition: {x: 6.385, y: 25, z: -11.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1126,6 +1126,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpawnerEnemy (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6891594538581917057, guid: 771aa5c5b4fc5824e9d5859d7876fe1f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 771aa5c5b4fc5824e9d5859d7876fe1f, type: 3}
 --- !u!1 &288136337
@@ -1658,7 +1663,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 544639244}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.3850007, y: 0, z: -0.049999997}
+  m_LocalPosition: {x: 6.385, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2235,6 +2240,8 @@ MonoBehaviour:
   evenement:
     m_PersistentCalls:
       m_Calls: []
+  Player1On: 0
+  Player2On: 0
 --- !u!1 &766475655
 GameObject:
   m_ObjectHideFlags: 0
@@ -2439,7 +2446,7 @@ GameObject:
   m_Component:
   - component: {fileID: 915049295}
   - component: {fileID: 915049296}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: colliderGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2681,10 +2688,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemieRange
       objectReference: {fileID: 0}
+    - target: {fileID: 3978170635185077609, guid: 1e530dc7be4c23b4182363ca480fbea1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3978170635185077613, guid: 1e530dc7be4c23b4182363ca480fbea1,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3978170635185077613, guid: 1e530dc7be4c23b4182363ca480fbea1,
         type: 3}
@@ -2866,7 +2878,7 @@ Transform:
   - {fileID: 1550635294}
   - {fileID: 43929183}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1037172156
 GameObject:
@@ -3043,7 +3055,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 609570257, guid: 771aa5c5b4fc5824e9d5859d7876fe1f, type: 3}
       propertyPath: numberOfEnemyToSpawn
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 609570257, guid: 771aa5c5b4fc5824e9d5859d7876fe1f, type: 3}
       propertyPath: TypeSpawner.Array.size
@@ -3118,6 +3130,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SpawnerEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891594538581917057, guid: 771aa5c5b4fc5824e9d5859d7876fe1f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 771aa5c5b4fc5824e9d5859d7876fe1f, type: 3}
@@ -3331,7 +3348,7 @@ MonoBehaviour:
     type: 3}
   firePoint: {fileID: 33215418}
   playerMovementScript: {fileID: 0}
-  currentShotsVolume: 0
+  playerShotSource: {fileID: 0}
   currentShotsArray: []
   sizeBullet: {x: 2, y: 2, z: 2}
   reloadTime: 1
@@ -3389,7 +3406,7 @@ MonoBehaviour:
     type: 3}
   firePoint: {fileID: 33215418}
   playerMovementScript: {fileID: 0}
-  currentShotsVolume: 0
+  playerShotSource: {fileID: 0}
   currentShotsArray: []
   sizeBullet: {x: 1, y: 1, z: 1}
   reloadTime: 2
@@ -3448,7 +3465,7 @@ MonoBehaviour:
     type: 3}
   firePoint: {fileID: 33215418}
   playerMovementScript: {fileID: 0}
-  currentShotsVolume: 0
+  playerShotSource: {fileID: 0}
   currentShotsArray: []
   sizeBullet: {x: 1, y: 1, z: 1}
   reloadTime: 2
@@ -5060,7 +5077,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1677505846
 MonoBehaviour:
@@ -5111,7 +5128,7 @@ Transform:
   - {fileID: 2061376708}
   - {fileID: 570966115}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1808071876
 GameObject:
@@ -5286,6 +5303,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpawnerEnemy (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6891594538581917057, guid: 771aa5c5b4fc5824e9d5859d7876fe1f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 771aa5c5b4fc5824e9d5859d7876fe1f, type: 3}
 --- !u!1 &1870211811
@@ -5385,6 +5407,65 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1870211811}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1902995170
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1902995171}
+  - component: {fileID: 1902995173}
+  - component: {fileID: 1902995172}
+  m_Layer: 0
+  m_Name: ReviveZone (1)
+  m_TagString: Revive
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1902995171
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902995170}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2285237946952462209}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1902995172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902995170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99c6b39019795c64bbbdbe676c2f43e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInfoScript: {fileID: 2923862203952109112}
+--- !u!135 &1902995173
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902995170}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1001 &1912907456
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6204,6 +6285,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpawnerEnemy (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 6891594538581917057, guid: 771aa5c5b4fc5824e9d5859d7876fe1f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 771aa5c5b4fc5824e9d5859d7876fe1f, type: 3}
 --- !u!1 &2139341215
@@ -6889,7 +6975,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2285237946952462209
 Transform:
   m_ObjectHideFlags: 0
@@ -6897,8 +6983,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2285237946952462208}
-  m_LocalRotation: {x: -0, y: 0.743152, z: -0, w: 0.6691226}
-  m_LocalPosition: {x: 16.7, y: 0, z: -0.1}
+  m_LocalRotation: {x: 0, y: 0.7431506, z: 0, w: 0.6691242}
+  m_LocalPosition: {x: 16.7, y: 0, z: 0}
   m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6906,6 +6992,7 @@ Transform:
   - {fileID: 1331244200}
   - {fileID: 2123932185632273435}
   - {fileID: 915049295}
+  - {fileID: 1902995171}
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 96.001, z: 0}
@@ -6923,7 +7010,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!136 &2285237946952462211
 CapsuleCollider:
@@ -7061,6 +7148,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 77bc2978-28cb-4f1d-9a5e-68d14d55c7f8
     m_ActionName: Player/Validate[/XInputControllerWindows/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e7e1c1b7-431a-4054-8474-f2bfb69591b9
+    m_ActionName: Player/Revive[/XInputControllerWindows/buttonWest]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: Player
@@ -7078,6 +7169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4a45d59e84953649965ba55d7471a9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  footstepsSource: {fileID: 0}
   speed: 7.5
   isAiming: 0
   playerAnimationsScript: {fileID: 0}
@@ -7326,6 +7418,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4a45d59e84953649965ba55d7471a9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  footstepsSource: {fileID: 0}
   speed: 7.5
   isAiming: 0
   playerAnimationsScript: {fileID: 0}
@@ -7530,7 +7623,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numPlayer: 0
   maxHp: 5
-  respawnTime: 3
+  timeForRevive: 1
+  currentReviveTime: 0
+  isReviving: 0
+  isPressingRevive: 0
   playerInLife: 1
   eachScoreNeedForUpgrade:
   - 10
@@ -8016,11 +8112,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1554665592486405715, guid: 4c998b74421b09f47bda4ede8c92558f,
-        type: 3}
-      propertyPath: maxHp
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 2501229517045309418, guid: 4c998b74421b09f47bda4ede8c92558f,
         type: 3}
       propertyPath: m_RootOrder
@@ -8049,17 +8140,17 @@ PrefabInstance:
     - target: {fileID: 2501229517045309418, guid: 4c998b74421b09f47bda4ede8c92558f,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2501229517045309418, guid: 4c998b74421b09f47bda4ede8c92558f,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2501229517045309418, guid: 4c998b74421b09f47bda4ede8c92558f,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2501229517045309418, guid: 4c998b74421b09f47bda4ede8c92558f,
         type: 3}
@@ -9968,7 +10059,7 @@ MonoBehaviour:
     type: 3}
   firePoint: {fileID: 1603232640}
   playerMovementScript: {fileID: 0}
-  currentShotsVolume: 0
+  playerShotSource: {fileID: 0}
   currentShotsArray: []
   sizeBullet: {x: 1, y: 1, z: 1}
   reloadTime: 4
@@ -9999,7 +10090,7 @@ MonoBehaviour:
     type: 3}
   firePoint: {fileID: 1603232640}
   playerMovementScript: {fileID: 0}
-  currentShotsVolume: 0
+  playerShotSource: {fileID: 0}
   currentShotsArray: []
   sizeBullet: {x: 1, y: 1, z: 1}
   reloadTime: 2
@@ -10058,7 +10149,7 @@ MonoBehaviour:
     type: 3}
   firePoint: {fileID: 1603232640}
   playerMovementScript: {fileID: 0}
-  currentShotsVolume: 0
+  playerShotSource: {fileID: 0}
   currentShotsArray: []
   sizeBullet: {x: 2, y: 2, z: 2}
   reloadTime: 0
@@ -10114,7 +10205,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numPlayer: 0
   maxHp: 5
-  respawnTime: 0
+  timeForRevive: 0
+  currentReviveTime: 0
+  isReviving: 0
+  isPressingRevive: 0
   playerInLife: 1
   eachScoreNeedForUpgrade:
   - 5
