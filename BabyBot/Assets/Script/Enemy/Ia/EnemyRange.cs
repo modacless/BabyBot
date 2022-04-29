@@ -30,6 +30,11 @@ public class EnemyRange : EnemySensors
 
     protected override void StateAttack()
     {
+        if (isDead)
+        {
+            StateDead();
+        }
+
         actualAttackCooldown += Time.deltaTime;
         if (actualAttackCooldown >= attackCooldown)
         {

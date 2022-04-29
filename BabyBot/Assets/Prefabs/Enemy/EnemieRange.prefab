@@ -135,7 +135,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyState: 0
   attackCooldown: 2
-  lifePoint: 2
+  lifePoint: 20
+  isDead: 0
   timerDead: 10
   allGoals: []
   rangeRadiusDetection: 30
@@ -144,6 +145,7 @@ MonoBehaviour:
   speed: 0.05
   projectileDamage: 1
   projectileSpawnRange: 1
+  knockbackForce: 0
   attackGameObject: {fileID: 3998637503085167001, guid: 76052e9084ecc054184a870c366075e3,
     type: 3}
   selfHitBox: {fileID: 3978170635185077614}

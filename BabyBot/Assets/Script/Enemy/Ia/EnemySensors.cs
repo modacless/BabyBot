@@ -99,31 +99,36 @@ public class EnemySensors : MonoBehaviour
     protected virtual void Update()
     {
 
+
+            SetState();
+
+            actualGoal = GetNearestGoal();
+
+            //if(actualGoal != null && actualGoal.GetComponent<PlayerInfo>().)
+            //Applique l'effet de la machine à état
+            switch (enemyState)
+            {
+                case StateEnemy.Idle:
+                    StateIdle();
+                    break;
+                case StateEnemy.Detect:
+                    StateDetect();
+                    break;
+                case StateEnemy.Attack:
+                    StateAttack();
+                    break;
+                case StateEnemy.Dead:
+                    StateDead();
+                    break;
+                default:
+                    StateIdle();
+                    break;
+            }
+        
+
+
         //Configure la machine à état
-        SetState();
-
-        actualGoal = GetNearestGoal();
-
-        //if(actualGoal != null && actualGoal.GetComponent<PlayerInfo>().)
-        //Applique l'effet de la machine à état
-        switch (enemyState)
-        {
-            case StateEnemy.Idle:
-                StateIdle();
-                break;
-            case StateEnemy.Detect:
-                StateDetect();
-                break;
-            case StateEnemy.Attack:
-                StateAttack();
-                break;
-            case StateEnemy.Dead:
-                StateDead();
-                break;
-            default:
-                StateIdle();
-                break;
-        }
+        
 
     }
 
@@ -227,6 +232,7 @@ public class EnemySensors : MonoBehaviour
     {
         navAgent.isStopped = true;
         rbd.velocity = Vector3.zero;
+
     }
 
     protected virtual void StateDead()

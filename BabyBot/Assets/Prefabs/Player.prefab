@@ -488,6 +488,7 @@ MonoBehaviour:
   numPlayer: 0
   maxHp: 5
   respawnTime: 0
+  playerInLife: 1
   eachScoreNeedForUpgrade:
   - 10
   - 20
@@ -545,7 +546,7 @@ MonoBehaviour:
   sizeBullet: {x: 1, y: 1, z: 1}
   reloadTime: 2
   fireRate: 0.09
-  bulletDamage: 7
+  bulletDamage: 6
   bulletLifeTime: 3
   bulletSpeed: 15
   magazineAmmo: 50
@@ -603,10 +604,10 @@ MonoBehaviour:
   currentShotsArray: []
   sizeBullet: {x: 2, y: 2, z: 2}
   reloadTime: 1
-  fireRate: 1
+  fireRate: 0.8
   bulletDamage: 100
   bulletLifeTime: 3
-  bulletSpeed: 15
+  bulletSpeed: 40
   magazineAmmo: 5
   actualAmo: 0
   _reloadTime: 0
@@ -619,7 +620,7 @@ MonoBehaviour:
     fireRate: 1
     bulletDamage: 1
     bulletLifeTime: 3
-    bulletSpeed: 15
+    bulletSpeed: 40
     magazineAmmo: 5
     actualBulletUsed: {fileID: 6753946423046665436, guid: a14bdda9006552348b114c5d2d0782a8,
       type: 3}
@@ -628,7 +629,7 @@ MonoBehaviour:
     fireRate: 1
     bulletDamage: 1
     bulletLifeTime: 3
-    bulletSpeed: 15
+    bulletSpeed: 40
     magazineAmmo: 10
     actualBulletUsed: {fileID: 6753946423046665436, guid: f6f0448e4e7936348b43b667b6c8c6a8,
       type: 3}
@@ -637,7 +638,7 @@ MonoBehaviour:
     fireRate: 1
     bulletDamage: 1
     bulletLifeTime: 3
-    bulletSpeed: 15
+    bulletSpeed: 40
     magazineAmmo: 15
     actualBulletUsed: {fileID: 6753946423046665436, guid: b9f8b856256532144966dc7aa974ec9b,
       type: 3}
@@ -660,11 +661,11 @@ MonoBehaviour:
   currentShotsVolume: 0
   currentShotsArray: []
   sizeBullet: {x: 1, y: 1, z: 1}
-  reloadTime: 2
+  reloadTime: 1
   fireRate: 0.4
   bulletDamage: 10
   bulletLifeTime: 3
-  bulletSpeed: 2
+  bulletSpeed: 15
   magazineAmmo: 5
   actualAmo: 0
   _reloadTime: 0
