@@ -5,9 +5,16 @@ using TMPro;
 
 public class MainMenu : MonoBehaviour
 {
+    public GameObject mainMenuObject;
     public GameObject CreditMenu;
     public GameObject OptionsMenu;
     public TextMeshProUGUI NameInput;
+
+    private void Start()
+    {
+        CreditMenu.SetActive(false);
+        mainMenuObject.SetActive(true);
+    }
 
     public void Play()
     {
@@ -23,8 +30,8 @@ public class MainMenu : MonoBehaviour
     }
     public void Options()
     {
-
         CreditMenu.SetActive(false);
+        mainMenuObject.SetActive(false);
         OptionsMenu.SetActive(true);
     }
     public void ExitOptions()
@@ -33,11 +40,13 @@ public class MainMenu : MonoBehaviour
     }
     public void Credit()
     {
+        mainMenuObject.SetActive(false);
         OptionsMenu.SetActive(false);
         CreditMenu.SetActive(true);
     }
     public void ExitCredit()
     {
+        mainMenuObject.SetActive(true);
         CreditMenu.SetActive(false);
     }
     public void ChangeName()
