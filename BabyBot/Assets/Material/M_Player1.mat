@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: M_Player1
-  m_Shader: {fileID: -6465566751694194690, guid: 5f6f5c0b43ccd1e44bc6918d5ee80522,
+  m_Shader: {fileID: -6465566751694194690, guid: 346c636e756d26b4c8a9341dc7fe3f2b,
     type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -135,6 +135,7 @@ Material:
     - _Surface: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
+    - _blind: 0
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
