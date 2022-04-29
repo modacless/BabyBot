@@ -9753,7 +9753,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 908484322}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 39.22, y: 2.8, z: -44.72}
+  m_LocalPosition: {x: 39.22, y: 0, z: -44.72}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -18795,8 +18795,33 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 44220102276912740, guid: 179281e124a8bf543b4a0a7bade2c981,
         type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -23.89
+      objectReference: {fileID: 0}
+    - target: {fileID: 44220102276912740, guid: 179281e124a8bf543b4a0a7bade2c981,
+        type: 3}
       propertyPath: m_LocalPosition.z
       value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 44220102276912743, guid: 179281e124a8bf543b4a0a7bade2c981,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.53029007
+      objectReference: {fileID: 0}
+    - target: {fileID: 44220102276912743, guid: 179281e124a8bf543b4a0a7bade2c981,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.26514503
+      objectReference: {fileID: 0}
+    - target: {fileID: 560317710251615946, guid: 179281e124a8bf543b4a0a7bade2c981,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.9458904
+      objectReference: {fileID: 0}
+    - target: {fileID: 560317710251615946, guid: 179281e124a8bf543b4a0a7bade2c981,
+        type: 3}
+      propertyPath: m_Center.y
+      value: -0.027054608
       objectReference: {fileID: 0}
     - target: {fileID: 560317710251615949, guid: 179281e124a8bf543b4a0a7bade2c981,
         type: 3}
@@ -18805,8 +18830,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 560317710251615949, guid: 179281e124a8bf543b4a0a7bade2c981,
         type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -23.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 560317710251615949, guid: 179281e124a8bf543b4a0a7bade2c981,
+        type: 3}
       propertyPath: m_LocalPosition.z
       value: -8.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 560317710251615950, guid: 179281e124a8bf543b4a0a7bade2c981,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.41756177
+      objectReference: {fileID: 0}
+    - target: {fileID: 560317710251615950, guid: 179281e124a8bf543b4a0a7bade2c981,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.20878088
       objectReference: {fileID: 0}
     - target: {fileID: 7648242906088747141, guid: 179281e124a8bf543b4a0a7bade2c981,
         type: 3}
@@ -18833,10 +18873,25 @@ PrefabInstance:
       propertyPath: m_Center.y
       value: 0.27820942
       objectReference: {fileID: 0}
+    - target: {fileID: 9020992051468852048, guid: 179281e124a8bf543b4a0a7bade2c981,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.51804084
+      objectReference: {fileID: 0}
+    - target: {fileID: 9020992051468852048, guid: 179281e124a8bf543b4a0a7bade2c981,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.25902042
+      objectReference: {fileID: 0}
     - target: {fileID: 9020992051468852051, guid: 179281e124a8bf543b4a0a7bade2c981,
         type: 3}
       propertyPath: m_LocalPosition.x
       value: -45
+      objectReference: {fileID: 0}
+    - target: {fileID: 9020992051468852051, guid: 179281e124a8bf543b4a0a7bade2c981,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -23.78
       objectReference: {fileID: 0}
     - target: {fileID: 9020992051468852051, guid: 179281e124a8bf543b4a0a7bade2c981,
         type: 3}
@@ -20832,7 +20887,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1697924491}
   - component: {fileID: 1697924493}
-  - component: {fileID: 1697924492}
+  - component: {fileID: 1697924494}
   m_Layer: 0
   m_Name: TrainDestroy
   m_TagString: Untagged
@@ -20855,7 +20910,20 @@ Transform:
   m_Father: {fileID: 699400804}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1697924492
+--- !u!65 &1697924493
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1697924490}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.694435, y: 10.5501585, z: 4.7290134}
+  m_Center: {x: -2.3472176, y: 4.7750793, z: -1.8645067}
+--- !u!114 &1697924494
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20874,19 +20942,6 @@ MonoBehaviour:
   spawnObject: {fileID: 908484322}
   activeAtStart: 1
   stopTrainAtStart: 1
---- !u!65 &1697924493
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1697924490}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 5.694435, y: 10.5501585, z: 4.7290134}
-  m_Center: {x: -2.3472176, y: 4.7750793, z: -1.8645067}
 --- !u!1001 &1711716858
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27244,7 +27299,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132147865758327}
   m_LocalRotation: {x: -0, y: 0.2588194, z: -0, w: 0.9659258}
-  m_LocalPosition: {x: -1.0374374, y: 0.85, z: -23.495977}
+  m_LocalPosition: {x: -1.0374374, y: 0.63, z: -23.495977}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -27458,9 +27513,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.33
-  m_Height: 6.4028115
+  m_Height: 5.7384014
   m_Direction: 0
-  m_Center: {x: 0, y: 0, z: -0.22}
+  m_Center: {x: -0.13272303, y: 0, z: -0.21999997}
 --- !u!33 &957036225808893338
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -33732,7 +33787,7 @@ MonoBehaviour:
   evenement:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1697924492}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TrainLogic, Assembly-CSharp
         m_MethodName: StartTrain
         m_Mode: 1
