@@ -123,7 +123,7 @@ MonoBehaviour:
   selfAnimator: {fileID: 8063837642240296628}
   deadthParticleSysteme: {fileID: 7888441424305394543}
   selfMesh: {fileID: 9126507840145640559}
-  pointEnemy: 10
+  pointEnemy: 2
   enemyShotSource: {fileID: 8691465656092667338}
   enemyDeathSource: {fileID: 5427586725701535103}
 --- !u!82 &8691465656092667338
