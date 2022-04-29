@@ -76,7 +76,7 @@ public class button : MonoBehaviour
 
                     //Audio
                     AudioManager Audio = AudioManager.AMInstance;
-                    Audio.PlaySFX(Audio.levier, Audio.levierVolume, 1);
+                    Audio.PlaySFX(Audio.levier, Audio.levierSource, 1);
                     //----
 
                     startTime = Time.time;
@@ -97,7 +97,7 @@ public class button : MonoBehaviour
 
                     //Audio
                     AudioManager Audio = AudioManager.AMInstance;
-                    Audio.PlaySFX(Audio.levier, Audio.levierVolume, 1);
+                    Audio.PlaySFX(Audio.levier, Audio.levierSource, 1);
                     //----
 
                     startTime = Time.time;

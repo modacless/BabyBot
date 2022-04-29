@@ -13,7 +13,7 @@ public class Weapon : MonoBehaviour
     [HideInInspector] public PlayerMovement playerMovementScript;
 
 
-    public float currentShotsVolume;
+    public AudioSource playerShotSource;
     public AudioClip[] currentShotsArray;
 
 
@@ -82,7 +82,6 @@ public class Weapon : MonoBehaviour
         actualBulletUsed.transform.localScale = sizeBullet;
         actualAmo = magazineAmmo;
 
-        currentShotsVolume = AudioManager.AMInstance.waterGunShotsVolume;
         currentShotsArray = AudioManager.AMInstance.waterGunShotsArray;
 
         //gainFireRate = stats.fireRate - stats.finalCadence;
@@ -134,7 +133,7 @@ public class Weapon : MonoBehaviour
         //Audio
         float pitch = Random.Range(0.8f, 1.2f);
         int index = Random.Range(0, (currentShotsArray.Length - 1));
-        AudioManager.AMInstance.PlaySFX(currentShotsArray[index], currentShotsVolume, pitch);
+        AudioManager.AMInstance.PlaySFX(currentShotsArray[index], playerShotSource, pitch);
         //----
     }
 

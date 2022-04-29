@@ -78,6 +78,9 @@ public class EnemySensors : MonoBehaviour
     protected GameObject selfMesh;
 
     public int pointEnemy;
+
+    public AudioSource enemyShotSource;
+    public AudioSource enemyDeathSource;
     protected virtual void Start()
     {
         rbd = GetComponent<Rigidbody>();
