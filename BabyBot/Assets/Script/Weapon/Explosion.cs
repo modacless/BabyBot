@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Explosion : Bullet
 {
+    public AudioSource impactSource;
+    public GameObject soundEffectPrefab;
+
     public Vector3 explosionCercleRange;
     public float timeBeforeExplose;
     public float explosionDamage;
@@ -11,6 +14,10 @@ public class Explosion : Bullet
     protected override void Start()
     {
         StartCoroutine(LerpScale(transform.localScale, explosionCercleRange, timeBeforeExplose));
+
+        //Audio
+        
+        //-----
     }
 
     protected override void OnTriggerEnter(Collider collider)
@@ -34,6 +41,7 @@ public class Explosion : Bullet
             yield return new WaitForFixedUpdate();
         }
 
+        GameObject soundEffect = Instantiate(soundEffectPrefab);
         Destroy(gameObject);
     }
 
