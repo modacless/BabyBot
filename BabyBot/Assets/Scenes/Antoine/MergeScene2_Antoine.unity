@@ -2865,7 +2865,7 @@ PrefabInstance:
     - target: {fileID: 3978170635185077609, guid: 1e530dc7be4c23b4182363ca480fbea1,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3978170635185077613, guid: 1e530dc7be4c23b4182363ca480fbea1,
         type: 3}
@@ -3522,6 +3522,10 @@ MonoBehaviour:
     type: 3}
   firePoint: {fileID: 33215418}
   playerMovementScript: {fileID: 0}
+  vibrationTime: 0.2
+  leftMotorSpeedVibration: 0.3
+  rightMotorSpeedVibration: 0.3
+  gamepadVibrationScript: {fileID: 0}
   playerShotSource: {fileID: 0}
   currentShotsArray: []
   sizeBullet: {x: 2, y: 2, z: 2}
@@ -3580,6 +3584,10 @@ MonoBehaviour:
     type: 3}
   firePoint: {fileID: 33215418}
   playerMovementScript: {fileID: 0}
+  vibrationTime: 0
+  leftMotorSpeedVibration: 0.2
+  rightMotorSpeedVibration: 0.2
+  gamepadVibrationScript: {fileID: 0}
   playerShotSource: {fileID: 0}
   currentShotsArray: []
   sizeBullet: {x: 1, y: 1, z: 1}
@@ -3639,6 +3647,10 @@ MonoBehaviour:
     type: 3}
   firePoint: {fileID: 33215418}
   playerMovementScript: {fileID: 0}
+  vibrationTime: 0.2
+  leftMotorSpeedVibration: 0.1
+  rightMotorSpeedVibration: 0.1
+  gamepadVibrationScript: {fileID: 0}
   playerShotSource: {fileID: 0}
   currentShotsArray: []
   sizeBullet: {x: 1, y: 1, z: 1}
@@ -4507,11 +4519,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeBeforeRespawn: 10
-  trainDirection: {x: -1, y: 0, z: 0}
   trainSpeed: 50
   trainDamage: 100
   model: {fileID: 684949502}
   spawnObject: {fileID: 1283271076}
+  activeAtStart: 0
+  stopTrainAtStart: 0
 --- !u!1 &1497941300
 GameObject:
   m_ObjectHideFlags: 0
@@ -4988,7 +5001,7 @@ PrefabInstance:
     - target: {fileID: 2660620843923607758, guid: 43cebeda9ac1d7943a26e2056075e784,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2660620843923607759, guid: 43cebeda9ac1d7943a26e2056075e784,
         type: 3}
@@ -6372,7 +6385,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a6ba99fe800983c47ae2c7dc3e395d1b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cf0a193a5bd06a44bbd48215d146aa26, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7241,6 +7254,7 @@ GameObject:
   - component: {fileID: 2285237946952462209}
   - component: {fileID: 2285237946952462213}
   - component: {fileID: 2285237946952462214}
+  - component: {fileID: 2923862203952109113}
   - component: {fileID: 2285237946952462212}
   - component: {fileID: 2285237946952462211}
   - component: {fileID: 2285237946952462210}
@@ -7431,6 +7445,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: e7e1c1b7-431a-4054-8474-f2bfb69591b9
     m_ActionName: Player/Revive[/XInputControllerWindows/buttonWest]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 58284c23-d51e-4325-ae08-320c3b0846cc
+    m_ActionName: Player/Reload[/XInputControllerWindows/buttonWest]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: Player
@@ -7904,11 +7922,14 @@ MonoBehaviour:
   maxHp: 5
   InvincibleTimeAfterHit: 0.5
   blindTime: 0.25
-  timeForRevive: 3
+  timeForRevive: 2
   currentReviveTime: 0
   isReviving: 0
   isPressingRevive: 0
   playerInLife: 1
+  vibrationTime: 0.2
+  leftMotorSpeedVibration: 0.5
+  rightMotorSpeedVibration: 0.5
   reviveUI: {fileID: 51167337}
   materialRobot: {fileID: 2100000, guid: d2c861b23bd5c224d95c10b4df591341, type: 2}
   eachScoreNeedForUpgrade:
@@ -7948,6 +7969,19 @@ MonoBehaviour:
   - {fileID: 0}
   choosenWeapon: 0
   playerMovementScript: {fileID: 0}
+--- !u!114 &2923862203952109113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2285237946952462208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ce5493aaa6a2da428d3dd9ff728a751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  indexGamepad: 1
 --- !u!114 &2949875882740814017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8396,6 +8430,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1554665592486405715, guid: 4c998b74421b09f47bda4ede8c92558f,
+        type: 3}
+      propertyPath: timeForRevive
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2501229517045309418, guid: 4c998b74421b09f47bda4ede8c92558f,
         type: 3}
       propertyPath: m_RootOrder
@@ -10343,6 +10382,10 @@ MonoBehaviour:
     type: 3}
   firePoint: {fileID: 1603232640}
   playerMovementScript: {fileID: 0}
+  vibrationTime: 0
+  leftMotorSpeedVibration: 0
+  rightMotorSpeedVibration: 0
+  gamepadVibrationScript: {fileID: 0}
   playerShotSource: {fileID: 0}
   currentShotsArray: []
   sizeBullet: {x: 1, y: 1, z: 1}
@@ -10374,6 +10417,10 @@ MonoBehaviour:
     type: 3}
   firePoint: {fileID: 1603232640}
   playerMovementScript: {fileID: 0}
+  vibrationTime: 0
+  leftMotorSpeedVibration: 0
+  rightMotorSpeedVibration: 0
+  gamepadVibrationScript: {fileID: 0}
   playerShotSource: {fileID: 0}
   currentShotsArray: []
   sizeBullet: {x: 1, y: 1, z: 1}
@@ -10433,6 +10480,10 @@ MonoBehaviour:
     type: 3}
   firePoint: {fileID: 1603232640}
   playerMovementScript: {fileID: 0}
+  vibrationTime: 0
+  leftMotorSpeedVibration: 0
+  rightMotorSpeedVibration: 0
+  gamepadVibrationScript: {fileID: 0}
   playerShotSource: {fileID: 0}
   currentShotsArray: []
   sizeBullet: {x: 2, y: 2, z: 2}
@@ -10496,6 +10547,9 @@ MonoBehaviour:
   isReviving: 0
   isPressingRevive: 0
   playerInLife: 1
+  vibrationTime: 0
+  leftMotorSpeedVibration: 0
+  rightMotorSpeedVibration: 0
   reviveUI: {fileID: 0}
   materialRobot: {fileID: 0}
   eachScoreNeedForUpgrade:

@@ -22,6 +22,15 @@ public class PlayerInfo : MonoBehaviour
     [HideInInspector] public bool isPressingRevive = false;
     public bool playerInLife = true;
 
+    [Header("Vibration")]
+    [SerializeField]
+    protected float vibrationTime;
+    [SerializeField]
+    protected float leftMotorSpeedVibration;
+    [SerializeField]
+    protected float rightMotorSpeedVibration;
+    private GamepadVibration gamepadVibrationScript;
+
     [Header("UI")]
     public GameObject reviveUI;
     private Image cooldownUi;
@@ -49,6 +58,7 @@ public class PlayerInfo : MonoBehaviour
     [HideInInspector] public int choosenWeapon;
 
     [HideInInspector] public PlayerMovement playerMovementScript;
+    
     private CapsuleCollider colliderSelf;
     private Rigidbody rb;
 
@@ -59,6 +69,7 @@ public class PlayerInfo : MonoBehaviour
         Init();
         //DisplayWeaponModel(false, 0);
         playerMovementScript = GetComponent<PlayerMovement>();
+        gamepadVibrationScript = GetComponent<GamepadVibration>();
         colliderSelf = GetComponent<CapsuleCollider>();
         rb = GetComponent<Rigidbody>();
         cooldownUi = reviveUI.transform.GetChild(3).GetComponent<Image>();
@@ -150,6 +161,7 @@ public class PlayerInfo : MonoBehaviour
     {
         if (!isInvincible)
         {
+            gamepadVibrationScript.VibrationWithTime(vibrationTime, leftMotorSpeedVibration, rightMotorSpeedVibration);
             StartCoroutine(BlindDamage());
             isInvincible = true;
             actualHealth -= damage;

@@ -12,6 +12,16 @@ public class Weapon : MonoBehaviour
     public GameObject firePoint;
     [HideInInspector] public PlayerMovement playerMovementScript;
 
+    [Header("Vibration")]
+    [SerializeField]
+    protected float vibrationTime;
+    [SerializeField]
+    protected float leftMotorSpeedVibration;
+    [SerializeField]
+    protected float rightMotorSpeedVibration;
+
+    [HideInInspector] public GamepadVibration gamepadVibrationScript;
+
 
     public AudioSource playerShotSource;
     public AudioClip[] currentShotsArray;
@@ -81,6 +91,7 @@ public class Weapon : MonoBehaviour
         GetComponent<PlayerInput>().actions["Reload"].canceled += Reload;
 
         playerMovementScript = GetComponent<PlayerMovement>();
+        gamepadVibrationScript = GetComponent<GamepadVibration>();
 
         actualBulletUsed = initialBullet;
         actualBulletUsed.transform.localScale = sizeBullet;
@@ -126,7 +137,7 @@ public class Weapon : MonoBehaviour
     {
         if (context.started)
         {
-            if (actualAmo > 0) pressReload = true;
+            if (actualAmo > 0 && actualAmo != magazineAmmo && !isReloading) pressReload = true;
         }
     }
 
@@ -149,12 +160,13 @@ public class Weapon : MonoBehaviour
         //----
     }
 
-    protected void TryShoot()
+    protected virtual void TryShoot()
     {
         if (!isReloading)
         {
             if (isPressingFire && !isShooting /*&& playerMovementScript.isAiming*/)
             {
+                gamepadVibrationScript.VibrationWithTime(vibrationTime, leftMotorSpeedVibration, rightMotorSpeedVibration);
                 isShooting = true;
                 Shoot();
             }
@@ -176,7 +188,7 @@ public class Weapon : MonoBehaviour
 
     private void Reload()
     {
-        if (actualAmo <= 0 || pressReload && !isReloading)
+        if (actualAmo <= 0 || pressReload)
         {
             isReloading = true;
             playerMovementScript.playerAnimationsScript.Reload(true, reloadTime);
@@ -194,6 +206,7 @@ public class Weapon : MonoBehaviour
 
     public void ResetAmmoWeapon()
     {
+        pressReload = false;
         isReloading = false;
         playerMovementScript.playerAnimationsScript.Reload(false, reloadTime);
         _isReloading = false;
@@ -248,7 +261,5 @@ public class Weapon : MonoBehaviour
         {
             actualBulletUsed = upgradeStruct[upgradeStat].actualBulletUsed;
         }
-
     }
-
 }

@@ -33,6 +33,26 @@ public class WeaponMachineGun : Weapon
         //----
     }
 
+    protected override void Update()
+    {
+        base.Update();
+
+        if (isPressingFire && !isReloading) gamepadVibrationScript.StartVibration(leftMotorSpeedVibration, rightMotorSpeedVibration);
+        else gamepadVibrationScript.StopVibration();
+    }
+
+    protected override void TryShoot()
+    {
+        if (!isReloading)
+        {
+            if (isPressingFire && !isShooting /*&& playerMovementScript.isAiming*/)
+            {           
+                isShooting = true;
+                Shoot();
+            }
+        }
+    }
+
     private void OnDrawGizmos()
     {
         if (drawDebug)
