@@ -2335,7 +2335,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.1622913, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -13806,7 +13806,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &791674063
 Transform:
   m_ObjectHideFlags: 0
@@ -31055,6 +31055,10 @@ MonoBehaviour:
     type: 3}
   firePoint: {fileID: 2057722717}
   playerMovementScript: {fileID: 0}
+  vibrationTime: 0
+  leftMotorSpeedVibration: 0
+  rightMotorSpeedVibration: 0
+  gamepadVibrationScript: {fileID: 0}
   playerShotSource: {fileID: 0}
   currentShotsArray: []
   sizeBullet: {x: 1, y: 1, z: 1}
@@ -31086,6 +31090,10 @@ MonoBehaviour:
     type: 3}
   firePoint: {fileID: 2057722717}
   playerMovementScript: {fileID: 0}
+  vibrationTime: 0
+  leftMotorSpeedVibration: 0
+  rightMotorSpeedVibration: 0
+  gamepadVibrationScript: {fileID: 0}
   playerShotSource: {fileID: 0}
   currentShotsArray: []
   sizeBullet: {x: 2, y: 2, z: 2}
@@ -31144,6 +31152,10 @@ MonoBehaviour:
     type: 3}
   firePoint: {fileID: 2057722717}
   playerMovementScript: {fileID: 0}
+  vibrationTime: 0
+  leftMotorSpeedVibration: 0
+  rightMotorSpeedVibration: 0
+  gamepadVibrationScript: {fileID: 0}
   playerShotSource: {fileID: 0}
   currentShotsArray: []
   sizeBullet: {x: 1, y: 1, z: 1}
@@ -31208,6 +31220,10 @@ MonoBehaviour:
   isReviving: 0
   isPressingRevive: 0
   playerInLife: 1
+  visualEffect: {fileID: 0}
+  vibrationTime: 0
+  leftMotorSpeedVibration: 0
+  rightMotorSpeedVibration: 0
   reviveUI: {fileID: 22665580}
   materialRobot: {fileID: 2100000, guid: d2c861b23bd5c224d95c10b4df591341, type: 2}
   eachScoreNeedForUpgrade:
@@ -36610,7 +36626,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2036422651
 Transform:
   m_ObjectHideFlags: 0
