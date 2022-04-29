@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PlayerInfo : MonoBehaviour
 {
@@ -16,7 +17,11 @@ public class PlayerInfo : MonoBehaviour
     [HideInInspector] public bool isReviving = false;
     [HideInInspector] public bool isPressingRevive = false;
     public bool playerInLife = true;
-    
+
+    [Header("UI")]
+    public GameObject reviveUI;
+    private Image cooldownUi;
+
     [Header("Score Need For Upgrade")]
     public float[] eachScoreNeedForUpgrade;
     [HideInInspector]public float scoreNeedForNextUpgrade;
@@ -49,6 +54,7 @@ public class PlayerInfo : MonoBehaviour
         playerMovementScript = GetComponent<PlayerMovement>();
         colliderSelf = GetComponent<CapsuleCollider>();
         rb = GetComponent<Rigidbody>();
+        cooldownUi = reviveUI.transform.GetChild(2).GetComponent<Image>();
 
         GetComponent<PlayerInput>().actions["Revive"].started += Revive;
         GetComponent<PlayerInput>().actions["Revive"].canceled += Revive;
@@ -160,15 +166,20 @@ public class PlayerInfo : MonoBehaviour
         if (isReviving)
         {
             currentReviveTime += Time.deltaTime;
+            reviveUI.SetActive(true);
         }
         else
         {
             currentReviveTime = 0;
+            reviveUI.SetActive(false);
         }
+
+        cooldownUi.fillAmount = currentReviveTime / timeForRevive;
 
         if (currentReviveTime >= timeForRevive)
         {
             PlayerDead(false);
+            reviveUI.SetActive(false);
         }
     }
 

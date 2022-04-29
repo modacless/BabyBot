@@ -170,7 +170,6 @@ MonoBehaviour:
   Player2In: 0
   selfMeshRenderer: {fileID: 8476627300128403044}
   cooldownUi: {fileID: 700850340328203605}
-  uiObj: {fileID: 8656401840211636159}
 --- !u!1 &8656401840211636159
 GameObject:
   m_ObjectHideFlags: 0
