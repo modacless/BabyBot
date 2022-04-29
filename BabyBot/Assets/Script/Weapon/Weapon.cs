@@ -53,15 +53,20 @@ public class Weapon : MonoBehaviour
     [SerializeField]
     protected float bulletSpeed;
     [SerializeField]
-    protected int magazineAmmo;
+    public float magazineAmmo;
 
-    protected int actualAmo;
+    
+    [HideInInspector]public float actualAmo;
     protected float fireRateTimer = 0f;
     protected float reloadTimer = 0f;
 
     protected bool isPressingFire = false;
     protected bool isShooting = false;
     protected bool isReloading = false;
+
+    [HideInInspector]public float _reloadTime;
+    [HideInInspector]public float actualReloadTime;
+    [HideInInspector]public bool _isReloading;
 
     public bool drawDebug;
 
@@ -81,6 +86,8 @@ public class Weapon : MonoBehaviour
         currentShotsArray = AudioManager.AMInstance.waterGunShotsArray;
 
         //gainFireRate = stats.fireRate - stats.finalCadence;
+        _reloadTime = reloadTime;
+        _isReloading = isReloading;
     }
     protected virtual void Update()
     {
@@ -161,15 +168,19 @@ public class Weapon : MonoBehaviour
         if (actualAmo <= 0)
         {
             isReloading = true;
+            _isReloading = true;
 
             reloadTimer += Time.deltaTime;
             if (reloadTimer >= reloadTime)
             {
                 isReloading = false;
+                _isReloading = false;
                 reloadTimer = 0;
                 actualAmo = magazineAmmo;
             }
         }
+
+        actualReloadTime = reloadTimer;
     }
 
     public void UpgradeWeapon(int upgradeToChose)
