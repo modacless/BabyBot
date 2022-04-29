@@ -1355,7 +1355,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c1af76fa32a5c1449c51d8e5fa2b95b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wichPlayer: 1
+  wichPlayer: 2
   hpSlider: {fileID: 7320229214385334261}
 --- !u!1 &7320229214476518692
 GameObject:
@@ -1999,7 +1999,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4341100224486119962
 RectTransform:
   m_ObjectHideFlags: 0
