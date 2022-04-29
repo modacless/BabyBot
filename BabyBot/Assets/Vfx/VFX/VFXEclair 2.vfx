@@ -18,9 +18,9 @@ MonoBehaviour:
   uiBounds:
     serializedVersion: 2
     x: 335
-    y: -7
+    y: -287
     width: 3434
-    height: 2569
+    height: 2849
 --- !u!114 &114350483966674976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -93,6 +93,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615548}
   - {fileID: 8926484042661615550}
   - {fileID: 8926484042661615552}
+  - {fileID: 8926484042661615566}
   m_UIPosition: {x: 0, y: 0}
   m_UICollapsed: 1
   m_UISuperCollapsed: 0
@@ -440,9 +441,11 @@ MonoBehaviour:
   m_InputSlots: []
   m_OutputSlots: []
   m_Label: Spawn system
-  m_Data: {fileID: 8926484042661614595}
+  m_Data: {fileID: 8926484042661615567}
   m_InputFlowSlot:
-  - link: []
+  - link:
+    - context: {fileID: 8926484042661615566}
+      slotIndex: 0
   - link: []
   m_OutputFlowSlot:
   - link:
@@ -1079,27 +1082,6 @@ MonoBehaviour:
   ageParticles: 1
   reapParticles: 1
   skipZeroDeltaUpdate: 0
---- !u!114 &8926484042661614595
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f68759077adc0b143b6e1c101e82065e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_UIIgnoredErrors: []
-  m_Parent: {fileID: 114350483966674976}
-  m_Children: []
-  m_UIPosition: {x: 0, y: 0}
-  m_UICollapsed: 1
-  m_UISuperCollapsed: 0
-  title: 
-  m_Owners:
-  - {fileID: 8926484042661614555}
 --- !u!114 &8926484042661614596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5356,9 +5338,11 @@ MonoBehaviour:
   m_InputSlots: []
   m_OutputSlots: []
   m_Label: Spawn system
-  m_Data: {fileID: 8926484042661614952}
+  m_Data: {fileID: 8926484042661615567}
   m_InputFlowSlot:
-  - link: []
+  - link:
+    - context: {fileID: 8926484042661615566}
+      slotIndex: 0
   - link: []
   m_OutputFlowSlot:
   - link:
@@ -9109,27 +9093,6 @@ MonoBehaviour:
   m_Direction: 1
   m_LinkedSlots:
   - {fileID: 8926484042661614896}
---- !u!114 &8926484042661614952
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f68759077adc0b143b6e1c101e82065e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_UIIgnoredErrors: []
-  m_Parent: {fileID: 114350483966674976}
-  m_Children: []
-  m_UIPosition: {x: 0, y: 0}
-  m_UICollapsed: 1
-  m_UISuperCollapsed: 0
-  title: 
-  m_Owners:
-  - {fileID: 8926484042661614835}
 --- !u!114 &8926484042661614953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9404,9 +9367,11 @@ MonoBehaviour:
   m_InputSlots: []
   m_OutputSlots: []
   m_Label: Spawn system
-  m_Data: {fileID: 8926484042661615554}
+  m_Data: {fileID: 8926484042661615567}
   m_InputFlowSlot:
-  - link: []
+  - link:
+    - context: {fileID: 8926484042661615566}
+      slotIndex: 0
   - link: []
   m_OutputFlowSlot:
   - link:
@@ -13129,7 +13094,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615533}
   m_ExposedName: SmokeRateBurst 1
   m_Exposed: 1
-  m_Order: 12
+  m_Order: 13
   m_Category: 
   m_Min:
     m_Type:
@@ -13209,7 +13174,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615535}
   m_ExposedName: SmokeLifetime 1
   m_Exposed: 1
-  m_Order: 12
+  m_Order: 14
   m_Category: 
   m_Min:
     m_Type:
@@ -13292,7 +13257,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615537}
   m_ExposedName: SmokeVelocity 1
   m_Exposed: 1
-  m_Order: 12
+  m_Order: 15
   m_Category: 
   m_Min:
     m_Type:
@@ -13474,7 +13439,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615542}
   m_ExposedName: SmokeVelocityNegate 1
   m_Exposed: 1
-  m_Order: 12
+  m_Order: 16
   m_Category: 
   m_Min:
     m_Type:
@@ -13656,7 +13621,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615547}
   m_ExposedName: SizeOverLife 1
   m_Exposed: 1
-  m_Order: 12
+  m_Order: 17
   m_Category: 
   m_Min:
     m_Type:
@@ -13728,7 +13693,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615549}
   m_ExposedName: SmokeSize 1
   m_Exposed: 1
-  m_Order: 12
+  m_Order: 18
   m_Category: 
   m_Min:
     m_Type:
@@ -13811,7 +13776,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615551}
   m_ExposedName: Color 2
   m_Exposed: 1
-  m_Order: 12
+  m_Order: 19
   m_Category: 
   m_Min:
     m_Type:
@@ -13891,7 +13856,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615553}
   m_ExposedName: Mesh 2
   m_Exposed: 1
-  m_Order: 12
+  m_Order: 20
   m_Category: 
   m_Min:
     m_Type:
@@ -13948,27 +13913,6 @@ MonoBehaviour:
   m_Direction: 1
   m_LinkedSlots:
   - {fileID: 8926484042661615528}
---- !u!114 &8926484042661615554
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f68759077adc0b143b6e1c101e82065e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_UIIgnoredErrors: []
-  m_Parent: {fileID: 114350483966674976}
-  m_Children: []
-  m_UIPosition: {x: 0, y: 0}
-  m_UICollapsed: 1
-  m_UISuperCollapsed: 0
-  title: 
-  m_Owners:
-  - {fileID: 8926484042661615397}
 --- !u!114 &8926484042661615555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14254,3 +14198,60 @@ MonoBehaviour:
         Culture=neutral, PublicKeyToken=null
   m_Direction: 0
   m_LinkedSlots: []
+--- !u!114 &8926484042661615566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2461f61b3c026d54db1951a4e17ab20e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UIIgnoredErrors: []
+  m_Parent: {fileID: 114350483966674976}
+  m_Children: []
+  m_UIPosition: {x: 2172.5327, y: -286.635}
+  m_UICollapsed: 0
+  m_UISuperCollapsed: 0
+  m_InputSlots: []
+  m_OutputSlots: []
+  m_Label: 
+  m_Data: {fileID: 8926484042661615567}
+  m_InputFlowSlot:
+  - link: []
+  m_OutputFlowSlot:
+  - link:
+    - context: {fileID: 8926484042661614555}
+      slotIndex: 0
+    - context: {fileID: 8926484042661614835}
+      slotIndex: 0
+    - context: {fileID: 8926484042661615397}
+      slotIndex: 0
+  eventName: OnPlay
+--- !u!114 &8926484042661615567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f68759077adc0b143b6e1c101e82065e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UIIgnoredErrors: []
+  m_Parent: {fileID: 0}
+  m_Children: []
+  m_UIPosition: {x: 0, y: 0}
+  m_UICollapsed: 1
+  m_UISuperCollapsed: 0
+  title: 
+  m_Owners:
+  - {fileID: 8926484042661615566}
+  - {fileID: 8926484042661614555}
+  - {fileID: 8926484042661614835}
+  - {fileID: 8926484042661615397}
