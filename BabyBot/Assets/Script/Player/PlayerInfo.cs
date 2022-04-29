@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using UnityEngine.Experimental.VFX;
 
 public class PlayerInfo : MonoBehaviour
 {
@@ -21,6 +22,8 @@ public class PlayerInfo : MonoBehaviour
     [HideInInspector] public bool isReviving = false;
     [HideInInspector] public bool isPressingRevive = false;
     public bool playerInLife = true;
+   
+   
 
     [Header("UI")]
     public GameObject reviveUI;
@@ -51,6 +54,7 @@ public class PlayerInfo : MonoBehaviour
     [HideInInspector] public PlayerMovement playerMovementScript;
     private CapsuleCollider colliderSelf;
     private Rigidbody rb;
+  
 
     #endregion
 
@@ -125,6 +129,7 @@ public class PlayerInfo : MonoBehaviour
         {
             if (context.started)
             {
+                GetComponent<UnityEngine.VFX.VisualEffect>().Play();
                 actualScoreUpgrade = 0;
 
                 if(numberOfUpgrade == 0)

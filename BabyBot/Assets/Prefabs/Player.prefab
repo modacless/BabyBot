@@ -281,6 +281,7 @@ Transform:
   - {fileID: 7803703085606219705}
   - {fileID: 1612465042}
   - {fileID: 2123932186056071969}
+  - {fileID: 2458152245014557635}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -445,6 +446,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: e7e1c1b7-431a-4054-8474-f2bfb69591b9
     m_ActionName: Player/Revive[/XInputControllerWindows/buttonWest,/XInputControllerWindows1/buttonWest]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 58284c23-d51e-4325-ae08-320c3b0846cc
+    m_ActionName: Player/Reload
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: Player
@@ -494,11 +499,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numPlayer: 0
   maxHp: 5
+  InvincibleTimeAfterHit: 0
+  blindTime: 0
   timeForRevive: 0
   currentReviveTime: 0
   isReviving: 0
   isPressingRevive: 0
   playerInLife: 1
+  reviveUI: {fileID: 0}
+  materialRobot: {fileID: 0}
   eachScoreNeedForUpgrade:
   - 10
   - 20
@@ -535,6 +544,7 @@ MonoBehaviour:
   - {fileID: 568480048796525910}
   - {fileID: 0}
   choosenWeapon: 0
+  playerMovementScript: {fileID: 0}
 --- !u!114 &1769299409
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -970,6 +980,101 @@ Transform:
   m_Father: {fileID: 6535756497104671429}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &2474551800915931003
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2285237947502248123}
+    m_Modifications:
+    - target: {fileID: 20903579658116280, guid: 5d05d742b9478534d8180b33b54ec1ad,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 20903579658116280, guid: 5d05d742b9478534d8180b33b54ec1ad,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 20903579658116280, guid: 5d05d742b9478534d8180b33b54ec1ad,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 20903579658116280, guid: 5d05d742b9478534d8180b33b54ec1ad,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 20903579658116280, guid: 5d05d742b9478534d8180b33b54ec1ad,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 20903579658116280, guid: 5d05d742b9478534d8180b33b54ec1ad,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 20903579658116280, guid: 5d05d742b9478534d8180b33b54ec1ad,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 20903579658116280, guid: 5d05d742b9478534d8180b33b54ec1ad,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 20903579658116280, guid: 5d05d742b9478534d8180b33b54ec1ad,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 20903579658116280, guid: 5d05d742b9478534d8180b33b54ec1ad,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 20903579658116280, guid: 5d05d742b9478534d8180b33b54ec1ad,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 20903579658116280, guid: 5d05d742b9478534d8180b33b54ec1ad,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 20903579658116280, guid: 5d05d742b9478534d8180b33b54ec1ad,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 20903579658116280, guid: 5d05d742b9478534d8180b33b54ec1ad,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 20903579658116281, guid: 5d05d742b9478534d8180b33b54ec1ad,
+        type: 3}
+      propertyPath: m_InitialEventNameOverriden
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 20903579658116283, guid: 5d05d742b9478534d8180b33b54ec1ad,
+        type: 3}
+      propertyPath: m_Name
+      value: VFX_LvlUp
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5d05d742b9478534d8180b33b54ec1ad, type: 3}
+--- !u!4 &2458152245014557635 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 20903579658116280, guid: 5d05d742b9478534d8180b33b54ec1ad,
+    type: 3}
+  m_PrefabInstance: {fileID: 2474551800915931003}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8231756476985107774
 PrefabInstance:
   m_ObjectHideFlags: 0
