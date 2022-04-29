@@ -12,6 +12,7 @@ public class PlayerInfo : MonoBehaviour
     [Header("Player Stats")]
     public float maxHp;
     public float InvincibleTimeAfterHit;
+    public float blindTime;
     private float currentInvincibleTime = 0;
     private bool isInvincible = false;
     //public float respawnTime;
@@ -24,6 +25,9 @@ public class PlayerInfo : MonoBehaviour
     [Header("UI")]
     public GameObject reviveUI;
     private Image cooldownUi;
+
+    [Header("Material")]
+    public Material materialRobot;
 
     [Header("Score Need For Upgrade")]
     public float[] eachScoreNeedForUpgrade;
@@ -63,6 +67,7 @@ public class PlayerInfo : MonoBehaviour
         GetComponent<PlayerInput>().actions["Revive"].started += Revive;
         GetComponent<PlayerInput>().actions["Revive"].canceled += Revive;
 
+        materialRobot.SetInt("_blind", 0);
     }
     private void Init()
     {
@@ -145,6 +150,7 @@ public class PlayerInfo : MonoBehaviour
     {
         if (!isInvincible)
         {
+            StartCoroutine(BlindDamage());
             isInvincible = true;
             actualHealth -= damage;
             if (actualHealth <= 0)
@@ -217,7 +223,7 @@ public class PlayerInfo : MonoBehaviour
                 playerMovementScript.enabled = false;
                 playerMovementScript.playerAnimationsScript.Run(false);
                 colliderSelf.enabled = false;
-                rb.constraints = RigidbodyConstraints.FreezePosition;
+                rb.constraints = RigidbodyConstraints.FreezeAll;
                 actualWeapon.ResetAmmoWeapon();
                 transform.rotation = Quaternion.Euler(new Vector3(0, 0, 80));
                 transform.position += new Vector3(1.5f, 0, 0);
@@ -254,4 +260,11 @@ public class PlayerInfo : MonoBehaviour
 
         actualHealth = maxHp;
     }*/
+
+    IEnumerator BlindDamage()
+    {
+        materialRobot.SetInt("_blind", 1);
+        yield return new WaitForSeconds(blindTime);
+        materialRobot.SetInt("_blind", 0);
+    }
 }
