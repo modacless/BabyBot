@@ -21,6 +21,8 @@ public class button : MonoBehaviour
     [HideInInspector]
     public bool Player2In = false;
 
+    public MeshRenderer selfMeshRenderer;
+
     public void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -60,48 +62,49 @@ public class button : MonoBehaviour
             if (Time.time > startTime + stayActiveTime)
             {
                 isActivated = false;
+                selfMeshRenderer.material.color = Color.red;
             }
         }
     }
 
     public void Player1Use(InputAction.CallbackContext context)
     {
-        if (Player1In)
+        if (Player1In && isActivated == false)
         {
             if (context.started)
             {
-                if (canActivate)
-                {
-                    isActivated = true;
+                Debug.Log("Player 1");
+                isActivated = true;
 
-                    //Audio
-                    AudioManager Audio = AudioManager.AMInstance;
-                    Audio.PlaySFX(Audio.levier, Audio.levierSource, 1);
-                    //----
+                //Audio
+                AudioManager Audio = AudioManager.AMInstance;
+                Audio.PlaySFX(Audio.levier, Audio.levierSource, 1);
+                //----
 
-                    startTime = Time.time;
-                }
+                startTime = Time.time;
+
+                selfMeshRenderer.material.color = Color.green;
             }
         }
     }
 
     public void Player2Use(InputAction.CallbackContext context)
     {
-        if (Player2In)
+        if (Player2In && isActivated == false)
         {
             if (context.started)
             {
-                if (canActivate)
-                {
-                    isActivated = true;
+                isActivated = true;
+                Debug.Log("Player 2");
 
-                    //Audio
-                    AudioManager Audio = AudioManager.AMInstance;
-                    Audio.PlaySFX(Audio.levier, Audio.levierSource, 1);
-                    //----
+                //Audio
+                AudioManager Audio = AudioManager.AMInstance;
+                Audio.PlaySFX(Audio.levier, Audio.levierSource, 1);
+                //----
 
-                    startTime = Time.time;
-                }
+                startTime = Time.time;
+
+                selfMeshRenderer.material.color = Color.green;
             }
         }
     }
