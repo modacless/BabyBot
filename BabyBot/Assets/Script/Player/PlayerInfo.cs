@@ -12,6 +12,8 @@ public class PlayerInfo : MonoBehaviour
     [Header("Player Stats")]
     public float maxHp;
     public float InvincibleTimeAfterHit;
+    private float currentInvincibleTime = 0;
+    private bool isInvincible = false;
     //public float respawnTime;
     public float timeForRevive;
     [HideInInspector] public float currentReviveTime = 0;
@@ -73,6 +75,10 @@ public class PlayerInfo : MonoBehaviour
         if (!playerInLife)
         {
             WaitForRevive();
+        }
+        else
+        {
+            InvincibleTimer();
         }
     }
 
@@ -137,11 +143,23 @@ public class PlayerInfo : MonoBehaviour
 
     public void DamagePlayer(int damage)
     {
-        
-        actualHealth -= damage;
-        if (actualHealth <= 0)
+        if (!isInvincible)
         {
-            Die();
+            isInvincible = true;
+            actualHealth -= damage;
+            if (actualHealth <= 0)
+            {
+                Die();
+            }
+        }
+    }
+
+    private void InvincibleTimer()
+    {
+        if (isInvincible)
+        {
+            if (currentInvincibleTime < InvincibleTimeAfterHit) currentInvincibleTime += Time.deltaTime;
+            else { isInvincible = false; currentInvincibleTime = 0; }
         }
     }
 

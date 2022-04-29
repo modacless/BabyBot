@@ -1310,6 +1310,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numPlayer: 0
   maxHp: 5
+  InvincibleTimeAfterHit: 0
   timeForRevive: 3
   currentReviveTime: 0
   isReviving: 0
@@ -1352,6 +1353,7 @@ MonoBehaviour:
   - {fileID: 4243315160091048455}
   - {fileID: 4395774028459582542}
   choosenWeapon: 0
+  playerMovementScript: {fileID: 0}
 --- !u!114 &4395774027539219072
 MonoBehaviour:
   m_ObjectHideFlags: 0
