@@ -741,7 +741,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1598899704}
   - {fileID: 1610135521}
   - {fileID: 882348603}
   - {fileID: 636976482}
@@ -1399,7 +1398,7 @@ Transform:
   - {fileID: 1831706455}
   - {fileID: 297580878}
   m_Father: {fileID: 42530605}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 10.15, z: 0}
 --- !u!1 &69499781
 GameObject:
@@ -1647,7 +1646,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 1.7769231, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -3267,7 +3266,7 @@ Transform:
   - {fileID: 197520781}
   - {fileID: 1460173979}
   m_Father: {fileID: 42530605}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &275127466
 PrefabInstance:
@@ -6500,7 +6499,7 @@ Transform:
   - {fileID: 1459447239}
   - {fileID: 1104381014}
   m_Father: {fileID: 42530605}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &636976481
 GameObject:
@@ -6534,7 +6533,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 42530605}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: -280.75598, z: 0}
 --- !u!65 &636976483
 BoxCollider:
@@ -7321,7 +7320,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 42530605}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: -280.75598, z: 0}
 --- !u!65 &687858654
 BoxCollider:
@@ -7699,7 +7698,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 42530605}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: -205.756, z: 0}
 --- !u!65 &714468798
 BoxCollider:
@@ -9237,7 +9236,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 42530605}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: -280.75598, z: 0}
 --- !u!65 &882348604
 BoxCollider:
@@ -11292,12 +11291,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numPlayer: 0
   maxHp: 5
+  InvincibleTimeAfterHit: 0
+  blindTime: 0
   timeForRevive: 3
   currentReviveTime: 0
   isReviving: 0
   isPressingRevive: 0
   playerInLife: 1
   reviveUI: {fileID: 1977081354}
+  materialRobot: {fileID: 0}
   eachScoreNeedForUpgrade:
   - 10
   - 20
@@ -11334,6 +11336,7 @@ MonoBehaviour:
   - {fileID: 227583276}
   - {fileID: 0}
   choosenWeapon: 0
+  playerMovementScript: {fileID: 0}
 --- !u!54 &1097749822
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -11490,6 +11493,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: e7e1c1b7-431a-4054-8474-f2bfb69591b9
     m_ActionName: Player/Revive[/XInputControllerWindows/buttonWest]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 58284c23-d51e-4325-ae08-320c3b0846cc
+    m_ActionName: Player/Reload
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: Player
@@ -15658,103 +15665,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1570834237}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1598899703
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1598899704}
-  - component: {fileID: 1598899707}
-  - component: {fileID: 1598899706}
-  - component: {fileID: 1598899705}
-  m_Layer: 0
-  m_Name: 'Tapis '
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1598899704
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1598899703}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -61.7922, y: 0.5, z: -176.1981}
-  m_LocalScale: {x: 160.02942, y: 1, z: 98.996895}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 42530605}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1598899705
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1598899703}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &1598899706
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1598899703}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &1598899707
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1598899703}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &1605865878
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15866,7 +15776,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 42530605}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -280.75598, z: 0}
 --- !u!65 &1610135522
 BoxCollider:
@@ -17229,7 +17139,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 42530605}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: -233.675, z: 0}
 --- !u!65 &1744758228
 BoxCollider:
@@ -20137,7 +20047,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 42530605}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: -205.756, z: 0}
 --- !u!65 &2107841075
 BoxCollider:
@@ -22282,12 +22192,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numPlayer: 0
   maxHp: 5
+  InvincibleTimeAfterHit: 0
+  blindTime: 0
   timeForRevive: 3
   currentReviveTime: 0
   isReviving: 0
   isPressingRevive: 0
   playerInLife: 1
   reviveUI: {fileID: 5062535836609198601}
+  materialRobot: {fileID: 0}
   eachScoreNeedForUpgrade:
   - 10
   - 20
@@ -22324,6 +22237,7 @@ MonoBehaviour:
   - {fileID: 1768243787854781763}
   - {fileID: 2263540179117081354}
   choosenWeapon: 0
+  playerMovementScript: {fileID: 0}
 --- !u!1 &4050424044371873990
 GameObject:
   m_ObjectHideFlags: 0
