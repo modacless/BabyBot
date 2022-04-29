@@ -549,7 +549,7 @@ MonoBehaviour:
   sizeBullet: {x: 1, y: 1, z: 1}
   reloadTime: 2
   fireRate: 0.09
-  bulletDamage: 6
+  bulletDamage: 5
   bulletLifeTime: 3
   bulletSpeed: 15
   magazineAmmo: 50
@@ -562,7 +562,7 @@ MonoBehaviour:
   - sizeBullet: {x: 1, y: 1, z: 1}
     reloadTime: 2
     fireRate: 0.06
-    bulletDamage: 10
+    bulletDamage: 6
     bulletLifeTime: 3
     bulletSpeed: 25
     magazineAmmo: 75
@@ -571,7 +571,7 @@ MonoBehaviour:
   - sizeBullet: {x: 1, y: 1, z: 1}
     reloadTime: 2
     fireRate: 0.06
-    bulletDamage: 10
+    bulletDamage: 7
     bulletLifeTime: 3
     bulletSpeed: 25
     magazineAmmo: 75
@@ -580,7 +580,7 @@ MonoBehaviour:
   - sizeBullet: {x: 1, y: 1, z: 1}
     reloadTime: 2
     fireRate: 0.06
-    bulletDamage: 10
+    bulletDamage: 8
     bulletLifeTime: 3
     bulletSpeed: 25
     magazineAmmo: 75
