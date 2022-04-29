@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using UnityEngine.Experimental.VFX;
+using UnityEngine.VFX;
 
 public class PlayerInfo : MonoBehaviour
 {
@@ -21,6 +23,11 @@ public class PlayerInfo : MonoBehaviour
     [HideInInspector] public bool isReviving = false;
     [HideInInspector] public bool isPressingRevive = false;
     public bool playerInLife = true;
+    public VisualEffect visualEffect;
+    public VFXEventAttribute eventAttribute;
+
+
+
 
     [Header("Vibration")]
     [SerializeField]
@@ -61,13 +68,17 @@ public class PlayerInfo : MonoBehaviour
     
     private CapsuleCollider colliderSelf;
     private Rigidbody rb;
+  
 
     #endregion
 
     private void Start()
     {
+
         Init();
         //DisplayWeaponModel(false, 0);
+        visualEffect = GetComponent<VisualEffect>();
+        eventAttribute = visualEffect.CreateVFXEventAttribute();
         playerMovementScript = GetComponent<PlayerMovement>();
         gamepadVibrationScript = GetComponent<GamepadVibration>();
         colliderSelf = GetComponent<CapsuleCollider>();
@@ -136,6 +147,9 @@ public class PlayerInfo : MonoBehaviour
         {
             if (context.started)
             {
+
+                visualEffect.Play();
+
                 actualScoreUpgrade = 0;
 
                 if(numberOfUpgrade == 0)
