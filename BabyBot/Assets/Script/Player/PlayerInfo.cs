@@ -98,19 +98,17 @@ public class PlayerInfo : MonoBehaviour
                 else
                 {
                     actualWeapon.UpgradeWeapon(numberOfUpgrade);
+                    
                 }
 
                 DisplayWeaponModel();
-
+                playerMovementScript.playerAnimationsScript.Reload(false, 1);
                 numberOfUpgrade += 1;
                 scoreNeedForNextUpgrade = eachScoreNeedForUpgrade[numberOfUpgrade];
-
-                // Trigger the weapon trade
 
             }
         }
     }
-
 
     public void DamagePlayer(int damage)
     {
@@ -133,6 +131,7 @@ public class PlayerInfo : MonoBehaviour
         playerMovementScript.enabled = false;
         colliderSelf.enabled = false;
         transform.GetChild(0).gameObject.SetActive(false);
+        actualWeapon.ResetAmmoWeapon();
 
         yield return new WaitForSeconds(respawnTime);
 

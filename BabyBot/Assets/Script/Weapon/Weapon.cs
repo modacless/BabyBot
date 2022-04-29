@@ -174,15 +174,20 @@ public class Weapon : MonoBehaviour
             reloadTimer += Time.deltaTime;
             if (reloadTimer >= reloadTime)
             {
-                isReloading = false;
-                playerMovementScript.playerAnimationsScript.Reload(false, reloadTime);
-                _isReloading = false;
-                reloadTimer = 0;
-                actualAmo = magazineAmmo;
+                ResetAmmoWeapon();
             }
         }
 
         actualReloadTime = reloadTimer;
+    }
+
+    public void ResetAmmoWeapon()
+    {
+        isReloading = false;
+        playerMovementScript.playerAnimationsScript.Reload(false, reloadTime);
+        _isReloading = false;
+        reloadTimer = 0;
+        actualAmo = magazineAmmo;
     }
 
     public void UpgradeWeapon(int upgradeToChose)
