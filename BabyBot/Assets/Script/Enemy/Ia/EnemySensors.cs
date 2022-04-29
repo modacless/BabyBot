@@ -293,6 +293,8 @@ public class EnemySensors : MonoBehaviour
 
     public virtual void TakeDamage(float damage)
     {
+        selfAnimator.SetTrigger("takeDamage");
+
         lifePoint -= damage;
         if (lifePoint <= 0)
         {

@@ -38,7 +38,9 @@ public class EnemyCac : EnemySensors
         {
             DoAttack();
             actualAttackCooldown = 0;
+            selfAnimator.SetTrigger("attack");
         }
+
         navAgent.isStopped = true;
         rbd.velocity = Vector3.zero;
 
