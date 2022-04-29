@@ -126,7 +126,7 @@ public class Weapon : MonoBehaviour
     {
         if (context.started)
         {
-            if (actualAmo > 0) pressReload = true;
+            if (actualAmo > 0 && actualAmo != magazineAmmo && !isReloading) pressReload = true;
         }
     }
 
@@ -176,7 +176,7 @@ public class Weapon : MonoBehaviour
 
     private void Reload()
     {
-        if (actualAmo <= 0 || pressReload && !isReloading)
+        if (actualAmo <= 0 || pressReload)
         {
             isReloading = true;
             playerMovementScript.playerAnimationsScript.Reload(true, reloadTime);
@@ -194,6 +194,7 @@ public class Weapon : MonoBehaviour
 
     public void ResetAmmoWeapon()
     {
+        pressReload = false;
         isReloading = false;
         playerMovementScript.playerAnimationsScript.Reload(false, reloadTime);
         _isReloading = false;
