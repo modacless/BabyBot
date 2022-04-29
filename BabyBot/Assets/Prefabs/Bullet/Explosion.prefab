@@ -42,7 +42,7 @@ VisualEffect:
   m_GameObject: {fileID: 2928592617651984115}
   m_Enabled: 1
   m_Asset: {fileID: 8926484042661614526, guid: c8276c52687e4ec408db91e17f445658, type: 3}
-  m_InitialEventName: OnPlay1
+  m_InitialEventName: OnPlay
   m_InitialEventNameOverriden: 1
   m_StartSeed: 0
   m_ResetSeedOnPlay: 1
@@ -323,9 +323,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fb4c750dd296d64aa1bacdc606ec8bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lifeTime: 0
+  speed: 0
+  damage: 5
+  direction: {x: 0, y: 0, z: 0}
+  fromPlayer: {fileID: 0}
   explosionCercleRange: {x: 10, y: 10, z: 10}
   timeBeforeExplose: 0.25
-  damage: 5
+  explosionDamage: 0
 --- !u!135 &6753946423046665437
 SphereCollider:
   m_ObjectHideFlags: 0

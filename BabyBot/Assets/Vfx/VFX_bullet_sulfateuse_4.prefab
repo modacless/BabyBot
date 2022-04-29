@@ -440,7 +440,7 @@ VisualEffect:
       - m_Value: 0.8
         m_Name: SmokeLifetime 1
         m_Overridden: 1
-      - m_Value: 1.5
+      - m_Value: 4
         m_Name: SmokeSize
         m_Overridden: 1
     m_Vector2f:
@@ -473,8 +473,8 @@ VisualEffect:
           serializedVersion: 2
           m_Curve:
           - serializedVersion: 3
-            time: -0.00020643137
-            value: 0.66187567
+            time: 0.014398616
+            value: 0.33936542
             inSlope: 5.924072
             outSlope: 5.924072
             tangentMode: 0
@@ -482,8 +482,8 @@ VisualEffect:
             inWeight: 0
             outWeight: 0.035651017
           - serializedVersion: 3
-            time: 0.11917221
-            value: 1.0367181
+            time: 0.14199138
+            value: 1.0361869
             inSlope: -0.073221155
             outSlope: -0.073221155
             tangentMode: 0
@@ -491,8 +491,8 @@ VisualEffect:
             inWeight: 0.33333334
             outWeight: 0.33333334
           - serializedVersion: 3
-            time: 0.4606225
-            value: 0.8164902
+            time: 0.4464696
+            value: 0.6619943
             inSlope: 2.0831597
             outSlope: 2.0831597
             tangentMode: 0
@@ -500,8 +500,8 @@ VisualEffect:
             inWeight: 0.33333334
             outWeight: 0.08456553
           - serializedVersion: 3
-            time: 0.62725174
-            value: 1.0139892
+            time: 0.6500709
+            value: 0.9724198
             inSlope: 0.045569696
             outSlope: 0.045569696
             tangentMode: 0
@@ -509,8 +509,8 @@ VisualEffect:
             inWeight: 0.33333334
             outWeight: 0.33333334
           - serializedVersion: 3
-            time: 0.98559684
-            value: 0.99035704
+            time: 1.0084159
+            value: 0.90611863
             inSlope: 0.916181
             outSlope: 0.916181
             tangentMode: 0
@@ -614,7 +614,7 @@ VisualEffect:
         m_Overridden: 1
     m_NamedObject:
       m_Array:
-      - m_Value: {fileID: 6087353690086043029, guid: 0686cd9522bbbce4bb6335d09af4a32a,
+      - m_Value: {fileID: -1440816178349363505, guid: 8168cf0b5331e7a4a89a90c12bf76abf,
           type: 3}
         m_Name: Mesh
         m_Overridden: 1
