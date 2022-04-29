@@ -1330,7 +1330,7 @@ MonoBehaviour:
   maxHp: 5
   InvincibleTimeAfterHit: 0.5
   blindTime: 0.25
-  timeForRevive: 3
+  timeForRevive: 2
   currentReviveTime: 0
   isReviving: 0
   isPressingRevive: 0
@@ -1338,13 +1338,15 @@ MonoBehaviour:
   vibrationTime: 0.2
   leftMotorSpeedVibration: 0.5
   rightMotorSpeedVibration: 0.5
+  cameraIntensity: 3
+  cameraShakeFrequency: 0.1
   reviveUI: {fileID: 7217270714672815437}
   materialRobot: {fileID: 2100000, guid: c33aa9bca50e8f442bc9800a72976ca5, type: 2}
   eachScoreNeedForUpgrade:
-  - 10
-  - 20
-  - 40
-  - 80
+  - 1
+  - 1
+  - 1
+  - 1
   scoreNeedForNextUpgrade: 0
   actualTotalScore: 0
   actualHealth: 0
@@ -1397,6 +1399,8 @@ MonoBehaviour:
   leftMotorSpeedVibration: 0.2
   rightMotorSpeedVibration: 0.2
   gamepadVibrationScript: {fileID: 0}
+  cameraIntensity: 4
+  cameraShakeFrequency: 0.1
   playerShotSource: {fileID: 2923862202573780650}
   currentShotsArray: []
   sizeBullet: {x: 1, y: 1, z: 1}
@@ -1460,6 +1464,8 @@ MonoBehaviour:
   leftMotorSpeedVibration: 0.3
   rightMotorSpeedVibration: 0.3
   gamepadVibrationScript: {fileID: 0}
+  cameraIntensity: 6
+  cameraShakeFrequency: 0.1
   playerShotSource: {fileID: 2923862202573780650}
   currentShotsArray: []
   sizeBullet: {x: 2, y: 2, z: 2}
@@ -1522,6 +1528,8 @@ MonoBehaviour:
   leftMotorSpeedVibration: 0.1
   rightMotorSpeedVibration: 0.1
   gamepadVibrationScript: {fileID: 0}
+  cameraIntensity: 2
+  cameraShakeFrequency: 0.1
   playerShotSource: {fileID: 2923862202573780650}
   currentShotsArray: []
   sizeBullet: {x: 1, y: 1, z: 1}

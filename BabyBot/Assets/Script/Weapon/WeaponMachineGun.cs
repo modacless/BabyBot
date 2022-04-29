@@ -31,6 +31,8 @@ public class WeaponMachineGun : Weapon
         int index = Random.Range(0, (currentShotsArray.Length - 1));
         AudioManager.AMInstance.PlaySFX(currentShotsArray[index], playerShotSource, pitch);
         //----
+
+        CameraShake.Instance.ShakeCamera(cameraIntensity, cameraShakeFrequency);
     }
 
     protected override void Update()
