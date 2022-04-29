@@ -8625,41 +8625,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1554665592486405715, guid: 4c998b74421b09f47bda4ede8c92558f,
-        type: 3}
-      propertyPath: timeForRevive
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1554665592486405715, guid: 4c998b74421b09f47bda4ede8c92558f,
-        type: 3}
-      propertyPath: cameraIntensity
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1554665592486405715, guid: 4c998b74421b09f47bda4ede8c92558f,
-        type: 3}
-      propertyPath: cameraShakeFrequency
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1554665592486405715, guid: 4c998b74421b09f47bda4ede8c92558f,
-        type: 3}
-      propertyPath: eachScoreNeedForUpgrade.Array.data[0]
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1554665592486405715, guid: 4c998b74421b09f47bda4ede8c92558f,
-        type: 3}
-      propertyPath: eachScoreNeedForUpgrade.Array.data[1]
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1554665592486405715, guid: 4c998b74421b09f47bda4ede8c92558f,
-        type: 3}
-      propertyPath: eachScoreNeedForUpgrade.Array.data[2]
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1554665592486405715, guid: 4c998b74421b09f47bda4ede8c92558f,
-        type: 3}
-      propertyPath: eachScoreNeedForUpgrade.Array.data[3]
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2501229517045309418, guid: 4c998b74421b09f47bda4ede8c92558f,
         type: 3}
       propertyPath: m_RootOrder

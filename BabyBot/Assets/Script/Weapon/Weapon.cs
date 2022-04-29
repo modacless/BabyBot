@@ -22,6 +22,12 @@ public class Weapon : MonoBehaviour
 
     [HideInInspector] public GamepadVibration gamepadVibrationScript;
 
+    [Header("Camera Shake")]
+    [SerializeField]
+    protected float cameraIntensity;
+    [SerializeField]
+    protected float cameraShakeFrequency;
+
 
     public AudioSource playerShotSource;
     public AudioClip[] currentShotsArray;
@@ -167,6 +173,7 @@ public class Weapon : MonoBehaviour
             if (isPressingFire && !isShooting /*&& playerMovementScript.isAiming*/)
             {
                 gamepadVibrationScript.VibrationWithTime(vibrationTime, leftMotorSpeedVibration, rightMotorSpeedVibration);
+                CameraShake.Instance.ShakeCamera(cameraIntensity, cameraShakeFrequency);
                 isShooting = true;
                 Shoot();
             }

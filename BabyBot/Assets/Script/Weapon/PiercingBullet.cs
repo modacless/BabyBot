@@ -11,7 +11,7 @@ public class PiercingBullet : Bullet
             collider.GetComponent<EnemySensors>().TakeDamage(damage,fromPlayer);
         }
 
-        if (collider.tag != ("Bullet") && collider.tag != "Enemy")
+        if (collider.tag != ("Bullet") && collider.tag != "Enemy"  && collider.tag != ("Player") &&  collider.tag != ("IgnorePlayerBullet"))
             DestroyBullet();
     }
 

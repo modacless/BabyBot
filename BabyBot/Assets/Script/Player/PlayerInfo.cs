@@ -38,6 +38,12 @@ public class PlayerInfo : MonoBehaviour
     protected float rightMotorSpeedVibration;
     private GamepadVibration gamepadVibrationScript;
 
+    [Header("Camera Shake")]
+    [SerializeField]
+    protected float cameraIntensity;
+    [SerializeField]
+    protected float cameraShakeFrequency;
+
     [Header("UI")]
     public GameObject reviveUI;
     private Image cooldownUi;
@@ -176,6 +182,7 @@ public class PlayerInfo : MonoBehaviour
         if (!isInvincible)
         {
             gamepadVibrationScript.VibrationWithTime(vibrationTime, leftMotorSpeedVibration, rightMotorSpeedVibration);
+            CameraShake.Instance.ShakeCamera(cameraIntensity, cameraShakeFrequency);
             StartCoroutine(BlindDamage());
             isInvincible = true;
             actualHealth -= damage;
