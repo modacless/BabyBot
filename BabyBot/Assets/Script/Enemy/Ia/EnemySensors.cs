@@ -289,6 +289,10 @@ public class EnemySensors : MonoBehaviour
                 }
             }
         }
+        if(collision.collider.tag == "Train")
+        {
+
+        }
     }
 
     public virtual void TakeDamage(float damage,GameObject fromPlayer)
