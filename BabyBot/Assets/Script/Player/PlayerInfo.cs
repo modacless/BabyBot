@@ -11,6 +11,7 @@ public class PlayerInfo : MonoBehaviour
     public int numPlayer;
     [Header("Player Stats")]
     public float maxHp;
+    public float InvincibleTimeAfterHit;
     //public float respawnTime;
     public float timeForRevive;
     [HideInInspector] public float currentReviveTime = 0;
@@ -41,7 +42,7 @@ public class PlayerInfo : MonoBehaviour
     public GameObject[] firePoints;
     [HideInInspector] public int choosenWeapon;
 
-    private PlayerMovement playerMovementScript;
+    [HideInInspector] public PlayerMovement playerMovementScript;
     private CapsuleCollider colliderSelf;
     private Rigidbody rb;
 
@@ -196,6 +197,7 @@ public class PlayerInfo : MonoBehaviour
                 actualHealth = maxHp;
                 actualWeapon.enabled = false;
                 playerMovementScript.enabled = false;
+                playerMovementScript.playerAnimationsScript.Run(false);
                 colliderSelf.enabled = false;
                 rb.constraints = RigidbodyConstraints.FreezePosition;
                 actualWeapon.ResetAmmoWeapon();
