@@ -3522,6 +3522,10 @@ MonoBehaviour:
     type: 3}
   firePoint: {fileID: 33215418}
   playerMovementScript: {fileID: 0}
+  vibrationTime: 0.2
+  leftMotorSpeedVibration: 0.3
+  rightMotorSpeedVibration: 0.3
+  gamepadVibrationScript: {fileID: 0}
   playerShotSource: {fileID: 0}
   currentShotsArray: []
   sizeBullet: {x: 2, y: 2, z: 2}
@@ -3580,6 +3584,10 @@ MonoBehaviour:
     type: 3}
   firePoint: {fileID: 33215418}
   playerMovementScript: {fileID: 0}
+  vibrationTime: 0
+  leftMotorSpeedVibration: 0.2
+  rightMotorSpeedVibration: 0.2
+  gamepadVibrationScript: {fileID: 0}
   playerShotSource: {fileID: 0}
   currentShotsArray: []
   sizeBullet: {x: 1, y: 1, z: 1}
@@ -3639,6 +3647,10 @@ MonoBehaviour:
     type: 3}
   firePoint: {fileID: 33215418}
   playerMovementScript: {fileID: 0}
+  vibrationTime: 0.2
+  leftMotorSpeedVibration: 0.1
+  rightMotorSpeedVibration: 0.1
+  gamepadVibrationScript: {fileID: 0}
   playerShotSource: {fileID: 0}
   currentShotsArray: []
   sizeBullet: {x: 1, y: 1, z: 1}
@@ -7242,6 +7254,7 @@ GameObject:
   - component: {fileID: 2285237946952462209}
   - component: {fileID: 2285237946952462213}
   - component: {fileID: 2285237946952462214}
+  - component: {fileID: 2923862203952109113}
   - component: {fileID: 2285237946952462212}
   - component: {fileID: 2285237946952462211}
   - component: {fileID: 2285237946952462210}
@@ -7909,11 +7922,14 @@ MonoBehaviour:
   maxHp: 5
   InvincibleTimeAfterHit: 0.5
   blindTime: 0.25
-  timeForRevive: 3
+  timeForRevive: 2
   currentReviveTime: 0
   isReviving: 0
   isPressingRevive: 0
   playerInLife: 1
+  vibrationTime: 0.2
+  leftMotorSpeedVibration: 0.5
+  rightMotorSpeedVibration: 0.5
   reviveUI: {fileID: 51167337}
   materialRobot: {fileID: 2100000, guid: d2c861b23bd5c224d95c10b4df591341, type: 2}
   eachScoreNeedForUpgrade:
@@ -7953,6 +7969,19 @@ MonoBehaviour:
   - {fileID: 0}
   choosenWeapon: 0
   playerMovementScript: {fileID: 0}
+--- !u!114 &2923862203952109113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2285237946952462208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ce5493aaa6a2da428d3dd9ff728a751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  indexGamepad: 1
 --- !u!114 &2949875882740814017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8401,6 +8430,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1554665592486405715, guid: 4c998b74421b09f47bda4ede8c92558f,
+        type: 3}
+      propertyPath: timeForRevive
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2501229517045309418, guid: 4c998b74421b09f47bda4ede8c92558f,
         type: 3}
       propertyPath: m_RootOrder
@@ -10348,6 +10382,10 @@ MonoBehaviour:
     type: 3}
   firePoint: {fileID: 1603232640}
   playerMovementScript: {fileID: 0}
+  vibrationTime: 0
+  leftMotorSpeedVibration: 0
+  rightMotorSpeedVibration: 0
+  gamepadVibrationScript: {fileID: 0}
   playerShotSource: {fileID: 0}
   currentShotsArray: []
   sizeBullet: {x: 1, y: 1, z: 1}
@@ -10379,6 +10417,10 @@ MonoBehaviour:
     type: 3}
   firePoint: {fileID: 1603232640}
   playerMovementScript: {fileID: 0}
+  vibrationTime: 0
+  leftMotorSpeedVibration: 0
+  rightMotorSpeedVibration: 0
+  gamepadVibrationScript: {fileID: 0}
   playerShotSource: {fileID: 0}
   currentShotsArray: []
   sizeBullet: {x: 1, y: 1, z: 1}
@@ -10438,6 +10480,10 @@ MonoBehaviour:
     type: 3}
   firePoint: {fileID: 1603232640}
   playerMovementScript: {fileID: 0}
+  vibrationTime: 0
+  leftMotorSpeedVibration: 0
+  rightMotorSpeedVibration: 0
+  gamepadVibrationScript: {fileID: 0}
   playerShotSource: {fileID: 0}
   currentShotsArray: []
   sizeBullet: {x: 2, y: 2, z: 2}
@@ -10501,6 +10547,9 @@ MonoBehaviour:
   isReviving: 0
   isPressingRevive: 0
   playerInLife: 1
+  vibrationTime: 0
+  leftMotorSpeedVibration: 0
+  rightMotorSpeedVibration: 0
   reviveUI: {fileID: 0}
   materialRobot: {fileID: 0}
   eachScoreNeedForUpgrade:

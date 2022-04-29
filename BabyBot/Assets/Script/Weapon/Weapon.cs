@@ -12,6 +12,16 @@ public class Weapon : MonoBehaviour
     public GameObject firePoint;
     [HideInInspector] public PlayerMovement playerMovementScript;
 
+    [Header("Vibration")]
+    [SerializeField]
+    protected float vibrationTime;
+    [SerializeField]
+    protected float leftMotorSpeedVibration;
+    [SerializeField]
+    protected float rightMotorSpeedVibration;
+
+    [HideInInspector] public GamepadVibration gamepadVibrationScript;
+
 
     public AudioSource playerShotSource;
     public AudioClip[] currentShotsArray;
@@ -81,6 +91,7 @@ public class Weapon : MonoBehaviour
         GetComponent<PlayerInput>().actions["Reload"].canceled += Reload;
 
         playerMovementScript = GetComponent<PlayerMovement>();
+        gamepadVibrationScript = GetComponent<GamepadVibration>();
 
         actualBulletUsed = initialBullet;
         actualBulletUsed.transform.localScale = sizeBullet;
@@ -149,12 +160,13 @@ public class Weapon : MonoBehaviour
         //----
     }
 
-    protected void TryShoot()
+    protected virtual void TryShoot()
     {
         if (!isReloading)
         {
             if (isPressingFire && !isShooting /*&& playerMovementScript.isAiming*/)
             {
+                gamepadVibrationScript.VibrationWithTime(vibrationTime, leftMotorSpeedVibration, rightMotorSpeedVibration);
                 isShooting = true;
                 Shoot();
             }
@@ -249,7 +261,5 @@ public class Weapon : MonoBehaviour
         {
             actualBulletUsed = upgradeStruct[upgradeStat].actualBulletUsed;
         }
-
     }
-
 }
