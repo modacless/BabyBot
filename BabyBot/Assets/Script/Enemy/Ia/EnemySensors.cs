@@ -5,7 +5,7 @@ using UnityEngine.Events;
 using UnityEngine.AI;
 
 
-//De rien à toi liseur de ce script Franglais :) ( tu as le drois de me détester )
+//De rien ï¿½ toi liseur de ce script Franglais :) ( tu as le drois de me dï¿½tester )
 [RequireComponent(typeof(Rigidbody),typeof(NavMeshAgent))]
 public class EnemySensors : MonoBehaviour
 {
@@ -105,14 +105,13 @@ public class EnemySensors : MonoBehaviour
     protected virtual void Update()
     {
 
-        //Configure la machine à état
-        SetState();
 
-        actualGoal = GetNearestGoal();
+            SetState();
 
-        if (actualGoal != null)
-        {
-            //Applique l'effet de la machine à état
+            actualGoal = GetNearestGoal();
+
+            //if(actualGoal != null && actualGoal.GetComponent<PlayerInfo>().)
+            //Applique l'effet de la machine ï¿½ ï¿½tat
             switch (enemyState)
             {
                 case StateEnemy.Idle:
@@ -131,7 +130,12 @@ public class EnemySensors : MonoBehaviour
                     StateIdle();
                     break;
             }
-        }
+        
+
+
+        //Configure la machine ï¿½ ï¿½tat
+        
+
     }
 
     public Transform GetNearestGoal()
@@ -173,7 +177,7 @@ public class EnemySensors : MonoBehaviour
         }
     }
 
-    //Dessine en éditeur les cercles représentant la vision du l'ia
+    //Dessine en ï¿½diteur les cercles reprï¿½sentant la vision du l'ia
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
@@ -228,23 +232,24 @@ public class EnemySensors : MonoBehaviour
         }
     }
 
-    //est appelé dans l'update quand le mob ne voit rien
+    //est appelï¿½ dans l'update quand le mob ne voit rien
     protected virtual void StateIdle()
     {
         navAgent.isStopped = true;
         rbd.velocity = Vector3.zero;
     }
-    //est appelé dans l'update quand le mob détécte un joueur à sa portée
+    //est appelï¿½ dans l'update quand le mob dï¿½tï¿½cte un joueur ï¿½ sa portï¿½e
     protected virtual void StateDetect()
     {
         navAgent.isStopped = false;
         navAgent.SetDestination(actualGoal.transform.position);
     }
-    //est appelé quand le joueur se trouve à porté d'attaque
+    //est appelï¿½ quand le joueur se trouve ï¿½ portï¿½ d'attaque
     protected virtual void StateAttack()
     {
         navAgent.isStopped = true;
         rbd.velocity = Vector3.zero;
+
     }
 
     protected virtual void StateDead()
