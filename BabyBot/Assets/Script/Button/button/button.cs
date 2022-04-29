@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class button : MonoBehaviour
 {
@@ -16,12 +17,17 @@ public class button : MonoBehaviour
     public bool stayActive = false;
     private float startTime;
 
+    private float actualCooldownTime;
+
     [HideInInspector]
     public bool Player1In = false;
     [HideInInspector]
     public bool Player2In = false;
 
     public MeshRenderer selfMeshRenderer;
+
+    [Header("UI")]
+    public Image cooldownUi;
 
     public void OnTriggerEnter(Collider other)
     {
@@ -41,6 +47,8 @@ public class button : MonoBehaviour
     private void Start()
     {
         selfMeshRenderer.material.SetInt("_pressed", 1);
+
+        cooldownUi.fillAmount = 0;
     }
 
     public void OnTriggerExit(Collider other)
@@ -62,11 +70,24 @@ public class button : MonoBehaviour
     {
         if (isActivated && !stayActive)
         {
-            if (Time.time > startTime + stayActiveTime)
+            if (actualCooldownTime <= 0)
             {
                 isActivated = false;
                 selfMeshRenderer.material.SetInt("_pressed", 1);
+
+                actualCooldownTime = 0;
             }
+            else
+            {
+                actualCooldownTime -= Time.deltaTime;
+                cooldownUi.fillAmount = actualCooldownTime / stayActiveTime;
+            }
+        }
+
+
+        if (stayActive == true)
+        {
+            cooldownUi.fillAmount = 0;
         }
     }
 
@@ -84,7 +105,7 @@ public class button : MonoBehaviour
                 Audio.PlaySFX(Audio.levier, Audio.levierSource, 1);
                 //----
 
-                startTime = Time.time;
+                actualCooldownTime = stayActiveTime;
 
                 selfMeshRenderer.material.SetInt("_pressed", 0); ;
             }
@@ -105,7 +126,7 @@ public class button : MonoBehaviour
                 Audio.PlaySFX(Audio.levier, Audio.levierSource, 1);
                 //----
 
-                startTime = Time.time;
+                actualCooldownTime = stayActiveTime;
 
                 selfMeshRenderer.material.SetInt("_pressed", 0);
             }
