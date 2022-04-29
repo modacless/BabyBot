@@ -66,7 +66,7 @@ MonoBehaviour:
   stayActive: 0
   Player1In: 0
   Player2In: 0
-  selfMeshRenderer: {fileID: 0}
+  selfMeshRenderer: {fileID: 8476627300128403044}
 --- !u!1001 &3726019750864391641
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -318,6 +318,11 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: a6b3b9a4c90c2634f956a0aea0a07229,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: be90b985c387c3b468f0901916168032, type: 2}
     - target: {fileID: 919132149155446097, guid: a6b3b9a4c90c2634f956a0aea0a07229,
         type: 3}
       propertyPath: m_Name
@@ -328,6 +333,12 @@ PrefabInstance:
 --- !u!4 &7343166758680253707 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a6b3b9a4c90c2634f956a0aea0a07229,
+    type: 3}
+  m_PrefabInstance: {fileID: 7089389565385552608}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &8476627300128403044 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: a6b3b9a4c90c2634f956a0aea0a07229,
     type: 3}
   m_PrefabInstance: {fileID: 7089389565385552608}
   m_PrefabAsset: {fileID: 0}

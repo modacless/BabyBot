@@ -38,6 +38,10 @@ public class button : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        selfMeshRenderer.material.SetInt("_pressed", 1);
+    }
 
     public void OnTriggerExit(Collider other)
     {
@@ -52,7 +56,6 @@ public class button : MonoBehaviour
                 Player2In = false;
             }
         }
-
     }
 
     private void Update()
@@ -62,7 +65,7 @@ public class button : MonoBehaviour
             if (Time.time > startTime + stayActiveTime)
             {
                 isActivated = false;
-                selfMeshRenderer.material.color = Color.red;
+                selfMeshRenderer.material.SetInt("_pressed", 1);
             }
         }
     }
@@ -83,7 +86,7 @@ public class button : MonoBehaviour
 
                 startTime = Time.time;
 
-                selfMeshRenderer.material.color = Color.green;
+                selfMeshRenderer.material.SetInt("_pressed", 0); ;
             }
         }
     }
@@ -104,7 +107,7 @@ public class button : MonoBehaviour
 
                 startTime = Time.time;
 
-                selfMeshRenderer.material.color = Color.green;
+                selfMeshRenderer.material.SetInt("_pressed", 0);
             }
         }
     }
