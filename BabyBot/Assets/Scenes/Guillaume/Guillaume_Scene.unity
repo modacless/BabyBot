@@ -490,6 +490,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PresurePlateManager
       objectReference: {fileID: 0}
+    - target: {fileID: 9020992051577129437, guid: 179281e124a8bf543b4a0a7bade2c981,
+        type: 3}
+      propertyPath: myPressurePlates.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 9020992051577129438, guid: 179281e124a8bf543b4a0a7bade2c981,
         type: 3}
       propertyPath: m_RootOrder
