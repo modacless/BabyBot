@@ -12,6 +12,9 @@ public class PlayerInfoManager : MonoBehaviour
     public PlayerInfo infoPlayer1;
     public PlayerInfo infoPlayer2;
 
+    public GameObject[] objectPlayerToChangeMaterial;
+    public Material materialPlayer2;
+
     #endregion
 
     private void Awake()
@@ -27,7 +30,12 @@ public class PlayerInfoManager : MonoBehaviour
         }
         #endregion  
 
+        for(int i=0; i< objectPlayerToChangeMaterial.Length; i++)
+        {
+            objectPlayerToChangeMaterial[i].GetComponent<Renderer>().material = materialPlayer2;
+        }
         
+
         // Have to change this after !!!!!
         //infoPlayer1 = GameObject.FindGameObjectWithTag("Player 1").GetComponent<PlayerInfo>();
         //infoPlayer2 = GameObject.FindGameObjectWithTag("Player 2").GetComponent<PlayerInfo>();
