@@ -11,7 +11,7 @@ public class TriggerGroup : MonoBehaviour
     [Header ("For a group")]
     public TriggerGroup[] triggerToCheck;
 
-    private List<GameObject> enemyToSpawn = new List<GameObject>();
+    public List<GameObject> enemyToSpawn = new List<GameObject>();
     [Space]
     [SerializeField]private bool stay;
 
@@ -73,6 +73,7 @@ public class TriggerGroup : MonoBehaviour
         if (gameObject.transform.childCount == 0)
         {
             allDead = true;
+
         }
 
         // Check if enemy in the list are dead
@@ -92,7 +93,7 @@ public class TriggerGroup : MonoBehaviour
 
             for (int i = 0; i < triggerToCheck.Length; i++)
             {
-                if (triggerToCheck[i].allDead == true)
+                if (triggerToCheck[i] != null && triggerToCheck[i].allDead == true)
                 {
                     numOfDone += 1;
                 }

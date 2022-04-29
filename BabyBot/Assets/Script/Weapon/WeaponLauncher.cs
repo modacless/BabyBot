@@ -10,7 +10,6 @@ public class WeaponLauncher : Weapon
     {
         base.Start();
 
-        currentShotsVolume = AudioManager.AMInstance.ballLauncherShotsVolume;
         currentShotsArray = AudioManager.AMInstance.ballLauncherShotsArray;
     }
 
@@ -18,7 +17,6 @@ public class WeaponLauncher : Weapon
     {
         base.Upgrade1();
 
-        currentShotsVolume = AudioManager.AMInstance.waterBallLauncherShotsVolume;
         currentShotsArray = AudioManager.AMInstance.waterBallLauncherShotsArray;
     }
 
@@ -26,7 +24,6 @@ public class WeaponLauncher : Weapon
     {
         base.Upgrade2();
 
-        currentShotsVolume = AudioManager.AMInstance.waterBallLauncherShotsVolume;
         currentShotsArray = AudioManager.AMInstance.waterBallLauncherShotsArray;
     }
 
@@ -34,7 +31,6 @@ public class WeaponLauncher : Weapon
     {
         base.Upgrade3();
 
-        currentShotsVolume = AudioManager.AMInstance.waterBallLauncherShotsVolume;
         currentShotsArray = AudioManager.AMInstance.waterBallLauncherShotsArray;
     }
 

@@ -6,6 +6,8 @@ using Cinemachine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public AudioSource footstepsSource;
+
     public float speed;
 
     private Vector2 inputMovement;
@@ -156,12 +158,12 @@ public class PlayerMovement : MonoBehaviour
         if(AM.isOnWood == true)
         {
             int newIndex = Random.Range(0, (AM.woodFootstepArray.Length - 1));
-            AM.PlaySFX(AM.woodFootstepArray[newIndex], 1, newPitch);
+            AM.PlaySFX(AM.woodFootstepArray[newIndex], footstepsSource, newPitch);
         }
         else
         {
             int newIndex = Random.Range(0, (AM.carpetFootstepArray.Length - 1));
-            AM.PlaySFX(AM.carpetFootstepArray[newIndex], 1, newPitch);
+            AM.PlaySFX(AM.carpetFootstepArray[newIndex], footstepsSource, newPitch);
         }
     }
 }

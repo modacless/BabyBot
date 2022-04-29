@@ -27,6 +27,8 @@ public class LightningBullet : PiercingBullet
     public int maxEnemyBounce;
     private int tuchEnemy = 0;
 
+    public GameObject[] vfxObject;
+
 
     protected override void Start()
     {
@@ -62,14 +64,21 @@ public class LightningBullet : PiercingBullet
         {
             if(collider.tag == "Enemy" && !secondBulletTarget && tuchEnemy< maxEnemyBounce && !allBulletTargeted.Contains(collider.gameObject)) //Start lightning
             {
+
+                foreach (GameObject obj in vfxObject)
+                {
+                    obj.SetActive(false);
+                }
+
                 allBulletTargeted.Add(collider.gameObject);
                 secondBulletTarget = collider.gameObject;
                 SecondBullet.SetActive(true);
                 distanceBetweenTarget = Vector3.Distance(transform.position, SecondBullet.transform.position);
                 tuchEnemy++;
-                SecondBullet.transform.position = (secondBulletTarget.transform.position - SecondBullet.transform.position)/2;
-                MoveToNextTarget();
+                SecondBullet.transform.position = secondBulletTarget.transform.position - SecondBullet.transform.position;
                 collider.GetComponent<EnemySensors>().TakeDamage(damage, fromPlayer);
+                MoveToNextTarget();
+                
 
             }
         }
@@ -80,6 +89,13 @@ public class LightningBullet : PiercingBullet
     {
         mainBulletDie = true;
         speed = 0;
+
+        foreach (GameObject obj in vfxObject)
+        {
+            obj.SetActive(false);
+            Debug.Log(damage);
+        }
+
         StartCoroutine(ExtendCollider());
     }
 

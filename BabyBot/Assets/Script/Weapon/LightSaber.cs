@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class LightSaber : Bullet
 {
+    public AudioSource igniteSource;
+    public AudioSource killingSource;
+
+
     public float turnSpeed;
     public float lifeTimeLightSaber;
     public float damageLightSaber;
@@ -13,6 +17,12 @@ public class LightSaber : Bullet
     protected override void Start()
     {
         startTimeLightSaber = Time.time;
+
+        //Audio
+        AudioManager Audio = AudioManager.AMInstance;
+        float pitch = Random.Range(0.9f, 1.1f);
+        Audio.PlaySFX(Audio.lightsaberIgnite, igniteSource, pitch);
+        //----
     }
 
     protected override void Update()
@@ -33,7 +43,7 @@ public class LightSaber : Bullet
             AudioManager Audio = AudioManager.AMInstance;
             float pitch = Random.Range(0.8f, 1.2f);
             int index = Random.Range(0, (Audio.lightsaberImpactsArray.Length - 1));
-            Audio.PlaySFX(Audio.lightsaberImpactsArray[index], Audio.lightsaberImpactsVolume, pitch);
+            Audio.PlaySFX(Audio.lightsaberImpactsArray[index], killingSource, pitch);
             //----
             collider.GetComponent<EnemySensors>().TakeDamage(damageLightSaber, fromPlayer);
         }

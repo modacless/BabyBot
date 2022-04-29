@@ -5,7 +5,7 @@ using UnityEngine.Events;
 using UnityEngine.AI;
 
 
-//De rien à toi liseur de ce script Franglais :) ( tu as le drois de me détester )
+//De rien ï¿½ toi liseur de ce script Franglais :) ( tu as le drois de me dï¿½tester )
 [RequireComponent(typeof(Rigidbody),typeof(NavMeshAgent))]
 public class EnemySensors : MonoBehaviour
 {
@@ -27,7 +27,7 @@ public class EnemySensors : MonoBehaviour
     protected float actualAttackCooldown = 0;
     [SerializeField]
     public float lifePoint;
-    protected bool isDead = false;
+    public bool isDead = false;
     [SerializeField]
     protected float timerDead;
 
@@ -38,6 +38,7 @@ public class EnemySensors : MonoBehaviour
     //World Data
     public List<Transform> allGoals = new List<Transform>();
     protected Transform actualGoal;
+    protected PlayerInfo actualPlayerInfo;
 
 
     //Detection
@@ -77,6 +78,9 @@ public class EnemySensors : MonoBehaviour
     protected GameObject selfMesh;
 
     public int pointEnemy;
+
+    public AudioSource enemyShotSource;
+    public AudioSource enemyDeathSource;
     protected virtual void Start()
     {
         rbd = GetComponent<Rigidbody>();
@@ -89,6 +93,8 @@ public class EnemySensors : MonoBehaviour
         }
 
         actualGoal = _allPlayers[0].transform;
+        actualPlayerInfo = actualGoal.GetComponent<PlayerInfo>();
+
 
         actualAttackCooldown = attackCooldown;
 
@@ -99,30 +105,36 @@ public class EnemySensors : MonoBehaviour
     protected virtual void Update()
     {
 
-        //Configure la machine à état
-        SetState();
 
-        actualGoal = GetNearestGoal();
+            SetState();
 
-        //Applique l'effet de la machine à état
-        switch (enemyState)
-        {
-            case StateEnemy.Idle:
-                StateIdle();
-                break;
-            case StateEnemy.Detect:
-                StateDetect();
-                break;
-            case StateEnemy.Attack:
-                StateAttack();
-                break;
-            case StateEnemy.Dead:
-                StateDead();
-                break;
-            default:
-                StateIdle();
-                break;
-        }
+            actualGoal = GetNearestGoal();
+
+            //if(actualGoal != null && actualGoal.GetComponent<PlayerInfo>().)
+            //Applique l'effet de la machine ï¿½ ï¿½tat
+            switch (enemyState)
+            {
+                case StateEnemy.Idle:
+                    StateIdle();
+                    break;
+                case StateEnemy.Detect:
+                    StateDetect();
+                    break;
+                case StateEnemy.Attack:
+                    StateAttack();
+                    break;
+                case StateEnemy.Dead:
+                    StateDead();
+                    break;
+                default:
+                    StateIdle();
+                    break;
+            }
+        
+
+
+        //Configure la machine ï¿½ ï¿½tat
+        
 
     }
 
@@ -136,6 +148,17 @@ public class EnemySensors : MonoBehaviour
             {
                 if((transform.position - minPosition.position).magnitude > (transform.position - allGoals[i].position).magnitude) {
                     minPosition = allGoals[i];
+                }
+            }
+
+            if (!minPosition.GetComponent<PlayerInfo>().playerInLife)
+            {
+                for(int i = 0; i< allGoals.Count; i++)
+                {
+                    if (allGoals[i].GetComponent<PlayerInfo>().playerInLife)
+                    {
+                        minPosition = allGoals[i];
+                    }
                 }
             }
 
@@ -154,7 +177,7 @@ public class EnemySensors : MonoBehaviour
         }
     }
 
-    //Dessine en éditeur les cercles représentant la vision du l'ia
+    //Dessine en ï¿½diteur les cercles reprï¿½sentant la vision du l'ia
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
@@ -209,27 +232,29 @@ public class EnemySensors : MonoBehaviour
         }
     }
 
-    //est appelé dans l'update quand le mob ne voit rien
+    //est appelï¿½ dans l'update quand le mob ne voit rien
     protected virtual void StateIdle()
     {
         navAgent.isStopped = true;
         rbd.velocity = Vector3.zero;
     }
-    //est appelé dans l'update quand le mob détécte un joueur à sa portée
+    //est appelï¿½ dans l'update quand le mob dï¿½tï¿½cte un joueur ï¿½ sa portï¿½e
     protected virtual void StateDetect()
     {
         navAgent.isStopped = false;
         navAgent.SetDestination(actualGoal.transform.position);
     }
-    //est appelé quand le joueur se trouve à porté d'attaque
+    //est appelï¿½ quand le joueur se trouve ï¿½ portï¿½ d'attaque
     protected virtual void StateAttack()
     {
         navAgent.isStopped = true;
         rbd.velocity = Vector3.zero;
+
     }
 
     protected virtual void StateDead()
     {
+        transform.parent = null;
         StartCoroutine(DeadRoutine());
 
         navAgent.isStopped = true;
@@ -259,7 +284,8 @@ public class EnemySensors : MonoBehaviour
                
                 if(lifePoint <= 0)
                 {
-                   
+                    isDead = true;
+                    transform.parent = null;
                 }
             }
         }
@@ -272,15 +298,19 @@ public class EnemySensors : MonoBehaviour
         {
             PlayerInfoManager.instance.AddPlayerScore(fromPlayer.GetComponent<PlayerInfo>(), pointEnemy);
             isDead = true;
+            transform.parent = null;
         }
     }
 
     public virtual void TakeDamage(float damage)
     {
+        selfAnimator.SetTrigger("takeDamage");
+
         lifePoint -= damage;
         if (lifePoint <= 0)
         {
             isDead = true;
+            transform.parent = null;
         }
     }
 

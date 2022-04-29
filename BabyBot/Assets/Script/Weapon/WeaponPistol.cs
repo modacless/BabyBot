@@ -9,7 +9,6 @@ public class WeaponPistol : Weapon
     {
         base.Start();
 
-        currentShotsVolume = AudioManager.AMInstance.waterGunShotsVolume;
         currentShotsArray = AudioManager.AMInstance.waterGunShotsArray;
     }
 }

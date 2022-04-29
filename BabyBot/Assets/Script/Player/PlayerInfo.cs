@@ -11,6 +11,7 @@ public class PlayerInfo : MonoBehaviour
     [Header("Player Stats")]
     public float maxHp;
     public float respawnTime;
+    public bool playerInLife = true;
     
     [Header("Score Need For Upgrade")]
     public float[] eachScoreNeedForUpgrade;
@@ -67,6 +68,9 @@ public class PlayerInfo : MonoBehaviour
             launcherModel[numberOfUpgrade].SetActive(true);
             actualWeapon.firePoint = firePoints[5 + numberOfUpgrade];
         }
+
+        actualWeapon.playerMovementScript = playerMovementScript;
+        actualWeapon.ResetAmmoWeapon();
     }
 
     public void AddScore(float scoreToAdd)
@@ -97,19 +101,17 @@ public class PlayerInfo : MonoBehaviour
                 else
                 {
                     actualWeapon.UpgradeWeapon(numberOfUpgrade);
+                    
                 }
 
                 DisplayWeaponModel();
-
+                
                 numberOfUpgrade += 1;
                 scoreNeedForNextUpgrade = eachScoreNeedForUpgrade[numberOfUpgrade];
-
-                // Trigger the weapon trade
 
             }
         }
     }
-
 
     public void DamagePlayer(int damage)
     {
@@ -127,16 +129,19 @@ public class PlayerInfo : MonoBehaviour
 
     IEnumerator Respawn()
     {
+        playerInLife = false;
         actualWeapon.enabled = false;
         playerMovementScript.enabled = false;
-        colliderSelf.isTrigger = true;
+        colliderSelf.enabled = false;
         transform.GetChild(0).gameObject.SetActive(false);
+        actualWeapon.ResetAmmoWeapon();
 
         yield return new WaitForSeconds(respawnTime);
 
+        playerInLife = true;
         actualWeapon.enabled = true;
         playerMovementScript.enabled = true;
-        colliderSelf.isTrigger = false;
+        colliderSelf.enabled = true;
         transform.GetChild(0).gameObject.SetActive(true);
 
         actualHealth = maxHp;

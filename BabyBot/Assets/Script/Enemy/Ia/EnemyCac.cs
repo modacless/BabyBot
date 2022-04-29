@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyCac : EnemySensors
 {
 
+
     protected override void Start()
     {
         base.Start();
@@ -33,12 +34,20 @@ public class EnemyCac : EnemySensors
 
     protected override void StateAttack()
     {
+
+        if (isDead)
+        {
+            StateDead();
+        }
+
         actualAttackCooldown += Time.deltaTime;
         if (actualAttackCooldown >= attackCooldown)
         {
             DoAttack();
             actualAttackCooldown = 0;
+            selfAnimator.SetTrigger("attack");
         }
+
         navAgent.isStopped = true;
         rbd.velocity = Vector3.zero;
 

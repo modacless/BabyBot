@@ -6,12 +6,23 @@ using UnityEngine.InputSystem;
 
 public class PressureButton : MonoBehaviour
 {
+
+    [HideInInspector]
     public bool appuie = false;
     public float timeNeeded;
     private int numberOfPlayer = 0;
+
+    [HideInInspector]
     public float ActualTime = 0;
+    private bool isActivated = false;
 
     public UnityEvent evenement;
+
+    [HideInInspector]
+    public bool Player1On = false;
+
+    [HideInInspector]
+    public bool Player2On = false;
 
 
 
@@ -19,8 +30,14 @@ public class PressureButton : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-
-            numberOfPlayer++;
+            if (other.gameObject.GetComponent<PlayerInfo>().numPlayer == 1)
+            {
+                Player1On = true;
+            }
+            else
+            {
+                Player2On = true;
+            }
         }
     }
 
@@ -29,40 +46,74 @@ public class PressureButton : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-
-            numberOfPlayer--;
+            if (other.gameObject.GetComponent<PlayerInfo>().numPlayer == 1)
+            {
+                Player1On = false;
+            }
+            else
+            {
+                Player2On = false;
+            }
         }
 
     }
 
 
-    public void Validate(InputAction.CallbackContext context)
+    public void Player1Use(InputAction.CallbackContext context)
     {
-        if (context.started)
+        if (Player1On)
         {
-            appuie = true;
+            if (context.started)
+            {
+                appuie = true;
+                numberOfPlayer++;
+            }
+            if (context.canceled)
+            {
+                appuie = false;
+                numberOfPlayer--;
+            }
         }
-        if (context.canceled)
+    }
+    public void Player2Use(InputAction.CallbackContext context)
+    {
+        if (Player2On)
         {
-            appuie = false;
-
+            if (context.started)
+            {
+                appuie = true;
+                numberOfPlayer++;
+            }
+            if (context.canceled)
+            {
+                appuie = false;
+                numberOfPlayer--;
+            }
         }
     }
     private void Update()
     {
-        if (!appuie)
+
+        if (!isActivated)
         {
-            if (ActualTime < 0) ActualTime = 0;
-            if (ActualTime > 0) ActualTime -= Time.deltaTime;
+            if (!appuie)
+            {
+                if (ActualTime < 0) ActualTime = 0;
+                if (ActualTime > 0) ActualTime -= Time.deltaTime;
+            }
+            else
+            {
+                ActualTime += Time.deltaTime * numberOfPlayer;
+            }
+            if (ActualTime >= timeNeeded)
+            {
+                isActivated = true;
+                evenement.Invoke();
+            }
         }
         else
         {
-            ActualTime += Time.deltaTime * numberOfPlayer;
-        }
-        if(ActualTime>=timeNeeded)
-        {
-
-            evenement.Invoke();
+            ActualTime = timeNeeded;
         }
     }
 }
