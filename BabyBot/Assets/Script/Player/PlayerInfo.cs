@@ -10,7 +10,11 @@ public class PlayerInfo : MonoBehaviour
     public int numPlayer;
     [Header("Player Stats")]
     public float maxHp;
-    public float respawnTime;
+    //public float respawnTime;
+    public float timeForRevive;
+    [HideInInspector] public float currentReviveTime = 0;
+    [HideInInspector] public bool isReviving = false;
+    [HideInInspector] public bool isPressingRevive = false;
     public bool playerInLife = true;
     
     [Header("Score Need For Upgrade")]
@@ -34,6 +38,7 @@ public class PlayerInfo : MonoBehaviour
 
     private PlayerMovement playerMovementScript;
     private CapsuleCollider colliderSelf;
+    private Rigidbody rb;
 
     #endregion
 
@@ -43,6 +48,10 @@ public class PlayerInfo : MonoBehaviour
         //DisplayWeaponModel(false, 0);
         playerMovementScript = GetComponent<PlayerMovement>();
         colliderSelf = GetComponent<CapsuleCollider>();
+        rb = GetComponent<Rigidbody>();
+
+        GetComponent<PlayerInput>().actions["Revive"].started += Revive;
+        GetComponent<PlayerInput>().actions["Revive"].canceled += Revive;
 
     }
     private void Init()
@@ -51,6 +60,13 @@ public class PlayerInfo : MonoBehaviour
         actualHealth = maxHp;
     }
 
+    private void Update()
+    {
+        if (!playerInLife)
+        {
+            WaitForRevive();
+        }
+    }
 
     private void DisplayWeaponModel()
     {
@@ -120,12 +136,71 @@ public class PlayerInfo : MonoBehaviour
             Die();
         }
     }
+
+    [ContextMenu("Die")]
     private void Die()
     {
-        StartCoroutine(Respawn());
+        PlayerDead(true);
     }
 
-    IEnumerator Respawn()
+    public virtual void Revive(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            isPressingRevive = true;
+        }
+        if (context.canceled)
+        {
+            isPressingRevive = false;
+        }
+    }
+
+    private void WaitForRevive()
+    {
+        if (isReviving)
+        {
+            currentReviveTime += Time.deltaTime;
+        }
+        else
+        {
+            currentReviveTime = 0;
+        }
+
+        if (currentReviveTime >= timeForRevive)
+        {
+            PlayerDead(false);
+        }
+    }
+
+    private void PlayerDead(bool enable)
+    {
+        switch (enable)
+        {
+            case true:
+                playerInLife = false;
+                actualHealth = maxHp;
+                actualWeapon.enabled = false;
+                playerMovementScript.enabled = false;
+                colliderSelf.enabled = false;
+                rb.constraints = RigidbodyConstraints.FreezePosition;
+                actualWeapon.ResetAmmoWeapon();
+                transform.rotation = Quaternion.Euler(new Vector3(0, 0, 80));
+                transform.position += new Vector3(1.5f, 0, 0);
+                break;
+            case false:
+                playerInLife = true;
+                actualWeapon.enabled = true;
+                playerMovementScript.enabled = true;
+                colliderSelf.enabled = true;
+                rb.constraints = RigidbodyConstraints.None;
+                rb.constraints = RigidbodyConstraints.FreezeRotation;
+                transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+                transform.position -= new Vector3(1.5f, 0, 0);
+                break;
+        }
+    }
+
+    /*IEnumerator Respawn()
     {
         playerInLife = false;
         actualWeapon.enabled = false;
@@ -143,5 +218,5 @@ public class PlayerInfo : MonoBehaviour
         transform.GetChild(0).gameObject.SetActive(true);
 
         actualHealth = maxHp;
-    }
+    }*/
 }

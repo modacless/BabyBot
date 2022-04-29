@@ -1,5 +1,64 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &606054964
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 606054965}
+  - component: {fileID: 606054967}
+  - component: {fileID: 606054966}
+  m_Layer: 0
+  m_Name: ReviveZone
+  m_TagString: Revive
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &606054965
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 606054964}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2501229517045309418}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &606054967
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 606054964}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2
+  m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &606054966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 606054964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99c6b39019795c64bbbdbe676c2f43e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInfoScript: {fileID: 1554665592486405715}
 --- !u!1 &9342051180869233
 GameObject:
   m_ObjectHideFlags: 0
@@ -503,7 +562,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5370168388389946708}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: FirePoint (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -902,6 +961,7 @@ Transform:
   - {fileID: 4395774027687533763}
   - {fileID: 2339993985022182512}
   - {fileID: 4395774028454423455}
+  - {fileID: 606054965}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1062,6 +1122,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 77bc2978-28cb-4f1d-9a5e-68d14d55c7f8
     m_ActionName: Player/Validate[/XInputControllerWindows/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e7e1c1b7-431a-4054-8474-f2bfb69591b9
+    m_ActionName: Player/Revive[/XInputControllerWindows/buttonWest]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: Player
@@ -1095,7 +1159,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &1554665592486405715
 MonoBehaviour:
@@ -1110,8 +1174,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numPlayer: 0
-  maxHp: 500
-  respawnTime: 10
+  maxHp: 5
+  timeForRevive: 1
+  currentReviveTime: 0
+  isReviving: 0
+  isPressingRevive: 0
   playerInLife: 1
   eachScoreNeedForUpgrade:
   - 10
@@ -1500,7 +1567,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6559445243758162109}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: FirePoint (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1615,7 +1682,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 916572842214317508}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: FirePoint (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1837,7 +1904,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 231740973457871465}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: FirePoint (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1868,7 +1935,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3258794427897282808}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: FirePoint (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1984,7 +2051,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4395774028454423455}
   - component: {fileID: 4395774028454423452}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: colliderGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2029,7 +2096,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4395774028459582543}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: FirePoint (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2060,7 +2127,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4395774028734260176}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2562,7 +2629,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8308293095213914905}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: FirePoint (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3088,7 +3155,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5951675618433664382}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: FirePoint (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
