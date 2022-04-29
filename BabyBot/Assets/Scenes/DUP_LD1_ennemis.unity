@@ -13808,6 +13808,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   infoPlayer1: {fileID: 1340870227}
   infoPlayer2: {fileID: 1329732611}
+  objectPlayerToChangeMaterial: []
+  materialPlayer2: {fileID: 0}
 --- !u!114 &866448373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30244,51 +30246,6 @@ PrefabInstance:
       propertyPath: wichPlayer
       value: 
       objectReference: {fileID: 1329732611}
-    - target: {fileID: 7320229213787818036, guid: 2d9e2570522c9b34e92d9a77ef568bee,
-        type: 3}
-      propertyPath: m_text
-      value: PLAYER 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7320229213787818036, guid: 2d9e2570522c9b34e92d9a77ef568bee,
-        type: 3}
-      propertyPath: m_margin.x
-      value: -59.87175
-      objectReference: {fileID: 0}
-    - target: {fileID: 7320229213787818037, guid: 2d9e2570522c9b34e92d9a77ef568bee,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 7320229213787818037, guid: 2d9e2570522c9b34e92d9a77ef568bee,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 7320229213787818037, guid: 2d9e2570522c9b34e92d9a77ef568bee,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 289
-      objectReference: {fileID: 0}
-    - target: {fileID: 7320229213787818037, guid: 2d9e2570522c9b34e92d9a77ef568bee,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -59
-      objectReference: {fileID: 0}
-    - target: {fileID: 7320229213792728119, guid: 2d9e2570522c9b34e92d9a77ef568bee,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7320229213792728119, guid: 2d9e2570522c9b34e92d9a77ef568bee,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7320229213792728119, guid: 2d9e2570522c9b34e92d9a77ef568bee,
-        type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7320229214296129766, guid: 2d9e2570522c9b34e92d9a77ef568bee,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -30429,25 +30386,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 'Player 2 UI '
       objectReference: {fileID: 0}
-    - target: {fileID: 7329408929606236740, guid: 2d9e2570522c9b34e92d9a77ef568bee,
+    - target: {fileID: 8675294187110148655, guid: 2d9e2570522c9b34e92d9a77ef568bee,
         type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7329408929606236740, guid: 2d9e2570522c9b34e92d9a77ef568bee,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7329408929606236740, guid: 2d9e2570522c9b34e92d9a77ef568bee,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -93
-      objectReference: {fileID: 0}
-    - target: {fileID: 7329408929606236740, guid: 2d9e2570522c9b34e92d9a77ef568bee,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -146
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d9e2570522c9b34e92d9a77ef568bee, type: 3}
