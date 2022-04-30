@@ -28,6 +28,8 @@ public class button : MonoBehaviour
 
     [Header("UI")]
     public Image cooldownUi;
+    public GameObject button1UI;
+    public GameObject button2UI;
 
     public void OnTriggerEnter(Collider other)
     {
@@ -99,7 +101,7 @@ public class button : MonoBehaviour
     {
         Debug.Log("Input used");
 
-        if (Player1In && isActivated == false)
+        if (Player2In && isActivated == false)
         {
             if (context.started)
             {
@@ -113,14 +115,17 @@ public class button : MonoBehaviour
 
                 actualCooldownTime = stayActiveTime;
 
-                selfMeshRenderer.material.SetInt("_pressed", 0); ;
+                selfMeshRenderer.material.SetInt("_pressed", 0);
+
+                //button1UI.SetActive(false);
             }
         }
+        //else button1UI.SetActive(true);
     }
 
     public void Player2Use(InputAction.CallbackContext context)
     {
-        if (Player2In && isActivated == false)
+        if (Player1In && isActivated == false)
         {
             if (context.started)
             {
@@ -135,7 +140,10 @@ public class button : MonoBehaviour
                 actualCooldownTime = stayActiveTime;
 
                 selfMeshRenderer.material.SetInt("_pressed", 0);
+
+                //button2UI.SetActive(false);
             }
+            //else button2UI.SetActive(true);
         }
     }
 }

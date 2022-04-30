@@ -12,16 +12,16 @@ public class PlayerRevive : MonoBehaviour
         {
             if (other.GetComponent<PlayerInfo>().isPressingRevive && !playerInfoScript.playerInLife)
             {
-                playerInfoScript.isReviving = true;
+                playerInfoScript.isBeingRevived = true;
                 other.GetComponent<PlayerInfo>().playerMovementScript.enabled = false;
                 other.GetComponent<PlayerInfo>().playerMovementScript.playerAnimationsScript.Run(false);
-                other.GetComponent<PlayerInfo>().actualWeapon.enabled = false;
+                other.GetComponent<PlayerInfo>().actualWeapon.isReviving = true;
             }
             else
             {
-                playerInfoScript.isReviving = false;
+                playerInfoScript.isBeingRevived = false;
                 other.GetComponent<PlayerInfo>().playerMovementScript.enabled = true;
-                other.GetComponent<PlayerInfo>().actualWeapon.enabled = true;
+                other.GetComponent<PlayerInfo>().actualWeapon.isReviving = false;
             }
         }
     }
@@ -30,7 +30,8 @@ public class PlayerRevive : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            playerInfoScript.isReviving = false;
+            playerInfoScript.isBeingRevived = false;
+            other.GetComponent<PlayerInfo>().actualWeapon.isReviving = false;
         }
     }
 }

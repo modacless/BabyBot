@@ -36,7 +36,7 @@ public class WeaponLauncher : Weapon
 
     protected override void AnimationShoot()
     {
-        if (isPressingFire && !isShooting) playerMovementScript.playerAnimationsScript.ShootSingle(true);
+        if (isPressingFire && !isShooting && !isReviving) playerMovementScript.playerAnimationsScript.ShootSingle(true);
         else playerMovementScript.playerAnimationsScript.ShootSingle(false);
     }
 }

@@ -11,6 +11,7 @@ public class Weapon : MonoBehaviour
     [SerializeField]
     public GameObject firePoint;
     [HideInInspector] public PlayerMovement playerMovementScript;
+    [HideInInspector] public PlayerInfo playerInfoScript;
 
     [Header("Vibration")]
     [SerializeField]
@@ -31,6 +32,8 @@ public class Weapon : MonoBehaviour
 
     public AudioSource playerShotSource;
     public AudioClip[] currentShotsArray;
+
+    [HideInInspector] public bool isReviving = false;
 
 
     [System.Serializable]
@@ -98,6 +101,7 @@ public class Weapon : MonoBehaviour
 
         playerMovementScript = GetComponent<PlayerMovement>();
         gamepadVibrationScript = GetComponent<GamepadVibration>();
+        playerInfoScript = GetComponent<PlayerInfo>();
 
         actualBulletUsed = initialBullet;
         actualBulletUsed.transform.localScale = sizeBullet;
@@ -143,13 +147,13 @@ public class Weapon : MonoBehaviour
     {
         if (context.started)
         {
-            if (actualAmo > 0 && actualAmo != magazineAmmo && !isReloading) pressReload = true;
+            if (actualAmo > 0 && actualAmo != magazineAmmo && !isReloading && !isReviving) pressReload = true;
         }
     }
 
     protected virtual void AnimationShoot()
     {
-        if (isPressingFire /*&& playerMovementScript.isAiming*/ && !isReloading) playerMovementScript.playerAnimationsScript.Shoot(true);
+        if (isPressingFire /*&& playerMovementScript.isAiming*/ && !isReloading && !isReviving) playerMovementScript.playerAnimationsScript.Shoot(true);
         else playerMovementScript.playerAnimationsScript.Shoot(false);
     }
 
@@ -170,7 +174,7 @@ public class Weapon : MonoBehaviour
     {
         if (!isReloading)
         {
-            if (isPressingFire && !isShooting /*&& playerMovementScript.isAiming*/)
+            if (isPressingFire && !isShooting /*&& playerMovementScript.isAiming*/ && !isReviving)
             {
                 gamepadVibrationScript.VibrationWithTime(vibrationTime, leftMotorSpeedVibration, rightMotorSpeedVibration);
                 CameraShake.Instance.ShakeCamera(cameraIntensity, cameraShakeFrequency);

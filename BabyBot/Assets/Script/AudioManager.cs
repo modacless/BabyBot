@@ -96,7 +96,8 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        PlaySFX(runTheme, musicSource, 1);
+        musicSource.clip = runTheme;
+        musicSource.Play();
     }
 
 

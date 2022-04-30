@@ -21,7 +21,7 @@ public class PlayerInfo : MonoBehaviour
     //public float respawnTime;
     public float timeForRevive;
     [HideInInspector] public float currentReviveTime = 0;
-    [HideInInspector] public bool isReviving = false;
+    [HideInInspector] public bool isBeingRevived = false;
     [HideInInspector] public bool isPressingRevive = false;
     public bool playerInLife = true;
     public VisualEffect visualEffect;
@@ -155,7 +155,6 @@ public class PlayerInfo : MonoBehaviour
         {
             if (context.started)
             {
-
                 //visualEffect.Play();
 
                 actualScoreUpgrade = 0;
@@ -226,7 +225,7 @@ public class PlayerInfo : MonoBehaviour
     {
         reviveUI.SetActive(true);
 
-        if (isReviving)
+        if (isBeingRevived)
         {
             currentReviveTime += Time.deltaTime;
             cooldownUi.gameObject.SetActive(true);

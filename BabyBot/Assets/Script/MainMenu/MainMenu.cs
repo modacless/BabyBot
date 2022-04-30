@@ -26,7 +26,8 @@ public class MainMenu : MonoBehaviour
     }
     public void Exit()
     {
-        SceneManagement.instance.Quit();
+        //SceneManagement.instance.Quit();
+        Application.Quit();
     }
     public void Options()
     {
